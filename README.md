@@ -408,7 +408,7 @@ siga este flujo.
 
 Debe verse bien en dispositivos de pantallas grandes
 (computadoras/es, laptops, etc.) y pequeñas (_tablets_, celulares, etc.). Te
-sugerimos seguir la técnica de _`mobile first`_ (más detalles sobre esta técnica
+sugerimos seguir la técnica de [_`mobile first`_](#mobile-first) (más detalles sobre esta técnica
 al final).
 
 ### 5.6 Consideraciones del comportamiento de la interfaz de usuario (UI)
