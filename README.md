@@ -538,12 +538,15 @@ proyecto tendrás que crear (salvar) nuevos datos, así como leer, actualizar y
 modificar datos existentes. Estos datos se podrán guardar de forma remota
 usando [Firebase](https://firebase.google.com/).
 
-Para usar Firebase hay que crear un proyecto en la consola de Firebase e
+Para usar Firebase hay que crear un proyecto en la [consola](https://console.firebase.google.com/) de Firebase e
 instalar la dependencia `firebase` utilizando `npm`.
 Lee [las instrucciones paso a paso aqui](https://firebase.google.com/docs/web/setup).
 
+Nota: Asegurense de utilizar la Web versión 9 de firebase. 
+
 Otras:
 
+* [Evento hashchange ](https://developer.mozilla.org/es/docs/Web/API/Window/hashchange_event)
 * [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
 * [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
 * [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
