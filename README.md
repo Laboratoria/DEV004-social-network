@@ -471,7 +471,7 @@ tus H.U.:
 ### 5.8 Consideraciones técnicas UX
 
 * Hacer al menos 2 entrevistas con usuarios.
-* Hacer un  prototipo de baja fidelidad.
+* Hacer un  prototipo de baja y alta fidelidad.
 * Asegurarte de que la implementación en código siga los lineamientos del
   diseño.
 * Hacer sesiones de _testing de usabilidad_ con el producto en HTML.
