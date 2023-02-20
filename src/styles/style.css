@@ -19,6 +19,9 @@ body {
   background-image: url("../img/img_fondo.png");
   display: flex;
   align-items: center;
+  font-family: 'Verdana', sans-serif;
+  background-size:cover;
+  background-position-x: center;
 }
 
 #inputNick {
@@ -60,4 +63,8 @@ body {
 
 .cajaInicio>a{
   text-decoration: none;
+}
+
+.textoCrearCuenta {
+  font-size: 10px;
 }
