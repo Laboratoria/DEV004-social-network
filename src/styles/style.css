@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+}
+
+#root {
+  height: 100%;
+}
+
+.PantallaInicio {
+  height: 100%;
+  /*  background-color: #d49f18; */
+  background-image: url("../img/img_fondo.png");
+  display: flex;
+  align-items: center;
+  font-family: 'Verdana', sans-serif;
+  background-size:cover;
+  background-position-x: center;
+}
+
+#inputNick {
+  display: none;
+}
+
+.cajaInicio {
+  padding: 20px 50px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 15px;
+  height: 350px;
+}
+
+.cajaInicio>img {
+  width: 85px;
+}
+
+.imgButton {
+  width: 100%;
+}
+
+#botonInicio{
+  width: 100%;
+  background-color: #4D94FF;
+  color: white;
+  border: 0px;
+  height: 25px;
+}
+
+.cajaInicio>input{
+  width: 100%;
+}
+
+.cajaInicio>a{
+  text-decoration: none;
+}
+
+.textoCrearCuenta {
+  font-size: 10px;
+}
