@@ -1,23 +1,8 @@
-import { myFunction } from './lib/index.js';
-import { login } from './components/login.js';
-import { registro } from './components/registro.js';
-import { timeline } from './components/timeline.js';
+import { rutas } from './lib/rutas.js'
 
 const divRoot = document.getElementById("pantallaMostrada");
 
-const rutas = {
-  '/' : login,
-  '/registro' : registro,
-  '/timeline' : timeline,
-};
-
-//const componente = 
-
 divRoot.appendChild(rutas[window.location.pathname]())
-
-
-
-myFunction();
 
 // mi intento de SPA usando el codigo de yesica para la pantalla de Login
 /*

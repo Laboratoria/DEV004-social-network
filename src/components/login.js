@@ -1,5 +1,4 @@
-import { registro } from './registro.js';
-import { timeline } from './timeline.js';
+import { onNavigate } from '../lib/onNavigate.js'
 
 export const login = () => {
 
@@ -17,23 +16,9 @@ export const login = () => {
             <a id="botonRegistrar" href="#" onclick="console.log('hola mundo')"> Registrate</a></p>
           </section>
         </main>`
-        
-      
-    const rutas = {
-        '/' : login,
-        '/registro' : registro,
-        '/timeline' : timeline,
-    };
 
-    botonRegistrar.addEventListener("click", () => onNavigate("/registro"))
-    const onNavigate = (pathName) => {
-        window.history.pushState(
-            {},
-            pathName,
-            window.location.origin + pathName
-        )
-        root.appendChild(rutas[pathName]());
-    }
+    botonRegistrar.addEventListener("click", () => onNavigate("/registro",root))
+
     
 }
 

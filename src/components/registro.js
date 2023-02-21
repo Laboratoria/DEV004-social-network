@@ -1,5 +1,4 @@
-import { login } from './login.js';
-import { timeline } from './timeline.js';
+import { onNavigate } from '../lib/onNavigate.js'
 
 export const registro = () => {
 
@@ -17,19 +16,7 @@ export const registro = () => {
         </section>
         </main> `
 
-    const rutas = {
-        '/' : login,
-        '/registro' : registro,
-        '/timeline' : timeline,
-    }
-    
-    botonInicioGoogle.addEventListener("click", () => onNavigate("/timeline"))
-    const onNavigate = (pathName) => {
-        window.history.pushState(
-            {},
-            pathName,
-            window.location.origin + pathName
-        )
-        root.appendChild(rutas[pathName]());
-    }
+    botonInicioGoogle.addEventListener("click", () => onNavigate("/timeline",root))
+
+
 }
