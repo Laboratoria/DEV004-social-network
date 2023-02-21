@@ -6,4 +6,4 @@ export const rutas = {
         '/' : login,
         '/registro' : registro,
         '/timeline' : timeline,
-    }
+}

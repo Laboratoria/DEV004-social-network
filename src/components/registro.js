@@ -16,7 +16,7 @@ export const registro = () => {
         </section>
         </main> `
 
-    botonInicioGoogle.addEventListener("click", () => onNavigate("/timeline",root))
+    botonInicioGoogle.addEventListener("click", () => onNavigate("/timeline"))
 
 
 }

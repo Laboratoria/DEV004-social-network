@@ -1,10 +1,10 @@
 import { rutas } from './rutas.js'
     
-export const onNavigate = (pathName,id) => {
+export const onNavigate = (pathName) => {
     window.history.pushState(
         {},
         pathName,
         window.location.origin + pathName
     )
-    id.appendChild(rutas[pathName]());
+    rutas[pathName]();
 }

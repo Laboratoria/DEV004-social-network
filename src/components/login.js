@@ -17,8 +17,7 @@ export const login = () => {
           </section>
         </main>`
 
-    botonRegistrar.addEventListener("click", () => onNavigate("/registro",root))
-
+    botonRegistrar.addEventListener("click", () => onNavigate("/registro"))
     
 }
 

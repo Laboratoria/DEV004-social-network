@@ -1,8 +1,6 @@
 import { rutas } from './lib/rutas.js'
 
-const divRoot = document.getElementById("pantallaMostrada");
-
-divRoot.appendChild(rutas[window.location.pathname]())
+rutas[window.location.pathname]()
 
 // mi intento de SPA usando el codigo de yesica para la pantalla de Login
 /*
