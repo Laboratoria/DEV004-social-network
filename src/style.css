@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Segoe UI";
+  background-color: #FEE0D5;
+}
+
+#SignIn {
+  text-align: start;
+  margin: 10px;
+}
+
+input {
+  padding: 10px;
+  margin: 2vh;
+  border-radius: 15px;
+  text-align: center;
+  border-style: solid;
+  border-color: dimgray;
+}
+
+button {
+  padding: 10px;
+  margin: 2vh;
+  border-radius: 15px;
+  border-style: none;
+  text-align: center;
+  width: 180px;
+  height: 30px; 
+  background-color: #BF7836;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+button:hover {
+    cursor: pointer;
+  }
+
+/* #SubmitGoogle{
+  background-image: url('./Img/BtnGoogle.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  } */
+
+#signInSeccion,#homeSeccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#LogoPetropolis {
+  width: 70%;
+ }
