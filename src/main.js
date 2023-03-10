@@ -1,16 +1,10 @@
-// Este es el punto de entrada de tu aplicacion
-// Aquì se importa las funciones de los componentes
 
+import { login } from './componets/login.js';
 
-//import { myFunction } from './lib/index.js';
-import { home } from './componets/home.js';
+import { register } from './componets/register.js';
 
-//myFunction();
-// const routes = {
-  //   '/':home,
-  // };
-  // const components = routes[window.location.pathname];
-
-const component = home();
+const component = register();
 const rootDiv = document.getElementById('root');
 rootDiv.append(component);
+
+
