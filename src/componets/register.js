@@ -1,4 +1,5 @@
 export const register = () => {
+
 //   const divHome = document.createElement('nav');
 //   const img = document.createElement('img');
 //   img.setAttribute('class', 'logo');
@@ -77,4 +78,5 @@ const optionDoctor = document.createElement("option");
   
   
   return HomeDiv;
+
 };
