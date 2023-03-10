@@ -4,13 +4,19 @@ export const register = () => {
   img.setAttribute('class', 'logo');
   navDiv.innerHTML = ('Bienvenida al Registro');
   const HomeDiv = document.createElement('div');
-  
-  
   const buttonHome = document.createElement('button');
   buttonHome.textContent = 'enviar';
-  const input = document.createElement('input');
-  input.setAttribute('type', 'text');
-  HomeDiv.appendChild(input);
+  const inputNombre = document.createElement('input');
+  const labelNombre = document.createElement('label');
+  labelNombre.innerHTML = ('nombre');
+  inputNombre.appendChild(labelNombre);
+  inputNombre.setAttribute('type', 'text');
+  inputNombre.setAttribute('placeholder', 'text');
+  HomeDiv.appendChild(inputNombre);
+  const inputContraseña = document.createElement('input');
+  inputContraseña.setAttribute('type', 'text');
+  HomeDiv.appendChild(inputContraseña);
+  HomeDiv.appendChild(inputNombre);
   HomeDiv.appendChild(buttonHome);
   return HomeDiv;
 };
