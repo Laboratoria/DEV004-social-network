@@ -1,5 +1,8 @@
 import { login } from './componets/login.js';
 
-const component = login();
+import { register } from './componets/register.js';
+
+const component = register();
 const rootDiv = document.getElementById('root');
-rootDiv.append(component)
+rootDiv.append(component);
+
