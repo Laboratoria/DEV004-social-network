@@ -1,3 +1,5 @@
+
+
 export const home = () => {
   const divHome = document.createElement('div');
   const buttonRegister = document.createElement('button');
