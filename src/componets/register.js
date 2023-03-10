@@ -31,10 +31,19 @@ export const register = () => {
   inputOcupation.setAttribute('type', 'text');
   inputOcupation.setAttribute('placeholder', 'Ocupación');
   
-//   const optionRolInReda = document.createElement('option');
-//   optionRolInReda.setAttribute('value', 'especialista');
-//   document.createTextNode('especialista');
-//   optionRolInReda.setAttribute('value', 'cuidador');
+const sel = document.createElement("select");
+const opt1 = document.createElement("option");
+const opt2 = document.createElement("option");
+
+opt1.value = "1";
+opt1.text = "Option: Value 1";
+
+opt2.value = "2";
+opt2.text = "Option: Value 2";
+
+sel.add(opt1, null);
+sel.add(opt2, null);
+
 
   const buttonSend = document.createElement('button');
   buttonSend.textContent = 'enviar';
@@ -45,7 +54,7 @@ export const register = () => {
   divForm.appendChild(inputNationality);
   divForm.appendChild(inputDateOfBirth);
   divForm.appendChild(inputOcupation);
-//   divForm.appendChild(optionRolInReda);
+  divForm.appendChild(sel);
   divForm.appendChild(buttonSend);
   
   
