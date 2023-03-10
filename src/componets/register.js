@@ -31,19 +31,37 @@ export const register = () => {
   inputOcupation.setAttribute('type', 'text');
   inputOcupation.setAttribute('placeholder', 'Ocupación');
   
-const sel = document.createElement("select");
-const opt1 = document.createElement("option");
-const opt2 = document.createElement("option");
+const selectRolReda = document.createElement("select");
+const optionRol = document.createElement("option");
+const optionEspecialist = document.createElement("option");
+const optionCarer = document.createElement("option");
 
-opt1.value = "1";
-opt1.text = "Option: Value 1";
+optionRol.value = " ";
+optionRol.text = "--Elige tu Rol en Reda--";
 
-opt2.value = "2";
-opt2.text = "Option: Value 2";
+optionEspecialist.value = "Especialist";
+optionEspecialist.text = "Especialista";
 
-sel.add(opt1, null);
-sel.add(opt2, null);
+optionCarer.value = "Carer";
+optionCarer.text = "Cuidador";
 
+selectRolReda.add(optionRol, null);
+selectRolReda.add(optionEspecialist, null);
+selectRolReda.add(optionCarer, null);
+
+optionEspecialist.value = "Especialist";
+optionEspecialist.text = "Especialista";
+
+optionEspecialist.value = "Especialist";
+optionEspecialist.text = "Especialista";
+
+optionEspecialist.value = "Especialist";
+optionEspecialist.text = "Especialista";
+
+const selectEspecialist = document.createElement("select");
+const optionPsichologyst = document.createElement("option");
+const optionTeacher = document.createElement("option");
+const optionDoctor = document.createElement("option");
 
   const buttonSend = document.createElement('button');
   buttonSend.textContent = 'enviar';
@@ -54,7 +72,7 @@ sel.add(opt2, null);
   divForm.appendChild(inputNationality);
   divForm.appendChild(inputDateOfBirth);
   divForm.appendChild(inputOcupation);
-  divForm.appendChild(sel);
+  divForm.appendChild(selectRolReda);
   divForm.appendChild(buttonSend);
   
   
