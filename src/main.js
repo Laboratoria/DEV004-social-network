@@ -1,5 +1,5 @@
-// Este es el punto de entrada de tu aplicacion
+import { login } from './componets/login.js';
 
-import { myFunction } from './lib/index.js';
-
-myFunction();
+const component = login();
+const rootDiv = document.getElementById('root');
+rootDiv.append(component)
