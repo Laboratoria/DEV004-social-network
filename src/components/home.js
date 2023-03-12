@@ -1,13 +1,16 @@
+import { onNavigate } from '../onNavigate';
+// import { onNavigate } from '../main';
+
 export const home = () => {
   //* Aqui estamos creando lo que va en HTML.
-  const homeSeccion = document.createElement('seccion');
+  const homeSection = document.createElement('section');
   const welcomeHeader = document.createElement('h1');
   const coverImg = document.createElement('img');
   const loginButton = document.createElement('button');
   const signInButton = document.createElement('button');
 
-  //* Estamos asignandi atributos para todos los elementos creados.
-  homeSeccion.setAttribute('id', 'homeSeccion');
+  //* Asignando atributos para todos los elementos creados.
+  homeSection.setAttribute('id', 'homeSection');
 
   welcomeHeader.innerHTML = 'Bienvenido';
 
@@ -21,11 +24,21 @@ export const home = () => {
   signInButton.setAttribute('id', 'signInButton');
   signInButton.textContent = 'Registrarse';
 
-  //* Aqui estamos agregando todo a la sección de SignInPage
-  homeSeccion.appendChild(welcomeHeader);
-  homeSeccion.appendChild(coverImg);
-  homeSeccion.appendChild(loginButton);
-  homeSeccion.appendChild(signInButton);
+  //* Agregando todo a la sección de homeSection
+  homeSection.appendChild(welcomeHeader);
+  homeSection.appendChild(coverImg);
+  homeSection.appendChild(loginButton);
+  homeSection.appendChild(signInButton);
 
-  return homeSeccion;
+  //* Asignando un evento a los botones Iniciar Sesión y Registrarse
+  signInButton.addEventListener('click', () => onNavigate('/register'));
+  loginButton.addEventListener('click', () => onNavigate('/login'));
+  // signInButton.addEventListener('click', () => onNavigate('/register', window));
+  // loginButton.addEventListener('click', () => onNavigate('/login', window));
+
+  return homeSection;
 };
+// console.log(home());
+// ? La función se esta ejecutando.
+// const rootDiv = document.getElementById('root');
+// rootDiv.appendChild(home());
