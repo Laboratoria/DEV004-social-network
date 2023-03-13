@@ -12,9 +12,16 @@ addRoutes({
   '/login': login,
 });
 
+// Esta función se encarga de cargar el contenido de la página
+// correspondiente según la ruta definida anteriormente.
+
 window.onload = () => {
   onNavigate(window.location.pathname);
 };
+
+// La función "onNavigate" se llama con el pathname actual
+// de la URL de la página para cargar el contenido de la página
+// correspondiente según la ruta definida anteriormente.
 
 window.onpopstate = () => {
   onNavigate(window.location.pathname);
