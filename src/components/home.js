@@ -1,5 +1,4 @@
 import { onNavigate } from '../onNavigate';
-// import { onNavigate } from '../main';
 
 export const home = () => {
   //* Aqui estamos creando lo que va en HTML.
@@ -17,6 +16,7 @@ export const home = () => {
   coverImg.setAttribute('id', 'LogoPetropolis');
   coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
   coverImg.setAttribute('alt', 'LogoPetropolis');
+  coverImg.classList.add('cover-img');
 
   loginButton.setAttribute('id', 'loginButton');
   loginButton.textContent = 'Iniciar Sesión';
@@ -33,11 +33,10 @@ export const home = () => {
   //* Asignando un evento a los botones Iniciar Sesión y Registrarse
   signInButton.addEventListener('click', () => onNavigate('/register'));
   loginButton.addEventListener('click', () => onNavigate('/login'));
-  // signInButton.addEventListener('click', () => onNavigate('/register', window));
-  // loginButton.addEventListener('click', () => onNavigate('/login', window));
 
   return homeSection;
 };
+
 // console.log(home());
 // ? La función se esta ejecutando.
 // const rootDiv = document.getElementById('root');
