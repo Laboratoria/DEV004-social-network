@@ -1,38 +1,18 @@
-// aqui exportaras las funciones que necesites
+const ROUTES = {};
+
 export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
+  const path = typeof ROUTES[pathname] !== 'function' ? pathname : '/';
+  window.history.pushState({}, path, window.location.origin + pathname);
+  const rootSection = document.getElementById('root');
+  rootSection.innerHTML = '';
+  rootSection.append(ROUTES[pathname]());
 };
 
-// *Este es el codigo del ejemplo del video min :36
-// export const onNavigate = (pathname) => {
-//   window.history.pushState(
-//     {},
-//     pathname,
-//     window.location.origin + pathname,
-//   );
-//   rootDiv.appendChild(routes[pathname]());
-// };
-
-// *Intentando pasar window como un argumento
-// export const onNavigate = (pathname, Objwindow) => {
-//   Objwindow.history.pushState(
-//     {},
-//     pathname,
-//     Objwindow.location.origin + pathname,
-//   );
-// };
-
-// export const onNavigate = (pathname, window) => {
-//   console.log(pathname, window, 'que estres');
-//   window.history.pushState(
-//     {},
-//     pathname,
-//     window.location.origin + pathname,
-//   );
-// };
+export const addRoutes = (routes) => {
+  Object.keys(routes).reduce((currentRoutes, pathname) => {
+    currentRoutes[pathname] = routes[pathname];
+    return currentRoutes;
+  }, ROUTES);
+};
 
 console.log('Hola mundo!');

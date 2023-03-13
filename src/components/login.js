@@ -7,7 +7,7 @@ export const login = () => {
   const passwordLabel = document.createElement('label');
   const passwordInput = document.createElement('input');
   const loginBtn = document.createElement('button');
-
+  const BtnGoogle = document.createElement('img');
   //* Estamos asignandi atributos para todos los elementos creados.
   loginSection.setAttribute('id', 'loginSection');
 
@@ -33,6 +33,10 @@ export const login = () => {
   loginBtn.setAttribute('id', 'loginBtn');
   loginBtn.textContent = 'Entrar';
 
+  BtnGoogle.setAttribute('id', 'BtnGoogle');
+  BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
+  BtnGoogle.setAttribute('alt', 'BtnGoogle');
+
   //* Aqui estamos agregando todo a la sección de SignInPage
   loginSection.appendChild(loginHeader);
   loginSection.appendChild(coverImg);
@@ -40,5 +44,6 @@ export const login = () => {
   loginSection.appendChild(passwordLabel);
   loginSection.appendChild(passwordInput);
   loginSection.appendChild(loginBtn);
+  loginSection.appendChild(BtnGoogle);
   return loginSection;
 };

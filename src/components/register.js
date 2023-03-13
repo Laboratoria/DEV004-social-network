@@ -8,7 +8,7 @@ export const register = () => {
   const passwordLabel = document.createElement('label');
   const passwordInput = document.createElement('input');
   const SignInBtn = document.createElement('button');
-
+  const BtnGoogle = document.createElement('img');
   //* Estamos asignandi atributos para todos los elementos creados.
   signInSection.setAttribute('id', 'signInSeccion');
 
@@ -39,20 +39,18 @@ export const register = () => {
   SignInBtn.setAttribute('id', 'SignInBtn');
   SignInBtn.textContent = 'Registrarse';
 
+  BtnGoogle.setAttribute('id', 'BtnGoogle');
+  BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
+  BtnGoogle.setAttribute('alt', 'BtnGoogle');
   //* Aqui estamos agregando todo a la sección de SignInPage
   signInSection.appendChild(signInHeader);
   signInSection.appendChild(coverImg);
   signInSection.appendChild(nameInput);
-
   signInSection.appendChild(emailInput);
   signInSection.appendChild(passwordLabel);
   signInSection.appendChild(passwordInput);
   signInSection.appendChild(SignInBtn);
+  signInSection.appendChild(BtnGoogle);
+
   return signInSection;
 };
-
-// console.log(register());
-//* Aqui lo llevamos todo a root.html.
-// ? La función se esta ejecutando.
-// const rootDiv = document.getElementById('root');
-// rootDiv.appendChild(registerPage());

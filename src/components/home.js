@@ -7,7 +7,7 @@ export const home = () => {
   const coverImg = document.createElement('img');
   const loginButton = document.createElement('button');
   const signInButton = document.createElement('button');
-
+  const ImgLove = document.createElement('img');
   //* Asignando atributos para todos los elementos creados.
   homeSection.setAttribute('id', 'homeSection');
 
@@ -23,12 +23,15 @@ export const home = () => {
 
   signInButton.setAttribute('id', 'signInButton');
   signInButton.textContent = 'Registrarse';
-
+  ImgLove.setAttribute('id', 'ImgLove');
+  ImgLove.setAttribute('src', './Img/AM LOS ANIMALES.png');
+  ImgLove.setAttribute('alt', 'ImgLove');
   //* Agregando todo a la sección de homeSection
   homeSection.appendChild(welcomeHeader);
   homeSection.appendChild(coverImg);
   homeSection.appendChild(loginButton);
   homeSection.appendChild(signInButton);
+  homeSection.appendChild(ImgLove);
 
   //* Asignando un evento a los botones Iniciar Sesión y Registrarse
   signInButton.addEventListener('click', () => onNavigate('/register'));
@@ -36,8 +39,3 @@ export const home = () => {
 
   return homeSection;
 };
-
-// console.log(home());
-// ? La función se esta ejecutando.
-// const rootDiv = document.getElementById('root');
-// rootDiv.appendChild(home());
