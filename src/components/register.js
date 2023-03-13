@@ -1,6 +1,6 @@
-export const registerPage = () => {
+export const register = () => {
   //* Aqui estamos creando lo que va en HTML.
-  const signInSeccion = document.createElement('seccion');
+  const signInSection = document.createElement('section');
   const coverImg = document.createElement('img');
   const signInHeader = document.createElement('h1');
   const nameInput = document.createElement('input');
@@ -8,9 +8,9 @@ export const registerPage = () => {
   const passwordLabel = document.createElement('label');
   const passwordInput = document.createElement('input');
   const SignInBtn = document.createElement('button');
-
+  const BtnGoogle = document.createElement('img');
   //* Estamos asignandi atributos para todos los elementos creados.
-  signInSeccion.setAttribute('id', 'signInSeccion');
+  signInSection.setAttribute('id', 'signInSeccion');
 
   signInHeader.innerHTML = 'Crea una cuenta';
 
@@ -39,17 +39,18 @@ export const registerPage = () => {
   SignInBtn.setAttribute('id', 'SignInBtn');
   SignInBtn.textContent = 'Registrarse';
 
+  BtnGoogle.setAttribute('id', 'BtnGoogle');
+  BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
+  BtnGoogle.setAttribute('alt', 'BtnGoogle');
   //* Aqui estamos agregando todo a la sección de SignInPage
-  signInSeccion.appendChild(signInHeader);
-  signInSeccion.appendChild(coverImg);
-  signInSeccion.appendChild(nameInput);
+  signInSection.appendChild(signInHeader);
+  signInSection.appendChild(coverImg);
+  signInSection.appendChild(nameInput);
+  signInSection.appendChild(emailInput);
+  signInSection.appendChild(passwordLabel);
+  signInSection.appendChild(passwordInput);
+  signInSection.appendChild(SignInBtn);
+  signInSection.appendChild(BtnGoogle);
 
-  signInSeccion.appendChild(emailInput);
-  signInSeccion.appendChild(passwordLabel);
-  signInSeccion.appendChild(passwordInput);
-  signInSeccion.appendChild(SignInBtn);
-  return signInSeccion;
+  return signInSection;
 };
-
-//* Aqui lo llevamos todo a root.html.
-// document.getElementById('root').appendChild(signInPage);

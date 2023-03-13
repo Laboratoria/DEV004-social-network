@@ -1,15 +1,21 @@
 // Este es el punto de entrada de tu aplicacion
-import { myFunction } from './lib/index.js';
+// Importar las funciones necesarias
+
+import { onNavigate, addRoutes } from './onNavigate';
 import { home } from './components/home';
-import { registerPage } from './components/register';
+import { register } from './components/register';
+import { login } from './components/login';
 
-myFunction();
-
-const routes = {
+addRoutes({
   '/': home,
-  '/register': registerPage,
+  '/register': register,
+  '/login': login,
+});
+
+window.onload = () => {
+  onNavigate(window.location.pathname);
 };
 
-const rootDiv = document.getElementById('root');
-const component = routes[window.location.pathname];
-rootDiv.appendChild(component());
+window.onpopstate = () => {
+  onNavigate(window.location.pathname);
+};
