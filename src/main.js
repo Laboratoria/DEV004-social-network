@@ -1,5 +1,6 @@
-import { } from './lib/firebase';
+import { register } from './components/register';
+import { addRoutes } from './router/index';
 
-import { myFunction } from './router/index.js';
-
-myFunction();
+addRoutes({
+  '/register': register,
+});
