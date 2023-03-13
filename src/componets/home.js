@@ -1,4 +1,3 @@
-
 export const home = () => {
   const divHome = document.createElement('div');
   const header = document.createElement('header');
@@ -24,7 +23,5 @@ export const home = () => {
   square.appendChild(welcome);
   square.appendChild(buttonLogin);
   square.appendChild(buttonRegister);
-
-
   return divHome;
 };

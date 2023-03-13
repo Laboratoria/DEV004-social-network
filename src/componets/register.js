@@ -1,8 +1,4 @@
 export const register = () => {
-
-//   const divHome = document.createElement('nav');
-//   const img = document.createElement('img');
-//   img.setAttribute('class', 'logo');
   const HomeDiv = document.createElement('div');
   HomeDiv.innerHTML = ('Registro de usuario');
   const divForm = document.createElement('div');

@@ -1,10 +1,9 @@
+// import { initFirebase } from "./lib/firebase";
+import { initRouter } from './router';
+import { ROUTES } from './routes';
 
-import { login } from './componets/login.js';
+// Initialize Firebase
+// initFirebase();
 
-import { register } from './componets/register.js';
-
-const component = register();
-const rootDiv = document.getElementById('root');
-rootDiv.append(component);
-
-
+// Initialize Router
+initRouter(ROUTES);
