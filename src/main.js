@@ -1,5 +1,5 @@
-// Este es el punto de entrada de tu aplicacion
+import { } from './lib/firebase';
 
-import { myFunction } from './lib/index.js';
+import { myFunction } from './router/index.js';
 
 myFunction();
