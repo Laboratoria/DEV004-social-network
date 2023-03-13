@@ -9,9 +9,9 @@ export const register = () => {
   const passwordInput = document.createElement('input');
   const SignInBtn = document.createElement('button');
   const BtnGoogle = document.createElement('img');
-  //* Estamos asignandi atributos para todos los elementos creados.
-  signInSection.setAttribute('id', 'signInSeccion');
+  const loginBtn = document.createElement('button'); //* Estamos asignandi atributos para todos los elementos creados.
 
+  signInSection.setAttribute('id', 'signInSeccion');
   signInHeader.innerHTML = 'Crea una cuenta';
 
   coverImg.setAttribute('id', 'LogoPetropolis');
@@ -39,6 +39,10 @@ export const register = () => {
   SignInBtn.setAttribute('id', 'SignInBtn');
   SignInBtn.textContent = 'Registrarse';
 
+  loginBtn.innerHTM = 'Ya tienes cuenta?';
+  loginBtn.setAttribute('id', 'loginBtn');
+  loginBtn.textContent = 'Entrar';
+
   BtnGoogle.setAttribute('id', 'BtnGoogle');
   BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
   BtnGoogle.setAttribute('alt', 'BtnGoogle');
@@ -50,7 +54,16 @@ export const register = () => {
   signInSection.appendChild(passwordLabel);
   signInSection.appendChild(passwordInput);
   signInSection.appendChild(SignInBtn);
+  signInSection.appendChild(loginBtn);
   signInSection.appendChild(BtnGoogle);
 
+  // eslint-disable-next-line func-names
+  loginBtn.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevenir el envío del formulario por defecto
+    const username = nameInput.value;
+    console.log(username);
+    const password = passwordInput.value;
+    console.log(password);
+  });
   return signInSection;
 };

@@ -1,3 +1,5 @@
+// Este objeto se utiliza para almacenar
+// las rutas y los manejadores de las páginas de la aplicación.
 const ROUTES = {};
 
 export const onNavigate = (pathname) => {

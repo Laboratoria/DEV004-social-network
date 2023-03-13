@@ -45,5 +45,14 @@ export const login = () => {
   loginSection.appendChild(passwordInput);
   loginSection.appendChild(loginBtn);
   loginSection.appendChild(BtnGoogle);
+
+  loginBtn.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevenir el envío del formulario por defecto
+    const username = nameInput.value;
+    console.log(username);
+    const password = passwordInput.value;
+    console.log(password);
+  });
+
   return loginSection;
 };
