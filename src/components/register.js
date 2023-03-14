@@ -65,6 +65,8 @@ export const register = (onNavigate) => {
     console.log(username);
     const password = passwordInput.value;
     console.log(password);
+
+    
   });
   return signInSection;
 };
