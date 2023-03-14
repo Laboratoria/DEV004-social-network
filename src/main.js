@@ -7,3 +7,4 @@ import { ROUTES } from './routes';
 
 // Initialize Router
 initRouter(ROUTES);
+
