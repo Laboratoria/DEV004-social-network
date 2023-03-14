@@ -24,7 +24,7 @@ window.onpopstate = () => {
 
 root.appendChild(component(onNavigate));
 
-// // aqui exportaras las funciones que necesites
+// aqui exportaras las funciones que necesites
 // const routes = {
 //   '/': home,
 //   '/register': register,
@@ -68,4 +68,4 @@ root.appendChild(component(onNavigate));
 //   );
 // };
 
-console.log('Hola mundo!');
+// console.log('Hola mundo!');

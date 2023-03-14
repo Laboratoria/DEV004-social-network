@@ -7,13 +7,14 @@ export const register = (onNavigate) => {
   const emailInput = document.createElement('input');
   const passwordLabel = document.createElement('label');
   const passwordInput = document.createElement('input');
+  const SignInLabel = document.createElement('label');
   const SignInBtn = document.createElement('button');
   const BtnGoogle = document.createElement('img');
   const loginBtn = document.createElement('button'); //* Estamos asignandi atributos para todos los elementos creados.
 
   signInSection.setAttribute('id', 'signInSeccion');
   signInHeader.innerHTML = 'Crea una cuenta';
- // onNavigate('/home')
+  // onNavigate('/home')
 
   coverImg.setAttribute('id', 'LogoPetropolis');
   coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
@@ -40,9 +41,12 @@ export const register = (onNavigate) => {
   SignInBtn.setAttribute('id', 'SignInBtn');
   SignInBtn.textContent = 'Registrarse';
 
-  loginBtn.innerHTM = 'Ya tienes cuenta?';
+  SignInLabel.setAttribute('id', 'SignInLabel');
+  SignInLabel.setAttribute('name', 'SignInLabel');
+  SignInLabel.innerHTML = '¿Ya tienes cuenta?';
+
   loginBtn.setAttribute('id', 'loginBtn');
-  loginBtn.textContent = 'Entrar';
+  loginBtn.textContent = 'Iniciar Sesión';
 
   BtnGoogle.setAttribute('id', 'BtnGoogle');
   BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
@@ -55,9 +59,11 @@ export const register = (onNavigate) => {
   signInSection.appendChild(passwordLabel);
   signInSection.appendChild(passwordInput);
   signInSection.appendChild(SignInBtn);
+  signInSection.appendChild(SignInLabel);
   signInSection.appendChild(loginBtn);
   signInSection.appendChild(BtnGoogle);
 
+  loginBtn.addEventListener('click', () => onNavigate('/login'));
   // eslint-disable-next-line func-names
   loginBtn.addEventListener('click', (event) => {
     event.preventDefault(); // Prevenir el envío del formulario por defecto
@@ -65,8 +71,6 @@ export const register = (onNavigate) => {
     console.log(username);
     const password = passwordInput.value;
     console.log(password);
-
-    
   });
   return signInSection;
 };

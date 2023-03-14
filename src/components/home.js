@@ -1,4 +1,4 @@
- //import { onNavigate } from '../onNavigate';
+// import { onNavigate } from '../onNavigate';
 // import { onNavigate } from '../main';
 
 export const home = (onNavigate) => {
@@ -37,7 +37,6 @@ export const home = (onNavigate) => {
   //* Asignando un evento a los botones Iniciar Sesión y Registrarse
   loginButton.addEventListener('click', () => onNavigate('/login'));
   signInButton.addEventListener('click', () => onNavigate('/register'));
-  
 
   return homeSection;
 };
