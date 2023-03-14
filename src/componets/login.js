@@ -7,4 +7,3 @@ export const login =() => {
   HomeDiv.appendChild(buttonHome);
   return HomeDiv;
 };
-
