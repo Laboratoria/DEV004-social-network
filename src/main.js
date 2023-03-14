@@ -1,3 +1,13 @@
+// import { initFirebase } from "./lib/firebase";
+import { initRouter } from './router';
+import { ROUTES } from './routes';
+
+
+// Initialize Firebase
+// initFirebase();
+
+// Initialize Router
+initRouter(ROUTES);
 
 import { home } from './componets/home.js';
 import { login } from './componets/login.js';
@@ -34,3 +44,4 @@ import {
 // const rootDiv = document.getElementById('root');
 // rootDiv.append(component)
 // rootDiv.innerHTML = routes[window.location.pathname];
+
