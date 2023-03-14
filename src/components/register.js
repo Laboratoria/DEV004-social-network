@@ -1,4 +1,4 @@
-export const register = () => {
+export const register = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const signInSection = document.createElement('section');
   const coverImg = document.createElement('img');
@@ -13,6 +13,7 @@ export const register = () => {
 
   signInSection.setAttribute('id', 'signInSeccion');
   signInHeader.innerHTML = 'Crea una cuenta';
+ // onNavigate('/home')
 
   coverImg.setAttribute('id', 'LogoPetropolis');
   coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
