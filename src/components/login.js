@@ -53,6 +53,5 @@ export const login = () => {
     const password = passwordInput.value;
     console.log(password);
   });
-
   return loginSection;
 };
