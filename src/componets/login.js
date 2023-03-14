@@ -1,3 +1,6 @@
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+
 export const login =() => {
   const HomeDiv = document.createElement('div');
   HomeDiv.textContent = 'Bienvenida al login';
@@ -7,3 +10,14 @@ export const login =() => {
   HomeDiv.appendChild(buttonHome);
   return HomeDiv;
 };
+const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
