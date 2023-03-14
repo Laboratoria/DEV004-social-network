@@ -1,3 +1,9 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -5,9 +11,10 @@ body {
   text-align: center;
   font-family: "Segoe UI";
   background-color: #FEE0D5;
+ 
 }
 
-#SignIn {
+#SignIn,#login {
   text-align: start;
   margin: 10px;
 }
@@ -45,12 +52,22 @@ button:hover {
   background-repeat: no-repeat;
   } */
 
-#signInSeccion,#homeSeccion {
+#signInSeccion,#homeSection,#loginSection {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  
 }
 
+
 #LogoPetropolis {
-  width: 30vh;
+  display: flex;
+  margin: 2px;
+  height: 92%;
+  width: auto;
+  
+ }
+ .cover-img{
+  justify-content: flex-start;
  }

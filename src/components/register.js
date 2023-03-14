@@ -1,4 +1,4 @@
-export const register = () => {
+export const register = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const signInSection = document.createElement('section');
   const coverImg = document.createElement('img');
@@ -8,11 +8,12 @@ export const register = () => {
   const passwordLabel = document.createElement('label');
   const passwordInput = document.createElement('input');
   const SignInBtn = document.createElement('button');
+  const BtnGoogle = document.createElement('img');
+  const loginBtn = document.createElement('button'); //* Estamos asignandi atributos para todos los elementos creados.
 
-  //* Estamos asignandi atributos para todos los elementos creados.
   signInSection.setAttribute('id', 'signInSeccion');
-
   signInHeader.innerHTML = 'Crea una cuenta';
+ // onNavigate('/home')
 
   coverImg.setAttribute('id', 'LogoPetropolis');
   coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
@@ -39,20 +40,31 @@ export const register = () => {
   SignInBtn.setAttribute('id', 'SignInBtn');
   SignInBtn.textContent = 'Registrarse';
 
+  loginBtn.innerHTM = 'Ya tienes cuenta?';
+  loginBtn.setAttribute('id', 'loginBtn');
+  loginBtn.textContent = 'Entrar';
+
+  BtnGoogle.setAttribute('id', 'BtnGoogle');
+  BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
+  BtnGoogle.setAttribute('alt', 'BtnGoogle');
   //* Aqui estamos agregando todo a la sección de SignInPage
   signInSection.appendChild(signInHeader);
   signInSection.appendChild(coverImg);
   signInSection.appendChild(nameInput);
-
   signInSection.appendChild(emailInput);
   signInSection.appendChild(passwordLabel);
   signInSection.appendChild(passwordInput);
   signInSection.appendChild(SignInBtn);
+  signInSection.appendChild(loginBtn);
+  signInSection.appendChild(BtnGoogle);
+
+  // eslint-disable-next-line func-names
+  loginBtn.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevenir el envío del formulario por defecto
+    const username = nameInput.value;
+    console.log(username);
+    const password = passwordInput.value;
+    console.log(password);
+  });
   return signInSection;
 };
-
-// console.log(register());
-//* Aqui lo llevamos todo a root.html.
-// ? La función se esta ejecutando.
-// const rootDiv = document.getElementById('root');
-// rootDiv.appendChild(registerPage());
