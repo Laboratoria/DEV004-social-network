@@ -1,6 +1,7 @@
-import { onNavigate } from '../onNavigate';
+// import { onNavigate } from '../onNavigate';
+// import { onNavigate } from '../main';
 
-export const home = () => {
+export const home = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const homeSection = document.createElement('section');
   const welcomeHeader = document.createElement('h1');
