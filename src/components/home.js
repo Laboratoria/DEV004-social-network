@@ -1,4 +1,4 @@
-// import { onNavigate } from '../onNavigate';
+ //import { onNavigate } from '../onNavigate';
 // import { onNavigate } from '../main';
 
 export const home = (onNavigate) => {
@@ -35,8 +35,9 @@ export const home = (onNavigate) => {
   homeSection.appendChild(ImgLove);
 
   //* Asignando un evento a los botones Iniciar Sesión y Registrarse
-  signInButton.addEventListener('click', () => onNavigate('/register'));
   loginButton.addEventListener('click', () => onNavigate('/login'));
+  signInButton.addEventListener('click', () => onNavigate('/register'));
+  
 
   return homeSection;
 };
