@@ -1,7 +1,9 @@
 /* eslint-disable quotes */
+//import { initializeApp } from "./lib/firebaseConfig.js";
 import { home } from "./components/home.js";
 import { login } from "./components/login.js";
 import { register } from "./components/register.js";
+
 
 const root = document.getElementById('root');
 
@@ -24,6 +26,7 @@ window.onpopstate = () => {
 };
 
 root.appendChild(component(onNavigate));
+
 
 // aqui exportaras las funciones que necesites
 // const routes = {
