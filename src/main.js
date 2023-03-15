@@ -1,4 +1,5 @@
-// import { initializeApp } from './lib/firebase';
+
+// import { initFirebase } from "./lib/firebase";
 import { initRouter } from './router';
 import { ROUTES } from './routes';
 
