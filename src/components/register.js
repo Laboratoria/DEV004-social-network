@@ -4,7 +4,9 @@ const root = document.getElementById('root');
 export const register = () => {
   const registerDiv = document.createElement('div');
   registerDiv.classList.add('log');
-  registerDiv.innerHTML += `
+  registerDiv.innerHTML += `<header>
+  <img src="./img/logo.png"></header><section class="register-container">
+  </header>
   <section class="register-container">
     <h1>Tú</h1>
     <input type="text"
@@ -31,21 +33,21 @@ export const register = () => {
           name=""
           placeholder="Especie" />
         <button type="submit" id="create-account">Registrarse</button>
+        <button type="submit" id="back-button">Volver a incio</button>
         </section>`;
   root.appendChild(registerDiv);
+
+  document.querySelector('#create-account').addEventListener('click', () => {
+    const signUpEmail = document.getElementById('register-email').value;
+    const signUpPassword = document.getElementById('register-password').value;
+    createUser(signUpEmail, signUpPassword)
+      .then(() => {
+        window.location.href = '/';
+      });
+  });
+  const buttonBack = document.getElementById('back-button');
+  buttonBack.addEventListener('click', () => {
+    window.location.href = '/';
+  });
+  return registerDiv;
 };
-register();
-
-document.querySelector('#create-account').addEventListener('click', () => {
-  const signUpName = document.getElementById('register-name').value;
-  const signUpEmail = document.getElementById('register-email').value;
-  const signUpPassword = document.getElementById('register-password').value;
-
-  try {
-    createUser(signUpEmail, signUpPassword, signUpName);
-    console.log(signUpEmail, signUpPassword);
-  } catch (error) {
-    console.log('error');
-  }
-/* signUp(signUpEmail,signUpPassword); */
-});

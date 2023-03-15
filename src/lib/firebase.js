@@ -1,6 +1,14 @@
+/* eslint-disable max-len */
 import { initializeApp } from 'firebase/app';
-import { getFirestore, setDoc, doc } from 'firebase/firestore';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged,
+} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA3k7Vss44vD0x4ynHhUD288WTXc6WTIIc',
@@ -13,28 +21,20 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth();
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 
-const newUser = (displayName, email, password, uid) => {
-  setDoc(doc(db, 'users', uid), {
-    displayName,
-    email,
-    password,
-    uid,
-  });
+export const createUser = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password);
 };
 
-export const createUser = (displayName, email, password) => {
-  createUserWithEmailAndPassword(auth, displayName, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      newUser(displayName, email, password, user.uid);
-      return user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return error(errorCode, errorMessage);
-    });
+export const singIn = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password);
 };
+
+const provider = new GoogleAuthProvider();
+export const loginWithGoogle = () => signInWithPopup(auth, provider);
+
+export function authStateChangedEvent(cb) {
+  onAuthStateChanged(auth, (user) => cb(user));
+}
