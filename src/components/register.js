@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 export const register = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const signInSection = document.createElement('section');
@@ -65,8 +66,6 @@ export const register = (onNavigate) => {
     console.log(username);
     const password = passwordInput.value;
     console.log(password);
-
-    
   });
   return signInSection;
 };
