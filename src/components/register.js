@@ -1,18 +1,20 @@
-export const registerPage = () => {
+export const register = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
-  const signInSeccion = document.createElement('seccion');
+  const signInSection = document.createElement('section');
   const coverImg = document.createElement('img');
   const signInHeader = document.createElement('h1');
   const nameInput = document.createElement('input');
   const emailInput = document.createElement('input');
   const passwordLabel = document.createElement('label');
   const passwordInput = document.createElement('input');
+  const SignInLabel = document.createElement('label');
   const SignInBtn = document.createElement('button');
+  const BtnGoogle = document.createElement('img');
+  const loginBtn = document.createElement('button'); //* Estamos asignandi atributos para todos los elementos creados.
 
-  //* Estamos asignandi atributos para todos los elementos creados.
-  signInSeccion.setAttribute('id', 'signInSeccion');
-
+  signInSection.setAttribute('id', 'signInSeccion');
   signInHeader.innerHTML = 'Crea una cuenta';
+  // onNavigate('/home')
 
   coverImg.setAttribute('id', 'LogoPetropolis');
   coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
@@ -39,17 +41,36 @@ export const registerPage = () => {
   SignInBtn.setAttribute('id', 'SignInBtn');
   SignInBtn.textContent = 'Registrarse';
 
+  SignInLabel.setAttribute('id', 'SignInLabel');
+  SignInLabel.setAttribute('name', 'SignInLabel');
+  SignInLabel.innerHTML = '¿Ya tienes cuenta?';
+
+  loginBtn.setAttribute('id', 'loginBtn');
+  loginBtn.textContent = 'Iniciar Sesión';
+
+  BtnGoogle.setAttribute('id', 'BtnGoogle');
+  BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
+  BtnGoogle.setAttribute('alt', 'BtnGoogle');
   //* Aqui estamos agregando todo a la sección de SignInPage
-  signInSeccion.appendChild(signInHeader);
-  signInSeccion.appendChild(coverImg);
-  signInSeccion.appendChild(nameInput);
+  signInSection.appendChild(signInHeader);
+  signInSection.appendChild(coverImg);
+  signInSection.appendChild(nameInput);
+  signInSection.appendChild(emailInput);
+  signInSection.appendChild(passwordLabel);
+  signInSection.appendChild(passwordInput);
+  signInSection.appendChild(SignInBtn);
+  signInSection.appendChild(SignInLabel);
+  signInSection.appendChild(loginBtn);
+  signInSection.appendChild(BtnGoogle);
 
-  signInSeccion.appendChild(emailInput);
-  signInSeccion.appendChild(passwordLabel);
-  signInSeccion.appendChild(passwordInput);
-  signInSeccion.appendChild(SignInBtn);
-  return signInSeccion;
+  loginBtn.addEventListener('click', () => onNavigate('/login'));
+  // eslint-disable-next-line func-names
+  loginBtn.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevenir el envío del formulario por defecto
+    const username = nameInput.value;
+    console.log(username);
+    const password = passwordInput.value;
+    console.log(password);
+  });
+  return signInSection;
 };
-
-//* Aqui lo llevamos todo a root.html.
-// document.getElementById('root').appendChild(signInPage);
