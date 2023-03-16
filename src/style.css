@@ -6,7 +6,7 @@
     font-size: 20px;
   }
   body{
-    background-color: #fef6e4;
+    background-color: red;
   }
   .header{
     display: flex;
@@ -21,12 +21,16 @@
 
 
   }
+  .welcome{
+    background-color:blueviolet;
+  }
   /*Vista para movil*/
 
   @media(max-width:390px){
     /*register*/
     .container{
         display:flex;
+
     }   
     
 

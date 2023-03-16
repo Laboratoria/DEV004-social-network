@@ -14,7 +14,7 @@ export const home = () => {
   buttonRegister.textContent = 'Regìstrate';
   welcome.textContent = 'Bienvenidos a Reda';
   img.setAttribute('id', 'logo');
-  img.setAttribute('src', 'https://i.pinimg.com/564x/ed/67/9a/ed679a1a5874f2cf95bb5fcad09d6cf7.jpg');
+  img.setAttribute('src','')
   welcome.setAttribute('id', 'welcome');
   header.setAttribute('class', 'header');
   footer.setAttribute('class', 'footer');
