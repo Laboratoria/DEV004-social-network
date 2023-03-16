@@ -29,7 +29,7 @@ export const register = () => {
       <select name=RedaRol>
       <option value= "expert">Especialista</option>
       <option value= "carer">Cuidador</option>
-      <input type="submit" value="Register"/>
+      <input type="submit" id="btnregister" value="Register"/>
     </div>   
     <div class="bottom-container">
       </div>
@@ -38,6 +38,7 @@ export const register = () => {
 
   div.querySelector('#registerForm').addEventListener('submit', (e) => {
     e.preventDefault();
+    console.log('hola', e.target);
     const email = e.target.email.value;
     const password = e.target.psw.value;
     registerWithEmail(email, password)
