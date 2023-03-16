@@ -7,11 +7,10 @@
   padding: 0px;
 }
 html{
-  font-family: 'Baloo Tammudu 2', cursive;
 }
 
 body{
-background: url('./img/patitas.png');
+background: url("./img/patitas.png");
 object-fit: cover;
 background-attachment: fixed;
 width: 100%;
@@ -19,21 +18,22 @@ height:100%;
 }
 
 input, button {
-  /* border: none; */
   margin: 2%;
   text-align: center;
 }
+
 button{
   background-color:rgba(131, 89, 227, 1);
-  width: 250px;
-  height: 43px;
-  background: #8359E3;
-  box-shadow: 0px 30px 30px rgba(69, 42, 124, 0.15);
-  border-radius: 30px;
-  color: white;
-  border: none;
-  align-items: center;
-  text-align: center;
+width: 250px;
+height: 43px;
+background: #8359E3;
+box-shadow: 0px 30px 30px rgba(69, 42, 124, 0.15);
+border-radius: 30px;
+color: white;
+border: none;
+align-items: center;
+text-align: center;
+cursor: pointer;
 }
 
 #register-email, #register-password,#register-password2, #register-name, #pet-name, #specie-name, #email,#password {
@@ -47,32 +47,33 @@ button{
   color:rgb(73, 72, 72);
   padding:10px 2px 10px 5% ;
   font-family: Arial, Helvetica, sans-serif;
-  /* width: 15em; */
-  /* background-position: 58vw */;
 }
-
+/* Botón registrarse */
 #create-account{
   margin-top: 7%;
 }
-
+/* contenedor blanco*/
 .register-container{
   display: flex;
+  align-items: left;
   flex-direction: column;
   justify-content: center;
   background-color: white;
   height:fit-content;
-  width:fit-content;
+  width: fit-content;
   position: absolute;
-  padding: 30px;
+  padding: 20px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 25px;
   box-shadow: 0px 30px 30px rgba(92, 92, 92, 0.479);
 }
+
 h1{
-  margin-top: 20px;
+  margin-top: 0px;
 }
+
 p, a{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
@@ -80,7 +81,33 @@ p, a{
   text-align: center;
 }
 
-/* transforma el cursor en dedo al pasarlo por el link*/
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo {
+  margin-top: 50px;
+  height: 20px;
+  margin-left: -5px;
+}
+
+#welcome{
+color: #8359E3;
+}
+
+#google{
+  width: 80%;
+  margin-right: -100px;
+  text-align: center;
+  align-items: center;
+  transform: translate(25px,20px);
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
 a {
   cursor: pointer;
 }
@@ -101,11 +128,10 @@ a {
   transform: translate(-50%, -50%);
   border-radius: 25px;
   overflow: auto;
-  /* box-shadow: 0px 30px 30px rgba(92, 92, 92, 0.479); */
 }
 
 #head-feed{
-  font-family: 'Baloo Tammudu 2', cursive;
+
 }
 
 #status-description{
@@ -130,19 +156,5 @@ a {
   color: white;
   border: none;
   margin-left: 130px;
-}
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-img {
-  margin-top: 50px;
-  height: 20px;
-  margin-left: -5px;
-}
-#welcome{
-color: #8359E3;
+  cursor: pointer;
 }

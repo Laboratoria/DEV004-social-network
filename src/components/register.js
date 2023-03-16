@@ -5,7 +5,7 @@ export const register = () => {
   const registerDiv = document.createElement('div');
   registerDiv.classList.add('log');
   registerDiv.innerHTML += `<header>
-  <img src="./img/logo.png"></header><section class="register-container">
+  <img src="./img/logo.png" id="logo"></header>
   </header>
   <section class="register-container">
     <h1>Tú</h1>
@@ -38,9 +38,10 @@ export const register = () => {
   root.appendChild(registerDiv);
 
   document.querySelector('#create-account').addEventListener('click', () => {
+    const displayName = document.getElementById('register.name');
     const signUpEmail = document.getElementById('register-email').value;
     const signUpPassword = document.getElementById('register-password').value;
-    createUser(signUpEmail, signUpPassword)
+    createUser(displayName, signUpEmail, signUpPassword)
       .then(() => {
         window.location.href = '/';
       });

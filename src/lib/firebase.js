@@ -32,7 +32,7 @@ export const singIn = (email, password) => {
   signInWithEmailAndPassword(auth, email, password);
 };
 
-const provider = new GoogleAuthProvider();
+export const provider = new GoogleAuthProvider();
 export const loginWithGoogle = () => signInWithPopup(auth, provider);
 
 export function authStateChangedEvent(cb) {
