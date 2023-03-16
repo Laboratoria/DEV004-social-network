@@ -12,12 +12,14 @@ export const home = () => {
   const footer = document.createElement('footer');
   buttonLogin.textContent = 'Iniciar sesiòn';
   buttonRegister.textContent = 'Regìstrate';
-  welcome.textContent = 'Bienvenidos a Reda';
+  welcome.textContent = 'Únete a la red de cuidadores más grande de Latinoamérica…';
   img.setAttribute('id', 'logo');
-  img.setAttribute('src','')
-  welcome.setAttribute('id', 'welcome');
-  header.setAttribute('class', 'header');
-  footer.setAttribute('class', 'footer');
+  img.setAttribute('src', 'https://i.ibb.co/bWGQN64/REDA-1.png');
+  welcome.setAttribute('class', 'welcome');
+  header.setAttribute('class', 'headerHome');
+  footer.setAttribute('class', 'footerHome');
+  buttonLogin.setAttribute('class', 'btnLogin');
+  buttonRegister.setAttribute('class', 'btnRegister');
   divHome.appendChild(square);
   square.appendChild(header);
   square.appendChild(footer);
