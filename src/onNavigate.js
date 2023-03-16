@@ -1,6 +1,9 @@
-import { home } from './components/home.js';
-import { login } from './components/login.js';
-import { register } from './components/register.js';
+/* eslint-disable import/no-duplicates */
+/* eslint-disable quotes */
+import { home } from "./components/home.js";
+import { login } from "./components/login.js";
+import { register } from "./components/register.js";
+import { welcome } from "./components/welcome.js";
 
 const root = document.getElementById('root');
 
@@ -8,11 +11,12 @@ const routes = {
   '/': home,
   '/login': login,
   '/register': register,
+  '/welcome': welcome,
 
 };
 const onNavigate = (pathname, paramRoutes = routes) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
-  return root.replaceChildren(paramRoutes[pathname]());
+  return root.replaceChildren(paramRoutes[pathname](onNavigate));
   // root.removeChild(root.firstChild);
   // root.appendChild(paramRoutes[pathname]);
 };
@@ -23,7 +27,6 @@ window.onpopstate = () => {
 };
 
 root.appendChild(component(onNavigate));
-
 // aqui exportaras las funciones que necesites
 // const routes = {
 //   '/': home,

@@ -1,7 +1,8 @@
 // Configuración Firebase al inicializar
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+// eslint-disable-next-line spaced-comment
+//import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = initializeApp({
   apiKey: 'AIzaSyBcpc0XpJaCMqOokhULjNp6Ul-AEaGc9CY',
@@ -12,4 +13,6 @@ const firebaseConfig = initializeApp({
   appId: '1:118477723389:web:452bdd1d47bf5805c45094',
 });
 
-const app = initializeApp(firebaseConfig);
+export const app = firebaseConfig;
+
+export const auth = getAuth(app);
