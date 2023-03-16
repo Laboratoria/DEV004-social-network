@@ -1,5 +1,8 @@
 // Configuración Firebase al inicializar
+
+// eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'firebase/app';
+
 import { getAuth } from 'firebase/auth';
 // eslint-disable-next-line spaced-comment
 //import { getFirestore } from 'firebase/firestore';

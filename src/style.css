@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;400&family=Babylonica&family=Delius&family=Fredoka+One&family=Roboto:ital@1&display=swap');
 *{
   padding: 0;
   margin: 0;
@@ -14,10 +16,10 @@ body {
  
 }
 
-#SignIn,#login {
-  text-align: start;
+/* #SignIn,#login #form {
+  /* text-align: start; 
   margin: 10px;
-}
+} */
 
 input {
   padding: 10px;
@@ -52,22 +54,41 @@ button:hover {
   background-repeat: no-repeat;
   } */
 
-#signInSeccion,#homeSection,#loginSection {
+#signInSeccion,#homeSection,#loginSection, #form, #welcomeSection{
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  
+    }
+#BtnGoogle{
+  width: 65%;
 }
+#CircleLogo{
+  width:20%;
 
-
+}
+#Hola{
+  color: #D39230;
+ }
+#welcomeContainer{
+  padding: 10px;
+  margin: 10px;
+  font-family: "Roboto";
+  border:solid;
+  background-color: #D9D9D9;
+  border-radius: 20px;
+  }
 #LogoPetropolis {
-  display: flex;
-  margin: 2px;
-  height: 92%;
-  width: auto;
+  /* display: flex;
+  margin: 2px; */
+  width:50 vh;
   
  }
- .cover-img{
-  justify-content: flex-start;
+ #form{
+  display: flex;
+ }
+
+ #divwelcome{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
  }

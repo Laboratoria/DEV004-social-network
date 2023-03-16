@@ -6,6 +6,7 @@ export const welcome = () => {
   const welcomeSection = document.createElement('section');
   const coverImg = document.createElement('img');
   const welcomeContainer = document.createElement('p');
+  const divwelcome = document.createElement('div');
   const CircleLogo = document.createElement('img');
   const nextButton = document.createElement('button');
 
@@ -18,9 +19,16 @@ export const welcome = () => {
   coverImg.setAttribute('alt', 'LogoPetropolis');
 
   welcomeContainer.setAttribute('id', 'welcomeContainer');
-  welcomeContainer.innerHTML = `Hola ${localStorage.getItem("name")}
+  welcomeContainer.innerHTML = 
+  ` <span style="color: black;"><b>Hola!</b></span>
+  <span id ='Hola'><b>${localStorage.getItem("name")}</b></span>
+  <span style="color: black;">,te damos la bienvenida a </span>
+  <span id ='Hola' ><b>PETROPOLIS</b></span>
+  <span style="color: black;">donde podrás compartir y publicar información de tus mascotas</span>Hola ${localStorage.getItem("name")}
   te damos la bienvenida a Petropolis donde podras compartir
    y publicar información de tus mascotas`;
+
+  divwelcome.setAttribute('id', 'divwelcome');
 
   CircleLogo.setAttribute('id', 'CircleLogo');
   CircleLogo.setAttribute('src', './Img/CircleLogo.png');
@@ -32,8 +40,9 @@ export const welcome = () => {
   //* Aqui estamos agregando todo a la sección de SignInPage
   welcomeSection.appendChild(coverImg);
   welcomeSection.appendChild(welcomeContainer);
-  welcomeSection.appendChild(CircleLogo);
-  welcomeSection.appendChild(nextButton);
+  welcomeSection.appendChild(divwelcome);
+  divwelcome.appendChild(CircleLogo);
+  divwelcome.appendChild(nextButton);
   //   nextButton.addEventListener('click', () => onNavigate('/home'));
   return welcomeSection;
 };

@@ -3,7 +3,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-} from "firebase/auth";
+// eslint-disable-next-line import/no-unresolved
+} from 'firebase/auth';
 
 export const signInWithPassword = (email, password) => {
   const auth = getAuth();
