@@ -24,16 +24,16 @@ input, button {
 
 button{
   background-color:rgba(131, 89, 227, 1);
-width: 250px;
-height: 43px;
-background: #8359E3;
-box-shadow: 0px 30px 30px rgba(69, 42, 124, 0.15);
-border-radius: 30px;
-color: white;
-border: none;
-align-items: center;
-text-align: center;
-cursor: pointer;
+  width: 250px;
+  height: 43px;
+  background: #8359E3;
+  box-shadow: 0px 30px 30px rgba(69, 42, 124, 0.15);
+  border-radius: 30px;
+  color: white;
+  border: none;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
 }
 
 #register-email, #register-password,#register-password2, #register-name, #pet-name, #specie-name, #email,#password {
@@ -99,13 +99,16 @@ color: #8359E3;
 }
 
 #google{
-  width: 80%;
-  margin-right: -100px;
+  width: 100%;
+  margin-right: -120px;
   text-align: center;
   align-items: center;
-  transform: translate(25px,20px);
+  transform: translate(3px,20px);
   cursor: pointer;
   margin-bottom: 20px;
+  border-style: solid;
+  border-radius: 25px;
+  border-color: #8259e363;
 }
 
 a {
