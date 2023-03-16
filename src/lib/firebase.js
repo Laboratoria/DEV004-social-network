@@ -18,8 +18,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 // tutorial utiliza export, taller lo une todo en una sola funcion y la exporta. 
+//se inicilza
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+//functiòn crear post que reciba los paràmetros y exportarla e importarla a el fedd
+//a qui pondrìa los parametros internos consultar
+//export const createPost = (titulo, descripcion) => { ... addDoc  
+
 
 // // Initialize Cloud Firestore and get a reference to the service
 // const db = getFirestore(app);

@@ -1,3 +1,4 @@
+//para autentficar cuando el usuario se meta 
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './firebase.js'
 
