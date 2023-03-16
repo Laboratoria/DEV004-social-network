@@ -1,3 +1,70 @@
-.Bienvenida{
-    color:blue;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 20px;
+  }
+  body{
+    background-color: #F1FAEE;
+  }
+  .header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  #root{
+    display: flex;
+
+
+  }
+  .welcome{
+  color: #1d3557; 
+  }
+
+
+/* CSS */
+.btnLogin , .btnRegister {
+  align-items: center;
+  background: #FFFFFF;
+  border: 0 solid #E2E8F0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  color: #1A202C;
+  display: inline-flex;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 56px;
+  justify-content: center;
+  line-height: 24px;
+  overflow-wrap: break-word;
+  padding: 24px;
+  text-decoration: none;
+  width: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
+.footerHome{
+  background-color: #B8D1E0;
+}
+  /*Vista para movil*/
+
+  @media(max-width:390px){
+    /*register*/
+    .container{
+        display:flex;
+
+    }   
+    
+
+
+
+  }
+
+  @media(max-width:1024px){}

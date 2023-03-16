@@ -1,5 +1,5 @@
-import { signInWithGoogle, signInWithPassword } from '../lib/authentication';
-import { navigateTo } from "../router";
+// import { signInWithGoogle, signInWithPassword } from '../lib/authentication';
+import { navigateTo } from '../router';
 
 export const login = () => {
   const HomeDiv = document.createElement('div');

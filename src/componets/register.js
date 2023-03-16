@@ -53,13 +53,11 @@ export const register = () => {
   return div;
 };
 
-
-
 //   const HomeDiv = document.createElement('div');
 //   HomeDiv.innerHTML = ('Registro de usuario');
 //   const divForm = document.createElement('form');
 //   HomeDiv.appendChild(divForm);
-  
+
 //   const inputName = document.createElement('input');
 //   inputName.setAttribute('type', 'text');
 //   inputName.setAttribute('placeholder', 'nombre');
@@ -83,7 +81,7 @@ export const register = () => {
 //   const inputOcupation = document.createElement('input');
 //   inputOcupation.setAttribute('type', 'text');
 //   inputOcupation.setAttribute('placeholder', 'Ocupación');
-  
+
 // const selectRolReda = document.createElement("select");
 // const optionRol = document.createElement("option");
 // const optionEspecialist = document.createElement("option");
@@ -127,8 +125,7 @@ export const register = () => {
 //   divForm.appendChild(inputOcupation);
 //   divForm.appendChild(selectRolReda);
 //   divForm.appendChild(buttonSend);
-  
-  
+
 //   return HomeDiv;
 
 // };
