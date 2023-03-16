@@ -5,28 +5,33 @@ export const register = () => {
   const div = document.createElement('div');
   div.innerHTML = `<form id="registerForm">
     <div class="container">
-      <h1>Register</h1>
-      <p>Please fill in this   form to create an account.</p>
-      <hr>
+      <h1>Registro de Usuario</h1>
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-      <label for="psw"><b>Password</b></label>
+      <label for="name"><b>Nombre</b></label>
+      <input type="text" placeholder="Escribe tu nombre" name="name" id="name" required>
+      
+      <label for="email"><b>Correo electrónico</b></label>
+      <input type="text" placeholder="Correo electrónico" name="email" id="email" required>
+     
+      <label for="psw"><b>Contraseña</b></label>
       <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-      <hr>
-      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+      <label for="nationality"><b>Nacionalidad</b></label>
+      <input type="text" placeholder="Nacionalidad" name="nationality" id="nationality" required>
 
+      <label for="Bdate"><b>Fecha de Nacimiento</b></label>
+      <input type="date" placeholder="Fecha de nacimiento" name="Bdate" id="Bdate" required>
+
+      <label for="ocupation"><b>Ocupación</b></label>
+      <input type="text" placeholder="Ocupación" name="ocupation" id="ocupation" required>
+
+      <label for="RedaRol"><b>Tu rol en Reda</b></label>
+      <select name=RedaRol>
+      <option value= "expert">Especialista</option>
+      <option value= "carer">Cuidador</option>
       <input type="submit" value="Register"/>
     </div>   
     <div class="bottom-container">
-    <div class="row">
-      <div class="col">
-        <a href="#" style="color:white" class="btn">Already have an account? Sign in</a>
-      </div>
       </div>
     </div>
   </form>`;
@@ -47,6 +52,8 @@ export const register = () => {
 
   return div;
 };
+
+
 
 //   const HomeDiv = document.createElement('div');
 //   HomeDiv.innerHTML = ('Registro de usuario');
