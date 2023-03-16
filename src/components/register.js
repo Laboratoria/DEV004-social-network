@@ -1,6 +1,7 @@
 /* eslint-disable arrow-parens */
 /* eslint-disable quotes */
 
+// eslint-disable-next-line import/no-unresolved
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/firebaseConfig';
 
@@ -12,7 +13,7 @@ export const register = (onNavigate) => {
   const signInSection = document.createElement("section");
   const coverImg = document.createElement("img");
   const signInHeader = document.createElement("h1");
-  
+
   const formRegister = document.createElement("form");
   const emailInput = document.createElement("input");
   const passwordLabel = document.createElement("label");
@@ -78,6 +79,7 @@ export const register = (onNavigate) => {
   signInSection.appendChild(formRegister);
 
   // eslint-disable-next-line quotes
+  SignInBtn.addEventListener('click', () => onNavigate('/welcome'));
   loginBtn.addEventListener('click', () => onNavigate('/login'));
   formRegister.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -89,6 +91,7 @@ export const register = (onNavigate) => {
     try {
       const UserCredentials = await createUserWithEmailAndPassword(auth, email, password);
       localStorage.setItem("name", nameInput.value);
+      // eslint-disable-next-line no-console
       console.log(UserCredentials);
     } catch (error) {
       console.log(error);

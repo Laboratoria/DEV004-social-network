@@ -1,4 +1,4 @@
-export const login = () => {
+export const login = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const loginSection = document.createElement('section');
   const coverImg = document.createElement('img');
@@ -46,12 +46,12 @@ export const login = () => {
   loginSection.appendChild(loginBtn);
   loginSection.appendChild(BtnGoogle);
 
-  loginBtn.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevenir el envío del formulario por defecto
-    const username = nameInput.value;
-    console.log(username);
-    const password = passwordInput.value;
-    console.log(password);
-  });
+  loginBtn.addEventListener('click', () => onNavigate('/welcome'));
+  // event.preventDefault(); // Prevenir el envío del formulario por defecto
+  //   const username = nameInput.value;
+  //   console.log(username);
+  //   const password = passwordInput.value;
+  //   console.log(password);
+  // });
   return loginSection;
 };
