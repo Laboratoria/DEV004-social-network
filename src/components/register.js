@@ -1,6 +1,10 @@
 /* eslint-disable arrow-parens */
 /* eslint-disable quotes */
-import { registerWithEmail } from "../lib/authentication.js";
+
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/firebaseConfig';
+
+export const nameInput = document.createElement("input");
 
 // eslint-disable-next-line no-unused-vars
 export const register = (onNavigate) => {
@@ -8,7 +12,7 @@ export const register = (onNavigate) => {
   const signInSection = document.createElement("section");
   const coverImg = document.createElement("img");
   const signInHeader = document.createElement("h1");
-  const nameInput = document.createElement("input");
+  
   const formRegister = document.createElement("form");
   const emailInput = document.createElement("input");
   const passwordLabel = document.createElement("label");
@@ -29,6 +33,7 @@ export const register = (onNavigate) => {
   formRegister.setAttribute("id", "form");
 
   nameInput.setAttribute("type", "text");
+
   nameInput.setAttribute("id", "name");
   nameInput.setAttribute("name", "name");
   nameInput.setAttribute("placeholder", "Escribe tu nombre");
@@ -73,25 +78,21 @@ export const register = (onNavigate) => {
   signInSection.appendChild(formRegister);
 
   // eslint-disable-next-line quotes
-  loginBtn.addEventListener("click", () => onNavigate("/login"));
-  // eslint-disable-next-line func-names
-
-  // eslint-disable-next-line quotes
-  formRegister.addEventListener("submit", (e) => {
+  loginBtn.addEventListener('click', () => onNavigate('/login'));
+  formRegister.addEventListener('submit', async (e) => {
     e.preventDefault();
-    //const name = e.target.nameInput.value;
+    // const name = nameInput.value;
     const email = emailInput.value;
-    console.log(email);
     const password = passwordInput.value;
-    console.log(password);
-    registerWithEmail(email, password)
-      .then(() => {
-        onNavigate('/home');
-      })
-      .catch((error) => {
-        console.error(error);
-        alert(error.message);
-      });
+    console.log(email, password);
+
+    try {
+      const UserCredentials = await createUserWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("name", nameInput.value);
+      console.log(UserCredentials);
+    } catch (error) {
+      console.log(error);
+    }
   });
 
   //   // eslint-disable-next-line no-undef
@@ -106,5 +107,5 @@ export const register = (onNavigate) => {
   // });
   // });*/
 
-  return formRegister;
+  return signInSection;
 };
