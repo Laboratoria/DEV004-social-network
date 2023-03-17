@@ -1,4 +1,4 @@
-import { createUser } from '../lib/firebase';
+import { createUser, savedUser } from '../lib/firebase';
 
 const root = document.getElementById('root');
 export const register = () => {
@@ -38,14 +38,19 @@ export const register = () => {
   root.appendChild(registerDiv);
 
   document.querySelector('#create-account').addEventListener('click', () => {
-    const displayName = document.getElementById('register.name');
+    const displayName = document.getElementById('register-name').value;
     const signUpEmail = document.getElementById('register-email').value;
     const signUpPassword = document.getElementById('register-password').value;
-    createUser(displayName, signUpEmail, signUpPassword)
-      .then(() => {
+    const petName = document.getElementById('pet-name').value;
+    const petSpecie = document.getElementById('specie-name').value;
+    createUser(signUpEmail, signUpPassword)
+      .then((usercredentials) => {
+        const user = usercredentials.user;
+        savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
         window.location.href = '/';
       });
   });
+
   const buttonBack = document.getElementById('back-button');
   buttonBack.addEventListener('click', () => {
     window.location.href = '/';

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, setDoc, doc } from 'firebase/firestore';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -23,10 +23,18 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+/* export const userDB = getFirestore(); */
 
-export const createUser = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password);
-};
+export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+
+export const savedUser = (displayName, email, password, petName, petSpecie, uid) => setDoc(doc(db, 'users', uid), {
+  displayName,
+  email,
+  password,
+  petName,
+  petSpecie,
+  uid,
+});
 
 export const singIn = (email, password) => {
   signInWithEmailAndPassword(auth, email, password);
