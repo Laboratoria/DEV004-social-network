@@ -1,7 +1,7 @@
 import {
   createUser,
   loginWithGoogle,
-  singIn,
+  signIn,
 } from '../lib/firebase';
 
 const root = document.getElementById('root');
@@ -28,17 +28,28 @@ export const home = () => {
   submitButton.addEventListener('click', () => {
     const signInEmail = document.getElementById('email').value;
     const signInPassword = document.getElementById('password').value;
-
-    singIn(signInEmail, signInPassword)
+    const validateEmail = /\S+@\S+/.test(signInEmail);
+    signIn(signInEmail, signInPassword)
       .then((usercredentials) => {
         const user = usercredentials.user;
         localStorage.setItem('idUser', user);
         window.location.href = '/';
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        if (signInEmail === '') {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese su email');
+          return false;
+        } if (signInPassword === '') {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese su contraseña');
+          return false;
+        } if (validateEmail === false) {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese email correcto');
+          return false;
+        }
+        return error;
       });
   });
 

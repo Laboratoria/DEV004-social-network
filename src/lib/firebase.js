@@ -7,7 +7,6 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  onAuthStateChanged,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -23,10 +22,11 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-/* export const userDB = getFirestore(); */
 
+// FUNCIÓN REGISTRO
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
+// FUNCIÓN GUARADR DATOS USUARIO
 export const savedUser = (displayName, email, password, petName, petSpecie, uid) => setDoc(doc(db, 'users', uid), {
   displayName,
   email,
@@ -36,13 +36,7 @@ export const savedUser = (displayName, email, password, petName, petSpecie, uid)
   uid,
 });
 
-export const singIn = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password);
-};
+export const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 const provider = new GoogleAuthProvider();
 export const loginWithGoogle = () => signInWithPopup(auth, provider);
-
-export function authStateChangedEvent(cb) {
-  onAuthStateChanged(auth, (user) => cb(user));
-}

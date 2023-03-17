@@ -48,6 +48,60 @@ export const register = () => {
         const user = usercredentials.user;
         savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
         window.location.href = '/';
+      })
+      // eslint-disable-next-line consistent-return
+      .catch((error) => {
+        const signUpName = document.getElementById('register-name').value;
+        const signUpRepeatPssword = document.getElementById('register-password2').value;
+        const signUpPetName = document.getElementById('pet-name').value;
+        const signUpSpecieName = document.getElementById('specie-name').value;
+        const capitalLeters = signUpPassword.match(/[A-Z]/g);
+        const lowercase = signUpPassword.match(/[a-z]/g);
+        const numbers = signUpPassword.match(/[0-9]/g);
+        const characters = signUpPassword.match(/[\W]/g);
+        const validateEmail = /\S+@\S+/.test(signUpEmail);
+        if (signUpName === '') {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese su nombre');
+          return false;
+        } if (signUpEmail === '') {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese email');
+          return false;
+        } if (validateEmail === false) {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese email correcto');
+          return false;
+        } if (signUpPassword === '') {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese contraseña');
+          return false;
+        } if (signUpPassword.length < 8) {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese 8 digitos');
+          return false;
+        } if (capitalLeters < 2 || lowercase < 2 || numbers < 2 || characters < 2) {
+          // eslint-disable-next-line no-alert
+          alert('debe incluir como minimos: 2 mayusculas, 2 minusculas, 2 numeros, 2 simbolos');
+          return false;
+        } if (signUpRepeatPssword === '') {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese la repeticion de la contraseña');
+          return false;
+        } if (signUpPassword !== signUpRepeatPssword) {
+          // eslint-disable-next-line no-alert
+          alert('Las contraseñas no son iguales');
+          return false;
+        } if (signUpPetName === '') {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese nombre de la mascota');
+          return false;
+        } if (signUpSpecieName === '') {
+          // eslint-disable-next-line no-alert
+          alert('Ingrese la especie de la mascota');
+          return false;
+        }
+        return error;
       });
   });
 
