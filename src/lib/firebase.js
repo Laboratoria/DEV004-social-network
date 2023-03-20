@@ -43,14 +43,11 @@ const provider = new GoogleAuthProvider();
 export const loginWithGoogle = () => signInWithPopup(auth, provider);
 
 export const post = async (postText) => {
-  const docRef = await addDoc(collection(db, 'posts'), {
+  const docRef = await addDoc(collection(db, 'publicaciónporusuario'), {
     text: postText,
+    userEmail: auth.currentUser.email,
+    userId: auth.currentUser.uid,
+    likes: [],
   });
   console.log('Document written with ID: ', docRef.id);
 };
-/* export const readPost = async (postText) =>{
-const querySnapshot = await getDocs(collection(db, 'posts'));
-querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
-});
-}; */

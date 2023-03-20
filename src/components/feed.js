@@ -19,16 +19,19 @@ export const feed = () => {
       </section>
     </section>`;
   root.appendChild(feedDiv);
+
+  const postButton = feedDiv.querySelector('.post');
+
+  postButton.addEventListener('click', async () => {
+    const statusDescription = feedDiv.querySelector('#status-description');
+    const postText = statusDescription.value;
+
+    await post(postText);
+
+    statusDescription.value = '';
+  });
+
+  return feedDiv;
 };
+
 feed();
-
-const postButton = document.querySelector('.post');
-
-postButton.addEventListener('click', async () => {
-  const statusDescription = document.querySelector('#status-description');
-  const postText = statusDescription.value;
-
-  await post(postText);
-
-  statusDescription.value = '';
-});
