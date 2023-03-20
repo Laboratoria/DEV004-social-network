@@ -43,6 +43,7 @@ export const signIn = (email, password) => signInWithEmailAndPassword(auth, emai
 const provider = new GoogleAuthProvider();
 export const loginWithGoogle = () => signInWithPopup(auth, provider);
 
+/* guardar post */
 export const post = async (postText) => {
   const docRef = await addDoc(collection(db, 'userpost'), {
     text: postText,
@@ -53,8 +54,10 @@ export const post = async (postText) => {
   console.log('Document written with ID: ', docRef.id);
 };
 
+/* salir */
 export const logOut = () => signOut(auth);
 
+/* cambiar el status */
 onAuthStateChanged(auth, (user)=>{
   console.log(user)
 })

@@ -21,15 +21,17 @@ export const feed = () => {
     </section>`;
   root.appendChild(feedDiv);
 
+/*   Botón para salir */
   const logOutButton = document.querySelector('.logout')
   logOutButton.addEventListener('click', () =>{
     logOut(auth)
     .then(()=>{
-      window.location.href = '/';
-      console.log('the user is signed out')
-    });
+        window.location.href = '/';
+        console.log('the user is signed out')
+      });
   });
 
+ /*  Crear post */
   const postButton = feedDiv.querySelector('.post');
 
   postButton.addEventListener('click', async () => {
@@ -43,5 +45,3 @@ export const feed = () => {
 
   return feedDiv;
 };
-
-/* feed(); */

@@ -51,7 +51,6 @@ export const register = () => {
         logOut(auth)
         .then(()=>{
           window.location.href = '/';
-          console.log('the user is signed out')
         });
       })
       // eslint-disable-next-line consistent-return
