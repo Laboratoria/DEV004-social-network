@@ -1,5 +1,5 @@
-/* import { home } from './components/home.js';
-import { register } from './components/register'; */
+import { home } from './components/home.js';
+import { register } from './components/register';
 import { feed } from './components/feed';
 import { auth } from './lib/firebase.js';
 
@@ -7,7 +7,7 @@ const root = document.getElementById('root');
 const routes = {
   '/': home,
   '/register': register,
-  /* '/feed': feed, */
+  '/feed': feed,
 };
 
 export const onNavigate = (pathname) => {

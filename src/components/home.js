@@ -33,7 +33,7 @@ export const home = () => {
       .then((usercredentials) => {
         const user = usercredentials.user;
         localStorage.setItem('idUser', user);
-        window.location.href = '/';
+        window.location.href = '/feed';
       })
       .catch((error) => {
         if (signInEmail === '') {
@@ -59,6 +59,7 @@ export const home = () => {
       const user = result.user;
       localStorage.setItem('user', JSON.stringify(user));
       createUser(user, user.displayName);
+      window.location.href = '/feed';
     }); /* .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;

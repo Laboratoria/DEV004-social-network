@@ -1,13 +1,14 @@
 /* eslint-disable max-len */
 import { initializeApp } from 'firebase/app';
-import { getFirestore, setDoc, doc } from 'firebase/firestore';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, getFirestore, setDoc, doc } from 'firebase/firestore';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged,
+  signOut
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -43,7 +44,7 @@ const provider = new GoogleAuthProvider();
 export const loginWithGoogle = () => signInWithPopup(auth, provider);
 
 export const post = async (postText) => {
-  const docRef = await addDoc(collection(db, 'publicaciónporusuario'), {
+  const docRef = await addDoc(collection(db, 'userpost'), {
     text: postText,
     userEmail: auth.currentUser.email,
     userId: auth.currentUser.uid,
@@ -51,3 +52,9 @@ export const post = async (postText) => {
   });
   console.log('Document written with ID: ', docRef.id);
 };
+
+export const logOut = () => signOut(auth);
+
+onAuthStateChanged(auth, (user)=>{
+  console.log(user)
+})

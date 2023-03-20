@@ -1,4 +1,5 @@
-import { post } from '../lib/firebase';
+/* import { signOut } from 'firebase/auth'; */
+import { post, auth, logOut } from '../lib/firebase';
 
 const root = document.getElementById('root');
 export const feed = () => {
@@ -6,7 +7,7 @@ export const feed = () => {
   feedDiv.classList.add('feed-container');
   feedDiv.innerHTML += `
       <header id="head-feed">
-      <h1></h1>
+      <h1></h1><button class="logout">salir</button>
     </header>
     <section class="timeline">
       <section class="create-post-container">
@@ -19,6 +20,15 @@ export const feed = () => {
       </section>
     </section>`;
   root.appendChild(feedDiv);
+
+  const logOutButton = document.querySelector('.logout')
+  logOutButton.addEventListener('click', () =>{
+    logOut(auth)
+    .then(()=>{
+      window.location.href = '/';
+      console.log('the user is signed out')
+    });
+  });
 
   const postButton = feedDiv.querySelector('.post');
 
@@ -34,4 +44,4 @@ export const feed = () => {
   return feedDiv;
 };
 
-feed();
+/* feed(); */

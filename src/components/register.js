@@ -1,4 +1,4 @@
-import { createUser, savedUser } from '../lib/firebase';
+import { createUser, savedUser, logOut, auth } from '../lib/firebase';
 
 const root = document.getElementById('root');
 export const register = () => {
@@ -48,6 +48,11 @@ export const register = () => {
         const user = usercredentials.user;
         savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
         window.location.href = '/';
+        logOut(auth)
+        .then(()=>{
+          window.location.href = '/';
+          console.log('the user is signed out')
+        });
       })
       // eslint-disable-next-line consistent-return
       .catch((error) => {
