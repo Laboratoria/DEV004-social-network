@@ -33,7 +33,7 @@ export const home = () => {
       .then((usercredentials) => {
         const user = usercredentials.user;
         localStorage.setItem('idUser', user);
-        window.location.href = '/';
+        window.location.href = '/feed';
       })
       .catch((error) => {
         if (signInEmail === '') {

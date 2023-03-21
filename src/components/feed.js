@@ -1,10 +1,12 @@
+import { post, auth, logOut } from '../lib/firebase';
+
 const root = document.getElementById('root');
 export const feed = () => {
   const feedDiv = document.createElement('div');
   feedDiv.classList.add('feed-container');
   feedDiv.innerHTML += `
       <header id="head-feed">
-      <h1></h1>
+      <h1></h1><button class="logout">salir</button>
     </header>
     <section class="timeline">
       <section class="create-post-container">
@@ -17,18 +19,27 @@ export const feed = () => {
       </section>
     </section>`;
   root.appendChild(feedDiv);
+
+  /*   Botón para salir */
+  const logOutButton = document.querySelector('.logout');
+  logOutButton.addEventListener('click', () => {
+    logOut(auth)
+      .then(() => {
+        window.location.href = '/';
+        console.log('the user is signed out');
+      });
+  });
+
+  /*  Crear post */
+  const postButton = feedDiv.querySelector('.post');
+
+  postButton.addEventListener('click', async () => {
+    const statusDescription = feedDiv.querySelector('#status-description');
+    const postText = statusDescription.value;
+
+    await post(postText);
+
+    statusDescription.value = '';
+  });
+  return feedDiv;
 };
-feed();
-
-const postButton = document.querySelector('.post');
-
-postButton.addEventListener('click', () => {
-  const statusDescription = document.querySelector('#status-description');
-  const postText = statusDescription.value;
-  /* root.innerHTML = ''; */
-  statusDescription.value = '';
-
-  console.log(postText);
-});
-
-// Estoy haciendolo en mi visual para verlo - Sol //

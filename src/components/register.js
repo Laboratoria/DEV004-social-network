@@ -6,7 +6,6 @@ export const register = () => {
   registerDiv.classList.add('log');
   registerDiv.innerHTML += `<header>
   <img src="./img/logo.png" id="logo"></header>
-  </header>
   <section class="register-container">
     <h1>Tú</h1>
     <input type="text"
@@ -47,7 +46,7 @@ export const register = () => {
       .then((usercredentials) => {
         const user = usercredentials.user;
         savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
-        window.location.href = '/';
+        window.location.href = '/feed';
       })
       // eslint-disable-next-line consistent-return
       .catch((error) => {
