@@ -8,13 +8,19 @@
   body{
     background-color: #F1FAEE;
   }
-  .header{
+   .square{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    justify-items: center;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
+    background-color: red;
+  }
+  square > headerHome {
+    background-color: pink;
+    width: 20% ;
+    height: 20%;
+
   }
   #root{
     display: flex;
@@ -51,7 +57,7 @@
   touch-action: manipulation;
 }
 .footerHome{
-  background-color: #B8D1E0;
+  background-color:#1A202C;
 }
   /*Vista para movil*/
 
