@@ -44,8 +44,9 @@ export const register = () => {
     registerWithEmail(email, password)
       .then((useCredential) => {
         navigateTo('/home');
+        console.log(useCredential);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
         alert(error.message);
       });

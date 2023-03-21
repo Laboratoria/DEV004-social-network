@@ -1,10 +1,10 @@
 import { home } from './componets/home';
-import { login } from './componets/login';
+import { Login } from './componets/login';
 import { register } from './componets/register';
 
 export const ROUTES = {
   '/': home,
   '/home': home,
-  '/login': login,
+  '/login': Login,
   '/register': register,
 };
