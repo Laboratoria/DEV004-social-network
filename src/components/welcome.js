@@ -1,7 +1,5 @@
-import { nameInput } from './register.js';
-
 // const name = register().querySelector(nameInput.value);
-export const welcome = () => {
+export const welcome = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const welcomeSection = document.createElement('section');
   const coverImg = document.createElement('img');
@@ -19,14 +17,12 @@ export const welcome = () => {
   coverImg.setAttribute('alt', 'LogoPetropolis');
 
   welcomeContainer.setAttribute('id', 'welcomeContainer');
-  welcomeContainer.innerHTML = 
-  ` <span style="color: black;"><b>Hola!</b></span>
-  <span id ='Hola'><b>${localStorage.getItem("name")}</b></span>
+  welcomeContainer.innerHTML = ` <span style="color: black;"><b>Hola!</b></span>
+  <span id ='Hola'><b>${localStorage.getItem('name')}</b></span>
   <span style="color: black;">,te damos la bienvenida a </span>
   <span id ='Hola' ><b>PETROPOLIS</b></span>
-  <span style="color: black;">donde podrás compartir y publicar información de tus mascotas</span>Hola ${localStorage.getItem("name")}
-  te damos la bienvenida a Petropolis donde podras compartir
-   y publicar información de tus mascotas`;
+  <span style="color: black;">donde podrás compartir y publicar información de tus mascotas</span>
+  `;
 
   divwelcome.setAttribute('id', 'divwelcome');
 
@@ -43,6 +39,6 @@ export const welcome = () => {
   welcomeSection.appendChild(divwelcome);
   divwelcome.appendChild(CircleLogo);
   divwelcome.appendChild(nextButton);
-  //   nextButton.addEventListener('click', () => onNavigate('/home'));
+  nextButton.addEventListener('click', () => onNavigate('/'));
   return welcomeSection;
 };

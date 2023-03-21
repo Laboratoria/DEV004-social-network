@@ -4,6 +4,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/firebaseConfig';
+import { authGoogle } from '../lib/authentication';
 
 export const nameInput = document.createElement("input");
 
@@ -79,7 +80,6 @@ export const register = (onNavigate) => {
   signInSection.appendChild(formRegister);
 
   // eslint-disable-next-line quotes
-  SignInBtn.addEventListener('click', () => onNavigate('/welcome'));
   loginBtn.addEventListener('click', () => onNavigate('/login'));
   formRegister.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -90,11 +90,21 @@ export const register = (onNavigate) => {
 
     try {
       const UserCredentials = await createUserWithEmailAndPassword(auth, email, password);
-      localStorage.setItem("name", nameInput.value);
+      onNavigate('/welcome');
+      localStorage.setItem('name', nameInput.value);
       // eslint-disable-next-line no-console
       console.log(UserCredentials);
     } catch (error) {
       console.log(error);
+    }
+  });
+
+  BtnGoogle.addEventListener('click', async () => {
+    try {
+      await authGoogle();
+      onNavigate('/welcome');
+    } catch (error) {
+      alert('Google error');
     }
   });
 
