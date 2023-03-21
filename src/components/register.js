@@ -46,15 +46,18 @@ export const register = () => {
     createUser(signUpEmail, signUpPassword)
       .then((usercredentials) => {
         const user = usercredentials.user;
-        savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
-        window.location.href = '/';
-        logOut(auth)
-        .then(()=>{
-          window.location.href = '/';
-        });
+        return savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
+      })
+   /*    .then(()=>{
+        console.log("usuario guardado exitosamente");
+        return logOut();
+      }) */
+      .then(()=>{
+        window.location.href = '/feed';
       })
       // eslint-disable-next-line consistent-return
       .catch((error) => {
+        console.log(error);
         const signUpName = document.getElementById('register-name').value;
         const signUpRepeatPssword = document.getElementById('register-password2').value;
         const signUpPetName = document.getElementById('pet-name').value;
