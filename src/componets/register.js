@@ -47,7 +47,7 @@ export const register = () => {
         navigateTo('/home');
         console.log(useCredential);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error.message);
         console.log(error.code);
         // eslint-disable-next-line no-lone-blocks
@@ -55,7 +55,6 @@ export const register = () => {
           alert('Invalid Email');
         } else if (error.code === 'auth/weak-password') {
           alert('password is too weak');
-
         } else if (error.code === 'auth/email-already-in-use') {
           alert('Email already in use');
         } else if (error.code) {
@@ -66,7 +65,6 @@ export const register = () => {
 
   return div;
 };
-
 
 //   const HomeDiv = document.createElement('div');
 //   HomeDiv.innerHTML = ('Registro de usuario');
