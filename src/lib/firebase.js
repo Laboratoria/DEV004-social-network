@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { initializeApp } from 'firebase/app';
-import { collection, addDoc, getFirestore, setDoc, doc } from 'firebase/firestore';
+import { collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy } from 'firebase/firestore';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -43,21 +43,60 @@ export const signIn = (email, password) => signInWithEmailAndPassword(auth, emai
 const provider = new GoogleAuthProvider();
 export const loginWithGoogle = () => signInWithPopup(auth, provider);
 
+/* salir */
+export const logOut = () => signOut(auth);
+
+/* cambiar el status */
+onAuthStateChanged(auth, (user) => {
+  console.log(user);
+})
+
+/* leer posts */
+export const colRef = collection(db, 'userpost');
+
 /* guardar post */
 export const post = async (postText) => {
   const docRef = await addDoc(collection(db, 'userpost'), {
     text: postText,
     userEmail: auth.currentUser.email,
     userId: auth.currentUser.uid,
+    userName: auth.currentUser.displayName,
     likes: [],
   });
   console.log('Document written with ID: ', docRef.id);
 };
 
-/* salir */
-export const logOut = () => signOut(auth);
+/* capturar post */
+export const readPosts = () => {
+  return query(colRef, orderBy('dateCreated', 'desc'));
+  }
+  export const listenToPosts = (callback) => {
+  onSnapshot(readPosts(), (snapshot) => {
+  const allPosts = [];
+  snapshot.docs.forEach((doc) => {
+  allPosts.push({ ...doc.data(), id: doc.id });
+  });
+  callback(allPosts);
+  });
+  };
+export const read = getDocs(colRef);
+export const addPost = (callback) => {
+  onSnapshot(colRef, (snapshot) => {
+    const allPosts = [];
+    snapshot.docs.forEach((docPost) => {
+      allPosts.push({ ...docPost.data(), id: docPost.id });
+    });
+    callback(allPosts);
+  });
+};
 
-/* cambiar el status */
-onAuthStateChanged(auth, (user)=>{
-  console.log(user)
-})
+
+
+
+/* onSnapshot(colRef, (snapshot) => {
+  snapshot.docs.forEach((doc) => {
+    const post = { ...doc.data(), id: doc.id };
+    const postElement = createPostElement(post);
+    postsContainer.appendChild(postElement);
+  });
+}); */

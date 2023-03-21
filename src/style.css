@@ -126,7 +126,7 @@ a {
   padding-bottom: 5px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -170%);
   border-radius: 25px;
   overflow: auto;
 }
@@ -155,4 +155,21 @@ a {
   border: none;
   margin-left: 130px;
   cursor: pointer;
+}
+.eachPost{
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  height:fit-content;
+  width:300px;
+  position: absolute;
+  padding: 30px;
+  padding-bottom: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  overflow: auto;
 }

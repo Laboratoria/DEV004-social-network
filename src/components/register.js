@@ -1,4 +1,4 @@
-import { createUser, savedUser, logOut, auth } from '../lib/firebase';
+import { createUser, savedUser } from '../lib/firebase';
 
 const root = document.getElementById('root');
 export const register = () => {
