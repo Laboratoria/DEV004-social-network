@@ -6,8 +6,14 @@
     font-size: 20px;
   }
   body{
-    background-color: #F1FAEE;
+    background-color: #e008c3;
   }
+    .container {
+      display: flex;
+      justify-content: center;
+      background-color: rgb(0, 255, 4);
+    }
+  
    .square{
     display: flex;
     flex-direction: column;
@@ -16,15 +22,10 @@
     height: 50%;
     background-color: red;
   }
-  square > headerHome {
+  .headerHome {
     background-color: pink;
     width: 20% ;
     height: 20%;
-
-  }
-  #root{
-    display: flex;
-
 
   }
   .welcome{
@@ -65,6 +66,7 @@
     /*register*/
     .container{
         display:flex;
+        background-color: aqua;
 
     }   
     
