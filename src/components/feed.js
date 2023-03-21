@@ -48,7 +48,6 @@ export const feed = () => {
   const postsContainer = document.getElementById('posts-container');
 
   addPost((posts) => {
-
     posts.forEach((feedPosts) => {
       const postElement = document.createElement('div');
       postElement.classList.add('eachPost');
@@ -57,12 +56,12 @@ export const feed = () => {
       userNameElement.textContent = feedPosts.userName;
       postElement.appendChild(userNameElement);
 
-      const textElement = document.createElement('p2');
+      const textElement = document.createElement('p3');
       textElement.textContent = feedPosts.text;
       postElement.appendChild(textElement);
 
       postsContainer.appendChild(postElement);
-
     });
   });
+  return feedDiv;
 };
