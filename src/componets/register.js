@@ -41,8 +41,7 @@ export const register = () => {
     console.log('hola', e.target);
     const email = e.target.elements.email.value;
     const password = e.target.elements.psw.value;
-    console.log('email', email);
-    console.log('pass', password);
+
     registerWithEmail(email, password)
       .then((useCredential) => {
         navigateTo('/home');
