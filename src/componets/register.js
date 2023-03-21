@@ -46,14 +46,26 @@ export const register = () => {
         navigateTo('/home');
         console.log(useCredential);
       })
-      .catch((error) => {
-        console.error(error);
-        alert(error.message);
+      .catch(error => {
+        console.log(error.message);
+        console.log(error.code);
+        // eslint-disable-next-line no-lone-blocks
+        if (error.code === 'auth/invalid-email') {
+          alert('Invalid Email');
+        } else if (error.code === 'auth/weak-password') {
+          alert('password is too weak');
+
+        } else if (error.code === 'auth/email-already-in-use') {
+          alert('Email already in use');
+        } else if (error.code) {
+          alert('Something went wrong');
+        }
       });
   });
 
   return div;
 };
+
 
 //   const HomeDiv = document.createElement('div');
 //   HomeDiv.innerHTML = ('Registro de usuario');
