@@ -12,21 +12,29 @@
       display: flex;
       justify-content: center;
       background-color: rgb(0, 255, 4);
+      justify-items: center;
+      margin-top: 70px;
+      margin-bottom: 70px;
     }
   
    .square{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 50%;
     height: 50%;
     background-color: red;
   }
   .headerHome {
     background-color: pink;
-    width: 20% ;
-    height: 20%;
+    width: 100% ;
+    height: 50px;
 
+  }
+  .logo {
+    width: 50%;
+    height: 50%;
   }
   .welcome{
   color: #1d3557; 
@@ -35,30 +43,33 @@
 
 /* CSS */
 .btnLogin , .btnRegister {
+  height: 56px;
+  width: 50%;
   align-items: center;
   background: #FFFFFF;
   border: 0 solid #E2E8F0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   color: #1A202C;
-  display: inline-flex;
-  font-size: 1rem;
+  display: flex;
+  font-size: 80%;
   font-weight: 700;
-  height: 56px;
   justify-content: center;
   line-height: 24px;
   overflow-wrap: break-word;
   padding: 24px;
   text-decoration: none;
-  width: auto;
   border-radius: 8px;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  
 }
 .footerHome{
   background-color:#1A202C;
+  width: 100%;
+  height: 50px;
 }
   /*Vista para movil*/
 
@@ -69,10 +80,12 @@
         background-color: aqua;
 
     }   
-    
-
-
 
   }
 
-  @media(max-width:1024px){}
+  /* @media(min-width:500px){
+    .container{
+      display: flex;
+      background-color:;
+    }
+  } */

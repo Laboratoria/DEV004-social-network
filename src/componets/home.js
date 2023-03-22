@@ -11,7 +11,7 @@ export const home = () => {
   buttonLogin.textContent = 'Iniciar sesiòn';
   buttonRegister.textContent = 'Regìstrate';
   welcome.textContent = 'Únete a la red de cuidadores más grande de Latinoamérica…';
-  img.setAttribute('id', 'logo');
+  img.setAttribute('class', 'logo');
   img.setAttribute('src', 'https://i.ibb.co/bWGQN64/REDA-1.png');
   welcome.setAttribute('class', 'welcome');
   square.setAttribute('class', 'square');
