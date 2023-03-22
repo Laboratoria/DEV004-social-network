@@ -1,14 +1,15 @@
+/* eslint-disable max-len */
 import { initializeApp } from 'firebase/app';
 import {
-  getFirestore, setDoc, doc, addDoc, collection,
+  collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy,
 } from 'firebase/firestore';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  onAuthStateChanged,
   signInWithPopup,
+  onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
 
@@ -27,7 +28,6 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 
 // FUNCIÓN REGISTRO
-// eslint-disable-next-line max-len
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
 // FUNCIÓN GUARADR DATOS USUARIO
@@ -40,22 +40,10 @@ export const savedUser = (displayName, email, password, petName, petSpecie, uid)
   uid,
 });
 
-/* inicio de sesión con email y contraseña */
 export const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
-/* inicio de sesión con google */
 const provider = new GoogleAuthProvider();
 export const loginWithGoogle = () => signInWithPopup(auth, provider);
-
-export const post = async (postText) => {
-  const docRef = await addDoc(collection(db, 'userpost'), {
-    text: postText,
-    userEmail: auth.currentUser.email,
-    userId: auth.currentUser.uid,
-    likes: [],
-  });
-  console.log('Document written with ID: ', docRef.id);
-};
 
 /* salir */
 export const logOut = () => signOut(auth);
@@ -64,3 +52,49 @@ export const logOut = () => signOut(auth);
 onAuthStateChanged(auth, (user) => {
   console.log(user);
 });
+
+/* leer posts */
+export const colRef = collection(db, 'userpost');
+
+/* guardar post */
+export const post = async (postText) => {
+  const docRef = await addDoc(collection(db, 'userpost'), {
+    text: postText,
+    userEmail: auth.currentUser.email,
+    userId: auth.currentUser.uid,
+    userName: auth.currentUser.displayName,
+    likes: [],
+  });
+  console.log('Document written with ID: ', docRef.id);
+};
+
+/* capturar post */
+export const readPosts = () => query(colRef, orderBy('dateCreated', 'desc'));
+export const listenToPosts = (callback) => {
+  onSnapshot(readPosts(), (snapshot) => {
+    const allPosts = [];
+    snapshot.docs.forEach((docPost) => {
+      allPosts.push({ ...docPost.data(), id: doc.id });
+    });
+    callback(allPosts);
+  });
+};
+
+export const read = getDocs(colRef);
+export const addPost = (callback) => {
+  onSnapshot(colRef, (snapshot) => {
+    const allPosts = [];
+    snapshot.docs.forEach((docPost) => {
+      allPosts.push({ ...docPost.data(), id: docPost.id });
+    });
+    callback(allPosts);
+  });
+};
+
+/* onSnapshot(colRef, (snapshot) => {
+  snapshot.docs.forEach((doc) => {
+    const post = { ...doc.data(), id: doc.id };
+    const postElement = createPostElement(post);
+    postsContainer.appendChild(postElement);
+  });
+}); */

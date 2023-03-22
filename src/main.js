@@ -1,7 +1,6 @@
 import { home } from './components/home.js';
 import { register } from './components/register';
 import { feed } from './components/feed';
-/* import { authStateChangedEvent } from './lib/firebase'; */
 
 const root = document.getElementById('root');
 const routes = {
