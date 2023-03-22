@@ -1,9 +1,13 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../lib/firebaseConfig';
+import { authGoogle } from '../lib/authentication';
+
 export const login = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const loginSection = document.createElement('section');
   const coverImg = document.createElement('img');
   const loginHeader = document.createElement('h1');
-  const nameInput = document.createElement('input');
+  const emailInput = document.createElement('input');
   const passwordLabel = document.createElement('label');
   const passwordInput = document.createElement('input');
   const loginBtn = document.createElement('button');
@@ -17,10 +21,10 @@ export const login = (onNavigate) => {
   coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
   coverImg.setAttribute('alt', 'LogoPetropolis');
 
-  nameInput.setAttribute('type', 'text');
-  nameInput.setAttribute('id', 'name');
-  nameInput.setAttribute('name', 'name');
-  nameInput.setAttribute('placeholder', 'Escribe tu nombre');
+  emailInput.setAttribute('type', 'text');
+  emailInput.setAttribute('id', 'emailInput');
+  emailInput.setAttribute('name', 'email');
+  emailInput.setAttribute('placeholder', 'Escribe tu correo');
 
   passwordLabel.setAttribute('id', 'password');
   passwordLabel.setAttribute('name', 'password');
@@ -40,18 +44,36 @@ export const login = (onNavigate) => {
   //* Aqui estamos agregando todo a la sección de SignInPage
   loginSection.appendChild(loginHeader);
   loginSection.appendChild(coverImg);
-  loginSection.appendChild(nameInput);
+  loginSection.appendChild(emailInput);
   loginSection.appendChild(passwordLabel);
   loginSection.appendChild(passwordInput);
   loginSection.appendChild(loginBtn);
   loginSection.appendChild(BtnGoogle);
 
   loginBtn.addEventListener('click', () => onNavigate('/welcome'));
-  // event.preventDefault(); // Prevenir el envío del formulario por defecto
-  //   const username = nameInput.value;
-  //   console.log(username);
-  //   const password = passwordInput.value;
-  //   console.log(password);
-  // });
+  loginSection.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    console.log(email, password);
+
+    try {
+      const UserCredentialsLogin = await signInWithEmailAndPassword(auth, email, password);
+      onNavigate('/welcome');
+      localStorage.setItem('name', emailInput.value);
+      // eslint-disable-next-line no-console
+      console.log(UserCredentialsLogin);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+  BtnGoogle.addEventListener('click', async () => {
+    try {
+      await authGoogle();
+      onNavigate('/welcome');
+    } catch (error) {
+      alert('Google error');
+    }
+  });
   return loginSection;
 };
