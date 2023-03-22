@@ -56,15 +56,17 @@ export const register = () => {
           const divErr = document.getElementById('divParaErrores');
           divErr.innerHTML = ('&#10060 &#128064 el e-mail no es válido');
         } else if (error.code === 'auth/weak-password') {
-          alert('password is too weak');
+          const divErr = document.getElementById('divParaErrores');
+          divErr.innerHTML = ('&#10060 &#128064 La contraseña es muy débil');
         } else if (error.code === 'auth/email-already-in-use') {
-          alert('Email already in use');
+          const divErr = document.getElementById('divParaErrores');
+          divErr.innerHTML = ('&#10060 &#128064 el e-mail ya está en uso');
         } else if (error.code) {
-          alert('Something went wrong');
+          const divErr = document.getElementById('divParaErrores');
+          divErr.innerHTML = ('&#10060 &#128064 Algo salió mal');
         }
       });
   });
   // pintar el formulario así en vez de "return div" es mas claro y funciona,
   return form;
-  
 };
