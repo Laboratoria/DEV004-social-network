@@ -7,6 +7,7 @@ export const welcome = (onNavigate) => {
   const divwelcome = document.createElement('div');
   const CircleLogo = document.createElement('img');
   const nextButton = document.createElement('button');
+  const logOutButton = document.createElement('button');
 
   //* Estamos asignandi atributos para todos los elementos creados.
 
@@ -33,12 +34,15 @@ export const welcome = (onNavigate) => {
   nextButton.setAttribute('id', 'nextButton');
   nextButton.setAttribute('alt', 'Next Button');
   nextButton.textContent = 'Continuar';
+
+  logOutButton.setAttribute('id', 'logOutButton');
+
   //* Aqui estamos agregando todo a la sección de SignInPage
   welcomeSection.appendChild(coverImg);
   welcomeSection.appendChild(welcomeContainer);
   welcomeSection.appendChild(divwelcome);
   divwelcome.appendChild(CircleLogo);
   divwelcome.appendChild(nextButton);
-  nextButton.addEventListener('click', () => onNavigate('/'));
+  nextButton.addEventListener('click', () => onNavigate('/timeline'));
   return welcomeSection;
 };

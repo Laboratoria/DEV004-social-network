@@ -1,10 +1,8 @@
-/* eslint-disable quotes */
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
-// eslint-disable-next-line import/no-unresolved
 } from 'firebase/auth';
 
 import { auth, provider } from './firebaseConfig';
