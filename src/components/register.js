@@ -89,6 +89,12 @@ export const register = (onNavigate) => {
       console.log(UserCredentials);
     } catch (error) {
       console.log(error);
+      if (error.code === 'auth/weak-password') {
+        alert('error en contraseña');
+      }
+      if (error.code === 'auth/email-already-in-use') {
+        alert('El correo ya está registrado');
+      }
     }
   });
 
