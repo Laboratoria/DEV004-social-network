@@ -102,6 +102,103 @@
   margin-top: 0%;
   font-size: 80%; 
 }
+/*vista register desktop*/
+body{
+  background-color:  #F1FAEE;
+  
+}
+.container{
+  display: flex;
+  background-color: #F1FAEE;
+  margin:0;
+  padding: 0%;
+  
+ 
+  
+}/*este serà el header*/
+#registerForm{
+  background-color: #B8D1E0;
+  display: flex;
+  width: 80%;
+  height: 80%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+  
+  
+  
+
+}
+.tituloReg{
+  margin-top: 5%;
+  color: red;
+}
+.containerTitulo{
+  
+  background-color: #E0EAF1;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  width: 100%;
+  display: flex;
+
+}
+.containerRegister{
+  
+  background-color: #E0EAF1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  
+  
+  margin-top: 0%;
+  margin-bottom: 1%;
+  width: 100%;
+  justify-self: right;
+  align-items: start;
+  
+  
+  
+}
+.labelsReg{ 
+  grid-row: 1/2;
+
+}
+  .footerReg{
+  display: flex;
+  justify-content: left;
+  
+  
+      
+}
+.contLogoReg{
+  background-color:#B8D1E0;
+
+}
+.logoReg{
+  display: flex;
+  width: 30%;
+  height: 30%;
+  margin-right: 45%;
+  margin-top: 0%;
+  margin-bottom: -5%;
+  
+}
+
+.labelReg{
+
+width: 80%;
+
+}
+.inputReg{
+width: 80%;
+height:60% ;
+display: grid;
+
+}
+
   /*Vista para movil*/
 
   @media(max-width:390px){
@@ -196,3 +293,100 @@
     font-size: 70%; 
   }
 }
+/*vista para movil reg*/
+
+
+@media(max-width:390px){
+  body{
+    background-color:  #F1FAEE;
+    
+  }
+  
+    
+   
+    
+  }/*este serà el header*/
+  #registerForm{
+    background-color: #B8D1E0;
+    display: grid;
+    width: 80%;
+    height: 80%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    
+      
+      justify-content: center;
+      align-items: center ;
+    
+    
+    
+
+  }
+  .tituloReg{
+    margin-top: 5%;
+    color: red;
+  }
+  .containerTitulo{
+    
+    background-color: #E0EAF1;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    width: 100%;
+    display: flex;
+
+  }
+  .containerRegister{
+    
+    background-color: #E0EAF1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    
+    
+    margin-top: 0%;
+    margin-bottom: 1%;
+    width: 100%;
+    justify-self: right;
+    align-items: start;
+    
+    
+    
+  }
+  .labelsReg{ 
+    grid-row: 1/2;
+
+  }
+    .footerReg{
+    display: flex;
+    justify-content: left;
+    
+    
+        
+  }
+  .contLogoReg{
+    background-color:#B8D1E0;
+
+  }
+  .logoReg{
+    display: flex;
+    width: 30%;
+    height: 30%;
+    margin-right: 45%;
+    margin-top: 0%;
+    margin-bottom: -5%;
+    
+  }
+}
+.labelReg{
+  
+  width: 80%;
+
+}
+.inputReg{
+  width: 80%;
+  height:60% ;
+  display: grid;
+  
+}
+
+    
