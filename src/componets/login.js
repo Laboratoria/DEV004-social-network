@@ -65,10 +65,12 @@ export const Login = () => {
           navigateTo('/home');
         },
         (error) => {
+          console.log(error.message);
+          console.log(error.code);
           if (error.code === 'auth/invalid-email') {
             alert('Invalid Email');//cambiar los alert por inner y no es equivalente al modal
-          } else if (error.code === 'auth/weak-password') {
-            alert('password is too weak');
+          } else if (error.code === 'auth/wrong-password') {
+            alert('Contraseña Incorrecta');
           } else if (error.code === 'auth/email-already-in-use') {
             alert('Email already in use');
           } else if (error.code) {
