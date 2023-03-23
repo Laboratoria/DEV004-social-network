@@ -4,8 +4,10 @@ export const timeline = () => {
   const headerHTML = document.createElement('header');
   const timelineSection = document.createElement('main');
   const headerTitle = document.createElement('nav');
+  const createPostSection = document.createElement('section');
   const profileImg = document.createElement('img');
-  const postSection = document.createElement('section');
+  const inputContainer = document.createElement('aside');
+  const inputPost = document.createElement('input');
   const postButton = document.createElement('button');
   const homeIcon = document.createElement('img');
   const profileIcon = document.createElement('img');
@@ -17,12 +19,17 @@ export const timeline = () => {
   headerHTML.setAttribute('id', 'headerHTML');
   timelineSection.setAttribute('id', 'timelineSection');
 
+  createPostSection.setAttribute('id', 'createPostSection');
+
   headerTitle.setAttribute('id', 'headerTitle');
   headerTitle.textContent = 'timeline';
+
   profileImg.setAttribute('id', 'profileImg');
   profileImg.setAttribute('src', '../Img/CircleLogo.png');
 
-  postSection.setAttribute('id', 'postSection');
+  inputContainer.setAttribute('id', 'inputContainer');
+
+  inputPost.setAttribute('id', 'inputPost');
 
   postButton.setAttribute('id', 'postButton');
   postButton.textContent = 'Publicar';
@@ -46,9 +53,12 @@ export const timeline = () => {
   headerHTML.appendChild(headerTitle);
 
   bodyHTML.appendChild(timelineSection);
-  timelineSection.appendChild(profileImg);
-  timelineSection.appendChild(postSection);
-  timelineSection.appendChild(postButton);
+  timelineSection.appendChild(createPostSection);
+
+  createPostSection.appendChild(profileImg);
+  createPostSection.appendChild(inputContainer);
+  inputContainer.appendChild(inputPost);
+  inputContainer.appendChild(postButton);
 
   bodyHTML.appendChild(footerHMTL);
   footerHMTL.appendChild(homeIcon);
