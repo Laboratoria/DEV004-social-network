@@ -8,7 +8,7 @@ export const register = () => {
       <h1>Registro de Usuario</h1>
 
       <label for="name"><b>Nombre</b></label>
-      <input type="text" placeholder="Escribe tu nombre" name="name" id="name" required>
+      <input type="text" placeholder="Escribe tu nombre" name="name" id="name" >
       
       <label for="email"><b>Correo electrónico</b></label>
       <input type="text" placeholder="Correo electrónico" name="email" id="email" required>
@@ -17,13 +17,13 @@ export const register = () => {
       <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
       <label for="nationality"><b>Nacionalidad</b></label>
-      <input type="text" placeholder="Nacionalidad" name="nationality" id="nationality" required>
+      <input type="text" placeholder="Nacionalidad" name="nationality" id="nationality">
 
       <label for="Bdate"><b>Fecha de Nacimiento</b></label>
-      <input type="date" placeholder="Fecha de nacimiento" name="Bdate" id="Bdate" required>
+      <input type="date" placeholder="Fecha de nacimiento" name="Bdate" id="Bdate">
 
       <label for="ocupation"><b>Ocupación</b></label>
-      <input type="text" placeholder="Ocupación" name="ocupation" id="ocupation" required>
+      <input type="text" placeholder="Ocupación" name="ocupation" id="ocupation">
 
       <label for="RedaRol"><b>Tu rol en Reda</b></label>
       <select name=RedaRol>
@@ -34,6 +34,7 @@ export const register = () => {
     <div class="bottom-container">
       </div>
     </div>
+    <div id="divParaErrores"></div>
   </form>`;
   // aca metí el form en una constante para que sea mas claro
   const form = div.querySelector('#registerForm');
@@ -52,13 +53,17 @@ export const register = () => {
         console.log(error.code);
         // eslint-disable-next-line no-lone-blocks
         if (error.code === 'auth/invalid-email') {
-          alert('Invalid Email');
+          const divErr = document.getElementById('divParaErrores');
+          divErr.innerHTML = ('&#10060 &#128064 el e-mail no es válido');
         } else if (error.code === 'auth/weak-password') {
-          alert('password is too weak');
+          const divErr = document.getElementById('divParaErrores');
+          divErr.innerHTML = ('&#10060 &#128064 La contraseña es muy débil');
         } else if (error.code === 'auth/email-already-in-use') {
-          alert('Email already in use');
+          const divErr = document.getElementById('divParaErrores');
+          divErr.innerHTML = ('&#10060 &#128064 el e-mail ya está en uso');
         } else if (error.code) {
-          alert('Something went wrong');
+          const divErr = document.getElementById('divParaErrores');
+          divErr.innerHTML = ('&#10060 &#128064 Algo salió mal');
         }
       });
   });
