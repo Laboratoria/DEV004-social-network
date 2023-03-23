@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { home } from '../src/components/home';
 import { register } from '../src/components/register';
 import { auth } from '../src/lib/firebaseConfig';
+import { login } from '../src/components/login';
 
 describe('home', () => {
   it('se agregan los elementos HTML a la sección de inicio correctamente', async () => {
@@ -20,6 +21,32 @@ describe('home', () => {
     expect(loginButton.textContent).toBe('Iniciar Sesión');
     expect(signInButton.textContent).toBe('Registrarse');
     expect(ImgLove.getAttribute('src')).toBe('./Img/AM LOS ANIMALES.png');
+  });
+  it('si el usuario llama al evento clic  manda llamar la funcion onNavigate con el parametro register', async () => {
+    const onNavigate = jest.fn();
+    const signInButton = document.createElement('button');
+
+    await home(onNavigate);
+    signInButton.dispatchEvent(new Event('click'));
+
+    setTimeout(() => {
+      expect(onNavigate).toHaveBeenCalledWith('/register');
+      // eslint-disable-next-line no-undef
+      done();
+    }, 0);
+  });
+  it('si el usuario llama al evento clic  manda llamar la funcion onNavigate con el parametro login', async () => {
+    const onNavigate = jest.fn();
+    const loginButton = document.createElement('button');
+
+    await home(onNavigate);
+    loginButton.dispatchEvent(new Event('click'));
+
+    setTimeout(() => {
+      expect(onNavigate).toHaveBeenCalledWith('/login');
+      // eslint-disable-next-line no-undef
+      done();
+    }, 0);
   });
 });
 jest.mock('firebase/auth');
@@ -80,6 +107,24 @@ describe('register', (done) => {
 
     setTimeout(() => {
       expect(onNavigate).toHaveBeenCalledWith('/login');
+      done();
+    }, 0);
+  });
+});
+
+jest.mock('firebase/auth');
+
+describe('login', (done) => {
+  it('si el usuario inicia sesión  correctamente debe mandar llamar la funcion onNavigate con el parametro welcome', async () => {
+    const onNavigate = jest.fn();
+    const loginBtn = document.createElement('button');
+
+    await login(onNavigate);
+    loginBtn.dispatchEvent(new Event('click'));
+
+    setTimeout(() => {
+      expect(onNavigate).toHaveBeenCalledWith('/welcome');
+      // eslint-disable-next-line no-undef
       done();
     }, 0);
   });
