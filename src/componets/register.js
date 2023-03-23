@@ -5,11 +5,18 @@ export const register = () => {
   const div = document.createElement('div');
 
   div.innerHTML = `<form id="registerForm">
-  <img src= 'https://i.ibb.co/bWGQN64/REDA-1.png' class = 'logoReg' alt = 'Logo Reda'>
-    
+ 
+  
+ <div class= 'contLogoReg'>
+  <img class='logoReg' src="https://i.ibb.co/bWGQN64/REDA-1.png" alt="REDA-1"'> 
+  </div>   
+  <div class= 'containerTitulo'> 
+  <h1 class= 'tituloReg'>  Registro de Usuario</h1>
+  </div>
     <div class="containerRegister">
+
     
-      <h1>Registro de Usuario</h1>
+      
 
       <label for="name" class='labelReg'> <b>Nombre</b></label>
       <input type="text" placeholder="Escribe tu nombre" name="name" id="name" class='inputReg'>
