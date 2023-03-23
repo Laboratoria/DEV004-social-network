@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;400&family=Babylonica&family=Delius&family=Fredoka+One&family=Roboto:ital@1&display=swap');
+
 * {
+  
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -10,7 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: "Roboto";
+  /* font-family: "Roboto"; */
   background-color: #fee0d5;
 }
 
