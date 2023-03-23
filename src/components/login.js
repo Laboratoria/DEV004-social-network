@@ -50,17 +50,16 @@ export const login = (onNavigate) => {
   loginSection.appendChild(loginBtn);
   loginSection.appendChild(BtnGoogle);
 
-  loginBtn.addEventListener('click', () => onNavigate('/welcome'));
   loginSection.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = emailInput.value;
     const password = passwordInput.value;
     console.log(email, password);
-
+    signInWithEmailAndPassword(auth, email, password);
     try {
       const UserCredentialsLogin = await signInWithEmailAndPassword(auth, email, password);
       onNavigate('/welcome');
-      localStorage.setItem('name', emailInput.value);
+
       // eslint-disable-next-line no-console
       console.log(UserCredentialsLogin);
     } catch (error) {
