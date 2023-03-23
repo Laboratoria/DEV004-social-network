@@ -196,3 +196,61 @@
     font-size: 70%; 
   }
 }
+/*vista para movil reg*/
+
+
+@media(max-width:390px){
+  body{
+    background-color: #FFB703;
+    
+  }
+  .container{
+    display: flex;
+    background-color: rebeccapurple;
+    margin:0;
+    padding: 0%;
+    
+   
+    
+  }/*este serà el header*/
+  #registerForm{
+    background-color: aqua;
+    display: flex;
+    width: 80%;
+    height: 80%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    flex-direction: column;
+      
+      justify-content: center;
+      align-items: center;
+    
+    
+    
+
+  }
+  .containerRegister{
+    
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+    margin-bottom: 15%;
+    
+    
+  }
+  .footerReg{
+    display: flex;
+    
+        
+  }
+  .logoReg{
+    width: 15%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+    

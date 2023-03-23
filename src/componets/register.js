@@ -3,38 +3,43 @@ import { navigateTo } from '../router.js';
 
 export const register = () => {
   const div = document.createElement('div');
+
   div.innerHTML = `<form id="registerForm">
+  <img src= 'https://i.ibb.co/bWGQN64/REDA-1.png' class = 'logoReg' alt = 'Logo Reda'>
+    
     <div class="containerRegister">
+    
       <h1>Registro de Usuario</h1>
 
-      <label for="name"><b>Nombre</b></label>
-      <input type="text" placeholder="Escribe tu nombre" name="name" id="name" >
+      <label for="name" class='labelReg'> <b>Nombre</b></label>
+      <input type="text" placeholder="Escribe tu nombre" name="name" id="name" class='inputReg'>
       
-      <label for="email"><b>Correo electrónico</b></label>
-      <input type="text" placeholder="Correo electrónico" name="email" id="email" required>
+      <label for="email" class='labelReg' ><b>Correo electrónico</b></label>
+      <input type="text" placeholder="Correo electrónico" name="email" id="email" required class='inputReg'>
      
-      <label for="psw"><b>Contraseña</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+      <label for="psw" class='labelReg'><b>Contraseña</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required class='inputReg'>
 
-      <label for="nationality"><b>Nacionalidad</b></label>
-      <input type="text" placeholder="Nacionalidad" name="nationality" id="nationality">
+      <label for="nationality" class='labelReg'><b>Nacionalidad</b></label>
+      <input type="text" placeholder="Nacionalidad" name="nationality" id="nationality" class='inputReg'>
 
-      <label for="Bdate"><b>Fecha de Nacimiento</b></label>
-      <input type="date" placeholder="Fecha de nacimiento" name="Bdate" id="Bdate">
+      <label for="Bdate" class='labelReg'><b>Fecha de Nacimiento</b></label>
+      <input type="date" placeholder="Fecha de nacimiento" name="Bdate" id="Bdate" class='inputReg'>
 
-      <label for="ocupation"><b>Ocupación</b></label>
-      <input type="text" placeholder="Ocupación" name="ocupation" id="ocupation">
+      <label for="ocupation" class='labelReg'><b>Ocupación</b></label>
+      <input type="text" placeholder="Ocupación" name="ocupation" id="ocupation" class='inputReg'>
 
-      <label for="RedaRol"><b>Tu rol en Reda</b></label>
+      <label for="RedaRol" class='labelReg'><b>Tu rol en Reda</b></label>
       <select name=RedaRol>
-      <option value= "expert">Especialista</option>
-      <option value= "carer">Cuidador</option>
+      <option value= "expert" class='optionReg'>Especialista</option>
+      <option value= "carer" class='optionReg'>Cuidador</option>
       <input type="submit" id="btnregister" value="Register"/>
     </div>   
     <div class="bottom-container">
       </div>
     </div>
     <div id="divParaErrores"></div>
+    <div class='footerReg'<p>Reda©️</p> </div>
   </form>`;
   // aca metí el form en una constante para que sea mas claro
   const form = div.querySelector('#registerForm');
@@ -42,8 +47,8 @@ export const register = () => {
     e.preventDefault();
 
     console.log('hola', e.target);
-    const email = e.target.email.value;
-    const password = e.target.psw.value;
+    const email = e.target.elements.email.value;
+    const password = e.target.elements.psw.value;
     registerWithEmail(email, password)
       .then((useCredential) => {
         navigateTo('/home');
