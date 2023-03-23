@@ -5,28 +5,33 @@ export const Login = () => {
   // Create a div element to hold the login component
   const div = document.createElement('div');
   div.innerHTML = `<form id="loginForm">
-    <div class='container'>
-      <div class="row">
-      <h1>Ingresa a Reda</h1>
-      
-      <label for="username"><b>Correo electrónico</b></label>
-      <input type="text" placeholder="Correo electrónico" name="username" id="username" required>
-     
-      <label for="psw"><b>Contraseña</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+  <div class='container'>
 
-      <a href="#" class="google btn"><i class="fa fa-google fa-fw">
-            </i> Login with Google+
-          </a>
+    <div class='loginTitle'>
+      <h1>Ingresa a Reda</h1>
     </div>
-  </div>
-  <div class="bottom-container">
-    <div class="row">
-      <div class="col">
-        <!-- <a href="#" style="color:green" class="enviar btn">Enviar</a> -->
-        <button class="enviar btn">Enviar</button>
-      </div>
+
+    <div class="imputLogin">
+      <label  for="username"><b>Correo electrónico</b></label>
+      <input type="text" placeholder="Correo electrónico" name="username" id="username" required>
     </div>
+    
+    <div>
+    <label class="imputLogin" for="psw"><b>Contraseña</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+    </div>
+
+   <div class="sendBtn">
+    <button class="enviar btn">Enviar</button>
+    </div>
+    <div class="googleBtn">
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a href="#" class="google btn"><i  class="fa fa-google fa-fw">
+            </i> <img src= 'https://i.ibb.co/1nDpBf4/btn-google-signin-light-pressed-web.png'></a>
+    </div>
+</div>
+</div>
+</div>
     <div class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
