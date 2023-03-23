@@ -11,6 +11,7 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -30,6 +31,10 @@ export const db = getFirestore(app);
 // FUNCIÓN REGISTRO
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
+// Guardar Display Name
+export const updateName = (displayName) => {
+  updateProfile(auth.currentUser, { displayName });
+};
 // FUNCIÓN GUARADR DATOS USUARIO
 export const savedUser = (displayName, email, password, petName, petSpecie, uid) => setDoc(doc(db, 'users', uid), {
   displayName,

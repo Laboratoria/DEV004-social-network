@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import { createUser, savedUser } from '../lib/firebase';
+import { createUser, savedUser, updateName } from '../lib/firebase';
 
 const root = document.getElementById('root');
 export const register = () => {
@@ -35,14 +35,12 @@ export const register = () => {
     createUser(signUpEmail, signUpPassword)
       .then((usercredentials) => {
         const user = usercredentials.user;
+        updateName(displayName);
+        console.log(user);
         return savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
       })
       .then(() => {
         window.location.href = '/feed';
-      })
-      // eslint-disable-next-line consistent-return
-      .catch((error) => {
-        
       });
   });
 
