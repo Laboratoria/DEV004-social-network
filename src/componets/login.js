@@ -44,7 +44,7 @@ export const Login = () => {
     signInWithGoogle()
       .then(
         (useCredential) => {
-          navigateTo('/home');
+          navigateTo('/feed');
           console.log(useCredential);
         },
         (error) => {
