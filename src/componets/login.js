@@ -5,18 +5,19 @@ export const Login = () => {
   // Create a div element to hold the login component
   const div = document.createElement('div');
   div.innerHTML = `<form id="loginForm">
-    <div class='logo'>
-    <img src= 'https://i.ibb.co/bWGQN64/REDA-1.png' class = 'logoReg' alt = 'Logo Reda'>
+  <div class='contenedorMadre'>
+    <div class='contenedorlogo'>
+    <img src= 'https://i.ibb.co/bWGQN64/REDA-1.png' class = 'loginlogo' alt = 'Logo Reda'>
     </div>
     <h1>Ingresa a Reda</h1>
-    <div class="imputLogin">
-      <label  for="username"><b>Correo electrónico</b></label>
+    <div class="inputLogin">
+      <label class='labelogin'  for="username"><b>Correo electrónico</b></label>
       <input type="text" placeholder="Correo electrónico" name="username" id="username" required>
-      <label for="psw"><b>Contraseña</b></label>
+      <label class='labelogin'for="psw"><b>Contraseña</b></label>
       <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
     </div>
    <div class="sendBtn">
-    <button class="enviar btn">Enviar</button>
+    <button class="btnEnviarLogin">Enviar</button>
     </div>
     <div class="googleBtn">
       <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -30,6 +31,7 @@ export const Login = () => {
         <p></p>
       </div>
     </div>
+  </div>
   </form>`;
   // Function to open modal
   const openModal = (message) => {
@@ -53,7 +55,7 @@ export const Login = () => {
       );
   });
   // para accionar el boton enviar
-  div.querySelector('.enviar').addEventListener('click', (e) => {
+  div.querySelector('.btnEnviarLogin').addEventListener('click', (e) => {
     e.preventDefault();
     e.preventDefault();
     const username = div.querySelector('#username').value;
