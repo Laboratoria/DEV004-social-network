@@ -4,7 +4,7 @@ import { authGoogle } from '../lib/authentication';
 
 export const login = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
-  const loginSection = document.createElement('section');
+  const loginSection = document.createElement('form');
   const coverImg = document.createElement('img');
   const loginHeader = document.createElement('h1');
   const emailInput = document.createElement('input');
@@ -35,6 +35,7 @@ export const login = (onNavigate) => {
   passwordInput.setAttribute('name', 'password');
 
   loginBtn.setAttribute('id', 'loginBtn');
+  loginBtn.setAttribute('type', 'submit');
   loginBtn.textContent = 'Entrar';
 
   BtnGoogle.setAttribute('id', 'BtnGoogle');
@@ -55,15 +56,19 @@ export const login = (onNavigate) => {
     const email = emailInput.value;
     const password = passwordInput.value;
     console.log(email, password);
-    signInWithEmailAndPassword(auth, email, password);
     try {
       const UserCredentialsLogin = await signInWithEmailAndPassword(auth, email, password);
       onNavigate('/welcome');
-
       // eslint-disable-next-line no-console
       console.log(UserCredentialsLogin);
     } catch (error) {
       console.log(error);
+      if (error.code === 'auth/wrong-password') {
+        alert('Contraseña invalida');
+      }
+      if (error.code === 'auth/invalid-email') {
+        alert('Correo invalido');
+      }
     }
   });
   BtnGoogle.addEventListener('click', async () => {
