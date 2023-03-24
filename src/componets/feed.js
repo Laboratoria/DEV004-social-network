@@ -1,5 +1,5 @@
 import { navigateTo } from '../router';
-
+import {createpost} from '../lib/firebase.js';
 export const feed = () => {
   const square = document.createElement('div');
   const button = document.createElement('button');
@@ -9,5 +9,11 @@ export const feed = () => {
     navigateTo('/home');
   });
 
+
+
+
+
+  
   return square;
+
 };
