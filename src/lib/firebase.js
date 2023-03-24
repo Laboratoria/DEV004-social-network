@@ -2,7 +2,9 @@
 // el taller considera una funcion donde estan todos los servicios de firebase y la importa, nosotras no.
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-// import { getFirestore } from 'firebase/firestore';
+//1 importar firestore
+import { getFirestore } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,12 +20,23 @@ const firebaseConfig = {
 
 // Initialize Firebase
 // tutorial utiliza export, taller lo une todo en una sola funcion y la exporta. 
-//se inicilza
+//2se inicializa
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+// Initialize Cloud Firestore and get a reference to the service
+export const db = getFirestore(app);
+
 //functiòn crear post que reciba los paràmetros y exportarla e importarla a el fedd
 //a qui pondrìa los parametros internos consultar
 //export const createPost = (titulo, descripcion) => { ... addDoc  
+export const createpost = (titulo, descripcion) => {
+  return addDoc(collection(db, "post"), {
+    titulo: 'Titulo',
+    descripcion: 'descripcion'
+  });
+
+}
+
 
 
 // // Initialize Cloud Firestore and get a reference to the service
