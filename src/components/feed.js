@@ -1,6 +1,6 @@
 /* import { signOut } from 'firebase/auth'; */
 import {
-  post, auth, logOut, read, addPost, listenToPosts
+  post, auth, logOut, addPost, deleteDocData,
 } from '../lib/firebase';
 
 const root = document.getElementById('root');
@@ -41,13 +41,20 @@ export const feed = () => {
     const statusDescription = feedDiv.querySelector('#status-description');
     const postText = statusDescription.value;
 
+    const validatePost = document.getElementById('status-description').value;
+    if (validatePost === '') {
+      alert('Ingrese post');
+      return false;
+    }
+
     await post(postText);
     statusDescription.value = '';
   });
 
+  /*   Mostrar post en timeline */
   const postsContainer = document.getElementById('posts-container');
-
   addPost((posts) => {
+    postsContainer.innerHTML = '';
     posts.forEach((feedPosts) => {
       const postElement = document.createElement('div');
       postElement.classList.add('eachPost');
@@ -59,6 +66,18 @@ export const feed = () => {
       const textElement = document.createElement('p3');
       textElement.textContent = feedPosts.text;
       postElement.appendChild(textElement);
+
+      const deleteButton = document.createElement('button');
+      deleteButton.classList.add('delete-btn');
+      deleteButton.textContent = 'Eliminar';
+      deleteButton.value = feedPosts.id;
+      deleteButton.addEventListener('click', () => {
+        const shouldDelete = window.confirm('¿Estás seguro de que deseas eliminar este post?');
+        if (shouldDelete) {
+          deleteDocData(feedPosts.id);
+        }
+      });
+      postElement.appendChild(deleteButton);
 
       postsContainer.appendChild(postElement);
     });

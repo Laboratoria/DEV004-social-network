@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 import { initializeApp } from 'firebase/app';
-import { collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy } from 'firebase/firestore';
+import {
+  collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy, deleteDoc,
+} from 'firebase/firestore';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -8,7 +10,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
-  signOut
+  signOut,
+  updateProfile,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -27,6 +30,10 @@ export const db = getFirestore(app);
 
 // FUNCIÓN REGISTRO
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+
+export const updateName = (displayName) => {
+  updateProfile(auth.currentUser, { displayName });
+};
 
 // FUNCIÓN GUARADR DATOS USUARIO
 export const savedUser = (displayName, email, password, petName, petSpecie, uid) => setDoc(doc(db, 'users', uid), {
@@ -49,7 +56,7 @@ export const logOut = () => signOut(auth);
 /* cambiar el status */
 onAuthStateChanged(auth, (user) => {
   console.log(user);
-})
+});
 
 /* leer posts */
 export const colRef = collection(db, 'userpost');
@@ -67,18 +74,17 @@ export const post = async (postText) => {
 };
 
 /* capturar post */
-export const readPosts = () => {
-  return query(colRef, orderBy('dateCreated', 'desc'));
-  }
-  export const listenToPosts = (callback) => {
+export const readPosts = () => query(colRef, orderBy('dateCreated', 'desc'));
+export const listenToPosts = (callback) => {
   onSnapshot(readPosts(), (snapshot) => {
-  const allPosts = [];
-  snapshot.docs.forEach((doc) => {
-  allPosts.push({ ...doc.data(), id: doc.id });
+    const allPosts = [];
+    snapshot.docs.forEach((doc) => {
+      allPosts.push({ ...doc.data(), id: doc.id });
+    });
+    callback(allPosts);
   });
-  callback(allPosts);
-  });
-  };
+};
+/* Añadir post */
 export const read = getDocs(colRef);
 export const addPost = (callback) => {
   onSnapshot(colRef, (snapshot) => {
@@ -91,12 +97,7 @@ export const addPost = (callback) => {
 };
 
 
+export const deleteDocData = async (id) => {
+  await deleteDoc(doc(db, 'userpost', id));
+};
 
-
-/* onSnapshot(colRef, (snapshot) => {
-  snapshot.docs.forEach((doc) => {
-    const post = { ...doc.data(), id: doc.id };
-    const postElement = createPostElement(post);
-    postsContainer.appendChild(postElement);
-  });
-}); */

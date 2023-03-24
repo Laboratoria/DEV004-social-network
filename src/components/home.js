@@ -28,30 +28,33 @@ export const home = () => {
   submitButton.addEventListener('click', () => {
     const signInEmail = document.getElementById('email').value;
     const signInPassword = document.getElementById('password').value;
-    const validateEmail = /\S+@\S+/.test(signInEmail);
+    const formOK = validateDataHome();
+    if (!formOK) {
+      return;
+    }
     signIn(signInEmail, signInPassword)
       .then((usercredentials) => {
         const user = usercredentials.user;
         localStorage.setItem('idUser', user);
         window.location.href = '/feed';
       })
-      .catch((error) => {
-        if (signInEmail === '') {
-          // eslint-disable-next-line no-alert
-          alert('Ingrese su email');
-          return false;
-        } if (signInPassword === '') {
-          // eslint-disable-next-line no-alert
-          alert('Ingrese su contraseña');
-          return false;
-        } if (validateEmail === false) {
-          // eslint-disable-next-line no-alert
-          alert('Ingrese email correcto');
-          return false;
-        }
-        return error;
-      });
+      .catch((error) => error);
   });
+  function validateDataHome() {
+    const signInEmail = document.getElementById('email').value;
+    const signInPassword = document.getElementById('password').value;
+    const validateEmail = /\S+@\S+/.test(signInEmail);
+    if (signInEmail === '') {
+      alert('Ingrese su email');
+      return false;
+    } if (signInPassword === '') {
+      alert('Ingrese su contraseña');
+      return false;
+    } if (validateEmail === false) {
+      alert('Ingrese email correcto');
+      return false;
+    }
+  }
 
   const submitGoogle = document.getElementById('google');
   submitGoogle.addEventListener('click', () => {
