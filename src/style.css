@@ -105,7 +105,6 @@
 /*login*/
 
 #loginForm {
-  background-color: red;
   display: flex;
   width: 100%;
   height: 100%;
@@ -113,17 +112,17 @@
   
 }   
 .contenedorMadre{
-  background-color: #113247;
+  background-color: #E0EAF1;
   display: flex;
   width:30em;
-  height: 35em;
+  height: 33em;
   justify-content: center;
   align-items: center ;
   flex-direction: column;
     
 }
 .contenedorlogo{
-  background-color: #379bd8;
+  background-color: #B8D1E0;
   width: 30em ;
   height: 20em;
   display: flex;
@@ -138,19 +137,21 @@
   margin-top: 0%;
 }
 h1{
-display: flex;
-text-align: center;
-font-size: 1.5em;
-justify-content: center;
-margin-bottom: 7%;
+  color: #1d3557; 
+  font-size: 1.5em;
+  font-weight: 600;
+  display: flex;
+  margin: 10%;
+  margin-top: 10%;
+  margin-bottom: 5%;
 }
 .labelogin{
-  background-color:#b00650;
+  background-color: #1d3557;
+  color:  #B8D1E0;
   
 }
 .inputLogin{
   display: flex;
-  background-color: #FFB703;
   text-align: center;
   width: 80%;
   height: 25%;

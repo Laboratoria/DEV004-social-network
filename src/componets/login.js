@@ -9,12 +9,12 @@ export const Login = () => {
     <div class='contenedorlogo'>
       <img src= 'https://i.ibb.co/bWGQN64/REDA-1.png' class='loginLogo' alt='Logo Reda' />
     </div>
-    <h1>Ingresa a Reda</h1>
+    <h1>Únete a la red de cuidadores más grande de Latinoamérica…</h1>
     <div class="inputLogin">
-      <label class='labelogin'  for="username"><b>Correo electrónico</b></label>
+      <label class='labelogin'  for="username"><b>Usuario</b></label>
       <input type="text" placeholder="Correo electrónico" name="username" id="username" required>
       <label class='labelogin'for="psw"><b>Contraseña</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+      <input type="password" placeholder="Contraseña" name="psw" id="psw" required>
     </div>
    <div class="sendBtn">
     <button class="btnEnviarLogin">Enviar</button>
