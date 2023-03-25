@@ -7,7 +7,7 @@ export const Login = () => {
   div.innerHTML = `<form id="loginForm">
   <div class='contenedorMadre'>
     <div class='contenedorlogo'>
-    <img src= 'https://i.ibb.co/bWGQN64/REDA-1.png' class = 'loginlogo' alt = 'Logo Reda'>
+      <img src= 'https://i.ibb.co/bWGQN64/REDA-1.png' class='loginLogo' alt='Logo Reda' />
     </div>
     <h1>Ingresa a Reda</h1>
     <div class="inputLogin">
@@ -24,6 +24,8 @@ export const Login = () => {
       <a href="#" class="google btn"><i  class="fa fa-google fa-fw">
             </i> <img src= 'https://i.ibb.co/1nDpBf4/btn-google-signin-light-pressed-web.png'></a>
     </div>
+    <div id="wrong"></div>
+    <div class='footerlog'<p>Reda©️</p> </div>
 </div>
     <div class="modal">
       <div class="modal-content">
@@ -32,14 +34,18 @@ export const Login = () => {
       </div>
     </div>
   </div>
+  <div id="wrong"></div>
   </form>`;
   // Function to open modal
   const openModal = (message) => {
     div.querySelector('.modal').style.display = 'block';
     div.querySelector('.modal-content > p:nth-child(2)').textContent = message;
-  };//cambiar el text contente por el inner para probar que pasa 
-
+  };// cambiar el text contente por el inner para probar que pasa
   // Add event listeners to the login component
+  // const wrongAnswerd = (stop) => {
+  //   div.querySelector('.wrong').style.display = 'block';
+  //   div.querySelector('.modal-content > p:nth-child(2)').innerHTML = stop;
+  // };
 
   div.querySelector('.google').addEventListener('click', (e) => {
     e.preventDefault();
@@ -69,14 +75,15 @@ export const Login = () => {
         (error) => {
           console.log(error.message);
           console.log(error.code);
-          if (error.code === 'auth/invalid-email') {
-            alert('Invalid Email');//cambiar los alert por inner y no es equivalente al modal
+          if (error.code === 'auth/user-not-found') {
+            const wrong = document.getElementById('wrong');
+            wrong.innerHTML = ('&#10060 &#128064 Correo Invalido');//cambiar los alert por inner y no es equivalente al modal
           } else if (error.code === 'auth/wrong-password') {
-            alert('Contraseña Incorrecta');
-          } else if (error.code === 'auth/email-already-in-use') {
-            alert('Email already in use');
+            const wrong = document.getElementById('wrong');
+            wrong.innerHTML = ('Contraseña Incorrecta');
           } else if (error.code) {
-            alert('Something went wrong');
+            const wrong = document.getElementById('wrong');
+            wrong.innerHTML = ('Ups! Algo salio mal');
           }
         },
       );
@@ -84,7 +91,7 @@ export const Login = () => {
 
   div.querySelector('.close').addEventListener('click', (e) => {
     e.preventDefault();
-    div.querySelector('.modal').style.display = 'none';
+    div.querySelector('.modal,').style.display = 'none';
   });
 
   // Return the div element
