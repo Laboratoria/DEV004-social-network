@@ -1,5 +1,5 @@
 import {
-  post, auth, logOut, addPost,
+  post, auth, logOut, addPost, deleteDocData, updatePost,
 } from '../lib/firebase';
 
 const root = document.getElementById('root');
@@ -8,7 +8,8 @@ export const feed = () => {
   feedDiv.classList.add('feed-container');
   feedDiv.innerHTML += `
     <header id='head-feed'>
-      <h1></h1><button class='logout'>salir</button>
+      <img src="./img/logo.png" id="logo">
+      <img src="./img/salir.png" id="logout">
     </header>
     <section class='timeline'>
       <section class='create-post-container'>
@@ -25,7 +26,7 @@ export const feed = () => {
   root.appendChild(feedDiv);
 
   /*   Botón para salir */
-  const logOutButton = document.querySelector('.logout');
+  const logOutButton = document.querySelector('#logout');
   logOutButton.addEventListener('click', () => {
     logOut(auth).then(() => {
       window.location.href = '/';
@@ -55,11 +56,65 @@ export const feed = () => {
       const userNameElement = document.createElement('p1');
       userNameElement.textContent = feedPosts.userName;
       postElement.appendChild(userNameElement);
+      userNameElement.innerHTML += '<br>';
 
       const textElement = document.createElement('p3');
       textElement.textContent = feedPosts.text;
       postElement.appendChild(textElement);
 
+      // Editar Post
+      const updateButton = document.createElement('button');
+      updateButton.classList.add('update-btn');
+      updateButton.textContent = 'Editar';
+      updateButton.value = feedPosts.id;
+
+      const editSection = document.createElement('section');
+      editSection.classList.add('edit.section');
+      editSection.style.display = 'none';
+      postElement.appendChild(editSection);
+
+      const updateInput = document.createElement('input');
+      updateInput.classList.add('update-input');
+      updateInput.id = 'new-post';
+      updateInput.text = feedPosts.text;
+      editSection.appendChild(updateInput);
+
+      const saveButton = document.createElement('button');
+      saveButton.classList.add('save-btn');
+      saveButton.textContent = 'Guardar cambio';
+      editSection.appendChild(saveButton);
+
+      const cancelButton = document.createElement('button');
+      saveButton.classList.add('cancel-btn');
+      cancelButton.textContent = 'Cancelar';
+      editSection.appendChild(cancelButton);
+
+      updateButton.addEventListener('click', () => {
+        updateInput.style.display = '';
+      });
+      saveButton.addEventListener('click', () => {
+        const newPostText = document.getElementById('new-post');
+        updatePost(feedPosts.id, { text: newPostText.value });
+      });
+      cancelButton.addEventListener('click', () => {
+        window.location.href = '/feed';
+      });
+      postElement.appendChild(updateButton, editSection);
+
+      // Borrar Post
+      const deleteButton = document.createElement('button');
+      deleteButton.classList.add('delete-btn');
+      deleteButton.textContent = 'Eliminar';
+      deleteButton.value = feedPosts.id;
+      deleteButton.addEventListener('click', () => {
+        const shouldDelete = window.confirm('¿Estás seguro de que deseas eliminar este post?');
+        if (shouldDelete) {
+          deleteDocData(feedPosts.id);
+        }
+      });
+      postElement.appendChild(deleteButton);
+
+      postsContainer.appendChild(postElement);
       postsContainer.appendChild(postElement);
     });
   });

@@ -35,8 +35,9 @@ export const register = () => {
     createUser(signUpEmail, signUpPassword)
       .then((usercredentials) => {
         const user = usercredentials.user;
-        updateName(displayName);
-        console.log(user);
+        if (displayName) {
+          updateName(displayName);
+        }
         return savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
       })
       .then(() => {

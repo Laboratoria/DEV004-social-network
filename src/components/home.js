@@ -1,5 +1,4 @@
 import {
-  createUser,
   loginWithGoogle,
   signIn,
 } from '../lib/firebase';
@@ -58,7 +57,7 @@ export const home = () => {
     loginWithGoogle().then((result) => {
       const user = result.user;
       localStorage.setItem('user', JSON.stringify(user));
-      createUser(user, user.displayName);
+      window.location.href = '/feed';
     }); /* .catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;

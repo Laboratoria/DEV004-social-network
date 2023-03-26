@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { initializeApp } from 'firebase/app';
 import {
-  collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy,
+  collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy, serverTimestamp, deleteDoc, updateDoc,
 } from 'firebase/firestore';
 import {
   getAuth,
@@ -54,9 +54,7 @@ export const loginWithGoogle = () => signInWithPopup(auth, provider);
 export const logOut = () => signOut(auth);
 
 /* cambiar el status */
-onAuthStateChanged(auth, (user) => {
-  console.log(user);
-});
+onAuthStateChanged(auth, (user) => user);
 
 /* leer posts */
 export const colRef = collection(db, 'userpost');
@@ -68,13 +66,14 @@ export const post = async (postText) => {
     userEmail: auth.currentUser.email,
     userId: auth.currentUser.uid,
     userName: auth.currentUser.displayName,
+    createdAt: serverTimestamp(Date),
     likes: [],
   });
   console.log('Document written with ID: ', docRef.id);
 };
 
 /* capturar post */
-export const readPosts = () => query(colRef, orderBy('dateCreated', 'desc'));
+export const readPosts = () => query(colRef, orderBy('createdAt', 'desc'));
 export const listenToPosts = (callback) => {
   onSnapshot(readPosts(), (snapshot) => {
     const allPosts = [];
@@ -96,10 +95,8 @@ export const addPost = (callback) => {
   });
 };
 
-/* onSnapshot(colRef, (snapshot) => {
-  snapshot.docs.forEach((doc) => {
-    const post = { ...doc.data(), id: doc.id };
-    const postElement = createPostElement(post);
-    postsContainer.appendChild(postElement);
-  });
-}); */
+export const updatePost = (id, newPost) => updateDoc(doc(db, 'posts', id), newPost);
+
+export const deleteDocData = async (id) => {
+  await deleteDoc(doc(db, 'userpost', id));
+};

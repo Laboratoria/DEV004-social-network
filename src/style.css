@@ -53,7 +53,6 @@ button{
 /* contenedor blanco*/
 .register-container{
   display: flex;
-  align-items: left;
   flex-direction: column;
   justify-content: center;
   background-color: white;
@@ -115,7 +114,6 @@ a {
 
 .timeline{
   display: flex;
-  align-items: left;
   flex-direction: column;
   justify-content: center;
   background-color: white;
@@ -131,7 +129,6 @@ a {
   overflow: auto;
 }
 
-
 #status-description{
   width: 250px;
   height: 50px;
@@ -143,6 +140,12 @@ a {
   resize:none;
 }
 ::placeholder { color: rgb(196, 196, 196); }
+
+#logout {
+  position: absolute;
+  top: 50px;
+  right: 25px;
+}
 
 .post{
   background-color:rgba(131, 89, 227, 1);
@@ -165,25 +168,26 @@ a {
   margin-top: 300px;
 }
 .eachPost{
-  /* align-items: left; */
   flex-direction: column;
   justify-content: center;
   background-color: white;
-  height:fit-content;
-  width:300px;
-  /* position: absolute; */
-  /* padding: 30px;
-  padding-bottom: 5px; */
- /*  top: 50%;
-  left: 50%; */
-  /* transform: translate(-%, 180%); */
-  border-radius: 25px;
-  margin: 10px 0 10px 0 ;
-  /* overflow: auto; */
+  height: fit-content;
+  width: 300px;
+  padding-top: 10px;
+  border-radius: 10px;
+  margin: 10px 0 10px 0;
 }
+
 p1{
   font-size: 12px;
 }
+
 p3{
   font-size: 12px;
+}
+
+#like {
+  margin-left: -220px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
