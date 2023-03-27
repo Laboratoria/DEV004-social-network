@@ -90,14 +90,19 @@ export const feed = () => {
       editSection.appendChild(cancelButton);
 
       updateButton.addEventListener('click', () => {
-        updateInput.style.display = '';
+        editSection.style.display = 'block';
       });
       saveButton.addEventListener('click', () => {
         const newPostText = document.getElementById('new-post');
-        updatePost(feedPosts.id, { text: newPostText.value });
+        const refPostId = feedPosts.id;
+        console.log(refPostId);
+        updatePost(refPostId, { text: newPostText.value })
+          .then(() => {
+            editSection.style.display = 'none';
+          });
       });
       cancelButton.addEventListener('click', () => {
-        window.location.href = '/feed';
+        editSection.style.display = 'none';
       });
       postElement.appendChild(updateButton, editSection);
 
