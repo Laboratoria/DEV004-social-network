@@ -1,25 +1,57 @@
-h1 {
+@media only screen and (max-width: 600px) {
+  h1 {
     text-align: center;
   }
   body {
+    background-image: url("fondoMar.jpeg");
+    background-size: contain;
+    /* background-repeat: no-repeat;
+  background-position: center center;*/
+    background-size: 525px 800px;
     margin: 0px;
+    padding: 0px;
+  }
+
+  header {
+    color: #fdfffd;
+    display: flex;
+    flex-direction: column;
+    text-align: center; /*alinea los elemntos dentro del header*/
+  }
+  header img {
+    height: 200px;
+    width: 340px;
+    display: block; /* Asegura que la imagen se muestre como un elemento en bloque */
+    margin: 0 auto; /* Establece márgenes automáticos para centrar la imagen horizontalmente */
+    margin-bottom: 50px;
   }
   form {
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      align-items: center;
-    }
-    input {
-      width: 200px;
-      height: 25px;
-      margin: 7px;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.5);
-      align-items: center;
-    }
-    h4 {
-      text-align: center;
-    }
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  input {
+    width: 200px;
+    height: 25px;
+    margin: 7px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    font-family:"Jost";
+  }
+  button {
+    background-color: #a5bc34;
+    width: 220px;
+    height: 44px;
+    font-family: "Jost";
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.91);
+border-radius: 40px;
+  }
+  h4 {
+    text-align: center;
+  }
+}
