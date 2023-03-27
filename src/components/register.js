@@ -2,14 +2,12 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/firebaseConfig';
 import { authGoogle } from '../lib/authentication';
 
-export const nameInput = document.createElement('input');
-
 export const register = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const signInSection = document.createElement('section');
   const coverImg = document.createElement('img');
   const signInHeader = document.createElement('h1');
-
+  const nameInput = document.createElement('input');
   const formRegister = document.createElement('form');
   const emailInput = document.createElement('input');
   const passwordLabel = document.createElement('label');
@@ -83,16 +81,15 @@ export const register = (onNavigate) => {
 
     try {
       const UserCredentials = await createUserWithEmailAndPassword(auth, email, password);
-      onNavigate('/welcome');
       localStorage.setItem('name', nameInput.value);
+      onNavigate('/welcome');
       // eslint-disable-next-line no-console
       console.log(UserCredentials);
     } catch (error) {
-      console.log(error);
       if (error.code === 'auth/weak-password') {
         alert('error en contraseña');
       }
-      if (error.code === 'auth/email-already-in-use') {
+      if (error.code === 'auth/email-alre-in-use') {
         alert('El correo ya está registrado');
       }
     }
@@ -102,6 +99,9 @@ export const register = (onNavigate) => {
     try {
       await authGoogle();
       onNavigate('/welcome');
+      const user = auth.currentUser;
+      const name = user.displayName;
+      localStorage.setItem('name', name);
     } catch (error) {
       alert('Google error');
     }
