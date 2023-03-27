@@ -73,7 +73,7 @@ export const post = async (postText) => {
 };
 
 /* capturar post */
-export const readPosts = () => query(colRef, orderBy('createdAt', 'desc'));
+export const readPosts = () => query(colRef, orderBy('createdAt'));
 export const listenToPosts = (callback) => {
   onSnapshot(readPosts(), (snapshot) => {
     const allPosts = [];
