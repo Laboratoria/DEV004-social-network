@@ -63,61 +63,63 @@ export const feed = () => {
       postElement.appendChild(textElement);
 
       // Editar Post
-      const updateButton = document.createElement('button');
-      updateButton.classList.add('update-btn');
-      updateButton.textContent = 'Editar';
-      updateButton.value = feedPosts.id;
+      if (feedPosts.userEmail === auth.currentUser.email) {
+        const updateButton = document.createElement('button');
+        updateButton.classList.add('update-btn');
+        updateButton.textContent = 'Editar';
+        updateButton.value = feedPosts.id;
 
-      const editSection = document.createElement('section');
-      editSection.classList.add('edit.section');
-      editSection.style.display = 'none';
-      postElement.appendChild(editSection);
-
-      const updateInput = document.createElement('input');
-      updateInput.classList.add('update-input');
-      updateInput.id = 'new-post';
-      updateInput.text = feedPosts.text;
-      editSection.appendChild(updateInput);
-
-      const saveButton = document.createElement('button');
-      saveButton.classList.add('save-btn');
-      saveButton.textContent = 'Guardar cambio';
-      editSection.appendChild(saveButton);
-
-      const cancelButton = document.createElement('button');
-      saveButton.classList.add('cancel-btn');
-      cancelButton.textContent = 'Cancelar';
-      editSection.appendChild(cancelButton);
-
-      updateButton.addEventListener('click', () => {
-        editSection.style.display = 'block';
-      });
-      saveButton.addEventListener('click', () => {
-        const newPostText = document.getElementById('new-post');
-        const refPostId = feedPosts.id;
-        console.log(refPostId);
-        updatePost(refPostId, { text: newPostText.value })
-          .then(() => {
-            editSection.style.display = 'none';
-          });
-      });
-      cancelButton.addEventListener('click', () => {
+        const editSection = document.createElement('section');
+        editSection.classList.add('edit.section');
         editSection.style.display = 'none';
-      });
-      postElement.appendChild(updateButton, editSection);
+        postElement.appendChild(editSection);
 
-      // Borrar Post
-      const deleteButton = document.createElement('button');
-      deleteButton.classList.add('delete-btn');
-      deleteButton.textContent = 'Eliminar';
-      deleteButton.value = feedPosts.id;
-      deleteButton.addEventListener('click', () => {
-        const shouldDelete = window.confirm('¿Estás seguro de que deseas eliminar este post?');
-        if (shouldDelete) {
-          deleteDocData(feedPosts.id);
-        }
-      });
-      postElement.appendChild(deleteButton);
+        const updateInput = document.createElement('input');
+        updateInput.classList.add('update-input');
+        updateInput.id = feedPosts.id;
+        updateInput.textContent = feedPosts.text;
+        editSection.appendChild(updateInput);
+
+        const saveButton = document.createElement('button');
+        saveButton.classList.add('save-btn');
+        saveButton.textContent = 'Guardar cambio';
+        editSection.appendChild(saveButton);
+
+        const cancelButton = document.createElement('button');
+        saveButton.classList.add('cancel-btn');
+        cancelButton.textContent = 'Cancelar';
+        editSection.appendChild(cancelButton);
+
+        updateButton.addEventListener('click', () => {
+          editSection.style.display = 'block';
+        });
+        saveButton.addEventListener('click', () => {
+          const newPostText = document.getElementById(feedPosts.id);
+          const refPostId = feedPosts.id;
+          console.log(refPostId);
+          updatePost(refPostId, { text: newPostText.value })
+            .then(() => {
+              editSection.style.display = 'none';
+            });
+        });
+        cancelButton.addEventListener('click', () => {
+          editSection.style.display = 'none';
+        });
+        postElement.appendChild(updateButton, editSection);
+
+        // Borrar Post
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-btn');
+        deleteButton.textContent = 'Eliminar';
+        deleteButton.value = feedPosts.id;
+        deleteButton.addEventListener('click', () => {
+          const shouldDelete = window.confirm('¿Estás seguro de que deseas eliminar este post?');
+          if (shouldDelete) {
+            deleteDocData(feedPosts.id);
+          }
+        });
+        postElement.appendChild(deleteButton);
+      }
 
       postsContainer.appendChild(postElement);
       postsContainer.appendChild(postElement);
