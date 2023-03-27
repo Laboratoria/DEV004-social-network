@@ -3,7 +3,19 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'firebase/app';
 
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import {
+  getAuth,
+  GoogleAuthProvider,
+} from 'firebase/auth';
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  onSnapshot,
+} from 'firebase/firestore';
+
 // eslint-disable-next-line spaced-comment
 //import { getFirestore } from 'firebase/firestore';
 
@@ -22,4 +34,18 @@ const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
 
-export { auth, provider };
+const db = getFirestore();
+
+const savePublic = (publicacion, cantidaddelikes, name) => addDoc(collection(db, 'publication'), { publicacion, cantidaddelikes, name });
+
+const postData = query(collection(db, 'publication'));
+
+const unsubscribe = (callBack) => onSnapshot(postData, callBack);
+
+export {
+  auth,
+  provider,
+  db,
+  savePublic,
+  unsubscribe,
+};
