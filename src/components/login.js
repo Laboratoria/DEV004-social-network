@@ -56,13 +56,15 @@ export const login = (onNavigate) => {
     const email = emailInput.value;
     const password = passwordInput.value;
     console.log(email, password);
+
     try {
       const UserCredentialsLogin = await signInWithEmailAndPassword(auth, email, password);
+      const name = email.split('@')[0]; // obtener el nombre de usuario
+      localStorage.setItem('name', name);
       onNavigate('/welcome');
       // eslint-disable-next-line no-console
       console.log(UserCredentialsLogin);
     } catch (error) {
-      console.log(error);
       if (error.code === 'auth/wrong-password') {
         alert('Contraseña invalida');
       }
@@ -74,6 +76,9 @@ export const login = (onNavigate) => {
   BtnGoogle.addEventListener('click', async () => {
     try {
       await authGoogle();
+      const user = auth.currentUser;
+      const name = user.displayName;
+      localStorage.setItem('name', name);
       onNavigate('/welcome');
     } catch (error) {
       alert('Google error');
