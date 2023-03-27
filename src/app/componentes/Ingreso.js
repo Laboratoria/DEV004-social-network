@@ -1,7 +1,6 @@
-export const encabezado = () => {
-  const cabezera = document.createElement("header");
-  cabezera.className = "cabezera";
-  cabezera.innerHTML =
-    '<img src="app/visual/logoPrincipal.png" alt="LogoWanderlust"><h1>Wanderlust</h1><h4>ATREVETE A IR MÁS LEJOS</h4>';
-  return cabezera;
+export const ingreso=()=>{
+  const formularioIngreso= document.createElement("form");
+  formularioIngreso.className="formularioIngreso";
+  formularioIngreso.innerHTML='<input type="text" placeholder="Email"> <input type="password" maxlength="8" placeholder="Password"> <button class="ingresar">Ingresar</button>';
+return formularioIngreso;
 };
