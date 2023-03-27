@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { initializeApp } from 'firebase/app';
 import {
-  collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy, deleteDoc,
+  collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy, deleteDoc,updateDoc
 } from 'firebase/firestore';
 import {
   getAuth,
@@ -96,6 +96,7 @@ export const addPost = (callback) => {
   });
 };
 
+export const updatePost = (id, newPost) => updateDoc(doc(db, 'userpost', id), newPost);
 
 export const deleteDocData = async (id) => {
   await deleteDoc(doc(db, 'userpost', id));
