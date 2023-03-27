@@ -3,12 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 /*body{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }*/
+
+/*body{
+    height: 100%;
+    width: 100%;
+}*/
+
 header {
     padding: 10px;
     height: 30%;
@@ -18,11 +25,13 @@ header {
     align-items: center;
     flex-direction: column;
 }
+
 .historia1 {
     font-size: 30px;
     font-family: "sans-serif";
     margin: 30px 0px 10px 0px;
 }
+
 article {
     text-align: center;
     display: flex;
@@ -40,6 +49,7 @@ article {
     width: 400px;
     height: 35px;
 }
+
 .botones {
     font-size: 18px;
     font-family: Verdana, Helvetica;
@@ -51,6 +61,7 @@ article {
     width: 160px;
     height: 35px;
 }
+
 footer {
     background-color: #82B1F8;
     padding: 1em 2em 1em;
