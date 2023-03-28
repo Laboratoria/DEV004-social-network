@@ -1,4 +1,5 @@
-import { onNavigate } from "../main.js";
+
+import { onNavigate } from '../router/index';
 
 export const Login = () => {
   const HomeDiv = document.createElement("div");

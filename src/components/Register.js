@@ -1,15 +1,43 @@
-import { onNavigate } from '../main.js';
+import { createUser } from '../lib/autenticar';
+import { onNavigate } from '../router/index';
 
 export const Register = () => {
-  const HomeDiv = document.createElement('div');
+  const HomeDiv = document.createElement('main');
   HomeDiv.textContent = 'Bienvenida al registro';
+  const inputEmail = document.createElement('input');
+  inputEmail.placeholder = 'Ingresa tu correo';
+  inputEmail.setAttribute('type', 'email');
+  const inputPassword = document.createElement('input');
+  inputPassword.placeholder = 'Ingresa tu contraseña';
+  inputPassword.setAttribute('type', 'password');
   const buttonHome = document.createElement('button');
+  const buttonRegister = document.createElement('button');
+  buttonRegister.textContent = 'registrate';
 
   buttonHome.textContent = 'Regresar al Home';
-
   buttonHome.addEventListener('click', () => onNavigate('/'));
+  buttonRegister.addEventListener('click', () => {
+    if (inputEmail.value === '' || inputPassword.value === '') {
+      swal({
+        title: 'Verifica tus datos?',
+        text: 'la contraseña debe ser mayo a 6',
+        icon: 'warning',
+        dangerMode: true,
+      });
+    } else {
+      console.log(createUser(inputEmail.value, inputPassword.value)); // promesa pendiente
+      createUser(inputEmail.value, inputPassword.value)
+        .then((res) => { // then para promesa cumplida
+        // enviarlo al muro
+          console.log(res);
+        })
+        .catch((error) => { // para promesa fallida
+          console.log(error);
+        });
+    }
+  });
 
-  HomeDiv.appendChild(buttonHome);
+  HomeDiv.append(inputEmail, inputPassword, buttonRegister, buttonHome);
 
   return HomeDiv;
 };
