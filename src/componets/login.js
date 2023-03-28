@@ -1,5 +1,5 @@
 import { signInWithGoogle, signInWithPassword } from '../lib/authentication';
-import { navigateTo } from '../router';
+import { navigateTo, showError } from '../router';
 
 export const Login = () => {
   // Create a div element to hold the login component
@@ -16,36 +16,22 @@ export const Login = () => {
       <label class='labelogin'for="psw"><b>Contraseña</b></label>
       <input type="password" placeholder="Contraseña" name="psw" id="psw" required>
     </div>
-   <div class="sendBtn">
-    <button class="btnEnviarLogin">Enviar</button>
+    <div class="sendBtn">
+      <button class="btnEnviarLogin">Enviar</button>
     </div>
     <div class="googleBtn">
       <div class="g-signin2" data-onsuccess="onSignIn"></div>
       <a href="#" class="google btn"><i  class="fa fa-google fa-fw">
             </i> <img src= 'https://i.ibb.co/1nDpBf4/btn-google-signin-light-pressed-web.png'></a>
     </div>
-    <div id="wrong"></div>
-    <div class='footerlog'<p>Reda©️</p> </div>
-</div>
-    <div class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p></p>
-      </div>
+    <div id="wrong">
+    </div>
+    <div class='footerlog'>
+      <p>Reda©️</p>
     </div>
   </div>
   <div id="wrong"></div>
-  </form>`;
-  // Function to open modal
-  const openModal = (message) => {
-    div.querySelector('.modal').style.display = 'block';
-    div.querySelector('.modal-content > p:nth-child(2)').textContent = message;
-  };// cambiar el text contente por el inner para probar que pasa
-  // Add event listeners to the login component
-  // const wrongAnswerd = (stop) => {
-  //   div.querySelector('.wrong').style.display = 'block';
-  //   div.querySelector('.modal-content > p:nth-child(2)').innerHTML = stop;
-  // };
+</form>`;
 
   div.querySelector('.google').addEventListener('click', (e) => {
     e.preventDefault();
@@ -55,14 +41,16 @@ export const Login = () => {
           navigateTo('/feed');
           console.log(useCredential);
         },
+      )
+      .catch(
         (error) => {
-          openModal(error.message);
+          showError(error.code);
         },
       );
   });
   // para accionar el boton enviar
   div.querySelector('.btnEnviarLogin').addEventListener('click', (e) => {
-    e.preventDefault();
+    console.log('se hizo click en login');
     e.preventDefault();
     const username = div.querySelector('#username').value;
     const password = div.querySelector('#psw').value;
@@ -72,28 +60,13 @@ export const Login = () => {
           console.log(useCredential);
           navigateTo('/feed');
         },
+      )
+      .catch(
         (error) => {
-          console.log(error.message);
-          console.log(error.code);
-          if (error.code === 'auth/user-not-found') {
-            const wrong = document.getElementById('wrong');
-            wrong.innerHTML = ('&#10060 &#128064 Correo Invalido');//cambiar los alert por inner y no es equivalente al modal
-          } else if (error.code === 'auth/wrong-password') {
-            const wrong = document.getElementById('wrong');
-            wrong.innerHTML = ('Contraseña Incorrecta');
-          } else if (error.code) {
-            const wrong = document.getElementById('wrong');
-            wrong.innerHTML = ('Ups! Algo salio mal');
-          }
+          showError(error.code);
         },
       );
   });
-
-  div.querySelector('.close').addEventListener('click', (e) => {
-    e.preventDefault();
-    div.querySelector('.modal,').style.display = 'none';
-  });
-
   // Return the div element
   return div;
 };

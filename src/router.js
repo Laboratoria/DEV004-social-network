@@ -2,8 +2,9 @@ const LOCAL_ROUTES = {};
 
 // Navigate to a specific path and update the history
 export const navigateTo = (pathname, updateHistory = true) => {
+  console.log('estoy en navigate original');
   // If the path is not found, redirect to the home page
-  // acá establece la ruta de default, en este caso es login. 
+  // acá establece la ruta de default, en este caso es login.
   const path = typeof LOCAL_ROUTES[pathname] !== 'function' ? pathname : '/';
   // Update the history
   // va guardando en el objeto vacío ({}) las rutas que ha visitado el usuario.
@@ -27,17 +28,31 @@ export const initRouter = (routes) => {
   // no nos queda muy clara esta parte del codigo.***
   Object.keys(routes).reduce((currentRoutes, pathname) => {
     currentRoutes[pathname] = routes[pathname];
-    console.log (currentRoutes);
-    console.log (LOCAL_ROUTES);
+    console.log(currentRoutes);
+    console.log(LOCAL_ROUTES);
     return currentRoutes;
   }, LOCAL_ROUTES);
 
   // Add event listener to handle back/forward button
-  window.addEventListener('popstate', (e) => {
+  window.addEventListener('popstate', () => {
     navigateTo(window.location.pathname, false);
   });
   // Add event listener to handle page load
   window.addEventListener('load', () => {
     navigateTo(window.location.pathname, false);
   });
+};
+
+// funcion de mostrar errores en el login
+export const showError = (code) => {
+  if (code === 'auth/user-not-found') {
+    const wrong = document.getElementById('wrong');
+    wrong.innerHTML = ('&#10060 &#128064 Correo Invalido');
+  } else if (code === 'auth/wrong-password') {
+    const wrong = document.getElementById('wrong');
+    wrong.innerHTML = ('Contraseña Incorrecta');
+  } else if (code) {
+    const wrong = document.getElementById('wrong');
+    wrong.innerHTML = ('Ups! Algo salio mal');
+  }
 };
