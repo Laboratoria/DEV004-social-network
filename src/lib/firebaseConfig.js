@@ -13,7 +13,7 @@ import {
   collection,
   addDoc,
   query,
-  onSnapshot,
+  orderBy,
 } from 'firebase/firestore';
 
 // eslint-disable-next-line spaced-comment
@@ -34,18 +34,16 @@ const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
 
-const db = getFirestore();
+const db = getFirestore(app);
 
 const savePublic = (publicacion, cantidaddelikes, name) => addDoc(collection(db, 'publication'), { publicacion, cantidaddelikes, name });
 
-const postData = query(collection(db, 'publication'));
-
-const unsubscribe = (callBack) => onSnapshot(postData, callBack);
+const postData = () => query(collection(db, 'publication'), orderBy('publicacion', 'desc'));
 
 export {
   auth,
   provider,
   db,
   savePublic,
-  unsubscribe,
+  postData,
 };

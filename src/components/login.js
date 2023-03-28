@@ -1,6 +1,5 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../lib/firebaseConfig';
-import { authGoogle } from '../lib/authentication';
+import { authGoogle, signInWithPassword } from '../lib/authentication';
 
 export const login = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -58,8 +57,9 @@ export const login = (onNavigate) => {
     console.log(email, password);
 
     try {
-      const UserCredentialsLogin = await signInWithEmailAndPassword(auth, email, password);
+      const UserCredentialsLogin = await signInWithPassword(email, password);
       const name = email.split('@')[0]; // obtener el nombre de usuario
+      // auth.currentUser.displayName
       localStorage.setItem('name', name);
       onNavigate('/welcome');
       // eslint-disable-next-line no-console
