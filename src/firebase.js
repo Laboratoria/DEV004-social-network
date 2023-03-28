@@ -1,3 +1,25 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBb8mX1MfAFUW1fBR0FmHpJBq83OLvEUGc",
+  authDomain: "social-network-mgm.firebaseapp.com",
+  projectId: "social-network-mgm",
+  storageBucket: "social-network-mgm.appspot.com",
+  messagingSenderId: "1081949202453",
+  appId: "1:1081949202453:web:73891ba943f655bf2cc61c",
+  measurementId: "G-37LWLR8JYC"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+ /*
 import { initializeApp } from 'firebase/app';
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -18,7 +40,7 @@ https://firebase.google.com/docs/web/setup#multiple-projects * | Initialize mult
 // Retrieve your own options values by adding a web app on
 // https://console.firebase.google.com
 
-});*/
+});
 
 const app = initializeApp(firebaseConfig);
 import { initializeApp } from 'firebase/app';
@@ -40,4 +62,5 @@ async function getCities(db) {
   const citySnapshot = await getDocs(citiesCol);
   const cityList = citySnapshot.docs.map(doc => doc.data());
   return cityList;
-}
+} 
+*/

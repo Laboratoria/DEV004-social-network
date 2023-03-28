@@ -1,4 +1,4 @@
-import { onNavigate } from '../main.js';
+import { onNavigate } from '../router/index';
 
 export const Register = () => {
   const HomeDiv = document.createElement('div');

@@ -1,4 +1,4 @@
-import { onNavigate } from "../main.js";
+import { onNavigate } from "../router/index";
 
 export const Home = () => {
   const HomeDiv = document.createElement('div');
@@ -13,6 +13,13 @@ export const Home = () => {
 
   HomeDiv.appendChild(buttonRegister);
   HomeDiv.appendChild(buttonLogin);
+  const header = document.createElement('header');
+  const img = document.createElement('img');
+  img.setAttribute('src', './img/logo.png');
+  img.setAttribute('alt', 'Logo de la marca MaMá Genial');
+  img.id = 'logoEncabezado';
+  header.appendChild(img);
+  HomeDiv.appendChild(header);
 
   return HomeDiv;
 };
