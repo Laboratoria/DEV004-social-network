@@ -5,8 +5,8 @@
   body {
     background-image: url("fondoMar.jpeg");
     background-size: contain;
-    /* background-repeat: no-repeat;
-  background-position: center center;*/
+    /* background-repeat: no-repeat;*/
+  background-position: absolute;
     background-size: 525px 800px;
     margin: 0px;
     padding: 0px;
@@ -30,6 +30,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
   input {
     width: 200px;
@@ -41,7 +42,7 @@
     align-items: center;
     font-family:"Jost";
   }
-  button {
+  .login{
     background-color: #a5bc34;
     width: 220px;
     height: 44px;
