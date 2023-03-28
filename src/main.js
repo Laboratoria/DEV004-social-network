@@ -17,3 +17,4 @@ window.onload = () => {
 window.onpopstate = () => {
   onNavigate(window.location.pathname);
 };
+
