@@ -1,29 +1,20 @@
-import { Home } from './components/Home.js';
-import { Register } from './components/Register.js';
-import { Login } from './components/Login.js';
 
-const rootDiv = document.getElementById('root');
+import { addRoutes, onNavigate } from './router/index.js';
+import {Home} from './components/Home';
+import {Login} from './components/Login';
+import {Register} from './components/Register';
 
-const routes = {
+addRoutes({
   '/': Home,
-  '/register': Register,
   '/login': Login,
+  '/register': Register,
+});
+// Lógica de la aplicacion
+window.onload = () => {
+  onNavigate(window.location.pathname);
 };
 
-export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
-  }
-  rootDiv.appendChild(routes[pathname]());
+window.onpopstate = () => {
+  onNavigate(window.location.pathname);
 };
 
-const component = routes[window.location.pathname];
-
-rootDiv.appendChild(component(onNavigate));
-// console.log('llamada', Home);
-// console.log('invocacion', Home())
