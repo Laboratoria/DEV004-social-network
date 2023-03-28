@@ -11,12 +11,12 @@ export const feed = () => {
   logoF.setAttribute('class', 'logoF');
   const userInfoF = document.createElement('div');
   userInfoF.setAttribute('class', 'userInfoF');
-  const postContainer = document.createElement('div');
+  const postContainer = document.createElement('form');
   postContainer.setAttribute('class', 'postContainer');
   const postTitle = document.createElement('textarea');
-  postTitle.setAttribute('class', 'postTitle');
+  postTitle.setAttribute('id', 'postTitle');
   const post = document.createElement('textarea');
-  post.setAttribute('class', 'post');
+  post.setAttribute('id', 'post');
   const subsquareF = document.createElement('div');
   subsquareF.setAttribute('class', 'subsquareF');
   const btnHomeF = document.createElement('button');
@@ -33,11 +33,19 @@ export const feed = () => {
   postContainer.appendChild(postTitle);
   postContainer.appendChild(post);
   squareF.appendChild(subsquareF);
-  subsquareF.appendChild(btnPubF);
+  postContainer.appendChild(btnPubF);
   subsquareF.appendChild(btnHomeF);
   squareF.appendChild(squareFooterF);
   btnHomeF.addEventListener('click', () => {
     navigateTo('/home');
+  });
+  postContainer.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const feedTitle = e.target.elements.postTitle.value;
+    const feedPost = e.target.elements.post.value;
+    console.log(feedTitle);
+    console.log(feedPost);
+    createpost(feedTitle, feedPost);
   });
   return squareF;
 };
