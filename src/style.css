@@ -57,7 +57,7 @@
 
 /* CSS */
 
-.btnLogin , .btnRegister, .btnEnviarLogin {
+.btnLogin , .btnRegister, .btnEnviarLogin, .btnPubF, .btnHomeF {
   height: 56px;
     width: 50%;
     align-items: center;    
@@ -80,13 +80,13 @@
     -webkit-user-select: none;
     touch-action: manipulation;
 }
-.btnLogin:hover, .btnRegister:hover,.btnEnviarLogin:hover{
+.btnLogin:hover, .btnRegister:hover,.btnEnviarLogin:hover, .btnPubF:hover, .btnHomeF:hover{
   background-color: #B8D1E0;
 }
-.btnRegister, .btnEnviarLogin{
+.btnRegister, .btnEnviarLogin, .btnPubF {
   background-color: #FFB703;
 }
-.btnLogin{
+.btnLogin, .btnHomeF {
   background-color: #1d3557;
 }
 .footerHome, .footerlog{
@@ -108,8 +108,6 @@
   display: flex;
   width: 100%;
   height: 100%;
-  
-  
 }   
 .contenedorMadre{
   background-color: #E0EAF1;
@@ -264,7 +262,62 @@ body{
   height:60% ;
   display: grid;
 }
+/*Vista desktop feed*/
+.squareF {
+ display: flex;
+ align-items: center;
+ align-content: center;
+ background-color:#E0EAF1;
+width: 70%;
+height: 80%;
+flex-direction: column;
+}
+.squareHeaderF {
+  background-color: #B8D1E0;
+  width: 100%;
+  height: 10%;
+}
+.logoF {
+  background-color:#B8D1E0;
+  width: 20%;
+  height: 20%;
+}
+.userInfoF{
+  background-color:rgb(80, 86, 255);
+  width:100%;
+  height:100%;
+}
+.subsquareF{
+  background-color: #FFB703;
+  
+}
+.postTitle{
+  background-color:#B8D1E0;
+  width: 30%;
+  height: 3%;
+  margin: 2%;
+}
+.post{
+  width: 80%;
+  height: 100%;
+}
+.subsquareF {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width: 30%;
+  height: 5%;
+}
+.btnPubF {
+  font-size: 60%;
+  width: 100%;
+  height:100% ;
 
+}
+.btnHomeF {
+  height: 80%;
+  font-size: 60%;
+}
 /*Vista para movil*/
 
 @media(max-width:390px){
