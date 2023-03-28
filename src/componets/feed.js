@@ -1,5 +1,5 @@
 import { navigateTo } from '../router';
-import {createpost} from '../lib/firebase.js';
+// import {createpost} from '../lib/firebase.js';
 
 export const feed = () => {
   const squareF = document.createElement('div');
@@ -15,8 +15,14 @@ export const feed = () => {
   postContainer.setAttribute('class', 'postContainer');
   const postTitle = document.createElement('textarea');
   postTitle.setAttribute('class', 'postTitle');
+  postTitle.setAttribute('rows', '2');
+  postTitle.setAttribute('cols', '2');
+  postTitle.setAttribute('placeholder', 'Escribe el título de tu post.');
   const post = document.createElement('textarea');
   post.setAttribute('class', 'post');
+  post.setAttribute('rows', '10');
+  post.setAttribute('cols', '1');
+  post.setAttribute('placeholder', 'Escribe tu post.');
   const subsquareF = document.createElement('div');
   subsquareF.setAttribute('class', 'subsquareF');
   const btnHomeF = document.createElement('button');
@@ -25,11 +31,13 @@ export const feed = () => {
   btnPubF.setAttribute('class', 'btnPubF');
   btnPubF.textContent = 'publicar';
   btnHomeF.textContent = 'inicio';
-  const squareFooterF = document.createElement('div');
+  const squareFooterF = document.createElement('footer');
+  squareFooterF.setAttribute('class', 'squareFooterF');
+  squareFooterF.textContent = 'Reda©️';
   squareF.appendChild(squareHeaderF);
   squareHeaderF.appendChild(logoF);
-  squareF.appendChild(postContainer);
   squareF.appendChild(userInfoF);
+  squareF.appendChild(postContainer);
   postContainer.appendChild(postTitle);
   postContainer.appendChild(post);
   squareF.appendChild(subsquareF);
