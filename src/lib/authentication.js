@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from 'firebase/auth';
 
 import { auth, provider } from './firebaseConfig';
@@ -20,3 +21,5 @@ export const registerWithEmail = (email, password) => {
 };
 
 export const authGoogle = () => signInWithPopup(auth, provider);
+
+export const signOff = () => signOut(auth);

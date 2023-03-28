@@ -1,6 +1,6 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { updateProfile } from 'firebase/auth';
+import { authGoogle, registerWithEmail } from '../lib/authentication';
 import { auth } from '../lib/firebaseConfig';
-import { authGoogle } from '../lib/authentication';
 
 export const register = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -77,11 +77,22 @@ export const register = (onNavigate) => {
     e.preventDefault();
     const email = emailInput.value;
     const password = passwordInput.value;
+    const name = nameInput.value;
     console.log(email, password);
 
     try {
-      const UserCredentials = await createUserWithEmailAndPassword(auth, email, password);
-      localStorage.setItem('name', nameInput.value);
+      const UserCredentials = await registerWithEmail(email, password);
+
+      updateProfile(auth.currentUser, {
+        displayName: nameInput.value,
+        // photoURL: 'https://example.com/john-doe/profile.jpg',
+      }).then(() => {
+        // Profile updated!
+      }).catch((error) => {
+        console.log(error);
+      });
+
+      localStorage.setItem('name', name);
       onNavigate('/welcome');
       // eslint-disable-next-line no-console
       console.log(UserCredentials);

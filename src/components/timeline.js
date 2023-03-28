@@ -1,14 +1,12 @@
-/*import {
-  collection,
-  query,
-  onSnapshot,
-} from 'firebase/firestore';*/
+import { onSnapshot } from 'firebase/firestore';
 import {
   savePublic,
-  unsubscribe,
+  postData,
+  auth,
 } from '../lib/firebaseConfig';
+import { signOff } from '../lib/authentication';
 
-export const timeline = () => {
+export const timeline = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const bodyHTML = document.createElement('body');
   const headerHTML = document.createElement('header');
@@ -42,6 +40,7 @@ export const timeline = () => {
   inputContainer.setAttribute('id', 'inputContainer');
 
   inputPost.setAttribute('id', 'inputPost');
+  inputPost.setAttribute('placeholder', 'Escribe tu mensaje');
 
   postButton.setAttribute('id', 'postButton');
   postButton.textContent = 'Publicar';
@@ -81,22 +80,15 @@ export const timeline = () => {
   inputContainer.addEventListener('submit', async (e) => {
     e.preventDefault(); // cancela el evento
     try {
-      await savePublic(inputPost.value, 0, []);
+      const user = auth.currentUser;
+      const name = user.displayName;
+
+      await savePublic(inputPost.value, 0, name);
       const post = document.createElement('p');
       // textContent devuelve o establece el contenido de texto de un elemento
       post.textContent = inputPost.value;
       commentSection.appendChild(post);
       inputContainer.reset();
-
-      /*const q = query(collection(db, 'post'));
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        console.log(unsubscribe);
-        const post = [];
-        querySnapshot.forEach((doc) => {
-          post.push(doc.data());
-          console.log('Current cities in CA: ', post.join(','));
-        });
-      });*/
     } catch (error) {
       console.log(error);
     }
@@ -104,33 +96,21 @@ export const timeline = () => {
 
   postButton.addEventListener('click', async () => {});
 
-  const postp = [];
-  unsubscribe((querySnapshot) => {
+  homeIcon.addEventListener('click', () => onNavigate('/'));
+  profileIcon.addEventListener('click', () => onNavigate('/welcome'));
+
+  logOutIcon.addEventListener('click', async () => {
+    await signOff();
+    onNavigate('/login');
+  });
+
+  onSnapshot(postData(), (querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      postp.push(doc.data());
+      console.log(doc.data());
+      const pComent = document.createElement('p');
+      pComent.textContent = `${doc.data().name}: ${doc.data().publicacion}`;
+      commentSection.append(pComent);
     });
   });
-  /* postButton.addEventListener('click', async () => {
-    // Obtener el valor del campo de entrada de comentario
-    const commentText = inputPost.value;
-    try {
-      // Guardar el comentario utilizando la función de guardado
-      await savePublic(commentText, 0, []);
-      // Crear un nuevo elemento de comentario
-      const commentElement = document.createElement('div');
-      commentElement.classList.add('comment');
-      // Agregar el contenido del comentario al elemento de comentario
-      const commentContent = document.createElement('p');
-      commentContent.textContent = commentText;
-      commentElement.appendChild(commentContent);
-      // Agregar el nuevo elemento de comentario a la sección de comentarios en la página
-      commentSection.appendChild(commentElement);
-      // Restablecer el campo de entrada de comentario
-      createPostSection.reset();
-    } catch (error) {
-      console.log(error);
-    }
-  }); */
-
   return bodyHTML;
 };
