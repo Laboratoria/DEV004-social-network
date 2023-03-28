@@ -37,6 +37,9 @@ export const createpost = (titulo, descripcion) => {
 
 }
 
+export const saveUsers = (name, email, password, nationality, Bdate, ocupation, redaRol) => addDoc(collection(db, 'users'), {
+  name, email, password, nationality, Bdate, ocupation, redaRol,
+});
 
 
 // // Initialize Cloud Firestore and get a reference to the service

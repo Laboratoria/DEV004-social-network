@@ -1,3 +1,5 @@
+import { saveUsers } from '../lib/firebase.js';
+
 import { registerWithEmail } from '../lib/authentication.js';
 import { navigateTo } from '../router.js';
 
@@ -55,10 +57,16 @@ export const register = () => {
     e.preventDefault();
 
     console.log('hola', e.target);
+    const name = e.target.name.value;
     const email = e.target.elements.email.value;
     const password = e.target.elements.psw.value;
+    const nationality = e.target.elements.nationality.value;
+    const Bdate = e.target.elements.Bdate.value;
+    const ocupation = e.target.elements.ocupation.value;
+    const redaRol = e.target.elements.RedaRol.value;
     registerWithEmail(email, password)
       .then((useCredential) => {
+        saveUsers(name, email, password, nationality, Bdate, ocupation, redaRol);
         navigateTo('/home');
       })
       .catch((error) => {
