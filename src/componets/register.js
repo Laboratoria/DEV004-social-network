@@ -37,9 +37,10 @@ export const register = () => {
       <input type="text" placeholder="Ocupación" name="ocupation" id="ocupation" class='inputReg'>
 
       <label for="RedaRol" class='labelReg'><b>Tu rol en Reda</b></label>
-      <select name=RedaRol>
-      <option value= "expert" class='optionReg'>Especialista</option>
-      <option value= "carer" class='optionReg'>Cuidador</option>
+      <select name='RedaRol' id='redaRol'>
+        <option value= "expert" class='optionReg'>Especialista</option>
+        <option value= "carer" class='optionReg'>Cuidador</option>
+      </select>
       <input type="submit" id="btnregister" value="Register"/>
     </div>   
     <div class="bottom-container">
