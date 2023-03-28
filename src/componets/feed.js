@@ -10,6 +10,12 @@ export const feed = () => {
   logoF.setAttribute('src', 'https://i.ibb.co/bWGQN64/REDA-1.png');
   logoF.setAttribute('class', 'logoF');
   const userInfoF = document.createElement('div');
+  const userAvatar = document.createElement('img');
+  userAvatar.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
+  userAvatar.setAttribute('class', 'userAvatar');
+  const userExpertChecked = document.createElement('img');
+  userExpertChecked.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/5610/5610944.png');
+  userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('div');
   postContainer.setAttribute('class', 'postContainer');
@@ -37,6 +43,8 @@ export const feed = () => {
   squareF.appendChild(squareHeaderF);
   squareHeaderF.appendChild(logoF);
   squareF.appendChild(userInfoF);
+  userInfoF.appendChild(userAvatar);
+  userInfoF.appendChild(userExpertChecked);
   squareF.appendChild(postContainer);
   postContainer.appendChild(postTitle);
   postContainer.appendChild(post);

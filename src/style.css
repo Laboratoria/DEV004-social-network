@@ -299,8 +299,17 @@ flex-direction: column;
   align-content: center;
   background-color:#E0EAF1;
   width:60%;
-  height:80px;
-  
+  flex-direction: row;
+
+}
+.userAvatar {
+width: 10%;
+height: 10%;
+margin: 2%;
+}
+.userExpertChecked {
+  width: 4%;
+  height: 4%;
 }
 .postContainer {
   width: 60%;
