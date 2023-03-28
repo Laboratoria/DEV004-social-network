@@ -1,7 +1,6 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { home } from '../src/components/home';
 import { register } from '../src/components/register';
-import { auth } from '../src/lib/firebaseConfig';
+import { registerWithEmail } from '../src/lib/authentication';
 import { login } from '../src/components/login';
 
 describe('home', () => {
@@ -49,7 +48,7 @@ describe('home', () => {
     }, 0);
   });
 });
-jest.mock('firebase/auth');
+jest.mock('../src/lib/authentication');
 
 describe('register', (done) => {
   it('se registra a un nuevo usuario', async () => {
@@ -57,7 +56,7 @@ describe('register', (done) => {
     const email = 'user@example.com';
     const password = 'password123';
     const UserCredentials = { user: { uid: '123' } };
-    createUserWithEmailAndPassword.mockResolvedValueOnce(UserCredentials);
+    registerWithEmail.mockResolvedValueOnce(UserCredentials);
 
     const form = document.createElement('form');
     const emailInput = document.createElement('input');
@@ -69,7 +68,7 @@ describe('register', (done) => {
     await register(onNavigate);
     form.dispatchEvent(new Event('submit'));
     setTimeout(() => {
-      expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(auth, email, password);
+      expect(registerWithEmail).toHaveBeenCalledWith(email, password);
 
       done();
     }, 0);
