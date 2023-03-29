@@ -8,6 +8,7 @@ addRoutes({
   '/': Home,
   '/login': Login,
   '/register': Register,
+  //'/muro': MuroMamaGeial,
 });
 // Lógica de la aplicacion
 window.onload = () => {

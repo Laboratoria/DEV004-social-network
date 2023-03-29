@@ -4,6 +4,9 @@ import { onNavigate } from '../router/index';
 export const Register = () => {
   const HomeDiv = document.createElement('main');
   HomeDiv.textContent = 'Bienvenida al registro';
+  const inputName = document.createElement('input');
+  inputName.placeholder = 'Ingresa tu Nombre';
+  inputName.setAttribute('type', 'email');
   const inputEmail = document.createElement('input');
   inputEmail.placeholder = 'Ingresa tu correo';
   inputEmail.setAttribute('type', 'email');
@@ -25,8 +28,8 @@ export const Register = () => {
         dangerMode: true,
       });
     } else {
-      console.log(createUser(inputEmail.value, inputPassword.value)); // promesa pendiente
-      createUser(inputEmail.value, inputPassword.value)
+      console.log(inputName.value, inputEmail.value, inputPassword.value); // promesa pendiente
+      createUser(inputName.value, inputEmail.value, inputPassword.value)
         .then((res) => { // then para promesa cumplida
         // enviarlo al muro
           console.log(res);
@@ -37,7 +40,7 @@ export const Register = () => {
     }
   });
 
-  HomeDiv.append(inputEmail, inputPassword, buttonRegister, buttonHome);
+  HomeDiv.append(inputName, inputEmail, inputPassword, buttonRegister, buttonHome);
 
   return HomeDiv;
 };
