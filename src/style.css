@@ -80,6 +80,15 @@
     -webkit-user-select: none;
     touch-action: manipulation;
 }
+/* lo que tiene que ver con botones, tiene que estar junto, no importa que vista sea, sino, error de eslint */
+.btnPubF {
+  width: 30%;
+  height:50px ;
+}
+.btnHomeF {
+  width: 20%;
+  height: 50px;
+}
 .btnLogin:hover, .btnRegister:hover,.btnEnviarLogin:hover, .btnPubF:hover, .btnHomeF:hover{
   background-color: #B8D1E0;
 }
@@ -269,54 +278,87 @@ body{
  align-content: center;
  background-color:#E0EAF1;
 width: 70%;
-height: 80%;
+height: 60%;
 flex-direction: column;
 }
 .squareHeaderF {
   background-color: #B8D1E0;
   width: 100%;
-  height: 10%;
+  height: 2%;
+  margin: 0;
 }
 .logoF {
   background-color:#B8D1E0;
-  width: 20%;
-  height: 20%;
+  width: 18%;
+  height: 18%;
+ 
 }
 .userInfoF{
-  background-color:rgb(80, 86, 255);
-  width:100%;
-  height:100%;
-}
-.subsquareF{
-  background-color: #FFB703;
-  
-}
-.postTitle{
-  background-color:#B8D1E0;
-  width: 30%;
-  height: 3%;
-  margin: 2%;
-}
-.post{
-  width: 80%;
-  height: 100%;
-}
-.subsquareF {
   display: flex;
   align-items: center;
   align-content: center;
-  width: 30%;
-  height: 5%;
-}
-.btnPubF {
-  font-size: 60%;
-  width: 100%;
-  height:100% ;
+  background-color:#E0EAF1;
+  width:60%;
+  flex-direction: row;
 
 }
-.btnHomeF {
-  height: 80%;
-  font-size: 60%;
+.userAvatar {
+width: 10%;
+height: 10%;
+margin: 2%;
+}
+.userExpertChecked {
+  width: 4%;
+  height: 4%;
+}
+.postContainer {
+  width: 60%;
+  height: 20%;
+  background-color: #E0EAF1;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+.postTitle{
+  background-color:#B8D1E0;
+  width: 100%;
+  height: auto;
+  margin: 2%;
+  resize: none;
+  border-radius:15px;
+  border-color: #1d3557;
+  border-width: 2px;
+}
+.post{
+  width: 100%;
+  height: 400%;
+  resize: none;
+  background-color:#B8D1E0;
+  border-radius:15px;
+  border-color: #1d3557;
+  border-width: 2px;
+  margin-bottom: 5%;
+}
+.subsquareF{
+  align-items: center;
+  background-color: #E0EAF1;
+  display: flex;
+  width: 60%;
+  height: 20%;
+  flex-direction: column;
+}
+
+.squareFooterF {
+  display: flex;
+  background-color:#B8D1E0;
+  width: 100%;
+  height: 50px;
+  flex-direction: column;
+  color: #F1FAEE;
+  text-align: center;
+  padding: 1%;
+  font-weight: 100;
 }
 /*Vista para movil*/
 

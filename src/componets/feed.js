@@ -1,5 +1,5 @@
 import { navigateTo } from '../router';
-import {createpost} from '../lib/firebase.js';
+// import {createpost} from '../lib/firebase.js';
 
 export const feed = () => {
   const squareF = document.createElement('div');
@@ -10,13 +10,31 @@ export const feed = () => {
   logoF.setAttribute('src', 'https://i.ibb.co/bWGQN64/REDA-1.png');
   logoF.setAttribute('class', 'logoF');
   const userInfoF = document.createElement('div');
+  const userAvatar = document.createElement('img');
+  userAvatar.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
+  userAvatar.setAttribute('class', 'userAvatar');
+  const userExpertChecked = document.createElement('img');
+  userExpertChecked.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/5610/5610944.png');
+  userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');
   postContainer.setAttribute('class', 'postContainer');
   const postTitle = document.createElement('textarea');
+
+  postTitle.setAttribute('class', 'postTitle');
+  postTitle.setAttribute('rows', '2');
+  postTitle.setAttribute('cols', '2');
+  postTitle.setAttribute('placeholder', 'Escribe el título de tu post.');
+  const post = document.createElement('textarea');
+  post.setAttribute('class', 'post');
+  post.setAttribute('rows', '10');
+  post.setAttribute('cols', '1');
+  post.setAttribute('placeholder', 'Escribe tu post.');
+
   postTitle.setAttribute('id', 'postTitle');
   const post = document.createElement('textarea');
   post.setAttribute('id', 'post');
+  
   const subsquareF = document.createElement('div');
   subsquareF.setAttribute('class', 'subsquareF');
   const btnHomeF = document.createElement('button');
@@ -25,13 +43,25 @@ export const feed = () => {
   btnPubF.setAttribute('class', 'btnPubF');
   btnPubF.textContent = 'publicar';
   btnHomeF.textContent = 'inicio';
-  const squareFooterF = document.createElement('div');
+  const likeIcon = document.createElement('img');
+  // likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
+  likeIcon.setAttribute('class', 'likeIcon');
+  const commentIcon = document.createElement('img');
+  // commentIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
+  commentIcon.setAttribute('class', 'commentIcon');
+  const squareFooterF = document.createElement('footer');
+  squareFooterF.setAttribute('class', 'squareFooterF');
+  squareFooterF.textContent = 'Reda©️';
   squareF.appendChild(squareHeaderF);
   squareHeaderF.appendChild(logoF);
-  squareF.appendChild(postContainer);
   squareF.appendChild(userInfoF);
+  userInfoF.appendChild(userAvatar);
+  userInfoF.appendChild(userExpertChecked);
+  squareF.appendChild(postContainer);
   postContainer.appendChild(postTitle);
   postContainer.appendChild(post);
+  postContainer.appendChild(likeIcon);
+  postContainer.appendChild(commentIcon);
   squareF.appendChild(subsquareF);
   postContainer.appendChild(btnPubF);
   subsquareF.appendChild(btnHomeF);
