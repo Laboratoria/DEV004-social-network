@@ -1,5 +1,5 @@
 import { navigateTo } from '../router';
-// import {createpost} from '../lib/firebase.js';
+import { createpost } from '../lib/firebase.js';
 
 export const feed = () => {
   const squareF = document.createElement('div');
@@ -32,9 +32,7 @@ export const feed = () => {
   post.setAttribute('placeholder', 'Escribe tu post.');
 
   postTitle.setAttribute('id', 'postTitle');
-  const post = document.createElement('textarea');
   post.setAttribute('id', 'post');
-  
   const subsquareF = document.createElement('div');
   subsquareF.setAttribute('class', 'subsquareF');
   const btnHomeF = document.createElement('button');
