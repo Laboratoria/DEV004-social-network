@@ -26,21 +26,16 @@ export const auth = getAuth(app);
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
 
-//functiòn crear post que reciba los paràmetros y exportarla e importarla a el fedd
-//a qui pondrìa los parametros internos consultar
-//export const createPost = (titulo, descripcion) => { ... addDoc  
-export const createpost = (titulo, descripcion) => {
-  return addDoc(collection(db, "post"), {
-    titulo: 'Titulo',
-    descripcion: 'descripcion'
-  });
-
-}
+// functiòn crear post que reciba los paràmetros y exportarla e importarla a el fedd
+// a qui pondrìa los parametros internos consultar
+// export const createPost = (titulo, descripcion) => { ... addDoc
+export const createpost = (titulo, descripcion) => addDoc(collection(db, 'post'), {
+  titulo, descripcion,
+});
 
 export const saveUsers = (name, email, password, nationality, Bdate, ocupation, redaRol) => addDoc(collection(db, 'users'), {
   name, email, password, nationality, Bdate, ocupation, redaRol,
 });
-
 
 // // Initialize Cloud Firestore and get a reference to the service
 // const db = getFirestore(app);

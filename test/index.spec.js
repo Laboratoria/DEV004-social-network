@@ -24,6 +24,16 @@ describe('register', () => {
     document.querySelector('#btnregister').dispatchEvent(new Event('click'));
   });
 });
+it('si el usuario no comepleta los datos correctamente envia error ', (done) => {
+  router.registerError = jest.fn().mockImplementation(() => {
+    expect(router.registerError).toHaveBeenCalled();
+    done();
+  });
+  registerWithEmail.mockResolvedValue(Promise.reject({ code: 'error' }));
+  document.body.appendChild(register());
+  document.querySelector('#btnregister').click();
+});
+
 
 describe('login', () => {
   it('si el usuario se registrò correctamente debe direccionarse a feed', (done) => {
