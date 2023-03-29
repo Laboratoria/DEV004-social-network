@@ -54,7 +54,7 @@ export const login = (onNavigate) => {
     e.preventDefault();
     const email = emailInput.value;
     const password = passwordInput.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     try {
       const UserCredentialsLogin = await signInWithPassword(email, password);

@@ -1,8 +1,11 @@
-import { onSnapshot } from 'firebase/firestore';
+import {
+  deleteDoc, onSnapshot, doc,
+} from 'firebase/firestore';
 import {
   savePublic,
   postData,
   auth,
+  db,
 } from '../lib/firebaseConfig';
 import { signOff } from '../lib/authentication';
 
@@ -80,9 +83,9 @@ export const timeline = (onNavigate) => {
   inputContainer.addEventListener('submit', async (e) => {
     e.preventDefault(); // cancela el evento
     try {
-      const user = auth.currentUser;
-      const name = user.displayName;
-
+      // const user = auth.currentUser;
+      // const name = user.displayName;
+      const name = auth.currentUser.displayName;
       await savePublic(inputPost.value, 0, name);
       const post = document.createElement('p');
       // textContent devuelve o establece el contenido de texto de un elemento
@@ -101,15 +104,36 @@ export const timeline = (onNavigate) => {
 
   logOutIcon.addEventListener('click', async () => {
     await signOff();
-    onNavigate('/login');
+    onNavigate('/');
   });
 
   onSnapshot(postData(), (querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      console.log(doc.data());
+    querySnapshot.forEach((docum) => {
+      console.log(docum.data());
+      const postSection = document.createElement('section');
       const pComent = document.createElement('p');
-      pComent.textContent = `${doc.data().name}: ${doc.data().publicacion}`;
-      commentSection.append(pComent);
+      const editBtn = document.createElement('button');
+      const DeleteBtn = document.createElement('button');
+
+      postSection.setAttribute('id', 'postSection');
+      pComent.textContent = `${docum.data().name}: ${docum.data().publicacion}`;
+      postSection.appendChild(pComent);
+
+      editBtn.textContent = 'Editar';
+      DeleteBtn.textContent = 'Eliminar';
+
+      postSection.appendChild(editBtn);
+      postSection.appendChild(DeleteBtn);
+      commentSection.appendChild(postSection);
+      DeleteBtn.addEventListener('click', () => {
+        console.log('HOLAAAA', docum.id);
+        const docRef = doc(db, 'publication', docum.id);
+        deleteDoc(docRef).then(() => {
+          console.log('res');
+        }).catch((err) => console.warn(err));
+      });
+      console.log(docum.id);
+      // commentSection.append(pComent); //?Este es el original
     });
   });
   return bodyHTML;

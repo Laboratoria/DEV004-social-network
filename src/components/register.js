@@ -86,6 +86,7 @@ export const register = (onNavigate) => {
       updateProfile(auth.currentUser, {
         displayName: nameInput.value,
         // photoURL: 'https://example.com/john-doe/profile.jpg',
+        // console.log(displayName);
       }).then(() => {
         // Profile updated!
       }).catch((error) => {
