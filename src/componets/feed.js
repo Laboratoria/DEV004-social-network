@@ -17,9 +17,10 @@ export const feed = () => {
   userExpertChecked.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/5610/5610944.png');
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
-  const postContainer = document.createElement('div');
+  const postContainer = document.createElement('form');
   postContainer.setAttribute('class', 'postContainer');
   const postTitle = document.createElement('textarea');
+
   postTitle.setAttribute('class', 'postTitle');
   postTitle.setAttribute('rows', '2');
   postTitle.setAttribute('cols', '2');
@@ -29,6 +30,11 @@ export const feed = () => {
   post.setAttribute('rows', '10');
   post.setAttribute('cols', '1');
   post.setAttribute('placeholder', 'Escribe tu post.');
+
+  postTitle.setAttribute('id', 'postTitle');
+  const post = document.createElement('textarea');
+  post.setAttribute('id', 'post');
+  
   const subsquareF = document.createElement('div');
   subsquareF.setAttribute('class', 'subsquareF');
   const btnHomeF = document.createElement('button');
@@ -57,11 +63,19 @@ export const feed = () => {
   postContainer.appendChild(likeIcon);
   postContainer.appendChild(commentIcon);
   squareF.appendChild(subsquareF);
-  subsquareF.appendChild(btnPubF);
+  postContainer.appendChild(btnPubF);
   subsquareF.appendChild(btnHomeF);
   squareF.appendChild(squareFooterF);
   btnHomeF.addEventListener('click', () => {
     navigateTo('/home');
+  });
+  postContainer.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const feedTitle = e.target.elements.postTitle.value;
+    const feedPost = e.target.elements.post.value;
+    console.log(feedTitle);
+    console.log(feedPost);
+    createpost(feedTitle, feedPost);
   });
   return squareF;
 };

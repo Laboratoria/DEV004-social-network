@@ -56,3 +56,19 @@ export const showError = (code) => {
     wrong.innerHTML = ('Ups! Algo salio mal');
   }
 };
+
+export const registerError = (code) => {
+  if (code === 'auth/invalid-email') {
+    const divErr = document.getElementById('divParaErrores');
+    divErr.innerHTML = ('&#10060 &#128064 el e-mail no es válido');
+  } else if (code === 'auth/weak-password') {
+    const divErr = document.getElementById('divParaErrores');
+    divErr.innerHTML = ('&#10060 &#128064 La contraseña es muy débil');
+  } else if (code === 'auth/email-already-in-use') {
+    const divErr = document.getElementById('divParaErrores');
+    divErr.innerHTML = ('&#10060 &#128064 el e-mail ya está en uso');
+  } else if (code) {
+    const divErr = document.getElementById('divParaErrores');
+    divErr.innerHTML = ('&#10060 &#128064 Algo salió mal');
+  }
+};

@@ -1,5 +1,7 @@
+import { saveUsers } from '../lib/firebase.js';
+
 import { registerWithEmail } from '../lib/authentication.js';
-import { navigateTo } from '../router.js';
+import { navigateTo, registerError } from '../router.js';
 
 export const register = () => {
   const div = document.createElement('div');
@@ -55,29 +57,21 @@ export const register = () => {
     e.preventDefault();
 
     console.log('hola', e.target);
+    const name = e.target.name.value;
     const email = e.target.elements.email.value;
     const password = e.target.elements.psw.value;
+    const nationality = e.target.elements.nationality.value;
+    const Bdate = e.target.elements.Bdate.value;
+    const ocupation = e.target.elements.ocupation.value;
+    const redaRol = e.target.elements.RedaRol.value;
     registerWithEmail(email, password)
       .then((useCredential) => {
+        console.log(useCredential);
+        saveUsers(name, email, password, nationality, Bdate, ocupation, redaRol);
         navigateTo('/home');
       })
       .catch((error) => {
-        console.log(error.message);
-        console.log(error.code);
-        // eslint-disable-next-line no-lone-blocks
-        if (error.code === 'auth/invalid-email') {
-          const divErr = document.getElementById('divParaErrores');
-          divErr.innerHTML = ('&#10060 &#128064 el e-mail no es válido');
-        } else if (error.code === 'auth/weak-password') {
-          const divErr = document.getElementById('divParaErrores');
-          divErr.innerHTML = ('&#10060 &#128064 La contraseña es muy débil');
-        } else if (error.code === 'auth/email-already-in-use') {
-          const divErr = document.getElementById('divParaErrores');
-          divErr.innerHTML = ('&#10060 &#128064 el e-mail ya está en uso');
-        } else if (error.code) {
-          const divErr = document.getElementById('divParaErrores');
-          divErr.innerHTML = ('&#10060 &#128064 Algo salió mal');
-        }
+        registerError(error.code);
       });
   });
   // pintar el formulario así en vez de "return div" es mas claro y funciona,
