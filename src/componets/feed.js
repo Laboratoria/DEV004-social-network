@@ -38,10 +38,10 @@ export const feed = () => {
   btnPubF.textContent = 'publicar';
   btnHomeF.textContent = 'inicio';
   const likeIcon = document.createElement('img');
-  likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
+  // likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
   likeIcon.setAttribute('class', 'likeIcon');
   const commentIcon = document.createElement('img');
-  commentIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
+  // commentIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
   commentIcon.setAttribute('class', 'commentIcon');
   const squareFooterF = document.createElement('footer');
   squareFooterF.setAttribute('class', 'squareFooterF');
