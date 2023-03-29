@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+    /* font-family: "Roboto"; */
 }
 
 body {
@@ -11,7 +12,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* font-family: "Roboto"; */
   background-color: #fee0d5;
 }
 
@@ -51,6 +51,8 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* margin-top: 10px; */
+  margin-bottom: 30px;
 }
 
 #BtnGoogle {
@@ -134,10 +136,10 @@ button:hover {
 
 #createPostSection {
   size: 30vw;
-  height: 25vh;
+  /* height: 25vh; */
   margin: 10px;
   padding: 5px;
-  border: solid;
+  /* border: solid; */
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
@@ -157,6 +159,10 @@ button:hover {
 }
 #inputPost{
   height: 70px;
+  width: 70vw;
+  padding: 10px;
+  margin:5px;
+  border-radius: 10px;
 }
 
 
@@ -173,7 +179,7 @@ button:hover {
    width: 100%;
   height: 100%;
   align-items: center;
-  border: solid blue;
+  /* border: solid blue; */
   z-index: -1;
   /* overflow: inherit; */
   padding: 15px;
@@ -187,3 +193,9 @@ button:hover {
 }
 
 
+#postSection{
+  border: solid dimgray;
+  padding: 5px;
+  margin:10px;
+  border-radius: 10px;
+}
