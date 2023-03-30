@@ -1,10 +1,11 @@
 // import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js';
-// el taller considera una funcion donde estan todos los servicios de firebase y la importa, nosotras no.
+// el taller considera una funcion donde estan todos los servicios de firebase y
+// la importa, nosotras no.
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-//1 importar firestore
-import { getFirestore } from "firebase/firestore";
-import { collection, addDoc } from "firebase/firestore";
+// 1 importar firestore
+import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,7 +21,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 // tutorial utiliza export, taller lo une todo en una sola funcion y la exporta. 
-//2se inicializa
+// 2se inicializa
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 // Initialize Cloud Firestore and get a reference to the service
@@ -39,3 +40,19 @@ export const saveUsers = (name, email, password, nationality, Bdate, ocupation, 
 
 // // Initialize Cloud Firestore and get a reference to the service
 // const db = getFirestore(app);
+
+export const getpost = () => {
+  getDocs(collection(db, 'post'))
+    .then(
+      (snapshot) => {
+        const showPost = [];
+        snapshot.forEach((doc) => {
+          showPost.push({ ...doc.data(), id: doc.id });
+        });
+        console.log(showPost);
+      },
+    )
+    .catch((err) => {
+      console.log(err.message);
+    });
+};

@@ -1,7 +1,8 @@
 import { navigateTo } from '../router';
-import { createpost } from '../lib/firebase.js';
+import { createpost, getpost } from '../lib/firebase.js';
 
 export const feed = () => {
+  getpost();
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');
   const squareHeaderF = document.createElement('header');
