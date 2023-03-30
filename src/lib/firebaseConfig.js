@@ -14,6 +14,7 @@ import {
   addDoc,
   query,
   orderBy,
+  serverTimestamp,
 } from 'firebase/firestore';
 
 // eslint-disable-next-line spaced-comment
@@ -36,9 +37,13 @@ const provider = new GoogleAuthProvider();
 
 const db = getFirestore(app);
 
-const savePublic = (publicacion, cantidaddelikes, name) => addDoc(collection(db, 'publication'), { publicacion, cantidaddelikes, name });
+const getTimestamp = () => serverTimestamp();
 
-const postData = () => query(collection(db, 'publication'), orderBy('publicacion', 'desc'));
+const savePublic = (publicacion, cantidaddelikes, name, time) => addDoc(collection(db, 'publication'), {
+  publicacion, cantidaddelikes, name, time,
+});
+
+const postData = () => query(collection(db, 'publication'), orderBy('time', 'desc'));
 
 export {
   auth,
@@ -46,4 +51,5 @@ export {
   db,
   savePublic,
   postData,
+  getTimestamp,
 };
