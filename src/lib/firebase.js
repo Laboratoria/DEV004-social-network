@@ -42,14 +42,15 @@ export const saveUsers = (name, email, password, nationality, Bdate, ocupation, 
 // const db = getFirestore(app);
 
 export const getpost = () => {
-  getDocs(collection(db, 'post'))
+  return getDocs(collection(db, 'post'))
     .then(
       (snapshot) => {
         const showPost = [];
+        console.log('esto es showPost');
         snapshot.forEach((doc) => {
           showPost.push({ ...doc.data(), id: doc.id });
         });
-        console.log(showPost);
+        return (showPost);
       },
     )
     .catch((err) => {
