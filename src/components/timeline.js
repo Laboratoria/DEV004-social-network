@@ -1,5 +1,5 @@
 import {
-  deleteDoc, onSnapshot, doc,
+  deleteDoc, onSnapshot, doc, updateDoc,
 } from 'firebase/firestore';
 import {
   savePublic,
@@ -109,6 +109,7 @@ export const timeline = (onNavigate) => {
   });
 
   onSnapshot(postData(), (querySnapshot) => {
+    commentSection.innerHTML = '';
     querySnapshot.forEach((docum) => {
       console.log(docum.data());
       const postSection = document.createElement('section');
@@ -129,12 +130,50 @@ export const timeline = (onNavigate) => {
       DeleteBtn.addEventListener('click', () => {
         console.log('HOLAAAA', docum.id);
         const docRef = doc(db, 'publication', docum.id);
-        deleteDoc(docRef).then(() => {
-          console.log('res');
-        }).catch((err) => console.warn(err));
+        deleteDoc(docRef)
+          .then(() => {
+            console.log('res');
+          }).catch((err) => console.warn(err));
       });
       console.log(docum.id);
       // commentSection.append(pComent); //?Este es el original
+
+      // editBtn.addEventListener('click', () => {
+      //   const newPublication = prompt('Ingrese una nueva publicación:');
+      //   const docRef = doc(db, 'publication', docum.id);
+      //   updateDoc(docRef, {
+      //     publicacion: newPublication,
+      //   })
+      //     .then(() => {
+      //       console.log('res');
+      //     }).catch((err) => console.warn(err));
+      // });
+
+      editBtn.addEventListener('click', () => {
+        const editPub = document.createElement('input');
+        editPub.value = docum.data().publicacion;
+        pComent.replaceWith(editPub);
+
+        const saveBtn = document.createElement('button');
+        saveBtn.textContent = 'Guardar';
+        postSection.appendChild(saveBtn);
+
+        saveBtn.addEventListener('click', () => {
+          const docRef = doc(db, 'publication', docum.id);
+          updateDoc(docRef, {
+            publicacion: editPub.value,
+          })
+            .then(() => {
+              console.log('Documento actualizado con éxito');
+              pComent.textContent = `${editPub.value}`;
+              editPub.replaceWith(pComent);
+              saveBtn.remove();
+            })
+            .catch((error) => {
+              console.error('Error al actualizar el documento', error);
+            });
+        });
+      });
     });
   });
   return bodyHTML;
