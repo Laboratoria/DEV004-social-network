@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 import { initializeApp } from 'firebase/app';
 import {
@@ -35,6 +36,7 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
 export const updateName = (displayName) => {
   updateProfile(auth.currentUser, { displayName });
 };
+
 // FUNCIÓN GUARADR DATOS USUARIO
 export const savedUser = (displayName, email, password, petName, petSpecie, uid) => setDoc(doc(db, 'users', uid), {
   displayName,
