@@ -75,24 +75,21 @@ export const feed = () => {
     console.log(feedPost);
     createpost(feedTitle, feedPost);
   });
-  return squareF;
-};
-const drawPost = (titulo, descripcion) => {
   const miPromesa = getpost();
   miPromesa.then(
     (showPost) => {
       console.log('feed', showPost);
       showPost.forEach((post) => {
-        
         const div = document.createElement('div');
         div.innerHTML = `<form id= "registerForm">
-        <textarea>
-        <p>${post.titulo}</p> 
-        <p>${post.descripcion}</p> 
+        <textarea id= 'mostrar!'>
+        ${post.titulo}
+        ${post.descripcion}
         </textarea>
           </form>`;
+        squareF.appendChild(div);
       });
     },
   );
+  return squareF;
 };
-drawPost();
