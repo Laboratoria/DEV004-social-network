@@ -6,6 +6,7 @@ import {
   postData,
   auth,
   db,
+  getTimestamp,
 } from '../lib/firebaseConfig';
 import { signOff } from '../lib/authentication';
 
@@ -86,7 +87,7 @@ export const timeline = (onNavigate) => {
       // const user = auth.currentUser;
       // const name = user.displayName;
       const name = auth.currentUser.displayName;
-      await savePublic(inputPost.value, 0, name);
+      await savePublic(inputPost.value, 0, name, getTimestamp());
       const post = document.createElement('p');
       // textContent devuelve o establece el contenido de texto de un elemento
       post.textContent = inputPost.value;
