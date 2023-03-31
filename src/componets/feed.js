@@ -107,15 +107,9 @@ export const feed = () => {
     btnBox.appendChild(btnLogOut);
     const exitBtn = document.querySelector('.btnLogOut');
     exitBtn.addEventListener('click', () => {
-      return exitApp()
-        .then (() => {
-          navigateTo('/home');
-        })
-        .catch ( (err) => {
-          console.log(err.message)
-        }
-        ),  
+      exitApp();
+    });
   });
+
   return squareF;
 };
-}
