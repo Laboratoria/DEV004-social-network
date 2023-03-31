@@ -86,9 +86,9 @@ export const feed = () => {
   miPromesa.then((showPost) => {
     // nos aseguramos que la data provenga de feed.js y no de
     // firebase.
-    console.log("feed", showPost);
+    console.log('feed', showPost);
     showPost.forEach((post) => {
-      const div = document.createElement("div");
+      const div = document.createElement('div');
       div.innerHTML = `<form id= "registerForm">
         <textarea id= 'mostrar!'>
         ${post.titulo}
@@ -107,7 +107,10 @@ export const feed = () => {
     btnBox.appendChild(btnLogOut);
     const exitBtn = document.querySelector('.btnLogOut');
     exitBtn.addEventListener('click', () => {
-      exitApp();
+      return exitApp()
+        .then (()=> {
+          navigateTo("/home")
+        });
     });
   });
 
