@@ -1,17 +1,18 @@
 
 * {
-  
+
+  align-items: center;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-    /* font-family: "Roboto"; */
+  font-family: 'Edu NSW ACT Foundation', sans-serif;
+  font-family: "Roboto";
 }
 
 body {
+  text-align: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
   background-color: #fee0d5;
 }
 
@@ -25,6 +26,7 @@ input {
 }
 
 button {
+  font-family: "Roboto";
   padding: 10px;
   margin: 2vh;
   border-radius: 15px;
@@ -32,7 +34,7 @@ button {
   text-align: center;
   width: 180px;
   height: 30px;
-  background-color: #bf7836;
+  background-color: #D39230;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -100,7 +102,7 @@ button:hover {
   width: 100%;
   height: 100%;
   overflow: scroll;
-  border: solid purple;
+  /* border: solid purple; */
   z-index: 3;
 }
 
@@ -135,19 +137,20 @@ button:hover {
 }
 
 #createPostSection {
+  position:sticky;
   size: 30vw;
   /* height: 25vh; */
   margin: 10px;
-  padding: 5px;
-  /* border: solid; */
+  /* border: solid cyan; */
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  /* z-index: 2; */
 }
 
 #profileImg{
-  width: 10vw;
+  width: 8rem;
   height: auto;
 }
 
@@ -163,6 +166,7 @@ button:hover {
   padding: 10px;
   margin:5px;
   border-radius: 10px;
+  background-color: #D9D9D9;
 }
 
 
@@ -176,25 +180,61 @@ button:hover {
 
 
 #timelineSection {
+  position:sticky;
    width: 100%;
   height: 100%;
-  align-items: center;
   /* border: solid blue; */
-  z-index: -1;
-  /* overflow: inherit; */
   padding: 15px;
 }
 
 #feedSection{
-  font-size: 40px;
-  border: solid red;
-  z-index: -1;
+  /* position: relative; */
+  /* border: solid red; */
+  padding: 0 0 30px 0;
 }
 
 
 #postSection{
-  border: solid dimgray;
+  /* border: solid dimgray; */
   padding: 5px;
   margin:10px;
   border-radius: 10px;
+}
+
+#halfpComment{
+  background-color: #D9D9D9;
+  padding: 30px;
+  border: solid black;
+  border-width: 1px;
+  border-radius: 10px 10px 0 0;
+}
+
+#editPub{
+  width: 100%;
+}
+
+#halfBtns{
+  display: flex;
+  justify-content: space-around;
+  /* border: solid black; */
+  border-width: 0 0 1px 1px;
+  /* background-color: #413C58; */
+  /* background-color: whitesmoke; */
+  background-color: #240B36;
+  /* background-color: #985F99; */
+  /* background-color: #c76558; */
+  border-radius: 0 0 10px 10px;
+}
+
+#editBtn, #deleteBtn, #saveBtn{
+  background-color:transparent;
+  color:white;  
+  width: 100px;
+  padding: 10px;
+  margin: 10px;
+}
+
+#likePaw{
+  width: 30px;
+  margin: 10px;
 }
