@@ -4,7 +4,8 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 // 1 importar firestore
-import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+// import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc} from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDocs, query, orderBy,} from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -57,3 +58,20 @@ export const getpost = () => {
       console.log(err.message);
     });
 };
+// borrar post
+// export const eliminatePost = () => {
+//   return deleteDoc(collection(db, 'post'))
+//   .then(
+//     (snapshot) => {
+//       const showPost = [];
+//       console.log('esto es DeletePost');
+//       snapshot.forEach((doc) => {
+//         showPost.push({ ...doc.data(), id: doc.id });
+//       });
+//       return (showPost);
+//     },
+//   )
+//   .catch((err) => {
+//     console.log(err.message);
+//   });
+// };
