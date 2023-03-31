@@ -1,14 +1,14 @@
-import {
-  deleteDoc, onSnapshot, doc, updateDoc,
-} from 'firebase/firestore';
+import { onSnapshot } from 'firebase/firestore';
+
 import {
   savePublic,
   postData,
-  auth,
-  db,
   getTimestamp,
-} from '../lib/firebaseConfig';
+  deletePost,
+  updatePost,
+} from '../lib/firestore';
 import { signOff } from '../lib/authentication';
+import { auth } from '../lib/firebaseConfig';
 
 export const timeline = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -84,8 +84,6 @@ export const timeline = (onNavigate) => {
   inputContainer.addEventListener('submit', async (e) => {
     e.preventDefault(); // cancela el evento
     try {
-      // const user = auth.currentUser;
-      // const name = user.displayName;
       const name = auth.currentUser.displayName;
       await savePublic(inputPost.value, 0, name, getTimestamp());
       const post = document.createElement('p');
@@ -128,9 +126,9 @@ export const timeline = (onNavigate) => {
       postSection.appendChild(DeleteBtn);
       commentSection.appendChild(postSection);
       DeleteBtn.addEventListener('click', () => {
-        console.log('HOLAAAA', docum.id);
-        const docRef = doc(db, 'publication', docum.id);
-        deleteDoc(docRef)
+        console.log(docum.id);
+        // const docRef = doc(db, 'publication', docum.id);
+        deletePost(docum.id)
           .then(() => {
             console.log('res');
           }).catch((err) => console.warn(err));
@@ -159,11 +157,13 @@ export const timeline = (onNavigate) => {
         postSection.appendChild(saveBtn);
 
         saveBtn.addEventListener('click', () => {
-          const docRef = doc(db, 'publication', docum.id);
-          updateDoc(docRef, {
+          // const docRef = doc(db, 'publication', docum.id);
+          updatePost(docum.id, {
             publicacion: editPub.value,
-          })
+          });
+          console.log(docum.id)
             .then(() => {
+              console.log('res');
               console.log('Documento actualizado con éxito');
               pComent.textContent = `${editPub.value}`;
               editPub.replaceWith(pComent);

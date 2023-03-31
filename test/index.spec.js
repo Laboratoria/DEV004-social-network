@@ -25,12 +25,12 @@ describe('home', () => {
     const onNavigate = jest.fn();
     const signInButton = document.createElement('button');
 
-    await home(onNavigate);
+    home(onNavigate);
     signInButton.dispatchEvent(new Event('click'));
 
-    setTimeout(() => {
+    setTimeout((done) => {
       expect(onNavigate).toHaveBeenCalledWith('/register');
-      // eslint-disable-next-line no-undef
+
       done();
     }, 0);
   });
@@ -38,7 +38,7 @@ describe('home', () => {
     const onNavigate = jest.fn();
     const loginButton = document.createElement('button');
 
-    await home(onNavigate);
+    home(onNavigate);
     loginButton.dispatchEvent(new Event('click'));
 
     setTimeout(() => {
@@ -65,7 +65,7 @@ describe('register', (done) => {
     passwordInput.value = password;
     form.appendChild(emailInput);
     form.appendChild(passwordInput);
-    await register(onNavigate);
+    register(onNavigate);
     form.dispatchEvent(new Event('submit'));
     setTimeout(() => {
       expect(registerWithEmail).toHaveBeenCalledWith(email, password);
@@ -74,7 +74,6 @@ describe('register', (done) => {
     }, 0);
     setTimeout(() => {
       expect(localStorage.setItem).toHaveBeenCalledWith('name', '');
-      // eslint-disable-next-line no-undef
       done();
     }, 0);
     setTimeout(() => {
@@ -87,7 +86,7 @@ describe('register', (done) => {
     const onNavigate = jest.fn();
     const SignInBtn = document.createElement('button');
 
-    await register(onNavigate);
+    register(onNavigate);
     SignInBtn.dispatchEvent(new Event('click'));
 
     setTimeout(() => {
@@ -101,7 +100,7 @@ describe('register', (done) => {
     const onNavigate = jest.fn();
     const loginBtn = document.createElement('button');
 
-    await register(onNavigate);
+    register(onNavigate);
     loginBtn.dispatchEvent(new Event('click'));
 
     setTimeout(() => {
@@ -118,7 +117,7 @@ describe('login', (done) => {
     const onNavigate = jest.fn();
     const loginBtn = document.createElement('button');
 
-    await login(onNavigate);
+    login(onNavigate);
     loginBtn.dispatchEvent(new Event('click'));
 
     setTimeout(() => {
