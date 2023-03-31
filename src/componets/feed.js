@@ -1,6 +1,6 @@
 import { navigateTo } from "../router";
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
-import { createpost, getpost } from "../lib/firebase.js";
+import { createpost, getpost, exitApp } from "../lib/firebase.js";
 
 export const feed = () => {
   const squareF = document.createElement("div");
@@ -102,17 +102,20 @@ export const feed = () => {
     const btnBox = document.createElement('div');
     squareF.appendChild(btnBox);
     const btnLogOut = document.createElement('button');
+    btnLogOut.setAttribute('class', 'btnLogOut');
     btnLogOut.innerHTML = 'Cerrar sesion';
     btnBox.appendChild(btnLogOut);
+    const exitBtn = document.querySelector('.btnLogOut');
+    exitBtn.addEventListener('click', () => {
+      return exitApp()
+        .then (() => {
+          navigateTo('/home');
+        })
+        .catch ( (err) => {
+          console.log(err.message)
+        }
+        ),  
   });
-  // const borraPost = document.getElementById('btnDeletePost');
-  // borraPost.addEventListener('submit', (e) => {
-  //   e.preventDefault();
-  //   const feedTitle = e.target.elements.postTitle.value;
-  //   const feedPost = e.target.elements.post.value;
-  //   console.log(feedTitle);
-  //   console.log(feedPost);
-  //   eliminatePost(feedTitle, feedPost);
-
   return squareF;
 };
+}

@@ -2,10 +2,10 @@
 // el taller considera una funcion donde estan todos los servicios de firebase y
 // la importa, nosotras no.
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 // 1 importar firestore
 // import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc} from 'firebase/firestore';
-import { getFirestore, collection, addDoc, getDocs, query, orderBy,} from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,7 +25,20 @@ const firebaseConfig = {
 // 2se inicializa
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-// Initialize Cloud Firestore and get a reference to the service
+
+//cerrar sesion:
+export const exitApp = () => {
+  return signOut(auth)
+  .then (() => {
+    console.log ('the user signed out')
+  })
+  .catch ((err) => {
+    console.log(err.message)
+  });
+};
+
+    //    // Initialize Cloud Firestore and get a reference to the service
+
 export const db = getFirestore(app);
 
 // functiòn crear post que reciba los paràmetros y exportarla e importarla a el fedd
@@ -58,6 +71,11 @@ export const getpost = () => {
       console.log(err.message);
     });
 };
+
+
+
+  
+
 // borrar post
 // export const eliminatePost = () => {
 //   return deleteDoc(collection(db, 'post'))
