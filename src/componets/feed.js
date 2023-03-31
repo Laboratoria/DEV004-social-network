@@ -2,7 +2,6 @@ import { navigateTo } from '../router';
 import { createpost, getpost } from '../lib/firebase.js';
 
 export const feed = () => {
-  getpost();
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');
   const squareHeaderF = document.createElement('header');
@@ -76,5 +75,21 @@ export const feed = () => {
     console.log(feedPost);
     createpost(feedTitle, feedPost);
   });
+  const miPromesa = getpost();
+  miPromesa.then(
+    (showPost) => {
+      console.log('feed', showPost);
+      showPost.forEach((post) => {
+        const div = document.createElement('div');
+        div.innerHTML = `<form id= "registerForm">
+        <textarea id= 'mostrar!'>
+        ${post.titulo}
+        ${post.descripcion}
+        </textarea>
+          </form>`;
+        squareF.appendChild(div);
+      });
+    },
+  );
   return squareF;
 };
