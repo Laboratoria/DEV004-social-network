@@ -15,7 +15,7 @@ export const timeline = (onNavigate) => {
   const bodyHTML = document.createElement('body');
   const headerHTML = document.createElement('header');
   const timelineSection = document.createElement('main');
-  const commentSection = document.createElement('div');
+  const feedSection = document.createElement('div');
   const headerTitle = document.createElement('nav');
   const createPostSection = document.createElement('section');
   const profileImg = document.createElement('img');
@@ -31,12 +31,12 @@ export const timeline = (onNavigate) => {
   bodyHTML.setAttribute('id', 'bodyHTML');
   headerHTML.setAttribute('id', 'headerHTML');
   timelineSection.setAttribute('id', 'timelineSection');
-  commentSection.setAttribute('id', 'commentSection');
+  feedSection.setAttribute('id', 'feedSection');
 
   createPostSection.setAttribute('id', 'createPostSection');
 
   headerTitle.setAttribute('id', 'headerTitle');
-  headerTitle.textContent = 'timeline';
+  headerTitle.textContent = 'Timeline';
 
   profileImg.setAttribute('id', 'profileImg');
   profileImg.setAttribute('src', '../Img/CircleLogo.png');
@@ -69,7 +69,7 @@ export const timeline = (onNavigate) => {
 
   bodyHTML.appendChild(timelineSection);
   timelineSection.appendChild(createPostSection);
-  timelineSection.appendChild(commentSection);
+  timelineSection.appendChild(feedSection);
 
   createPostSection.appendChild(profileImg);
   createPostSection.appendChild(inputContainer);
@@ -89,7 +89,7 @@ export const timeline = (onNavigate) => {
       const post = document.createElement('p');
       // textContent devuelve o establece el contenido de texto de un elemento
       post.textContent = inputPost.value;
-      commentSection.appendChild(post);
+      feedSection.appendChild(post);
       inputContainer.reset();
     } catch (error) {
       console.log(error);
@@ -107,25 +107,39 @@ export const timeline = (onNavigate) => {
   });
 
   onSnapshot(postData(), (querySnapshot) => {
-    commentSection.innerHTML = '';
+    feedSection.innerHTML = '';
     querySnapshot.forEach((docum) => {
       console.log(docum.data());
       const postSection = document.createElement('section');
-      const pComent = document.createElement('p');
+      const halfpComment = document.createElement('div');
+      const pComment = document.createElement('p');
+      const halfBtns = document.createElement('div');
       const editBtn = document.createElement('button');
-      const DeleteBtn = document.createElement('button');
+      const deleteBtn = document.createElement('button');
+      const likePaw = document.createElement('img');
 
       postSection.setAttribute('id', 'postSection');
-      pComent.textContent = `${docum.data().name}: ${docum.data().publicacion}`;
-      postSection.appendChild(pComent);
+      halfpComment.setAttribute('id', 'halfpComment');
+      pComment.setAttribute('id', 'pComment');
+      halfBtns.setAttribute('id', 'halfBtns');
+      editBtn.setAttribute('id', 'editBtn');
+      deleteBtn.setAttribute('id', 'deleteBtn');
+      likePaw.setAttribute('id', 'likePaw');
+      likePaw.setAttribute('src', '../Img/likePawZero.png');
+      pComment.textContent = `${docum.data().name}: ${docum.data().publicacion}`;
+      postSection.appendChild(pComment);
 
       editBtn.textContent = 'Editar';
-      DeleteBtn.textContent = 'Eliminar';
+      deleteBtn.textContent = 'Eliminar';
 
-      postSection.appendChild(editBtn);
-      postSection.appendChild(DeleteBtn);
-      commentSection.appendChild(postSection);
-      DeleteBtn.addEventListener('click', () => {
+      halfpComment.appendChild(pComment);
+      halfBtns.appendChild(editBtn);
+      halfBtns.appendChild(deleteBtn);
+      halfBtns.appendChild(likePaw);
+      postSection.appendChild(halfpComment);
+      postSection.appendChild(halfBtns);
+      feedSection.appendChild(postSection);
+      deleteBtn.addEventListener('click', () => {
         console.log(docum.id);
         // const docRef = doc(db, 'publication', docum.id);
         deletePost(docum.id)
@@ -149,26 +163,25 @@ export const timeline = (onNavigate) => {
 
       editBtn.addEventListener('click', () => {
         const editPub = document.createElement('input');
+        editPub.setAttribute('id', 'editPub');
         editPub.value = docum.data().publicacion;
-        pComent.replaceWith(editPub);
+        pComment.replaceWith(editPub);
 
         const saveBtn = document.createElement('button');
+        saveBtn.setAttribute('id', 'saveBtn');
         saveBtn.textContent = 'Guardar';
-        postSection.appendChild(saveBtn);
+        halfBtns.appendChild(saveBtn);
 
         saveBtn.addEventListener('click', () => {
           // const docRef = doc(db, 'publication', docum.id);
           updatePost(docum.id, {
             publicacion: editPub.value,
-          });
-          console.log(docum.id)
-            .then(() => {
-              console.log('res');
-              console.log('Documento actualizado con éxito');
-              pComent.textContent = `${editPub.value}`;
-              editPub.replaceWith(pComent);
-              saveBtn.remove();
-            })
+          }).then(() => {
+            console.log('Documento actualizado con éxito');
+            pComment.textContent = `${editPub.value}`;
+            editPub.replaceWith(pComment);
+            saveBtn.remove();
+          })
             .catch((error) => {
               console.error('Error al actualizar el documento', error);
             });
