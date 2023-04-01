@@ -22,7 +22,7 @@ const savePublic = (publicacion, cantidaddelikes, name, time) => addDoc(collecti
 const postData = () => query(collection(db, 'publication'), orderBy('time', 'desc'));
 
 export const deletePost = (id) => deleteDoc(doc(db, 'publication', id));
-export const updatePost = (id, newFields) => updateDoc(doc(db, 'publication', id), newFields);
+export const updatePost = (id, newDocument) => updateDoc(doc(db, 'publication', id), newDocument);
 
 export {
   db,
