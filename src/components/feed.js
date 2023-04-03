@@ -99,7 +99,7 @@ export const feed = () => {
       counterLike.textContent = feedPosts.likes.length;
       postElement.appendChild(counterLike);
 
-      /* erificar si es nuestro usuario ingresado es igual al del post */
+      /* verificar si es nuestro usuario ingresado es igual al del post */
       if (feedPosts.userId === auth.currentUser.uid) {
         /* Borrar Post */
         const deleteButton = document.createElement('img');
