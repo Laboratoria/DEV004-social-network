@@ -88,8 +88,10 @@ export const feed = () => {
     // firebase.
     console.log('feed', showPost);
     showPost.forEach((post) => {
+      const containerPost = document.createElement('form');
       const div = document.createElement('div');
       div.innerHTML = `<form id= "registerForm">
+      
         <textarea id= 'mostrar!'>
         ${post.titulo}
         ${post.descripcion}
@@ -97,7 +99,9 @@ export const feed = () => {
         <input type="submit" id="btnDeletePost" value="Borrar"/>
         <input type="submit" id="btnEditPost" value="Editar"/>
           </form>`;
+      div.setAttribute('id', 'div1');
       squareF.appendChild(div);
+      div.appendChild(containerPost);
     });
     const btnBox = document.createElement('div');
     squareF.appendChild(btnBox);
@@ -113,6 +117,11 @@ export const feed = () => {
         });
     });
   });
+
+  //delete
+  //creo el evento
+  
+  const form = document.getElementById('registerForm');
 
   return squareF;
 };
