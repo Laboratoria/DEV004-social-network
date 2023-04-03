@@ -1,4 +1,4 @@
-import { onSnapshot } from 'firebase/firestore';
+import { onSnapshot, doc, updateDoc, arrayUnion } from 'firebase/firestore';
 
 import {
   savePublic,
@@ -6,6 +6,7 @@ import {
   getTimestamp,
   deletePost,
   updatePost,
+  db,
 } from '../lib/firestore';
 import { signOff } from '../lib/authentication';
 import { auth } from '../lib/firebaseConfig';
@@ -85,7 +86,7 @@ export const timeline = (onNavigate) => {
     e.preventDefault(); // cancela el evento
     try {
       const name = auth.currentUser.displayName;
-      await savePublic(inputPost.value, 0, name, getTimestamp());
+      await savePublic(inputPost.value, [], name, getTimestamp());
       const post = document.createElement('p');
       // textContent devuelve o establece el contenido de texto de un elemento
       post.textContent = inputPost.value;
@@ -97,10 +98,8 @@ export const timeline = (onNavigate) => {
   });
 
   postButton.addEventListener('click', async () => {});
-
   homeIcon.addEventListener('click', () => onNavigate('/'));
   profileIcon.addEventListener('click', () => onNavigate('/welcome'));
-
   logOutIcon.addEventListener('click', async () => {
     await signOff();
     onNavigate('/');
@@ -116,7 +115,11 @@ export const timeline = (onNavigate) => {
       const halfBtns = document.createElement('div');
       const editBtn = document.createElement('button');
       const deleteBtn = document.createElement('button');
+      const divlike = document.createElement('div');
       const likePaw = document.createElement('img');
+      divlike.setAttribute('id', 'divlike');
+      divlike.innerHTML = `${docum.data().likes.length}`;
+      halfBtns.appendChild(divlike);
 
       postSection.setAttribute('id', 'postSection');
       halfpComment.setAttribute('id', 'halfpComment');
@@ -126,12 +129,13 @@ export const timeline = (onNavigate) => {
       deleteBtn.setAttribute('id', 'deleteBtn');
       likePaw.setAttribute('id', 'likePaw');
       likePaw.setAttribute('src', '../Img/likePawZero.png');
+      likePaw.setAttribute('alt', 'likePaw');
+      halfBtns.textContent = `${docum.data().likes.length}`;
       pComment.textContent = `${docum.data().name}: ${docum.data().publicacion}`;
       postSection.appendChild(pComment);
 
       editBtn.textContent = 'Editar';
       deleteBtn.textContent = 'Eliminar';
-
       halfpComment.appendChild(pComment);
       halfBtns.appendChild(editBtn);
       halfBtns.appendChild(deleteBtn);
@@ -139,15 +143,58 @@ export const timeline = (onNavigate) => {
       postSection.appendChild(halfpComment);
       postSection.appendChild(halfBtns);
       feedSection.appendChild(postSection);
+      const modalConfirm = document.createElement('div');
+      modalConfirm.setAttribute('id', 'modal-confirm');
+      modalConfirm.style.display = 'none';
+
+      const modalContent = document.createElement('div');
+      modalContent.classList.add('modal-content');
+      const modalText = document.createElement('p');
+      modalText.textContent = '¿Estás seguro de eliminar este post?';
+      const confirmBtn = document.createElement('button');
+      confirmBtn.id = 'confirm-delete-btn';
+      confirmBtn.textContent = 'Sí, eliminar';
+      const cancelBtn = document.createElement('button');
+      cancelBtn.id = 'cancel-delete-btn';
+      cancelBtn.textContent = 'Cancelar';
+      bodyHTML.appendChild(modalContent);
+      modalContent.appendChild(modalText);
+      modalContent.appendChild(confirmBtn);
+      modalContent.appendChild(cancelBtn);
+      modalConfirm.appendChild(modalContent);
+
       deleteBtn.addEventListener('click', () => {
         console.log(docum.id);
+        modalConfirm.style.display = 'block';
+      });
+
+      cancelBtn.addEventListener('click', () => {
+        modalConfirm.style.display = 'none';
+      });
+
+      confirmBtn.addEventListener('click', () => {
         // const docRef = doc(db, 'publication', docum.id);
         deletePost(docum.id)
           .then(() => {
-            console.log('res');
           }).catch((err) => console.warn(err));
       });
       console.log(docum.id);
+
+      likePaw.addEventListener('click', () => {
+        likePaw.value = docum.data().likes.length;
+        // Obtener la referencia al documento correspondiente en Firebase
+        const docRef = doc(db, 'publication', docum.id);
+
+        // Incrementar el contador de likes y actualizar en Firebase
+        // const newLikes = docum.data().cantidaddelikes + 1;
+        updateDoc(docRef, { likes: arrayUnion(auth.currentUser.uid) })
+          .then(() => {
+            // Actualizar la imagen likePaw para mostrar  el número actualizado de likes
+           
+          })
+          .catch((err) => console.warn(err));
+      });
+
       // commentSection.append(pComent); //?Este es el original
 
       // editBtn.addEventListener('click', () => {
@@ -186,6 +233,7 @@ export const timeline = (onNavigate) => {
               console.error('Error al actualizar el documento', error);
             });
         });
+        // Agregar evento de clic al botón likePaw
       });
     });
   });
