@@ -1,8 +1,9 @@
-/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
+/* eslint-disable import/no-extraneous-dependencies */
 import { initializeApp } from 'firebase/app';
 import {
-  collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy, serverTimestamp, deleteDoc, updateDoc,
+  collection, addDoc, getFirestore, setDoc, doc, getDocs, query, onSnapshot, orderBy, Timestamp, deleteDoc, updateDoc, arrayUnion, arrayRemove,
 } from 'firebase/firestore';
 import {
   getAuth,
@@ -36,7 +37,6 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
 export const updateName = (displayName) => {
   updateProfile(auth.currentUser, { displayName });
 };
-
 // FUNCIÓN GUARADR DATOS USUARIO
 export const savedUser = (displayName, email, password, petName, petSpecie, uid) => setDoc(doc(db, 'users', uid), {
   displayName,
@@ -68,14 +68,14 @@ export const post = async (postText) => {
     userEmail: auth.currentUser.email,
     userId: auth.currentUser.uid,
     userName: auth.currentUser.displayName,
-    createdAt: serverTimestamp(Date),
+    dateCreate: Timestamp.now(),
     likes: [],
   });
-  console.log('Document written with ID: ', docRef.id);
+/*   console.log('Document written with ID: ', docRef.id); */
 };
 
 /* capturar post */
-export const readPosts = () => query(colRef, orderBy('createdAt'));
+export const readPosts = () => query(colRef, orderBy('dateCreate', 'desc'));
 export const listenToPosts = (callback) => {
   onSnapshot(readPosts(), (snapshot) => {
     const allPosts = [];
@@ -97,8 +97,16 @@ export const addPost = (callback) => {
   });
 };
 
+/* Editar Post */
 export const updatePost = (id, newPost) => updateDoc(doc(db, 'userpost', id), newPost);
 
+/* Eliminar Post */
 export const deleteDocData = async (id) => {
   await deleteDoc(doc(db, 'userpost', id));
 };
+
+/* Guardar like */
+export const like = async (id, uid) => updateDoc(doc(db, 'userpost', id), { likes: arrayUnion(uid) });
+
+/* Quitar like */
+export const disLike = async (id, uid) => updateDoc(doc(db, 'userpost', id), { likes: arrayRemove(uid) });
