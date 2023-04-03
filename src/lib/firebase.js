@@ -5,7 +5,9 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signOut } from 'firebase/auth';
 // 1 importar firestore
 // import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc} from 'firebase/firestore';
-import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+import {
+  getFirestore, collection, addDoc, getDocs, deleteDoc, doc,
+} from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,23 +23,21 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-// tutorial utiliza export, taller lo une todo en una sola funcion y la exporta. 
+// tutorial utiliza export, taller lo une todo en una sola funcion y la exporta.
 // 2se inicializa
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-//cerrar sesion:
-export const exitApp = () => {
-  return signOut(auth)
-  .then (() => {
-    console.log ('the user signed out')
+// cerrar sesion:
+export const exitApp = () => signOut(auth)
+  .then(() => {
+    console.log('the user signed out');
   })
-  .catch ((err) => {
-    console.log(err.message)
+  .catch((err) => {
+    console.log(err.message);
   });
-};
 
-    //    // Initialize Cloud Firestore and get a reference to the service
+//    // Initialize Cloud Firestore and get a reference to the service
 
 export const db = getFirestore(app);
 
@@ -55,26 +55,27 @@ export const saveUsers = (name, email, password, nationality, Bdate, ocupation, 
 // // Initialize Cloud Firestore and get a reference to the service
 // const db = getFirestore(app);
 
-export const getpost = () => {
-  return getDocs(collection(db, 'post'))
-    .then(
-      (snapshot) => {
-        const showPost = [];
-        console.log('esto es showPost');
-        snapshot.forEach((doc) => {
-          showPost.push({ ...doc.data(), id: doc.id });
-        });
-        return (showPost);
-      },
-    )
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
-
-
-
-  
+export const getpost = () => getDocs(collection(db, 'post'))
+  .then(
+    (snapshot) => {
+      const showPost = [];
+      console.log('esto es showPost');
+      snapshot.forEach((docu) => {
+        showPost.push({ ...docu.data(), id: docu.id });
+      });
+      return (showPost);
+    },
+  )
+  .catch((err) => {
+    console.log(err.message);
+  });
+export const deletePost = (id) => deleteDoc(doc(db, 'post', id))
+  .then(() => {
+    console.log('todo ok');
+  })
+  .catch((err) => {
+    console.log('error');
+  });
 
 // borrar post
 // export const eliminatePost = () => {
