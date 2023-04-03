@@ -252,17 +252,7 @@ button {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
-  background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 30%;
-}
 
-.modal-content button {
-  margin: 10px;
-}
 
 #divlike{
   color:white; 
