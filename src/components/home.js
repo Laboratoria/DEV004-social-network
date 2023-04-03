@@ -13,7 +13,7 @@ export const home = () => {
     <img src="./img/logo.png" id="logo"><h1 id="welcome">Bienvenida</h1></header><section class="register-container">
     </header>
     <h1>Inicio de sesión</h1>
-    <input type="email" id="email" placeholder="Ingrese su correo" /> 
+    <input type="email" id="email" placeholder="Ingrese su correo" />
     <input type="password" id="password" placeholder="Ingrese su contraseña"/>
     <button type="submit" id="signin-button">Iniciar Sesión</button>
     <p>¿No tienes cuenta?,</p><a id="here">Registrate aquí</a>
