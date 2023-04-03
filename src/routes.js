@@ -1,9 +1,9 @@
+import { Login } from './components/login';
+import { Register } from './components/register';
+import { Home } from './components/home';
 
-
-import { Login} from "./components/login";
-import { Register } from "./components/register";
-
-export const ROUTES ={
-  '/': Login ,
-  '/register':Register,
+export const ROUTES = {
+  '/': Login,
+  '/register': Register,
+  '/home': Home,
 };

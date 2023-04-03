@@ -1,8 +1,9 @@
-import { navigateTo } from "../router";
+import { navigateTo } from '../router';
+import { signInWithFacebook, signInWithGoogle, signInWithPassword } from '../helpers/accederCongmail';
 
 export const Login = () => {
   // Create a div element to hold the login component
-  const div = document.createElement("div");
+  const div = document.createElement('div');
   div.innerHTML = `
 
   <img src="assets/logo.png" class="logoForm" alt="logo-Wanderlust">
@@ -32,55 +33,74 @@ export const Login = () => {
   </div>
   </div>
   </form>
-   <!--<div class="modal">
-      <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
-    </div>-->
-  </div>`;
+  <div class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+</div>`;
 
   // Function to open modal
-  /*const openModal = (message) => {
-    div.querySelector(".modal").style.display = "block";
-    div.querySelector(".modal-content > p:nth-child(2)").textContent = message;
-  };*/
+  const openModal = (message) => {
+    div.querySelector('.modal').style.display = 'block';
+    div.querySelector('.modal-content > p:nth-child(2)').textContent = message;
+    div.querySelector('.modal-content > p:nth-child(2)').style.color = 'black';
+  };
+  // funcion para ocultar el modal
+  div.querySelector('.close').addEventListener('click', (e) => {
+    e.preventDefault();
+    div.querySelector('.modal').style.display = 'none';
+  });
 
   // Add event listeners to the login component
 
-  div.querySelector("#loginForm").addEventListener("submit", (e) => {
+  div.querySelector('#loginForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    const username = div.querySelector("#username").value;
-    const password = div.querySelector("#password").value;
+    const username = div.querySelector('#username').value;
+    const password = div.querySelector('#password').value;
     signInWithPassword(username, password).then(
       (useCredential) => {
-        navigateTo("/home");
+        navigateTo('/home');
       },
       (error) => {
         openModal(error.message);
-      }
+      },
     );
   });
 
-  div.querySelector(".google-btn").addEventListener("click", (e) => {
+  div.querySelector('.google-btn').addEventListener('click', (e) => {
     e.preventDefault();
     signInWithGoogle().then(
       (useCredential) => {
-        navigateTo("/home");
+        navigateTo('/home');
       },
       (error) => {
         openModal(error.message);
-      }
+      },
     );
   });
 
-  div.querySelector(".signup-btn").addEventListener("click", (e) => {
+  div.querySelector('.fb-btn').addEventListener('click', (e) => {
     e.preventDefault();
-    navigateTo("/register");
+    signInWithFacebook().then(
+      (useCredential) => {
+        navigateTo('/home');
+      },
+      (error) => {
+        openModal(error.message);
+      },
+    );
+  });
+
+  div.querySelector('.signup-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('/register');
   });
   /*
   div.querySelector(".close").addEventListener("click", (e) => {
     e.preventDefault();
     div.querySelector(".modal").style.display = "none";
-  });*/
+  }); */
 
   // Return the div element
   return div;
