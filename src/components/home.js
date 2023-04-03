@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import {
   createUser,
   loginWithGoogle,
@@ -28,6 +29,7 @@ export const home = () => {
   submitButton.addEventListener('click', () => {
     const signInEmail = document.getElementById('email').value;
     const signInPassword = document.getElementById('password').value;
+    // eslint-disable-next-line no-use-before-define
     const formOK = validateDataHome();
     if (!formOK) {
       return;
@@ -40,6 +42,7 @@ export const home = () => {
       })
       .catch((error) => error);
   });
+  // eslint-disable-next-line consistent-return
   function validateDataHome() {
     const signInEmail = document.getElementById('email').value;
     const signInPassword = document.getElementById('password').value;

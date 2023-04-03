@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { createUser, savedUser, updateName } from '../lib/firebase';
 
 const root = document.getElementById('root');
@@ -56,7 +57,7 @@ export const register = () => {
       .then(() => {
         window.location.href = '/feed';
       })
-      // eslint-disable-next-line consistent-return
+      // eslint-disable-next-line consistent-return, no-unused-vars
       .catch((error) => {
 
       });
@@ -84,6 +85,7 @@ function validateData() {
   const validatePetName = /[0-9]/g.test(petName);
   const validatePetSpecie = /[0-9]/g.test(petSpecie);
   if (displayName === '') {
+    // eslint-disable-next-line no-alert
     alert('Ingrese su nombre');
     return false;
   } if (signUpEmail === '') {
