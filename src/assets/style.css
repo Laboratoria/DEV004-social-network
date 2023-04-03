@@ -217,32 +217,5 @@ a {
 #post-list {
   margin-top: 20px;
 }
-
-.post {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.post h4 {
-  margin: 0;
-}
-
-.post p {
-  margin: 10px 0;
-}
-
-.post-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.post-actions button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
 }
 

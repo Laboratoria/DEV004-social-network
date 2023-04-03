@@ -96,11 +96,6 @@ export const Login = () => {
     e.preventDefault();
     navigateTo('/register');
   });
-  /*
-  div.querySelector(".close").addEventListener("click", (e) => {
-    e.preventDefault();
-    div.querySelector(".modal").style.display = "none";
-  }); */
 
   // Return the div element
   return div;
