@@ -1,5 +1,8 @@
 import { auth } from '../lib/firebaseConfig';
-import { authGoogle, signInWithPassword } from '../lib/authentication';
+import {
+  authGoogle,
+  signInWithPassword,
+} from '../lib/authentication';
 
 export const login = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -11,7 +14,8 @@ export const login = (onNavigate) => {
   const passwordInput = document.createElement('input');
   const loginBtn = document.createElement('button');
   const BtnGoogle = document.createElement('img');
-  //* Estamos asignandi atributos para todos los elementos creados.
+
+  //* Estamos asignando atributos para todos los elementos creados.
   loginSection.setAttribute('id', 'loginSection');
 
   loginHeader.innerHTML = 'Ingresa tus datos';
@@ -54,15 +58,14 @@ export const login = (onNavigate) => {
     e.preventDefault();
     const email = emailInput.value;
     const password = passwordInput.value;
-    // console.log(email, password);
 
     try {
       const UserCredentialsLogin = await signInWithPassword(email, password);
       const name = email.split('@')[0]; // obtener el nombre de usuario
-      // auth.currentUser.displayName
+
       localStorage.setItem('name', name);
       onNavigate('/welcome');
-      // eslint-disable-next-line no-console
+
       console.log(UserCredentialsLogin);
     } catch (error) {
       if (error.code === 'auth/wrong-password') {
