@@ -45,7 +45,8 @@ export const db = getFirestore(app);
 // a qui pondrìa los parametros internos consultar
 // export const createPost = (titulo, descripcion) => { ... addDoc
 export const createpost = (titulo, descripcion) => addDoc(collection(db, 'post'), {
-  titulo, descripcion,
+  titulo,
+  descripcion,
 });
 
 export const saveUsers = (name, email, password, nationality, Bdate, ocupation, redaRol) => addDoc(collection(db, 'users'), {
@@ -73,8 +74,8 @@ export const deletePost = (id) => deleteDoc(doc(db, 'post', id))
   .then(() => {
     console.log('todo ok');
   })
-  .catch((err) => {
-    console.log('error');
+  .catch((error) => {
+    console.log(error.message);
   });
 
 // borrar post

@@ -1,6 +1,8 @@
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
-import { createpost, getpost, deletePost exitApp } from '../lib/firebase.js';
+import {
+  createpost, getpost, deletePost, exitApp,
+} from '../lib/firebase.js';
 
 export const feed = () => {
   const squareF = document.createElement('div');
@@ -102,18 +104,19 @@ export const feed = () => {
 */
 
   const dibujar = () => {
-    const miPromesa = getpost();
-    miPromesa.then((showPost) => {
+    const myPromise = getpost();
+    myPromise.then((showPost) => {
     // nos aseguramos que la data provenga de feed.js y no de
     // firebase.
       // console.log('feed', showPost);
       showPost.forEach((post) => {
         // const postForm = document.createElement('form');
-        const form = document.createElement('div');
+        const form = document.createElement('form');
 
         form.innerHTML = `<textarea id= 'mostrar!'>
         ${post.titulo}
         ${post.descripcion}
+        
         
         </textarea> 
         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
@@ -129,9 +132,12 @@ export const feed = () => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           // console.log($button.getAttribute(btn));
-
           console.log(btn.getAttribute('data-id'));
-
+          /* const myPromiseDelete = deletePost();
+          myPromiseDelete.then((id) => {
+            const btndeletedata = btn.getAttribute('data-id');
+            id.remove();
+          }); */
         });
       });
     });
