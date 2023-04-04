@@ -1,18 +1,11 @@
-// import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js';
-// el taller considera una funcion donde estan todos los servicios de firebase y
-// la importa, nosotras no.
+// importar las funciones especificas de firebase a utilizar.
 import { initializeApp } from 'firebase/app';
 import { getAuth, signOut } from 'firebase/auth';
-// 1 importar firestore
-// import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc} from 'firebase/firestore';
 import {
-  getFirestore, collection, addDoc, getDocs, deleteDoc, doc,
+  getFirestore, collection, addDoc, getDocs, deleteDoc, doc, serverTimestamp, orderBy, query
 } from 'firebase/firestore';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
+// configuración del proyecto:
 const firebaseConfig = {
   apiKey: 'AIzaSyDG0CfYFCo1QM8MFTFUJdhVPZSUkmDU958',
   authDomain: 'reda-d08aa.firebaseapp.com',
@@ -21,38 +14,41 @@ const firebaseConfig = {
   messagingSenderId: '761765204956',
   appId: '1:761765204956:web:50f457c05bf2988ec17519',
 };
-
-// Initialize Firebase
-// tutorial utiliza export, taller lo une todo en una sola funcion y la exporta.
-// 2se inicializa
+// se inicializa firebase utilizando la funcion oficial
+// la configuración del proyecto pasa como parametro.
+// conecta el front end con el back end.
 export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
 
-// cerrar sesion:
-export const exitApp = () => signOut(auth)
-  .then(() => {
-    console.log('the user signed out');
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
-
-//    // Initialize Cloud Firestore and get a reference to the service
-
+// la base de datos queda representada en la const db.
 export const db = getFirestore(app);
 
-// functiòn crear post que reciba los paràmetros y exportarla e importarla a el fedd
-// a qui pondrìa los parametros internos consultar
-// export const createPost = (titulo, descripcion) => { ... addDoc
-export const createpost = (titulo, descripcion) => addDoc(collection(db, 'post'), {
+// referencia a la colección de la db.
+export const colRef = collection(db, 'post');
+
+// llamamos a la coleccion de datos.
+getDocs(colRef)
+  .then((snapshot)=> {
+    // console.log('soy la funcion ninja', snapshot.docs);
+    let post = [];
+    snapshot.docs.forEach((doc) => {
+      post.push({ ...doc.data(), id: doc.id });
+    });
+    console.log ('otra funcion del ninja', post);
+  });
+
+export const auth = getAuth(app);
+
+export const createpost = (titulo, descripcion) => addDoc((colRef), {
   titulo,
   descripcion,
+  createdAt: serverTimestamp(Date),
 });
+// queries fecha de creacion del post
+const q = query(colRef, orderBy('createdAt'));
 
-export const saveUsers = (name, email, password, nationality, Bdate, ocupation, redaRol) => addDoc(collection(db, 'users'), {
+export const saveUsers = (name, email, password, nationality, Bdate, ocupation, redaRol) => addDoc((colRef), {
   name, email, password, nationality, Bdate, ocupation, redaRol,
 });
-
 // // Initialize Cloud Firestore and get a reference to the service
 // const db = getFirestore(app);
 
@@ -78,20 +74,11 @@ export const deletePost = (id) => deleteDoc(doc(db, 'post', id))
     console.log(error.message);
   });
 
-// borrar post
-// export const eliminatePost = () => {
-//   return deleteDoc(collection(db, 'post'))
-//   .then(
-//     (snapshot) => {
-//       const showPost = [];
-//       console.log('esto es DeletePost');
-//       snapshot.forEach((doc) => {
-//         showPost.push({ ...doc.data(), id: doc.id });
-//       });
-//       return (showPost);
-//     },
-//   )
-//   .catch((err) => {
-//     console.log(err.message);
-//   });
-// };
+// cerrar sesion:
+export const exitApp = () => signOut(auth)
+  .then(() => {
+    console.log('the user signed out');
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });

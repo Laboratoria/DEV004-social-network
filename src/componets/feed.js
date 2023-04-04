@@ -116,8 +116,6 @@ export const feed = () => {
         form.innerHTML = `<textarea id= 'mostrar!'>
         ${post.titulo}
         ${post.descripcion}
-        
-        
         </textarea> 
         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
         <input type="submit" id="btnEditPost" value="Editar"/>
