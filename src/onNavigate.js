@@ -16,8 +16,6 @@ const routes = {
 const onNavigate = (pathname, paramRoutes = routes) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
   return root.replaceChildren(paramRoutes[pathname](onNavigate));
-  // root.removeChild(root.firstChild);
-  // root.appendChild(paramRoutes[pathname]);
 };
 
 window.onpopstate = () => {
