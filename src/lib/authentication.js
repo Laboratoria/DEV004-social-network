@@ -4,6 +4,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { auth } from './firebase.js';
 // para autentficar cuando el usuario se meta
@@ -19,3 +20,6 @@ export const signInWithGoogle = () => {
 export const registerWithEmail = (email, password) => (
   createUserWithEmailAndPassword(auth, email, password)
 );
+export const userState = onAuthStateChanged(auth, (user) => {
+  console.log('user status changed:', user);
+});

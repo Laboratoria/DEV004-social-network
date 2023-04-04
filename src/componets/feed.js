@@ -1,7 +1,7 @@
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, deletePost, exitApp,
+  createpost, getpost, deletePost, exitApp, auth,
 } from '../lib/firebase.js';
 
 export const feed = () => {
