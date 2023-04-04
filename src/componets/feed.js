@@ -129,35 +129,9 @@ export const feed = () => {
       btnsDeletePost.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          // console.log($button.getAttribute(btn));
-          console.log(btn.getAttribute('data-id'));
-          /* const myPromiseDelete = deletePost();
-          myPromiseDelete.then((id) => {
-            const btndeletedata = btn.getAttribute('data-id');
-            id.remove();
-          }); */
         });
       });
     });
   };
-
-  // delete post
-  // creo el evento
-  /**
-  const btnsDeletePost = document.querySelectorAll('.btnDeletePost');
-  btnsDeletePost.forEach((btn) => {
-    // for eeach
-    // dbotes add evven//
-    // dentor edl forech hacer
-    [...btnsDeletePost].addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log($button.getAttribute(btn));
-
-      console.log(e);
-    });
-  });
-  */
-  // dibujar();
-
   return squareF;
 };
