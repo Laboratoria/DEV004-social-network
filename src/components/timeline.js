@@ -2,6 +2,8 @@ import {
   onSnapshot,
 } from 'firebase/firestore';
 
+import { onAuthStateChanged } from 'firebase/auth';
+
 import {
   savePublic,
   postData,
@@ -9,9 +11,16 @@ import {
   deletePost,
   updatePost,
   like,
+  dislike,
 } from '../lib/firestore';
 import { signOff } from '../lib/authentication';
 import { auth } from '../lib/firebaseConfig';
+
+let myCurrentUser = null;
+
+onAuthStateChanged(auth, (user) => {
+  if (user) myCurrentUser = user;
+});
 
 export const timeline = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -88,7 +97,8 @@ export const timeline = (onNavigate) => {
     e.preventDefault(); // cancela el evento
     try {
       const name = auth.currentUser.displayName;
-      await savePublic(inputPost.value, [], name, [], getTimestamp());
+      console.log("authCurrentEnTimeline", myCurrentUser);
+      await savePublic(inputPost.value, [], name, getTimestamp());
       const post = document.createElement('p');
       // textContent devuelve o establece el contenido de texto de un elemento
       post.textContent = inputPost.value;
@@ -102,6 +112,7 @@ export const timeline = (onNavigate) => {
   postButton.addEventListener('click', async () => {});
   homeIcon.addEventListener('click', () => onNavigate('/'));
   profileIcon.addEventListener('click', () => onNavigate('/welcome'));
+
   logOutIcon.addEventListener('click', async () => {
     await signOff();
     onNavigate('/');
@@ -110,7 +121,7 @@ export const timeline = (onNavigate) => {
   onSnapshot(postData(), (querySnapshot) => {
     feedSection.innerHTML = '';
     querySnapshot.forEach((docum) => {
-      console.log(docum.data());
+      // console.log(docum.data());
       const postSection = document.createElement('section');
       const halfpComment = document.createElement('div');
       const pComment = document.createElement('p');
@@ -118,7 +129,9 @@ export const timeline = (onNavigate) => {
       const editBtn = document.createElement('button');
       const deleteBtn = document.createElement('button');
       const divlike = document.createElement('div');
+      const likePawZero = document.createElement('img');
       const likePaw = document.createElement('img');
+
       divlike.setAttribute('id', 'divlike');
       divlike.innerHTML = `${docum.data().likes.length}`;
 
@@ -128,10 +141,13 @@ export const timeline = (onNavigate) => {
       halfBtns.setAttribute('id', 'halfBtns');
       editBtn.setAttribute('id', 'editBtn');
       deleteBtn.setAttribute('id', 'deleteBtn');
+      likePawZero.setAttribute('id', 'likePawZero');
+      likePawZero.setAttribute('src', '../Img/likePawZero.png');
+      likePawZero.setAttribute('alt', 'likePawZero');
       likePaw.setAttribute('id', 'likePaw');
-      likePaw.setAttribute('src', '../Img/likePawZero.png');
+      likePaw.setAttribute('src', '../Img/likePaw.png');
       likePaw.setAttribute('alt', 'likePaw');
-      // halfBtns.textContent = `${docum.data().likes.length}`;
+      // console.log(docum.data());
       pComment.textContent = `${docum.data().name}: ${docum.data().publicacion}`;
       postSection.appendChild(pComment);
 
@@ -140,7 +156,8 @@ export const timeline = (onNavigate) => {
       halfpComment.appendChild(pComment);
       halfBtns.appendChild(editBtn);
       halfBtns.appendChild(deleteBtn);
-      halfBtns.appendChild(likePaw);
+      halfBtns.appendChild(likePawZero);
+      likePawZero.appendChild(likePaw);
       halfBtns.appendChild(divlike);
       postSection.appendChild(halfpComment);
       postSection.appendChild(halfBtns);
@@ -148,36 +165,25 @@ export const timeline = (onNavigate) => {
 
       deleteBtn.addEventListener('click', () => {
         console.log(docum.id);
-        // const docRef = doc(db, 'publication', docum.id);
         deletePost(docum.id)
           .then(() => {
           }).catch((err) => console.warn(err));
       });
       console.log(docum.id);
 
-      likePaw.addEventListener('click', () => {
-        console.log(auth.currentUser.uid);
+      likePawZero.addEventListener('click', () => {
         const user = auth.currentUser.uid;
-        likePaw.value = docum.data().likes.length;
-        like(docum, auth);
-        /* .then(() => {
-            divlike.innerHTML = `${docum.data().likes.length}`;
-          })
-          .catch((err) => console.warn(err)); */
+        const likes = docum.data().likes;
+        console.log(auth.currentUser.uid);
+
+        if (!likes.includes(user)) {
+          like(docum, auth);
+          likePawZero.replaceWith(likePaw);
+        } else {
+          dislike(docum, auth);
+          likePaw.replaceWith(likePawZero);
+        }
       });
-
-      // commentSection.append(pComent); //?Este es el original
-
-      // editBtn.addEventListener('click', () => {
-      //   const newPublication = prompt('Ingrese una nueva publicación:');
-      //   const docRef = doc(db, 'publication', docum.id);
-      //   updateDoc(docRef, {
-      //     publicacion: newPublication,
-      //   })
-      //     .then(() => {
-      //       console.log('res');
-      //     }).catch((err) => console.warn(err));
-      // });
 
       editBtn.addEventListener('click', () => {
         const editPub = document.createElement('input');
@@ -191,7 +197,6 @@ export const timeline = (onNavigate) => {
         halfBtns.appendChild(saveBtn);
 
         saveBtn.addEventListener('click', () => {
-          // const docRef = doc(db, 'publication', docum.id);
           updatePost(docum.id, {
             publicacion: editPub.value,
           }).then(() => {
@@ -204,7 +209,6 @@ export const timeline = (onNavigate) => {
               console.error('Error al actualizar el documento', error);
             });
         });
-        // Agregar evento de clic al botón likePaw
       });
     });
   });

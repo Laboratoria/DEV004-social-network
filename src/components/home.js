@@ -1,6 +1,3 @@
-// import { onNavigate } from '../onNavigate';
-// import { onNavigate } from '../main';
-
 export const home = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const homeSection = document.createElement('section');
@@ -9,6 +6,7 @@ export const home = (onNavigate) => {
   const loginButton = document.createElement('button');
   const signInButton = document.createElement('button');
   const ImgLove = document.createElement('img');
+
   //* Asignando atributos para todos los elementos creados.
   homeSection.setAttribute('id', 'homeSection');
 
@@ -27,6 +25,7 @@ export const home = (onNavigate) => {
   ImgLove.setAttribute('id', 'ImgLove');
   ImgLove.setAttribute('src', './Img/AM LOS ANIMALES.png');
   ImgLove.setAttribute('alt', 'ImgLove');
+
   //* Agregando todo a la sección de homeSection
   homeSection.appendChild(welcomeHeader);
   homeSection.appendChild(coverImg);
