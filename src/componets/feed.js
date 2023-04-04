@@ -88,21 +88,6 @@ export const feed = () => {
         dibujar();
       });
   });
-
-  /*
-  const btnBox = document.createElement('div');
-  squareF.appendChild(btnBox);
-  const btnLogOut = document.createElement('button');
-  btnLogOut.setAttribute('class', 'btnLogOut');
-  btnLogOut.innerHTML = 'Cerrar sesion';
-  btnBox.appendChild(btnLogOut);
-  const exitBtn = document.querySelector('.btnLogOut');
-  exitBtn.addEventListener('click', () => exitApp()
-    .then(() => {
-      navigateTo('/home');
-    }));
-*/
-
   const dibujar = () => {
     const myPromise = getpost();
     myPromise.then((showPost) => {
@@ -131,6 +116,19 @@ export const feed = () => {
           e.preventDefault();
         });
       });
+    });
+    const btnBox = document.createElement('div');
+    squareF.appendChild(btnBox);
+    const btnLogOut = document.createElement('button');
+    btnLogOut.setAttribute('class', 'btnLogOut');
+    btnLogOut.innerHTML = 'Cerrar sesion';
+    btnBox.appendChild(btnLogOut);
+    const exitBtn = document.querySelector('.btnLogOut');
+    exitBtn.addEventListener('click', () => {
+      exitApp()
+        .then(() => {
+          navigateTo('/home');
+        });
     });
   };
   return squareF;
