@@ -63,11 +63,13 @@ export const feed = () => {
       postElement.classList.add('eachPost');
       postsContainer.appendChild(postElement);
 
-      const userNameElement = document.createElement('p1');
+      const userNameElement = document.createElement('p');
+      userNameElement.classList.add('p1');
       userNameElement.textContent = feedPosts.userName;
       postElement.appendChild(userNameElement);
 
-      const textElement = document.createElement('p3');
+      const textElement = document.createElement('p');
+      textElement.classList.add('p3');
       textElement.textContent = feedPosts.text;
       postElement.appendChild(textElement);
 
@@ -94,8 +96,8 @@ export const feed = () => {
       });
 
       /* Contador de like y dislike */
-      const counterLike = document.createElement('p2');
-      counterLike.classList.add('counter-input');
+      const counterLike = document.createElement('p');
+      counterLike.classList.add('p2');
       counterLike.textContent = feedPosts.likes.length;
       postElement.appendChild(counterLike);
 

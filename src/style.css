@@ -229,24 +229,30 @@ a {
   margin: 10px 0 10px 0;
 }
 
-/* p1 {
+.p1 {
+  font-family: 'Baloo Tammudu 2', cursive;
+  text-align: justify;
   font-size: 14px;
   margin-left: 30px;
   display: block;
-  margin-top: 5px;
+  margin-top: 0px;
   margin-right: 0px;
 }
 
-p2{
-  width: 10px;
-  height: 5px;
+.p2 {
+  font-family: 'Baloo Tammudu 2', cursive;
+  font-size: 11px;
+  display: contents;
 }
 
-p3 {
+.p3 {
+  font-family: 'Baloo Tammudu 2', cursive;
+  text-align: justify;
   font-size: 12px;
   margin-left: 30px;
+  margin-top: 0px;
   display: block;
-} */
+}
 
 .like {
   background: url("./img/dislike.png");

@@ -4,8 +4,8 @@ import {
   signIn,
 } from '../lib/firebase';
 
-const root = document.getElementById('root');
-export const home = () => {
+export const home = (onNavigate) => {
+  const root = document.getElementById('root');
   const singInDiv = document.createElement('div');
   singInDiv.classList.add('login');
   singInDiv.innerHTML += `<header>
@@ -19,11 +19,6 @@ export const home = () => {
     <img src="./img/google.png" id="google">`;
   root.appendChild(singInDiv);
 
-  const signInHere = document.getElementById('here');
-  signInHere.addEventListener('click', () => {
-    window.location.href = '/register';
-  });
-
   const submitButton = document.getElementById('signin-button');
   submitButton.addEventListener('click', () => {
     const signInEmail = document.getElementById('email').value;
@@ -33,7 +28,7 @@ export const home = () => {
       .then((usercredentials) => {
         const user = usercredentials.user;
         localStorage.setItem('idUser', user);
-        window.location.href = '/feed';
+        onNavigate('/feed');
       })
       .catch((error) => {
         if (signInEmail === '') {
@@ -62,5 +57,10 @@ export const home = () => {
       window.location.href = '/feed';
     });
   });
+  const signInHere = document.getElementById('here');
+  signInHere.addEventListener('click', () => {
+    window.location.href = '/register';
+  });
+
   return singInDiv;
 };
