@@ -37,9 +37,9 @@ export const Login = () => {
     e.preventDefault();
     signInWithGoogle()
       .then(
-        (useCredential) => {
+        (userCredential) => {
           navigateTo('/feed');
-          console.log(useCredential);
+          console.log('esto es .user', userCredential.user);
         },
       )
       .catch(
@@ -56,8 +56,8 @@ export const Login = () => {
     const password = div.querySelector('#psw').value;
     signInWithPassword(username, password)
       .then(
-        (useCredential) => {
-          console.log(useCredential);
+        (userCredential) => {
+          console.log('esto es userCredential', userCredential);
           navigateTo('/feed');
         },
       )

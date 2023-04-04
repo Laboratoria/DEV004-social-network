@@ -2,7 +2,8 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signOut } from 'firebase/auth';
 import {
-  getFirestore, collection, addDoc, getDocs, deleteDoc, doc, serverTimestamp, orderBy, query
+  getFirestore, collection, addDoc, getDocs, deleteDoc, doc,
+  onSnapshot, serverTimestamp, orderBy, query,
 } from 'firebase/firestore';
 
 // configuración del proyecto:
@@ -24,18 +25,19 @@ export const db = getFirestore(app);
 
 // referencia a la colección de la db.
 export const colRef = collection(db, 'post');
+// queries fecha de creacion del post
+const q = query(colRef, orderBy('createdAt'));
+
 
 // llamamos a la coleccion de datos.
-getDocs(colRef)
-  .then((snapshot)=> {
-    // console.log('soy la funcion ninja', snapshot.docs);
-    let post = [];
-    snapshot.docs.forEach((doc) => {
-      post.push({ ...doc.data(), id: doc.id });
-    });
-    console.log ('otra funcion del ninja', post);
+onSnapshot(q, (snapshot) => {
+  const arrPostData = [];
+  snapshot.docs.forEach((doc) => {
+    arrPostData.push({ ...doc.data(), id: doc.id });
   });
-
+  console.log('esto es arrPost', arrPostData);
+});
+// inicializamos la autenticacion de usuario
 export const auth = getAuth(app);
 
 export const createpost = (titulo, descripcion) => addDoc((colRef), {
@@ -43,8 +45,7 @@ export const createpost = (titulo, descripcion) => addDoc((colRef), {
   descripcion,
   createdAt: serverTimestamp(Date),
 });
-// queries fecha de creacion del post
-const q = query(colRef, orderBy('createdAt'));
+
 
 export const saveUsers = (name, email, password, nationality, Bdate, ocupation, redaRol) => addDoc((colRef), {
   name, email, password, nationality, Bdate, ocupation, redaRol,
@@ -66,6 +67,7 @@ export const getpost = () => getDocs(collection(db, 'post'))
   .catch((err) => {
     console.log(err.message);
   });
+
 export const deletePost = (id) => deleteDoc(doc(db, 'post', id))
   .then(() => {
     console.log('todo ok');
@@ -82,3 +84,4 @@ export const exitApp = () => signOut(auth)
   .catch((err) => {
     console.log(err.message);
   });
+  
