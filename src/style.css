@@ -1,11 +1,9 @@
 
 * {
-
   align-items: center;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Edu NSW ACT Foundation', sans-serif;
   font-family: "Roboto";
 }
 
@@ -25,7 +23,7 @@ input {
   border-color: dimgray;
 }
 
-button {
+#loginButton, #signInButton, #loginBtn, #SignInBtn, #postButton, #nextButton, #logOutButton {
   font-family: "Roboto";
   padding: 10px;
   margin: 2vh;
@@ -34,7 +32,7 @@ button {
   text-align: center;
   width: 180px;
   height: 30px;
-  background-color: #D39230;
+  background-color: #d49b44;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -53,16 +51,13 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-top: 10px; */
   margin-bottom: 30px;
 }
 
 #BtnGoogle {
   width: 65%;
 }
-/* #BtnGoogle,#likePaw:hover {
-  cursor: pointer;
-} */
+
 #CircleLogo {
   width: 20%;
 }
@@ -74,15 +69,12 @@ button {
 #welcomeContainer {
   padding: 10px;
   margin: 10px;
-  /* font-family: "Roboto"; */
   border: solid;
   background-color: #d9d9d9;
   border-radius: 20px;
 }
 
 #LogoPetropolis {
-  /* display: flex;
-  margin: 2px; */
   width: 50 vh;
 }
 
@@ -104,7 +96,6 @@ button {
   width: 100%;
   height: 100%;
   overflow: scroll;
-  /* border: solid purple; */
   z-index: 3;
 }
 
@@ -141,14 +132,11 @@ button {
 #createPostSection {
   position:sticky;
   size: 30vw;
-  /* height: 25vh; */
   margin: 10px;
-  /* border: solid cyan; */
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  /* z-index: 2; */
 }
 
 #profileImg{
@@ -162,6 +150,7 @@ button {
   align-items: end;
 
 }
+
 #inputPost{
   height: 70px;
   width: 70vw;
@@ -169,9 +158,8 @@ button {
   margin:5px;
   border-radius: 10px;
   background-color: #D9D9D9;
+  font-size: 20px;
 }
-
-
 
 #homeIcon,
 #profileIcon,
@@ -179,81 +167,65 @@ button {
   height: 100%;
 }
 
-
-
 #timelineSection {
   position:sticky;
    width: 100%;
   height: 100%;
-  /* border: solid blue; */
   padding: 15px;
 }
 
 #feedSection{
-  /* position: relative; */
-  /* border: solid red; */
   padding: 0 0 30px 0;
 }
 
-
 #postSection{
-  /* border: solid dimgray; */
   padding: 5px;
   margin:10px;
   border-radius: 10px;
 }
 
-#halfpComment{
+#halfpComment {
   background-color: #D9D9D9;
   padding: 30px;
   border: solid black;
   border-width: 1px;
   border-radius: 10px 10px 0 0;
+  font-size: 20px;
 }
 
 #editPub{
   width: 100%;
+  font-size: 20px;
 }
 
 #halfBtns{
   display: flex;
   justify-content: space-around;
-  /* border: solid black; */
   border-width: 0 0 1px 1px;
-  /* background-color: #413C58; */
-  /* background-color: whitesmoke; */
-  background-color: #240B36;
-  /* background-color: #985F99; */
-  /* background-color: #c76558; */
+  background-color: #645755;
   border-radius: 0 0 10px 10px;
-  color:white;
+  color:black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 #editBtn, #deleteBtn, #saveBtn{
   background-color:transparent;
-  color:white;  
+  color:black;  
   width: 100px;
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
+  border: none; 
+  font-size: 16px;
 }
 
 #likePaw{
   width: 30px;
   margin: 10px;
-  color:white; 
 }
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-
 
 #divlike{
-  color:white; 
+  padding: 15px;
 }
+
