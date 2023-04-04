@@ -1,5 +1,5 @@
 import {
-  onSnapshot, doc, updateDoc, arrayUnion,
+  onSnapshot,
 } from 'firebase/firestore';
 
 import {
@@ -8,7 +8,7 @@ import {
   getTimestamp,
   deletePost,
   updatePost,
-  db,
+  like,
 } from '../lib/firestore';
 import { signOff } from '../lib/authentication';
 import { auth } from '../lib/firebaseConfig';
@@ -88,7 +88,7 @@ export const timeline = (onNavigate) => {
     e.preventDefault(); // cancela el evento
     try {
       const name = auth.currentUser.displayName;
-      await savePublic(inputPost.value, [], name, getTimestamp());
+      await savePublic(inputPost.value, [], name, [], getTimestamp());
       const post = document.createElement('p');
       // textContent devuelve o establece el contenido de texto de un elemento
       post.textContent = inputPost.value;
@@ -159,17 +159,11 @@ export const timeline = (onNavigate) => {
         console.log(auth.currentUser.uid);
         const user = auth.currentUser.uid;
         likePaw.value = docum.data().likes.length;
-        // Obtener la referencia al documento correspondiente en Firebase
-        const docRef = doc(db, 'publication', docum.id);
-
-        // Incrementar el contador de likes y actualizar en Firebase
-        // const newLikes = docum.data().cantidaddelikes + 1;
-        updateDoc(docRef, { likes: arrayUnion(auth.currentUser.uid) })
-          .then(() => {
-            // Actualizar la imagen likePaw para mostrar  el número actualizado de likes
-
+        like(docum, auth);
+        /* .then(() => {
+            divlike.innerHTML = `${docum.data().likes.length}`;
           })
-          .catch((err) => console.warn(err));
+          .catch((err) => console.warn(err)); */
       });
 
       // commentSection.append(pComent); //?Este es el original
