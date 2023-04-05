@@ -137,12 +137,14 @@ export const timeline = (onNavigate) => {
       feedSection.appendChild(postSection);
 
       const dialog = document.createElement('dialog');
-      const dialogTitle = document.createElement('h2');
+      const dialogTitle = document.createElement('h3');
       const dialogMessage = document.createElement('p');
       const confirmButton = document.createElement('button');
       const cancelButton = document.createElement('button');
 
       dialog.setAttribute('id', 'modal');
+      confirmButton.setAttribute('id', 'confirmButton');
+      cancelButton.setAttribute('id', 'cancelButton');
       dialogTitle.textContent = 'Eliminar publicación';
       dialogMessage.textContent = '¿Estás seguro que deseas eliminar esta publicación?';
       confirmButton.textContent = 'Eliminar';
