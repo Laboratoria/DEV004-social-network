@@ -75,15 +75,17 @@ body {
   background-color:#A5BC34;
 }
 input{   
-  border: 3px solid #000;
+  border:none;
   border-radius: 5px;
   height: 50px;
   line-height: normal;
   padding-left: 12px;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.5);
 }
 .google-btn{
   color:  #000;
-    border: 3px solid #000;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.5);
+  border:none;
     border-radius: 8px;
     background-color: #ffffff;
     font-size: 16px;
