@@ -1,9 +1,10 @@
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, deletePost, exitApp,
+  createpost, getpost, exitApp, auth,
 } from '../lib/firebase.js';
 
+console.log ('estamos en feed', auth);
 export const feed = () => {
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');
@@ -24,6 +25,7 @@ export const feed = () => {
     'src',
     'https://cdn-icons-png.flaticon.com/512/5610/5610944.png',
   );
+  // userExpertChecked.getAttribute('id', `${userCredential.user.email}`);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');
@@ -88,21 +90,6 @@ export const feed = () => {
         dibujar();
       });
   });
-
-  /*
-  const btnBox = document.createElement('div');
-  squareF.appendChild(btnBox);
-  const btnLogOut = document.createElement('button');
-  btnLogOut.setAttribute('class', 'btnLogOut');
-  btnLogOut.innerHTML = 'Cerrar sesion';
-  btnBox.appendChild(btnLogOut);
-  const exitBtn = document.querySelector('.btnLogOut');
-  exitBtn.addEventListener('click', () => exitApp()
-    .then(() => {
-      navigateTo('/home');
-    }));
-*/
-
   const dibujar = () => {
     const myPromise = getpost();
     myPromise.then((showPost) => {
@@ -116,8 +103,6 @@ export const feed = () => {
         form.innerHTML = `<textarea id= 'mostrar!'>
         ${post.titulo}
         ${post.descripcion}
-        
-        
         </textarea> 
         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
         <input type="submit" id="btnEditPost" value="Editar"/>
@@ -131,35 +116,22 @@ export const feed = () => {
       btnsDeletePost.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          // console.log($button.getAttribute(btn));
-          console.log(btn.getAttribute('data-id'));
-          /* const myPromiseDelete = deletePost();
-          myPromiseDelete.then((id) => {
-            const btndeletedata = btn.getAttribute('data-id');
-            id.remove();
-          }); */
         });
       });
     });
-  };
-
-  // delete post
-  // creo el evento
-  /**
-  const btnsDeletePost = document.querySelectorAll('.btnDeletePost');
-  btnsDeletePost.forEach((btn) => {
-    // for eeach
-    // dbotes add evven//
-    // dentor edl forech hacer
-    [...btnsDeletePost].addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log($button.getAttribute(btn));
-
-      console.log(e);
+    const btnBox = document.createElement('div');
+    squareF.appendChild(btnBox);
+    const btnLogOut = document.createElement('button');
+    btnLogOut.setAttribute('class', 'btnLogOut');
+    btnLogOut.innerHTML = 'Cerrar sesion';
+    btnBox.appendChild(btnLogOut);
+    const exitBtn = document.querySelector('.btnLogOut');
+    exitBtn.addEventListener('click', () => {
+      exitApp()
+        .then(() => {
+          navigateTo('/home');
+        });
     });
-  });
-  */
-  // dibujar();
-
+  };
   return squareF;
 };

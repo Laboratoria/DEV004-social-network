@@ -66,7 +66,7 @@ export const register = () => {
     const redaRol = e.target.elements.RedaRol.value;
     registerWithEmail(email, password)
       .then((useCredential) => {
-        console.log(useCredential);
+        console.log('esto es usercredential', useCredential.user);
         saveUsers(name, email, password, nationality, Bdate, ocupation, redaRol);
         navigateTo('/home');
       })

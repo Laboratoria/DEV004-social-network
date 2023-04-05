@@ -1,8 +1,11 @@
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './lib/firebase.js';
+
 const LOCAL_ROUTES = {};
 
 // Navigate to a specific path and update the history
 export const navigateTo = (pathname, updateHistory = true) => {
-  //console.log('estoy en navigate original');
+  // console.log('estoy en navigate original');
   // If the path is not found, redirect to the home page
   // acá establece la ruta de default, en este caso es login.
   const path = typeof LOCAL_ROUTES[pathname] !== 'function' ? pathname : '/';
@@ -28,8 +31,8 @@ export const initRouter = (routes) => {
   // no nos queda muy clara esta parte del codigo.***
   Object.keys(routes).reduce((currentRoutes, pathname) => {
     currentRoutes[pathname] = routes[pathname];
-    //console.log(currentRoutes);
-    //console.log(LOCAL_ROUTES);
+    // console.log(currentRoutes);
+    // console.log(LOCAL_ROUTES);
     return currentRoutes;
   }, LOCAL_ROUTES);
 
@@ -72,3 +75,12 @@ export const registerError = (code) => {
     divErr.innerHTML = ('&#10060 &#128064 Algo salió mal');
   }
 };
+
+onAuthStateChanged(auth, (user) => {
+  console.log('user status router', user);
+  if (user) {
+    navigateTo('/feed');
+  } else {
+    navigateTo('/home');
+  }
+});
