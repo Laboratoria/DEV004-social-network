@@ -4,27 +4,25 @@ import { signInWithFacebook, signInWithGoogle, signInWithPassword } from '../hel
 export const Login = () => {
   // Create a div element to hold the login component
   const div = document.createElement('div');
+  div.className = 'contenedor-inicio-sesion';
   div.innerHTML = `
-
-  <img src="assets/logo.png" class="logoForm" alt="logo-Wanderlust">
+  <img src="assets/logo1.png" class="logoForm" alt="logo-Wanderlust">
   <form id="loginForm" class="loginForm">
-  <div class="row">
-  <div class="col">
-  <input type="text" id="username" name="username" placeholder="Correo electrónico " required>
-  <input type="password" id="password" name="contraseña" placeholder="Password" required>
-  <input type="submit"  class="login" value="Iniciar sesión">
-  </div>
-  <p>o</p>
-  <div class="contenedor-botones-GF">
   <button class="google-btn">
+  <div class="contenido-google">
+  <span>
   <img class="icono-google" src="assets/google.png">
-  Google
-  </button>
-  <button class="fb-btn">
-  <img class="icono-fb" src="assets/facebook.png" >
-  Facebook
-  </button>
+  </span>
+  <p class="texto-google">Continuar con Google</p>
   </div>
+  </button>
+  <p>o</p>
+  <input type="text" id="username" name="username" placeholder="Correo electrónico " required>
+  <div style="height: 16px;"></div>
+  <input type="password" id="password" name="contraseña" placeholder="Password" required>
+  <div style="height: 32px;"></div>
+  <input type="submit"  class="login" value="Iniciar sesión">
+
   <div class="col">
   <a href="#" style="color:white" class="btn">¿Olvidaste tu contraseña ? <span><br>Recuperala</span></a>
   </div>
@@ -80,7 +78,7 @@ export const Login = () => {
     );
   });
 
-  div.querySelector('.fb-btn').addEventListener('click', (e) => {
+  /* div.querySelector('.fb-btn').addEventListener('click', (e) => {
     e.preventDefault();
     signInWithFacebook().then(
       (useCredential) => {
@@ -90,7 +88,7 @@ export const Login = () => {
         openModal(error.message);
       },
     );
-  });
+  }); */
 
   div.querySelector('.signup-btn').addEventListener('click', (e) => {
     e.preventDefault();

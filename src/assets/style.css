@@ -1,3 +1,73 @@
+
+body {
+  background-image: url("mar.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  margin: 0px;
+  padding: 0px;
+}
+.loginForm{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  padding: 36px;
+  font-size: 16px;
+  min-height: 120px;
+  -webkit-font-smoothing: antialiased;
+  margin-right: auto;
+  margin-left: auto;
+}
+.logoForm{
+  width: 75%;
+}
+.contenedor-inicio-sesion{
+ 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-height: 80vh;
+    background-color: #F7F6F6;
+    text-align: center;
+    margin: 0 auto;
+    padding: 36px 10px;
+    border-radius: 8px;
+  
+}
+input{   
+  border: 3px solid #000;
+  border-radius: 5px;
+  height: 50px;
+  line-height: normal;
+}
+button{
+  color:  #000;
+    border: 3px solid #000;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 16px;
+}
+.icono-google{
+  height: 18px;
+    width: 18px;
+    display: inline-block;
+    margin-right: 12px;
+}
+.contenido-google{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.texto-google{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 @media only screen and (max-width: 600px) {
   h1 {
     text-align: center;
@@ -20,7 +90,7 @@
   }
   body {
     background-image: url("fondoMar.jpeg");
-    background-size: contain;
+    background-size: cover;
     /* background-repeat: no-repeat;*/
     background-position: absolute;
     background-size: 525px 800px;
@@ -125,14 +195,14 @@
     margin-right: 10px; /* Ajustamos el margen derecho para separar la imagen del texto */
  vertical-align: middle;
  }
- .icono-fb {
+ /*.icono-fb {
   width: 20px; /* Establecemos un ancho fijo para la imagen */
-  height: 20px; /* Establecemos una altura fija para la imagen */
-  object-fit: contain; /* Controla cómo se ajusta la imagen en el contenedor */
-  margin-left: 15px;
+  /*height: 20px; /* Establecemos una altura fija para la imagen */
+  /*object-fit: contain; /* Controla cómo se ajusta la imagen en el contenedor */
+ /* margin-left: 15px;
   margin-right: 10px;
   vertical-align: middle;
-}
+}*/
   .google-btn {
     background-color: white;
     border: none;
@@ -150,7 +220,7 @@
 }
 a {
   text-decoration: none;}
-.fb-btn {
+/*.fb-btn {
   background-color: white;
   border: none;
   cursor: pointer;
@@ -164,7 +234,7 @@ a {
   border-width: 2px 2px 4px;
   height: 40px;
   border: solid transparent;
-}
+}*/
 .contenedor-botones-GF {
   display: flex;
   justify-content: center;
