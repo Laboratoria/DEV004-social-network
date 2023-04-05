@@ -1,9 +1,10 @@
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, deletePost, exitApp, auth,
+  createpost, getpost, exitApp, auth,
 } from '../lib/firebase.js';
 
+console.log ('estamos en feed', auth);
 export const feed = () => {
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');

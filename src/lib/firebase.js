@@ -5,6 +5,7 @@ import {
   getFirestore, collection, addDoc, getDocs, deleteDoc, doc,
   onSnapshot, serverTimestamp, orderBy, query,
 } from 'firebase/firestore';
+// import { userState } from './authentication';
 
 // configuración del proyecto:
 const firebaseConfig = {
@@ -27,32 +28,30 @@ export const db = getFirestore(app);
 export const colRef = collection(db, 'post');
 // queries fecha de creacion del post
 const q = query(colRef, orderBy('createdAt'));
-
-
 // llamamos a la coleccion de datos.
+
+// inicializamos la autenticacion de usuario
+// obtener el usuario con sesion activa, revisar documetacion.
+export const auth = getAuth(app);
 onSnapshot(q, (snapshot) => {
   const arrPostData = [];
   snapshot.docs.forEach((doc) => {
-    arrPostData.push({ ...doc.data(), id: doc.id });
+    arrPostData.push({ ...doc.data(), id: doc.id, userState: auth.currentUser });
   });
   console.log('esto es arrPost', arrPostData);
 });
-// inicializamos la autenticacion de usuario
-export const auth = getAuth(app);
 
-export const createpost = (titulo, descripcion) => addDoc((colRef), {
-  titulo,
-  descripcion,
-  createdAt: serverTimestamp(Date),
-});
-
-
-export const saveUsers = (name, email, password, nationality, Bdate, ocupation, redaRol) => addDoc((colRef), {
+export const saveUsers = (
+  name,
+  email,
+  password,
+  nationality,
+  Bdate,
+  ocupation,
+  redaRol,
+) => addDoc((colRef), {
   name, email, password, nationality, Bdate, ocupation, redaRol,
 });
-// // Initialize Cloud Firestore and get a reference to the service
-// const db = getFirestore(app);
-
 export const getpost = () => getDocs(collection(db, 'post'))
   .then(
     (snapshot) => {
@@ -68,13 +67,29 @@ export const getpost = () => getDocs(collection(db, 'post'))
     console.log(err.message);
   });
 
-export const deletePost = (id) => deleteDoc(doc(db, 'post', id))
-  .then(() => {
-    console.log('todo ok');
-  })
-  .catch((error) => {
-    console.log(error.message);
-  });
+// guardar user
+// const user = firebase.auth().currentUser;
+// guardar el id del current user,
+// si el usuario existe, me devuelve su id.
+// let uid;
+// if (user != null) {
+//   uid = user.uid;
+// }
+// console.log(uid);
+
+// obtener los post de un usuario en particular. 
+export const createpost = (titulo, descripcion) => addDoc((colRef), {
+  titulo,
+  descripcion,
+  createdAt: serverTimestamp(Date),
+  userId: auth.currentUser.uid,
+});
+// postsRef.add({ title: "Mi publicación", content: "Este es el contenido de mi publicación.", userId: uid })
+//   .then(function(docRef)
+//   { console.log("Documento escrito con ID: ", docRef.id); }) 
+//   .catch(function(error) 
+//   { console.error("Error al escribir el documento: ",
+//    error); }); 
 
 // cerrar sesion:
 export const exitApp = () => signOut(auth)
@@ -84,4 +99,3 @@ export const exitApp = () => signOut(auth)
   .catch((err) => {
     console.log(err.message);
   });
-  

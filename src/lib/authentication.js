@@ -20,6 +20,6 @@ export const signInWithGoogle = () => {
 export const registerWithEmail = (email, password) => (
   createUserWithEmailAndPassword(auth, email, password)
 );
-export const userState = onAuthStateChanged(auth, (user) => {
-  console.log('user status changed:', user);
-});
+// export const userState = onAuthStateChanged(auth, (user) => {
+//   console.log('user status changed:', user);
+// });
