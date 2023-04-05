@@ -4,31 +4,37 @@ import { signInWithFacebook, signInWithGoogle, signInWithPassword } from '../hel
 export const Login = () => {
   // Create a div element to hold the login component
   const div = document.createElement('div');
-  div.className = 'contenedor-inicio-sesion';
+  div.className = 'contenedor-login';
   div.innerHTML = `
-  <img src="assets/logo1.png" class="logoForm" alt="logo-Wanderlust">
+  <picture>
+  <source media="(max-width: 600px)" srcset="assets/logo.png">
+  <img src="assets/logo1.png" alt="Descripción de la imagen" class="logoForm">
+  </picture>
   <form id="loginForm" class="loginForm">
   <button class="google-btn">
   <div class="contenido-google">
   <span>
   <img class="icono-google" src="assets/google.png">
   </span>
-  <p class="texto-google">Continuar con Google</p>
+  <p style="color: black;"class="texto-google">Continuar con Google</p>
   </div>
   </button>
   <p>o</p>
   <input type="text" id="username" name="username" placeholder="Correo electrónico " required>
   <div style="height: 16px;"></div>
-  <input type="password" id="password" name="contraseña" placeholder="Password" required>
+  <input type="password" id="password" name="password" placeholder="Contraseña" required>
   <div style="height: 32px;"></div>
-  <input type="submit"  class="login" value="Iniciar sesión">
-
+  <button class="btn-registros">Iniciar sesión</button>
+  <div style="height: 16px;"></div>
   <div class="col">
-  <a href="#" style="color:white" class="btn">¿Olvidaste tu contraseña ? <span><br>Recuperala</span></a>
+  <div>
+  <a href="#" class="btn">¿Olvidaste tu contraseña ? <span style="color: #66DA5F;">Recuperala</span></a>
   </div>
-  <div class="col">
-  <a href="#" style="color: white;" class="signup-btn">¿No tienes una cuenta? <span><br>Registrate</span></a>
+  <div style="height: 16px;"></div>
+  <div>
+  <a href="#" class="signup-btn">¿No tienes una cuenta? <span  style="color: #66DA5F;">Registrate</span></a>
   </div>
+  <div style="height: 16px;"></div>
   </div>
   </form>
   <div class="modal">

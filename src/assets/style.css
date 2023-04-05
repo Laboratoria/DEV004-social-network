@@ -7,6 +7,7 @@ body {
   background-attachment: fixed;
   margin: 0px;
   padding: 0px;
+  font-family:"Jost" ;
 }
 .loginForm{
   box-sizing: border-box;
@@ -24,7 +25,7 @@ body {
 .logoForm{
   width: 75%;
 }
-.contenedor-inicio-sesion{
+.contenedor-login{
  
     position: absolute;
     top: 50%;
@@ -39,18 +40,79 @@ body {
     border-radius: 8px;
   
 }
+.icono-register{
+  width: 50%;
+}
+.contenedor-registro{
+ 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-height: 80vh;
+  background-color: #F7F6F6;
+  text-align: center;
+  margin: 0 auto;
+  padding: 36px 10px;
+  border-radius: 8px; 
+}
+.register-Form{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  padding: 36px;
+  font-size: 16px;
+  min-height: 120px;
+  -webkit-font-smoothing: antialiased;
+  margin-right: auto;
+  margin-left: auto;
+}
+.btn-register{
+  border: none;
+  background-color:#A5BC34;
+}
 input{   
   border: 3px solid #000;
   border-radius: 5px;
   height: 50px;
   line-height: normal;
+  padding-left: 12px;
 }
-button{
+.google-btn{
   color:  #000;
     border: 3px solid #000;
     border-radius: 8px;
     background-color: #ffffff;
     font-size: 16px;
+}
+.col{
+  width: 100%;
+}
+.col div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a{
+  color:#000;
+  text-decoration: none;
+}
+.btn-registros{
+  height: 48px;
+    font-size: 18px;
+    line-height: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    background-color: #A5BC34;
+    color: #fdfffd;
 }
 .icono-google{
   height: 18px;
@@ -67,179 +129,6 @@ button{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-@media only screen and (max-width: 600px) {
-  h1 {
-    text-align: center;
-    color: #fdfffd;
-    background-color: #063277;
-    width: 100%;
-    height: 50px;
-    font-family: "Open Sans";
-  }
-  span {
-    color: #70f164;
-  }
-  .bottom-container{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    width: 200px;
-    height: 43px;
-  }
-  body {
-    background-image: url("fondoMar.jpeg");
-    background-size: cover;
-    /* background-repeat: no-repeat;*/
-    background-position: absolute;
-    background-size: 525px 800px;
-    margin: 0px;
-    padding: 0px;
-    background-attachment: fixed;
-    font-family: "Jost";
-  }
-
-  header {
-    color: #fdfffd;
-    display: flex;
-    flex-direction: column;
-    text-align: center; /*alinea los elemntos dentro del header*/
-  }
-  header img {
-    height: 200px;
-    width: 340px;
-    display: block; /* Asegura que la imagen se muestre como un elemento en bloque */
-    margin: 0 auto; /* Establece márgenes automáticos para centrar la imagen horizontalmente */
-    margin-bottom: 50px;
-  }
-
-  input {
-    width: 250px;
-    height: 25px;
-    margin: 7px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.5);
-    align-items: center;
-    font-family: "Jost";
-  }
-  .iconoRegister {
-    width: 160px;
-    height: 130px;
-    display: block;
-    margin: 0 auto;
-  }
-  .logoForm {
-    width: 70%;
-    height: 50%;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .row {
-    text-align: center;
-    
-  }
-  .loginForm {
-    margin-top: 10%;
-    flex-direction: column;
-    align-items: center;
-    height: 350px;
-    display: flex;
-    
-  }
- 
-  .registerForm {
-    margin: auto;
-    flex-direction: column;
-    align-items: center;
-    height: 400px;
-    display: flex;
-    margin: 25px;
-    background:#F7F6F6;
-    border-radius: 20px;
-    text-align: center;
-  }
-  p {
-    color: #fdfffd;
-    text-align: center;
-    font-family: "Jost";
-    margin: 10px;
-  }
-  .btn-register{
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    border-radius: 5px;
-    width: 200px;
-    height: 43px;
-
-  }
-  .login {
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    border-radius: 5px;
-    width: 50%;
-    height: 50%;
-  }
-  h4 {
-    text-align: center;
-  }
-
-  .icono-google {
-    width: 20px; /* Establecemos un ancho fijo para la imagen */
-    height: 20px; /* Establecemos una altura fija para la imagen */
-    object-fit: contain; /* Controla cómo se ajusta la imagen en el contenedor */
-    margin-right: 10px; /* Ajustamos el margen derecho para separar la imagen del texto */
- vertical-align: middle;
- }
- /*.icono-fb {
-  width: 20px; /* Establecemos un ancho fijo para la imagen */
-  /*height: 20px; /* Establecemos una altura fija para la imagen */
-  /*object-fit: contain; /* Controla cómo se ajusta la imagen en el contenedor */
- /* margin-left: 15px;
-  margin-right: 10px;
-  vertical-align: middle;
-}*/
-  .google-btn {
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    display: block;
-    text-align: center;
-    margin: 10px 0;
-    padding: 0;
-    width: 30%;
-    color: rgb(72, 96, 233);
-    border-radius: 12px;
-  border-width: 2px 2px 4px;
-  height: 40px;
-  border: solid transparent;
-}
-a {
-  text-decoration: none;}
-/*.fb-btn {
-  background-color: white;
-  border: none;
-  cursor: pointer;
-  display: block;
-  text-align: center;
-  margin-left: 7%;
-  padding: 0;
-  width: 30%;
-  color: #4261ea;
-  border-radius: 12px;
-  border-width: 2px 2px 4px;
-  height: 40px;
-  border: solid transparent;
-}*/
-.contenedor-botones-GF {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
 }
 .modal{
   display: none; /* Hidden by default */
@@ -274,6 +163,7 @@ a {
   text-decoration: none;
   cursor: pointer;
 } 
+
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -287,5 +177,60 @@ a {
 #post-list {
   margin-top: 20px;
 }
+@media only screen and (max-width: 600px) {
+.contenedor-login{
+  background: none;
+  margin-top: 2%;
+  max-width: 90%;
+  top: 45%;
+  }
+  .contenedor-registro{
+    background: none;
+    max-width: 85%;
+   top:45%;
+  }
+  h1 {
+    text-align: center;
+    color: #fdfffd;
+    background-color: #063277;
+    width: 100%;
+    height: 50px;
+    font-family: "Open Sans";
+  }
+  body {
+    background-image: url("fondoMar.jpeg");
+    background-size: cover;
+    /* background-repeat: no-repeat;*/
+    background-position: absolute;
+    background-size: 525px 800px;
+    margin: 0px;
+    padding: 0px;
+    background-attachment: fixed;
+    font-family: "Jost";
+  }
+
+  p {
+    color: #fdfbfb;
+    text-align: center;
+    font-family: "Jost";
+    margin: 10px;
+  }
+  
+  a{
+    color: #fdfffd;
+  }
+  h4 {
+    text-align: center;
+  }
+ 
+  .register-Form{
+    background-color: #F7F6F6;
+    border-radius: 10%;
+  }
+.btn-register{
+  border: none;
+}
 }
 
+
+ 
