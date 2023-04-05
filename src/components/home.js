@@ -23,7 +23,7 @@ export const home = (onNavigate) => {
   signInButton.setAttribute('id', 'signInButton');
   signInButton.textContent = 'Registrarse';
   ImgLove.setAttribute('id', 'ImgLove');
-  ImgLove.setAttribute('src', './Img/AM LOS ANIMALES.png');
+  ImgLove.setAttribute('src', './Img/amolosanimales.png');
   ImgLove.setAttribute('alt', 'ImgLove');
 
   //* Agregando todo a la sección de homeSection
