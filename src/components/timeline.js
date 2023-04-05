@@ -2,8 +2,6 @@ import {
   onSnapshot,
 } from 'firebase/firestore';
 
-import { onAuthStateChanged } from 'firebase/auth';
-
 import {
   savePublic,
   postData,
@@ -15,12 +13,6 @@ import {
 } from '../lib/firestore';
 import { signOff } from '../lib/authentication';
 import { auth } from '../lib/firebaseConfig';
-
-let myCurrentUser = null;
-
-onAuthStateChanged(auth, (user) => {
-  if (user) myCurrentUser = user;
-});
 
 export const timeline = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -38,67 +30,50 @@ export const timeline = (onNavigate) => {
   const profileIcon = document.createElement('img');
   const logOutIcon = document.createElement('img');
   const footerHMTL = document.createElement('footer');
-
   //* Estamos asignandi atributos para todos los elementos creados.
   bodyHTML.setAttribute('id', 'bodyHTML');
   headerHTML.setAttribute('id', 'headerHTML');
   timelineSection.setAttribute('id', 'timelineSection');
   feedSection.setAttribute('id', 'feedSection');
-
   createPostSection.setAttribute('id', 'createPostSection');
-
   headerTitle.setAttribute('id', 'headerTitle');
   headerTitle.textContent = 'Timeline';
-
   profileImg.setAttribute('id', 'profileImg');
   profileImg.setAttribute('src', '../Img/CircleLogo.png');
-
   inputContainer.setAttribute('id', 'inputContainer');
-
   inputPost.setAttribute('id', 'inputPost');
   inputPost.setAttribute('placeholder', 'Escribe tu mensaje');
-
   postButton.setAttribute('id', 'postButton');
   postButton.textContent = 'Publicar';
-
   homeIcon.setAttribute('id', 'homeIcon');
   homeIcon.setAttribute('src', '../Img/homeIcon.png');
   homeIcon.setAttribute('alt', 'Home Icon');
-
   profileIcon.setAttribute('id', 'profileIcon');
   profileIcon.setAttribute('src', '../Img/profileIcon.png');
   profileIcon.setAttribute('alt', 'Profile Icon');
-
   logOutIcon.setAttribute('id', 'logOutIcon');
   logOutIcon.setAttribute('src', '../Img/LogOutIcon.png');
   logOutIcon.setAttribute('alt', 'Log Out Icon');
-
   footerHMTL.setAttribute('id', 'footerHTML');
-
   //* Aqui estamos agregando todo a la sección de SignInPage
   bodyHTML.appendChild(headerHTML);
   headerHTML.appendChild(headerTitle);
-
   bodyHTML.appendChild(timelineSection);
   timelineSection.appendChild(createPostSection);
   timelineSection.appendChild(feedSection);
-
   createPostSection.appendChild(profileImg);
   createPostSection.appendChild(inputContainer);
   inputContainer.appendChild(inputPost);
   inputContainer.appendChild(postButton);
-
   bodyHTML.appendChild(footerHMTL);
   footerHMTL.appendChild(homeIcon);
   footerHMTL.appendChild(profileIcon);
   footerHMTL.appendChild(logOutIcon);
-
   inputContainer.addEventListener('submit', async (e) => {
     e.preventDefault(); // cancela el evento
     try {
       const name = auth.currentUser.displayName;
-      console.log("authCurrentEnTimeline", myCurrentUser);
-      await savePublic(inputPost.value, [], name, getTimestamp());
+      await savePublic(inputPost.value, [], name, [], getTimestamp());
       const post = document.createElement('p');
       // textContent devuelve o establece el contenido de texto de un elemento
       post.textContent = inputPost.value;
@@ -112,12 +87,10 @@ export const timeline = (onNavigate) => {
   postButton.addEventListener('click', async () => {});
   homeIcon.addEventListener('click', () => onNavigate('/'));
   profileIcon.addEventListener('click', () => onNavigate('/welcome'));
-
   logOutIcon.addEventListener('click', async () => {
     await signOff();
     onNavigate('/');
   });
-
   onSnapshot(postData(), (querySnapshot) => {
     feedSection.innerHTML = '';
     querySnapshot.forEach((docum) => {
@@ -163,13 +136,38 @@ export const timeline = (onNavigate) => {
       postSection.appendChild(halfBtns);
       feedSection.appendChild(postSection);
 
+      const dialog = document.createElement('dialog');
+      const dialogTitle = document.createElement('h2');
+      const dialogMessage = document.createElement('p');
+      const confirmButton = document.createElement('button');
+      const cancelButton = document.createElement('button');
+
+      dialog.setAttribute('id', 'modal');
+      dialogTitle.textContent = 'Eliminar publicación';
+      dialogMessage.textContent = '¿Estás seguro que deseas eliminar esta publicación?';
+      confirmButton.textContent = 'Eliminar';
+      cancelButton.textContent = 'Cancelar';
+
+      dialog.appendChild(dialogTitle);
+      dialog.appendChild(dialogMessage);
+      dialog.appendChild(confirmButton);
+      dialog.appendChild(cancelButton);
+
       deleteBtn.addEventListener('click', () => {
-        console.log(docum.id);
+        document.body.appendChild(dialog);
+        dialog.showModal();
+      });
+
+      confirmButton.addEventListener('click', () => {
         deletePost(docum.id)
           .then(() => {
+            dialog.close();
           }).catch((err) => console.warn(err));
       });
-      console.log(docum.id);
+
+      cancelButton.addEventListener('click', () => {
+        dialog.close();
+      });
 
       likePawZero.addEventListener('click', () => {
         const user = auth.currentUser.uid;
