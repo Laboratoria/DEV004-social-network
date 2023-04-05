@@ -82,8 +82,8 @@ export const register = (onNavigate) => {
 
     try {
       const UserCredentials = await registerWithEmail(email, password);
-      console.log({UserCredentials});
-      console.log("currentUser", auth.currentUser);
+      console.log({ UserCredentials });
+      console.log('currentUser', auth.currentUser);
       updateProfile(auth.currentUser, {
         displayName: nameInput.value,
         // photoURL: 'https://example.com/john-doe/profile.jpg',
