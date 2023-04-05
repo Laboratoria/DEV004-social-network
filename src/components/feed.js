@@ -4,8 +4,8 @@ import {
   post, auth, logOut, addPost, deleteDocData, updatePost, like, disLike,
 } from '../lib/firebase';
 
-const root = document.getElementById('root');
-export const feed = () => {
+export const feed = (onNavigate) => {
+  const root = document.getElementById('root');
   const feedDiv = document.createElement('div');
   feedDiv.classList.add('feed-container');
   feedDiv.innerHTML += `
@@ -33,7 +33,7 @@ export const feed = () => {
   const logOutButton = document.getElementById('salir');
   logOutButton.addEventListener('click', () => {
     logOut(auth).then(() => {
-      window.location.href = '/';
+      onNavigate('/');
       /* console.log('the user is signed out'); */
     });
   });
@@ -63,11 +63,13 @@ export const feed = () => {
       postElement.classList.add('eachPost');
       postsContainer.appendChild(postElement);
 
-      const userNameElement = document.createElement('p1');
+      const userNameElement = document.createElement('p');
+      userNameElement.classList.add('p1');
       userNameElement.textContent = feedPosts.userName;
       postElement.appendChild(userNameElement);
 
-      const textElement = document.createElement('p3');
+      const textElement = document.createElement('p');
+      textElement.classList.add('p3');
       textElement.textContent = feedPosts.text;
       postElement.appendChild(textElement);
 
@@ -94,12 +96,12 @@ export const feed = () => {
       });
 
       /* Contador de like y dislike */
-      const counterLike = document.createElement('p2');
-      counterLike.classList.add('counter-input');
+      const counterLike = document.createElement('p');
+      counterLike.classList.add('p2');
       counterLike.textContent = feedPosts.likes.length;
       postElement.appendChild(counterLike);
 
-      /* erificar si es nuestro usuario ingresado es igual al del post */
+      /* verificar si es nuestro usuario ingresado es igual al del post */
       if (feedPosts.userId === auth.currentUser.uid) {
         /* Borrar Post */
         const deleteButton = document.createElement('img');

@@ -5,8 +5,8 @@ import {
   signIn,
 } from '../lib/firebase';
 
-const root = document.getElementById('root');
 export const home = () => {
+  const root = document.getElementById('root');
   const singInDiv = document.createElement('div');
   singInDiv.classList.add('login');
   singInDiv.innerHTML += `<header>
