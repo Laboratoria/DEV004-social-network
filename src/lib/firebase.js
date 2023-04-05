@@ -50,7 +50,7 @@ export const saveUsers = (
   ocupation,
   redaRol,
 ) => addDoc((colRef), {
-  name, email, password, nationality, Bdate, ocupation, redaRol,
+  name, email, password, nationality, Bdate, ocupation, redaRol, userId: auth.currentUser.uid,
 });
 export const getpost = () => getDocs(collection(db, 'post'))
   .then(

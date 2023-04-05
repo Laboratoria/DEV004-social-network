@@ -39,7 +39,9 @@ export const Login = () => {
       .then(
         (userCredential) => {
           navigateTo('/feed');
-          console.log('esto es .user', userCredential.user);
+          const user = userCredential.user;
+          console.log('esto es .user', user);
+          console.log('esto es el correo del usuario', userCredential.user.email);
         },
       )
       .catch(

@@ -25,6 +25,7 @@ export const feed = () => {
     'src',
     'https://cdn-icons-png.flaticon.com/512/5610/5610944.png',
   );
+  // userExpertChecked.getAttribute('id', `${userCredential.user.email}`);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');
