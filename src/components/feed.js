@@ -4,8 +4,8 @@ import {
   post, auth, logOut, addPost, deleteDocData, updatePost, like, disLike,
 } from '../lib/firebase';
 
-const root = document.getElementById('root');
-export const feed = () => {
+export const feed = (onNavigate) => {
+  const root = document.getElementById('root');
   const feedDiv = document.createElement('div');
   feedDiv.classList.add('feed-container');
   feedDiv.innerHTML += `
@@ -33,7 +33,7 @@ export const feed = () => {
   const logOutButton = document.getElementById('salir');
   logOutButton.addEventListener('click', () => {
     logOut(auth).then(() => {
-      window.location.href = '/';
+      onNavigate('/');
       /* console.log('the user is signed out'); */
     });
   });

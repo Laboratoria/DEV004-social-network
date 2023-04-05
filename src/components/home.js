@@ -54,12 +54,12 @@ export const home = (onNavigate) => {
       const user = result.user;
       localStorage.setItem('user', JSON.stringify(user));
       createUser(user, user.displayName);
-      window.location.href = '/feed';
+      onNavigate('/feed');
     });
   });
   const signInHere = document.getElementById('here');
   signInHere.addEventListener('click', () => {
-    window.location.href = '/register';
+    onNavigate('/register');
   });
 
   return singInDiv;

@@ -1,8 +1,8 @@
 /* eslint-disable no-alert */
 import { createUser, savedUser, updateName } from '../lib/firebase';
 
-const root = document.getElementById('root');
-export const register = () => {
+export const register = (onNavigate) => {
+  const root = document.getElementById('root');
   const registerDiv = document.createElement('div');
   registerDiv.classList.add('log');
   registerDiv.innerHTML += `<header>
@@ -41,13 +41,13 @@ export const register = () => {
         return savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
       })
       .then(() => {
-        window.location.href = '/feed';
+        onNavigate('/feed');
       });
   });
 
   const buttonBack = document.getElementById('back-button');
   buttonBack.addEventListener('click', () => {
-    window.location.href = '/';
+    onNavigate('/');
   });
   return registerDiv;
 };
