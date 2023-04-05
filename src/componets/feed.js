@@ -3,6 +3,7 @@ import { navigateTo } from '../router';
 import {
   createpost, getpost, exitApp, auth,
 } from '../lib/firebase.js';
+import { updateCurrentUser } from 'firebase/auth';
 console.log ('estamos en feed', auth);
 export const feed = () => {
   const squareF = document.createElement('div');
@@ -24,10 +25,11 @@ export const feed = () => {
     'src',
     'https://cdn-icons-png.flaticon.com/512/5610/5610944.png',
   );
-  // userExpertChecked.getAttribute('id', `${userCredential.user.email}`);
   const currentUserEmail = sessionStorage.getItem('currentUser');
+  const parseUser = JSON.parse(currentUserEmail);
   const currentUserEmailDraw = document.createElement('p');
-  currentUserEmailDraw.innerHTML = (currentUserEmail);
+  currentUserEmailDraw.innerHTML = parseUser.email;
+  console.log('esto es parseUser', parseUser);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');

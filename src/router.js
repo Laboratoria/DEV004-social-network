@@ -79,8 +79,10 @@ export const registerError = (code) => {
 onAuthStateChanged(auth, (user) => {
   console.log('user status router', user);
   if (user) {
+    sessionStorage.setItem('currentUser', JSON.stringify(user));
     navigateTo('/feed');
   } else {
     navigateTo('/home');
   }
 });
+ 
