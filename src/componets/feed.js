@@ -3,7 +3,6 @@ import { navigateTo } from '../router';
 import {
   createpost, getpost, exitApp, auth,
 } from '../lib/firebase.js';
-
 console.log ('estamos en feed', auth);
 export const feed = () => {
   const squareF = document.createElement('div');
@@ -26,6 +25,9 @@ export const feed = () => {
     'https://cdn-icons-png.flaticon.com/512/5610/5610944.png',
   );
   // userExpertChecked.getAttribute('id', `${userCredential.user.email}`);
+  const currentUserEmail = sessionStorage.getItem('currentUser');
+  const currentUserEmailDraw = document.createElement('p');
+  currentUserEmailDraw.innerHTML = (currentUserEmail);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');
@@ -41,7 +43,6 @@ export const feed = () => {
   post.setAttribute('rows', '10');
   post.setAttribute('cols', '1');
   post.setAttribute('placeholder', 'Escribe tu post.');
-
   postTitle.setAttribute('id', 'postTitle');
   post.setAttribute('id', 'post');
   const subsquareF = document.createElement('div');
@@ -65,7 +66,7 @@ export const feed = () => {
   squareHeaderF.appendChild(logoF);
   squareF.appendChild(userInfoF);
   userInfoF.appendChild(userAvatar);
-  userInfoF.appendChild(userExpertChecked);
+  squareF.appendChild(currentUserEmailDraw);
   squareF.appendChild(postContainer);
   postContainer.appendChild(postTitle);
   postContainer.appendChild(post);

@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, updateCurrentUser } from 'firebase/auth';
 import { auth } from './lib/firebase.js';
 
 const LOCAL_ROUTES = {};

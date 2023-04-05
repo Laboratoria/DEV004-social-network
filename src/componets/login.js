@@ -40,6 +40,7 @@ export const Login = () => {
         (userCredential) => {
           navigateTo('/feed');
           const user = userCredential.user;
+          sessionStorage.setItem('currentUser', user.email);
           console.log('esto es .user', user);
           console.log('esto es el correo del usuario', userCredential.user.email);
         },
