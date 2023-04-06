@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, updateCurrentUser } from 'firebase/auth';
 import { auth } from './lib/firebase.js';
 
 const LOCAL_ROUTES = {};
@@ -75,12 +75,20 @@ export const registerError = (code) => {
     divErr.innerHTML = ('&#10060 &#128064 Algo salió mal');
   }
 };
+// observador de firebase, nos da el status
+// del usuario, esta logueado o no.
+// esta funcion esta en este archivo porque /router
+// es un archivo 'principal' (siempre se esta ejecutando)
 
 onAuthStateChanged(auth, (user) => {
   console.log('user status router', user);
   if (user) {
+    // guarda la informacion del usuario logueado y con JSON.stringify
+    // convierte a los datos en un objeto que puede interactuar con el DOM
+    sessionStorage.setItem('currentUser', JSON.stringify(user));
     navigateTo('/feed');
   } else {
     navigateTo('/home');
   }
 });
+ 

@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  getAuth
 } from 'firebase/auth';
 import { auth } from './firebase.js';
 // para autentficar cuando el usuario se meta

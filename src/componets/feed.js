@@ -3,7 +3,7 @@ import { navigateTo } from '../router';
 import {
   createpost, getpost, exitApp, auth,
 } from '../lib/firebase.js';
-
+import { updateCurrentUser } from 'firebase/auth';
 console.log ('estamos en feed', auth);
 export const feed = () => {
   const squareF = document.createElement('div');
@@ -25,7 +25,13 @@ export const feed = () => {
     'src',
     'https://cdn-icons-png.flaticon.com/512/5610/5610944.png',
   );
-  // userExpertChecked.getAttribute('id', `${userCredential.user.email}`);
+  // aca estas llamando al setItem con getItem.
+  const currentUserEmail = sessionStorage.getItem('currentUser');
+  // 
+  const parseUser = JSON.parse(currentUserEmail);
+  const currentUserEmailDraw = document.createElement('p');
+  currentUserEmailDraw.innerHTML = parseUser.email;
+  console.log('esto es parseUser', parseUser);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');
@@ -41,7 +47,6 @@ export const feed = () => {
   post.setAttribute('rows', '10');
   post.setAttribute('cols', '1');
   post.setAttribute('placeholder', 'Escribe tu post.');
-
   postTitle.setAttribute('id', 'postTitle');
   post.setAttribute('id', 'post');
   const subsquareF = document.createElement('div');
@@ -65,7 +70,7 @@ export const feed = () => {
   squareHeaderF.appendChild(logoF);
   squareF.appendChild(userInfoF);
   userInfoF.appendChild(userAvatar);
-  userInfoF.appendChild(userExpertChecked);
+  squareF.appendChild(currentUserEmailDraw);
   squareF.appendChild(postContainer);
   postContainer.appendChild(postTitle);
   postContainer.appendChild(post);
@@ -103,6 +108,8 @@ export const feed = () => {
         form.innerHTML = `<textarea id= 'mostrar!'>
         ${post.titulo}
         ${post.descripcion}
+        ${post.userid}
+  
         </textarea> 
         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
         <input type="submit" id="btnEditPost" value="Editar"/>
