@@ -25,7 +25,9 @@ export const feed = () => {
     'src',
     'https://cdn-icons-png.flaticon.com/512/5610/5610944.png',
   );
+  // aca estas llamando al setItem con getItem.
   const currentUserEmail = sessionStorage.getItem('currentUser');
+  // 
   const parseUser = JSON.parse(currentUserEmail);
   const currentUserEmailDraw = document.createElement('p');
   currentUserEmailDraw.innerHTML = parseUser.email;
@@ -106,6 +108,8 @@ export const feed = () => {
         form.innerHTML = `<textarea id= 'mostrar!'>
         ${post.titulo}
         ${post.descripcion}
+        ${post.userid}
+  
         </textarea> 
         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
         <input type="submit" id="btnEditPost" value="Editar"/>
