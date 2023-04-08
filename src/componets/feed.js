@@ -56,6 +56,11 @@ export const feed = () => {
   btnPubF.setAttribute('class', 'btnPubF');
   btnPubF.textContent = 'publicar';
   btnHomeF.textContent = 'inicio';
+
+  const btnLogOut = document.createElement('button');
+  btnLogOut.setAttribute('class', 'btnLogOut');
+  btnLogOut.innerHTML = 'Cerrar sesión';
+
   const likeIcon = document.createElement('img');
   // likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
   likeIcon.setAttribute('class', 'likeIcon');
@@ -65,6 +70,7 @@ export const feed = () => {
   const squareFooterF = document.createElement('footer');
   squareFooterF.setAttribute('class', 'squareFooterF');
   squareFooterF.textContent = 'Reda©️';
+
   squareF.appendChild(squareHeaderF);
   squareHeaderF.appendChild(logoF);
   squareF.appendChild(userInfoF);
@@ -78,9 +84,17 @@ export const feed = () => {
   squareF.appendChild(subsquareF);
   postContainer.appendChild(btnPubF);
   subsquareF.appendChild(btnHomeF);
+  squareHeaderF.appendChild(btnLogOut);
 
   btnHomeF.addEventListener('click', () => {
     navigateTo('/home');
+  });
+
+  btnLogOut.addEventListener('click', () => {
+    exitApp()
+      .then(() => {
+        navigateTo('/home');
+      });
   });
 
   postContainer.addEventListener('submit', (e) => {
@@ -129,19 +143,6 @@ export const feed = () => {
           e.preventDefault();
         });
       });
-    });
-    const btnBox = document.createElement('div');
-    squareF.appendChild(btnBox);
-    const btnLogOut = document.createElement('button');
-    btnLogOut.setAttribute('class', 'btnLogOut');
-    btnLogOut.innerHTML = 'Cerrar sesion';
-    btnBox.appendChild(btnLogOut);
-    const exitBtn = document.querySelector('.btnLogOut');
-    exitBtn.addEventListener('click', () => {
-      exitApp()
-        .then(() => {
-          navigateTo('/home');
-        });
     });
   };
   return squareF;
