@@ -27,7 +27,7 @@ export const db = getFirestore(app);
 // referencia a la colección de la db.
 export const colRef = collection(db, 'post');
 // queries fecha de creacion del post
-const q = query(colRef, orderBy('createdAt'));
+const q = query(colRef, orderBy('createdAt', 'desc'));
 // llamamos a la coleccion de datos.
 
 // inicializamos la autenticacion de usuario
@@ -52,7 +52,7 @@ export const saveUsers = (
 ) => addDoc((colRef), {
   name, email, password, nationality, Bdate, ocupation, redaRol, userId: auth.currentUser.uid,
 });
-export const getpost = () => getDocs(collection(db, 'post'))
+export const getpost = () => getDocs(q)
   .then(
     (snapshot) => {
       const showPost = [];
