@@ -27,7 +27,6 @@ export const feed = () => {
   );
   // aca estas llamando al setItem con getItem.
   const currentUserEmail = sessionStorage.getItem('currentUser');
-  // 
   const parseUser = JSON.parse(currentUserEmail);
   const currentUserEmailDraw = document.createElement('p');
   currentUserEmailDraw.innerHTML = parseUser.email;
@@ -79,17 +78,22 @@ export const feed = () => {
   squareF.appendChild(subsquareF);
   postContainer.appendChild(btnPubF);
   subsquareF.appendChild(btnHomeF);
+
   btnHomeF.addEventListener('click', () => {
     navigateTo('/home');
   });
+
   postContainer.addEventListener('submit', (e) => {
     e.preventDefault();
     // console.log(postContainer);
     const feedTitle = e.target.elements.postTitle.value;
     const feedPost = e.target.elements.post.value;
+    console.log(parseUser.email);
+    const feedUser = parseUser.email;
     // console.log(feedTitle);
     // console.log(feedPost);
-    createpost(feedTitle, feedPost)
+    // acá es importante el orden de los atributos, par saber como se imprimen.
+    createpost(feedUser, feedTitle, feedPost)
     // el dibjuar post debe estar dentro de una promesa para que dibuje
       .then(() => {
         dibujar();
@@ -106,10 +110,10 @@ export const feed = () => {
         const form = document.createElement('form');
 
         form.innerHTML = `<textarea id= 'mostrar!'>
+        ${post.usuario}
         ${post.titulo}
         ${post.descripcion}
-        ${post.userid}
-  
+       
         </textarea> 
         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
         <input type="submit" id="btnEditPost" value="Editar"/>

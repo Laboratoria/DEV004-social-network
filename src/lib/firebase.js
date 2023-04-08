@@ -78,7 +78,8 @@ export const getpost = () => getDocs(collection(db, 'post'))
 // console.log(uid);
 
 // obtener los post de un usuario en particular. 
-export const createpost = (titulo, descripcion) => addDoc((colRef), {
+export const createpost = (usuario, titulo, descripcion) => addDoc((colRef), {
+  usuario,
   titulo,
   descripcion,
   createdAt: serverTimestamp(Date),
