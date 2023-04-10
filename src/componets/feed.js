@@ -5,7 +5,7 @@ import {
   createpost, getpost, exitApp, auth, deletePost,
 } from '../lib/firebase.js';
 
-console.log('estamos en feed', auth);
+//console.log('estamos en feed', auth);
 export const feed = () => {
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');
@@ -31,7 +31,7 @@ export const feed = () => {
   const parseUser = JSON.parse(currentUserEmail);
   const currentUserEmailDraw = document.createElement('p');
   currentUserEmailDraw.innerHTML = parseUser.email;
-  console.log('esto es parseUser', parseUser);
+  //console.log('esto es parseUser', parseUser);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');
@@ -103,7 +103,7 @@ export const feed = () => {
     // console.log(postContainer);
     const feedTitle = e.target.elements.postTitle.value;
     const feedPost = e.target.elements.post.value;
-    console.log(parseUser.email);
+    //console.log(parseUser.email);
     const feedUser = parseUser.email;
     // console.log(feedTitle);
     // console.log(feedPost);
@@ -127,6 +127,7 @@ export const feed = () => {
       showPost.forEach((postD) => {
         // const postForm = document.createElement('form');
         const form = document.createElement('form');
+        form.setAttribute('id', postD.id);
 
         form.innerHTML = `<textarea id= 'mostrar!'>
         ${postD.usuario}
@@ -134,11 +135,11 @@ export const feed = () => {
         ${postD.descripcion}
        
         </textarea> 
-        <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
+        <input type="submit" class="btnDeletePost" data-id = "${postD.id}" value="Borrar"/>
         <input type="submit" id="btnEditPost" value="Editar"/>
           `;
 
-        form.setAttribute('id', 'form');
+        
         squareF.appendChild(form);
       });
       const btnsDeletePost = document.querySelectorAll('.btnDeletePost');
@@ -147,11 +148,11 @@ export const feed = () => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           const btnId = btn.getAttribute('data-id');
-          console.log(btnId);
+          //console.log(btnId);
 
           const formToRemove = document.getElementById(btnId);
           formToRemove.remove();
-          console.log(formToRemove);
+          //console.log(formToRemove);
           deletePost(btnId);
         });
       });
