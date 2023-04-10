@@ -1,10 +1,11 @@
+import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth,
+  createpost, getpost, exitApp, auth, deletePost,
 } from '../lib/firebase.js';
-import { updateCurrentUser } from 'firebase/auth';
-console.log ('estamos en feed', auth);
+
+//console.log('estamos en feed', auth);
 export const feed = () => {
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');
@@ -30,7 +31,7 @@ export const feed = () => {
   const parseUser = JSON.parse(currentUserEmail);
   const currentUserEmailDraw = document.createElement('p');
   currentUserEmailDraw.innerHTML = parseUser.email;
-  console.log('esto es parseUser', parseUser);
+  //console.log('esto es parseUser', parseUser);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');
@@ -102,7 +103,7 @@ export const feed = () => {
     // console.log(postContainer);
     const feedTitle = e.target.elements.postTitle.value;
     const feedPost = e.target.elements.post.value;
-    console.log(parseUser.email);
+    //console.log(parseUser.email);
     const feedUser = parseUser.email;
     // console.log(feedTitle);
     // console.log(feedPost);
@@ -126,6 +127,7 @@ export const feed = () => {
       showPost.forEach((postD) => {
         // const postForm = document.createElement('form');
         const form = document.createElement('form');
+        form.setAttribute('id', postD.id);
 
         form.innerHTML = `<text disabled>
         ${postD.usuario}
@@ -133,10 +135,12 @@ export const feed = () => {
         <textarea disabled>
         ${postD.titulo}
         ${postD.descripcion}
+
         </textarea>;
          <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
           <input type="submit" id="btnEditPost" value="Editar"/>`;
         form.setAttribute('id', 'form1');
+
         squareF.appendChild(form);
       });
       const btnsDeletePost = document.querySelectorAll('.btnDeletePost');
@@ -144,6 +148,13 @@ export const feed = () => {
       btnsDeletePost.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
+          const btnId = btn.getAttribute('data-id');
+          //console.log(btnId);
+
+          const formToRemove = document.getElementById(btnId);
+          formToRemove.remove();
+          //console.log(formToRemove);
+          deletePost(btnId);
         });
       });
     });
