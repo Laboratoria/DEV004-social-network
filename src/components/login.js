@@ -3,6 +3,7 @@ import {
   authGoogle,
   signInWithPassword,
 } from '../lib/authentication';
+import { googleAccess, logo } from './img';
 
 export const login = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -21,7 +22,7 @@ export const login = (onNavigate) => {
   loginHeader.innerHTML = 'Ingresa tus datos';
 
   coverImg.setAttribute('id', 'LogoPetropolis');
-  coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
+  coverImg.src = logo;
   coverImg.setAttribute('alt', 'LogoPetropolis');
 
   emailInput.setAttribute('type', 'text');
@@ -42,7 +43,7 @@ export const login = (onNavigate) => {
   loginBtn.textContent = 'Entrar';
 
   BtnGoogle.setAttribute('id', 'BtnGoogle');
-  BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
+  BtnGoogle.src = googleAccess;
   BtnGoogle.setAttribute('alt', 'BtnGoogle');
 
   //* Aqui estamos agregando todo a la sección de SignInPage

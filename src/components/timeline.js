@@ -13,6 +13,9 @@ import {
 } from '../lib/firestore';
 import { signOff } from '../lib/authentication';
 import { auth } from '../lib/firebaseConfig';
+import {
+  homeHome, likeIcon, likedIcon, outOut, profileProfile, welcomePic,
+} from './img';
 
 export const timeline = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -30,6 +33,7 @@ export const timeline = (onNavigate) => {
   const profileIcon = document.createElement('img');
   const logOutIcon = document.createElement('img');
   const footerHMTL = document.createElement('footer');
+
   //* Estamos asignandi atributos para todos los elementos creados.
   bodyHTML.setAttribute('id', 'bodyHTML');
   headerHTML.setAttribute('id', 'headerHTML');
@@ -39,22 +43,23 @@ export const timeline = (onNavigate) => {
   headerTitle.setAttribute('id', 'headerTitle');
   headerTitle.textContent = 'Timeline';
   profileImg.setAttribute('id', 'profileImg');
-  profileImg.setAttribute('src', '../Img/CircleLogo.png');
+  profileImg.src = welcomePic;
   inputContainer.setAttribute('id', 'inputContainer');
   inputPost.setAttribute('id', 'inputPost');
   inputPost.setAttribute('placeholder', 'Escribe tu mensaje');
   postButton.setAttribute('id', 'postButton');
   postButton.textContent = 'Publicar';
   homeIcon.setAttribute('id', 'homeIcon');
-  homeIcon.setAttribute('src', '../Img/homeIcon.png');
+  homeIcon.src = homeHome;
   homeIcon.setAttribute('alt', 'Home Icon');
   profileIcon.setAttribute('id', 'profileIcon');
-  profileIcon.setAttribute('src', '../Img/profileIcon.png');
+  profileIcon.src = profileProfile;
   profileIcon.setAttribute('alt', 'Profile Icon');
   logOutIcon.setAttribute('id', 'logOutIcon');
   logOutIcon.setAttribute('src', '../Img/LogOutIcon.png');
-  logOutIcon.setAttribute('alt', 'Log Out Icon');
+  logOutIcon.src = outOut;
   footerHMTL.setAttribute('id', 'footerHTML');
+
   //* Aqui estamos agregando todo a la sección de SignInPage
   bodyHTML.appendChild(headerHTML);
   headerHTML.appendChild(headerTitle);
@@ -77,7 +82,6 @@ export const timeline = (onNavigate) => {
       const name = auth.currentUser.displayName;
       await savePublic(inputPost.value, [], name, email, getTimestamp());
       const post = document.createElement('p');
-      // textContent devuelve o establece el contenido de texto de un elemento
       post.textContent = inputPost.value;
       feedSection.appendChild(post);
       inputContainer.reset();
@@ -117,10 +121,10 @@ export const timeline = (onNavigate) => {
       editBtn.setAttribute('id', 'editBtn');
       deleteBtn.setAttribute('id', 'deleteBtn');
       likePawZero.setAttribute('id', 'likePawZero');
-      likePawZero.setAttribute('src', '../Img/likePawZero.png');
+      likePawZero.src = likeIcon;
       likePawZero.setAttribute('alt', 'likePawZero');
       likePaw.setAttribute('id', 'likePaw');
-      likePaw.setAttribute('src', '../Img/likePaw.png');
+      likePaw.src = likedIcon;
       likePaw.setAttribute('alt', 'likePaw');
       // console.log(docum.data());
       pComment.textContent = `${docum.data().name}: ${docum.data().publicacion}`;

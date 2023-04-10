@@ -1,6 +1,7 @@
 import { updateProfile } from 'firebase/auth';
 import { authGoogle, registerWithEmail } from '../lib/authentication';
 import { auth } from '../lib/firebaseConfig';
+import { logo, googleAccess } from './img';
 
 export const register = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -22,7 +23,7 @@ export const register = (onNavigate) => {
   signInHeader.innerHTML = 'Crea una cuenta';
 
   coverImg.setAttribute('id', 'LogoPetropolis');
-  coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
+  coverImg.src = logo;
   coverImg.setAttribute('alt', 'LogoPetropolis');
 
   formRegister.setAttribute('id', 'form');
@@ -57,7 +58,7 @@ export const register = (onNavigate) => {
   loginBtn.textContent = 'Iniciar Sesión';
 
   BtnGoogle.setAttribute('id', 'BtnGoogle');
-  BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
+  BtnGoogle.src = googleAccess;
   BtnGoogle.setAttribute('alt', 'BtnGoogle');
   //* Aqui estamos agregando todo a la sección de SignInPage
   signInSection.appendChild(signInHeader);

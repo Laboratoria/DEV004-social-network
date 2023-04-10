@@ -1,3 +1,5 @@
+import { logo, welcomePic } from './img';
+
 // const name = register().querySelector(nameInput.value);
 export const welcome = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -14,7 +16,7 @@ export const welcome = (onNavigate) => {
   welcomeSection.setAttribute('id', 'welcomeSection');
 
   coverImg.setAttribute('id', 'LogoPetropolis');
-  coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
+  coverImg.src = logo;
   coverImg.setAttribute('alt', 'LogoPetropolis');
 
   welcomeContainer.setAttribute('id', 'welcomeContainer');
@@ -28,7 +30,7 @@ export const welcome = (onNavigate) => {
   divwelcome.setAttribute('id', 'divwelcome');
 
   CircleLogo.setAttribute('id', 'CircleLogo');
-  CircleLogo.setAttribute('src', './Img/CircleLogo.png');
+  CircleLogo.src = welcomePic;
   CircleLogo.setAttribute('alt', 'Circle Logo');
 
   nextButton.setAttribute('id', 'nextButton');
