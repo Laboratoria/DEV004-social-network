@@ -67,6 +67,15 @@ export const getpost = () => getDocs(q)
     console.log(err.message);
   });
 
+  // eliminar post
+  export const deletePost = (id) => deleteDoc(doc(db, 'post', id))
+ .then(() => {
+ 
+   console.log('todo ok');
+ })
+ .catch((error) => {
+   console.log(error.message);
+ });
 // guardar user
 // const user = firebase.auth().currentUser;
 // guardar el id del current user,
