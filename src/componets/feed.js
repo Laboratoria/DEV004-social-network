@@ -129,17 +129,18 @@ export const feed = () => {
         const form = document.createElement('form');
         form.setAttribute('id', postD.id);
 
-        form.innerHTML = `<textarea id= 'mostrar!'>
+        form.innerHTML = `<text disabled>
         ${postD.usuario}
+        </text>
+        <textarea disabled>
         ${postD.titulo}
         ${postD.descripcion}
-       
-        </textarea> 
-        <input type="submit" class="btnDeletePost" data-id = "${postD.id}" value="Borrar"/>
-        <input type="submit" id="btnEditPost" value="Editar"/>
-          `;
 
-        
+        </textarea>;
+         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
+          <input type="submit" id="btnEditPost" value="Editar"/>`;
+        form.setAttribute('id', 'form1');
+
         squareF.appendChild(form);
       });
       const btnsDeletePost = document.querySelectorAll('.btnDeletePost');
