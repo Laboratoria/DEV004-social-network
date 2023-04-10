@@ -27,7 +27,7 @@ export const db = getFirestore(app);
 // referencia a la colección de la db.
 export const colRef = collection(db, 'post');
 // queries fecha de creacion del post
-const q = query(colRef, orderBy('createdAt'));
+const q = query(colRef, orderBy('createdAt', 'desc'));
 // llamamos a la coleccion de datos.
 
 // inicializamos la autenticacion de usuario
@@ -35,8 +35,8 @@ const q = query(colRef, orderBy('createdAt'));
 export const auth = getAuth(app);
 onSnapshot(q, (snapshot) => {
   const arrPostData = [];
-  snapshot.docs.forEach((doc) => {
-    arrPostData.push({ ...doc.data(), id: doc.id, userState: auth.currentUser });
+  snapshot.docs.forEach((docAuth) => {
+    arrPostData.push({ ...docAuth.data(), id: docAuth.id, userState: auth.currentUser });
   });
   console.log('esto es arrPost', arrPostData);
 });
@@ -52,7 +52,7 @@ export const saveUsers = (
 ) => addDoc((colRef), {
   name, email, password, nationality, Bdate, ocupation, redaRol, userId: auth.currentUser.uid,
 });
-export const getpost = () => getDocs(collection(db, 'post'))
+export const getpost = () => getDocs(q)
   .then(
     (snapshot) => {
       const showPost = [];
@@ -78,7 +78,8 @@ export const getpost = () => getDocs(collection(db, 'post'))
 // console.log(uid);
 
 // obtener los post de un usuario en particular. 
-export const createpost = (titulo, descripcion) => addDoc((colRef), {
+export const createpost = (usuario, titulo, descripcion) => addDoc((colRef), {
+  usuario,
   titulo,
   descripcion,
   createdAt: serverTimestamp(Date),

@@ -27,7 +27,6 @@ export const feed = () => {
   );
   // aca estas llamando al setItem con getItem.
   const currentUserEmail = sessionStorage.getItem('currentUser');
-  // 
   const parseUser = JSON.parse(currentUserEmail);
   const currentUserEmailDraw = document.createElement('p');
   currentUserEmailDraw.innerHTML = parseUser.email;
@@ -57,6 +56,11 @@ export const feed = () => {
   btnPubF.setAttribute('class', 'btnPubF');
   btnPubF.textContent = 'publicar';
   btnHomeF.textContent = 'inicio';
+
+  const btnLogOut = document.createElement('button');
+  btnLogOut.setAttribute('class', 'btnLogOut');
+  btnLogOut.innerHTML = 'Cerrar sesión';
+
   const likeIcon = document.createElement('img');
   // likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
   likeIcon.setAttribute('class', 'likeIcon');
@@ -66,6 +70,7 @@ export const feed = () => {
   const squareFooterF = document.createElement('footer');
   squareFooterF.setAttribute('class', 'squareFooterF');
   squareFooterF.textContent = 'Reda©️';
+
   squareF.appendChild(squareHeaderF);
   squareHeaderF.appendChild(logoF);
   squareF.appendChild(userInfoF);
@@ -79,21 +84,38 @@ export const feed = () => {
   squareF.appendChild(subsquareF);
   postContainer.appendChild(btnPubF);
   subsquareF.appendChild(btnHomeF);
+  squareHeaderF.appendChild(btnLogOut);
+
   btnHomeF.addEventListener('click', () => {
     navigateTo('/home');
   });
+
+  btnLogOut.addEventListener('click', () => {
+    exitApp()
+      .then(() => {
+        navigateTo('/home');
+      });
+  });
+
   postContainer.addEventListener('submit', (e) => {
     e.preventDefault();
     // console.log(postContainer);
     const feedTitle = e.target.elements.postTitle.value;
     const feedPost = e.target.elements.post.value;
+    console.log(parseUser.email);
+    const feedUser = parseUser.email;
     // console.log(feedTitle);
     // console.log(feedPost);
-    createpost(feedTitle, feedPost)
+    // acá es importante el orden de los atributos, par saber como se imprimen.
+    createpost(feedUser, feedTitle, feedPost)
+
     // el dibjuar post debe estar dentro de una promesa para que dibuje
       .then(() => {
         dibujar();
+        // document.querySelector('class', 'postContainer').reset();
+        postContainer.reset();
       });
+    // revisar este error para de dibujar;
   });
   const dibujar = () => {
     const myPromise = getpost();
@@ -101,15 +123,15 @@ export const feed = () => {
     // nos aseguramos que la data provenga de feed.js y no de
     // firebase.
       // console.log('feed', showPost);
-      showPost.forEach((post) => {
+      showPost.forEach((postD) => {
         // const postForm = document.createElement('form');
         const form = document.createElement('form');
 
         form.innerHTML = `<textarea id= 'mostrar!'>
-        ${post.titulo}
-        ${post.descripcion}
-        ${post.userid}
-  
+        ${postD.usuario}
+        ${postD.titulo}
+        ${postD.descripcion}
+       
         </textarea> 
         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
         <input type="submit" id="btnEditPost" value="Editar"/>
@@ -125,19 +147,6 @@ export const feed = () => {
           e.preventDefault();
         });
       });
-    });
-    const btnBox = document.createElement('div');
-    squareF.appendChild(btnBox);
-    const btnLogOut = document.createElement('button');
-    btnLogOut.setAttribute('class', 'btnLogOut');
-    btnLogOut.innerHTML = 'Cerrar sesion';
-    btnBox.appendChild(btnLogOut);
-    const exitBtn = document.querySelector('.btnLogOut');
-    exitBtn.addEventListener('click', () => {
-      exitApp()
-        .then(() => {
-          navigateTo('/home');
-        });
     });
   };
   return squareF;
