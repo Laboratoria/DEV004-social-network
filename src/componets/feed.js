@@ -136,10 +136,10 @@ export const feed = () => {
         ${postD.titulo}
         ${postD.descripcion}
 
-        </textarea>;
-         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
+        </textarea>
+         <input type="submit" class="btnDeletePost" data-id = "${postD.id}" value="Borrar"/>
           <input type="submit" id="btnEditPost" value="Editar"/>`;
-        form.setAttribute('id', 'form1');
+        //form.setAttribute('id', 'form1');
 
         squareF.appendChild(form);
       });
