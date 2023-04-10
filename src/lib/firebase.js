@@ -67,15 +67,14 @@ export const getpost = () => getDocs(q)
     console.log(err.message);
   });
 
-  // eliminar post
-  export const deletePost = (id) => deleteDoc(doc(db, 'post', id))
- .then(() => {
- 
-   console.log('todo ok');
- })
- .catch((error) => {
-   console.log(error.message);
- });
+// eliminar post
+export const deletePost = (id) => deleteDoc(doc(db, 'post', id))
+  .then(() => {
+    console.log('todo ok');
+  })
+  .catch((error) => {
+    console.log(error.message);
+  });
 // guardar user
 // const user = firebase.auth().currentUser;
 // guardar el id del current user,
@@ -86,7 +85,7 @@ export const getpost = () => getDocs(q)
 // }
 // console.log(uid);
 
-// obtener los post de un usuario en particular. 
+// obtener los post de un usuario en particular.
 export const createpost = (usuario, titulo, descripcion) => addDoc((colRef), {
   usuario,
   titulo,
@@ -96,10 +95,10 @@ export const createpost = (usuario, titulo, descripcion) => addDoc((colRef), {
 });
 // postsRef.add({ title: "Mi publicación", content: "Este es el contenido de mi publicación.", userId: uid })
 //   .then(function(docRef)
-//   { console.log("Documento escrito con ID: ", docRef.id); }) 
-//   .catch(function(error) 
+//   { console.log("Documento escrito con ID: ", docRef.id); })
+//   .catch(function(error)
 //   { console.error("Error al escribir el documento: ",
-//    error); }); 
+//    error); });
 
 // cerrar sesion:
 export const exitApp = () => signOut(auth)

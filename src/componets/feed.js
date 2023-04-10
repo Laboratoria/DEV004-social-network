@@ -1,10 +1,11 @@
+import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth,
+  createpost, getpost, exitApp, auth, deletePost,
 } from '../lib/firebase.js';
-import { updateCurrentUser } from 'firebase/auth';
-console.log ('estamos en feed', auth);
+
+console.log('estamos en feed', auth);
 export const feed = () => {
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');
@@ -137,7 +138,7 @@ export const feed = () => {
         <input type="submit" id="btnEditPost" value="Editar"/>
           `;
 
-        form.setAttribute('id', 'form1');
+        form.setAttribute('id', 'form');
         squareF.appendChild(form);
       });
       const btnsDeletePost = document.querySelectorAll('.btnDeletePost');
@@ -145,6 +146,13 @@ export const feed = () => {
       btnsDeletePost.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
+          const btnId = btn.getAttribute('data-id');
+          console.log(btnId);
+
+          const formToRemove = document.getElementById(btnId);
+          formToRemove.remove();
+          console.log(formToRemove);
+          deletePost(btnId);
         });
       });
     });
