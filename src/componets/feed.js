@@ -127,16 +127,17 @@ export const feed = () => {
         // const postForm = document.createElement('form');
         const form = document.createElement('form');
 
-        form.innerHTML = `<textarea id= 'mostrar!'>
+        form.innerHTML = `<text disabled>
         ${postD.usuario}
+        </text>
+        <textarea disabled>
         ${postD.titulo}
         ${postD.descripcion}
-       
-        </textarea> 
+        </textarea>
         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
-        <input type="submit" id="btnEditPost" value="Editar"/>
-          `;
-
+        <input type="submit" id="btnEditPost" value="Editar"/> `;
+        console.log('esto es parseUser', parseUser.email);
+        console.log('esto es current user', currentUserEmail);
         form.setAttribute('id', 'form1');
         squareF.appendChild(form);
       });
