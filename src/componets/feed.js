@@ -133,13 +133,15 @@ export const feed = () => {
         <textarea disabled>
         ${postD.titulo}
         ${postD.descripcion}
-        </textarea>
-        <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
-        <input type="submit" id="btnEditPost" value="Editar"/> `;
-        console.log('esto es parseUser', parseUser.email);
-        console.log('esto es current user', currentUserEmail);
+        </textarea>`;
         form.setAttribute('id', 'form1');
         squareF.appendChild(form);
+        if (currentUserEmail.uid === postD.usuario) {
+          form.innerHTML = ` <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>
+          <input type="submit" id="btnEditPost" value="Editar"/> `;
+        }
+        console.log('esto es current user');
+        console.log('esto es usuario dueño de post', postD.usuario);
       });
       const btnsDeletePost = document.querySelectorAll('.btnDeletePost');
       console.log(btnsDeletePost);
