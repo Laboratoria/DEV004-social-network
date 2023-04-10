@@ -155,7 +155,7 @@ export const timeline = (onNavigate) => {
       });
 
       const dialog = document.createElement('dialog');
-      const dialogTitle = document.createElement('h2');
+      const dialogTitle = document.createElement('h3');
       const dialogMessage = document.createElement('p');
       const confirmButton = document.createElement('button');
       const cancelButton = document.createElement('button');
