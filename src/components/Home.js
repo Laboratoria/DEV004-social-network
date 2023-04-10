@@ -1,4 +1,5 @@
 import { onNavigate } from '../router/index';
+import { loginUser } from '../lib/autenticar';
 
 export const Home = () => {
   const HomeDiv = document.createElement('section');
@@ -25,7 +26,7 @@ export const Home = () => {
   /*const inputGoogle = document.createElement('input');
   inputGoogle.placeholder = 'Continua con Google';
   inputGoogle.setAttribute('type', 'email');*/
-  buttonLoginGoogle.addEventListener('click', () => onNavigate('/loginGoogle'));
+  buttonLoginGoogle.addEventListener('click', () => onNavigate('/feed'));
   //
   const inputEmail = document.createElement('input');
   inputEmail.placeholder = 'Ingresa tu correo';
@@ -49,6 +50,14 @@ export const Home = () => {
       });
     }else{
       console.log(inputEmail.value, inputPassword.value)
+      loginUser(inputEmail.value, inputPassword.value)
+      .then((res) => { // then para promesa cumplida
+        // enviarlo al muro
+          console.log(res);
+        })
+        .catch((error) => { // para promesa fallida
+          console.log(error.message);
+        });
     }
   });
 

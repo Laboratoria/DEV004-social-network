@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
@@ -29,21 +29,8 @@ export const createUser = (email, password) => { // recibe paramatros
 };
 export const loginUser = (email, password) => {
    const auth = getAuth();
-    return createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        // ...
-        return user
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // console.log(errorMessage);
-        // ..
-        return error
-      });
+   return signInWithEmailAndPassword(auth, email, password)
+    
   };
 
 const provider = new GoogleAuthProvider();

@@ -46,7 +46,7 @@
     "test": "test"
   },
   "dependencies": {
-    "@firebase/firestore": "^3.9.0",
+    "@firebase/firestore": "^3.10.0",
     "abab": "^2.0.6",
     "acorn": "^8.8.2",
     "acorn-globals": "^6.0.0",
