@@ -1,5 +1,4 @@
 import {
-  createUser,
   loginWithGoogle,
   signIn,
 } from '../lib/firebase';
@@ -53,10 +52,10 @@ export const home = (onNavigate) => {
     loginWithGoogle().then((result) => {
       const user = result.user;
       localStorage.setItem('user', JSON.stringify(user));
-      createUser(user, user.displayName);
       onNavigate('/feed');
     });
   });
+
   const signInHere = document.getElementById('here');
   signInHere.addEventListener('click', () => {
     onNavigate('/register');
