@@ -17,8 +17,8 @@ const db = getFirestore(app);
 
 const getTimestamp = () => serverTimestamp();
 
-const savePublic = (publicacion, likes, name, time) => addDoc(collection(db, 'publication'), {
-  publicacion, likes, name, time,
+const savePublic = (publicacion, likes, name, email, time) => addDoc(collection(db, 'publication'), {
+  publicacion, likes, name, email, time,
 });
 
 const postData = () => query(collection(db, 'publication'), orderBy('time', 'desc'));
