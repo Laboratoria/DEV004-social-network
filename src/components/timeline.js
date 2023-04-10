@@ -69,18 +69,20 @@ export const timeline = (onNavigate) => {
   footerHMTL.appendChild(homeIcon);
   footerHMTL.appendChild(profileIcon);
   footerHMTL.appendChild(logOutIcon);
+
   inputContainer.addEventListener('submit', async (e) => {
     e.preventDefault(); // cancela el evento
     try {
+      const email = auth.currentUser.email;
       const name = auth.currentUser.displayName;
-      await savePublic(inputPost.value, [], name, [], getTimestamp());
+      await savePublic(inputPost.value, [], name, email, getTimestamp());
       const post = document.createElement('p');
       // textContent devuelve o establece el contenido de texto de un elemento
       post.textContent = inputPost.value;
       feedSection.appendChild(post);
       inputContainer.reset();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   });
 
@@ -136,40 +138,9 @@ export const timeline = (onNavigate) => {
       postSection.appendChild(halfBtns);
       feedSection.appendChild(postSection);
 
-      const dialog = document.createElement('dialog');
-      const dialogTitle = document.createElement('h2');
-      const dialogMessage = document.createElement('p');
-      const confirmButton = document.createElement('button');
-      const cancelButton = document.createElement('button');
-
-      dialog.setAttribute('id', 'modal');
-      dialogTitle.textContent = 'Eliminar publicación';
-      dialogMessage.textContent = '¿Estás seguro que deseas eliminar esta publicación?';
-      confirmButton.textContent = 'Eliminar';
-      cancelButton.textContent = 'Cancelar';
-
-      dialog.appendChild(dialogTitle);
-      dialog.appendChild(dialogMessage);
-      dialog.appendChild(confirmButton);
-      dialog.appendChild(cancelButton);
-
-      deleteBtn.addEventListener('click', () => {
-        document.body.appendChild(dialog);
-        dialog.showModal();
-      });
-
-      confirmButton.addEventListener('click', () => {
-        deletePost(docum.id)
-          .then(() => {
-            dialog.close();
-          }).catch((err) => console.warn(err));
-      });
-
-      cancelButton.addEventListener('click', () => {
-        dialog.close();
-      });
-
       likePawZero.addEventListener('click', () => {
+        console.log(docum.data().email);
+        console.log(auth.currentUser.email);
         const user = auth.currentUser.uid;
         const likes = docum.data().likes;
         console.log(auth.currentUser.uid);
@@ -183,32 +154,70 @@ export const timeline = (onNavigate) => {
         }
       });
 
-      editBtn.addEventListener('click', () => {
-        const editPub = document.createElement('input');
-        editPub.setAttribute('id', 'editPub');
-        editPub.value = docum.data().publicacion;
-        pComment.replaceWith(editPub);
+      const dialog = document.createElement('dialog');
+      const dialogTitle = document.createElement('h2');
+      const dialogMessage = document.createElement('p');
+      const confirmButton = document.createElement('button');
+      const cancelButton = document.createElement('button');
 
-        const saveBtn = document.createElement('button');
-        saveBtn.setAttribute('id', 'saveBtn');
-        saveBtn.textContent = 'Guardar';
-        halfBtns.appendChild(saveBtn);
+      dialog.setAttribute('id', 'modal');
+      confirmButton.setAttribute('id', 'confirmButton');
+      cancelButton.setAttribute('id', 'cancelButton');
+      dialogTitle.textContent = 'Eliminar publicación';
+      dialogMessage.textContent = '¿Estás seguro que deseas eliminar esta publicación?';
+      confirmButton.textContent = 'Eliminar';
+      cancelButton.textContent = 'Cancelar';
 
-        saveBtn.addEventListener('click', () => {
-          updatePost(docum.id, {
-            publicacion: editPub.value,
-          }).then(() => {
-            console.log('Documento actualizado con éxito');
-            pComment.textContent = `${editPub.value}`;
-            editPub.replaceWith(pComment);
-            saveBtn.remove();
-          })
-            .catch((error) => {
-              console.error('Error al actualizar el documento', error);
-            });
+      dialog.appendChild(dialogTitle);
+      dialog.appendChild(dialogMessage);
+      dialog.appendChild(confirmButton);
+      dialog.appendChild(cancelButton);
+
+      if (auth.currentUser.email === docum.data().email) {
+        deleteBtn.addEventListener('click', () => {
+          document.body.appendChild(dialog);
+          dialog.showModal();
         });
-      });
+
+        confirmButton.addEventListener('click', () => {
+          deletePost(docum.id)
+            .then(() => {
+              dialog.close();
+            }).catch((err) => console.warn(err));
+        });
+
+        cancelButton.addEventListener('click', () => {
+          dialog.close();
+        });
+
+        editBtn.addEventListener('click', () => {
+          const editPub = document.createElement('input');
+          editPub.setAttribute('id', 'editPub');
+          editPub.value = docum.data().publicacion;
+          pComment.replaceWith(editPub);
+
+          const saveBtn = document.createElement('button');
+          saveBtn.setAttribute('id', 'saveBtn');
+          saveBtn.textContent = 'Guardar';
+          halfBtns.appendChild(saveBtn);
+
+          saveBtn.addEventListener('click', () => {
+            updatePost(docum.id, {
+              publicacion: editPub.value,
+            }).then(() => {
+              console.log('Documento actualizado con éxito');
+              pComment.textContent = `${editPub.value}`;
+              editPub.replaceWith(pComment);
+              saveBtn.remove();
+            })
+              .catch((error) => {
+                console.error('Error al actualizar el documento', error);
+              });
+          });
+        });
+      }
     });
   });
+
   return bodyHTML;
 };
