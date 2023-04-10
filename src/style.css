@@ -616,3 +616,10 @@ justify-content: left;
   
 };
 }
+
+.show{
+  display: block;
+}
+.noShow {
+  display: none;
+}

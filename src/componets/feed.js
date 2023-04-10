@@ -137,10 +137,14 @@ export const feed = () => {
         ${postD.descripcion}
 
         </textarea>
-         <input type="submit" class="btnDeletePost" data-id = "${postD.id}" value="Borrar"/>
-          <input type="submit" id="btnEditPost" value="Editar"/>`;
+         <input type="submit" class= "${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" "btnDeletePost" data-id = "${postD.id}" value="Borrar"/>
+          <input type="submit" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"/>`;
         //form.setAttribute('id', 'form1');
-
+        //
+       // console.log(auth.currentUser.email, postD.usuario);
+       console.log(auth.currentUser.email);
+       console.log(postD.usuario);
+       
         squareF.appendChild(form);
       });
       const btnsDeletePost = document.querySelectorAll('.btnDeletePost');
