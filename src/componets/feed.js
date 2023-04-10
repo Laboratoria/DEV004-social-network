@@ -108,10 +108,14 @@ export const feed = () => {
     // console.log(feedPost);
     // acá es importante el orden de los atributos, par saber como se imprimen.
     createpost(feedUser, feedTitle, feedPost)
+
     // el dibjuar post debe estar dentro de una promesa para que dibuje
       .then(() => {
         dibujar();
+        // document.querySelector('class', 'postContainer').reset();
+        postContainer.reset();
       });
+    // revisar este error para de dibujar;
   });
   const dibujar = () => {
     const myPromise = getpost();
@@ -119,14 +123,14 @@ export const feed = () => {
     // nos aseguramos que la data provenga de feed.js y no de
     // firebase.
       // console.log('feed', showPost);
-      showPost.forEach((post) => {
+      showPost.forEach((postD) => {
         // const postForm = document.createElement('form');
         const form = document.createElement('form');
 
         form.innerHTML = `<textarea id= 'mostrar!'>
-        ${post.usuario}
-        ${post.titulo}
-        ${post.descripcion}
+        ${postD.usuario}
+        ${postD.titulo}
+        ${postD.descripcion}
        
         </textarea> 
         <input type="submit" class="btnDeletePost" data-id = "${post.id}" value="Borrar"/>

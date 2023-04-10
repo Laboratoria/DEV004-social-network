@@ -35,8 +35,8 @@ const q = query(colRef, orderBy('createdAt', 'desc'));
 export const auth = getAuth(app);
 onSnapshot(q, (snapshot) => {
   const arrPostData = [];
-  snapshot.docs.forEach((doc) => {
-    arrPostData.push({ ...doc.data(), id: doc.id, userState: auth.currentUser });
+  snapshot.docs.forEach((docAuth) => {
+    arrPostData.push({ ...docAuth.data(), id: docAuth.id, userState: auth.currentUser });
   });
   console.log('esto es arrPost', arrPostData);
 });
