@@ -4,9 +4,11 @@ export const Home = () => {
   const HomeDiv = document.createElement('section');
   const buttonRegister = document.createElement('button');
   const buttonLogin = document.createElement('button');
+  const buttonLoginGoogle = document.createElement('button');
 
   buttonRegister.textContent = 'Registrate';
   buttonLogin.textContent = 'Inicia Sesión';
+  buttonLoginGoogle.textContent = 'Continua con Google'
   const header = document.createElement('header');
   const img = document.createElement('img');
   img.setAttribute('src', './img/logo.png');
@@ -19,6 +21,12 @@ export const Home = () => {
   const article = document.createElement('article');
   const h1 = document.createElement('h1');
   h1.textContent = 'Para continuar, inicia sesión';
+  //tratando de completar Login mientras vuelve MariG
+  /*const inputGoogle = document.createElement('input');
+  inputGoogle.placeholder = 'Continua con Google';
+  inputGoogle.setAttribute('type', 'email');*/
+  buttonLoginGoogle.addEventListener('click', () => onNavigate('/loginGoogle'));
+  //
   const inputEmail = document.createElement('input');
   inputEmail.placeholder = 'Ingresa tu correo';
   inputEmail.setAttribute('type', 'email');
@@ -27,15 +35,15 @@ export const Home = () => {
   inputPassword.setAttribute('type', 'password');
   /* img.setAttribute('alt', 'Logo de la marca MaMá Genial');
   img.id = 'logoEncabezado'; */
-  article.append(h1, inputEmail, inputPassword, buttonLogin, buttonRegister);
+  article.append(h1, buttonLoginGoogle, inputEmail, inputPassword, buttonLogin, buttonRegister);
   main.appendChild(article);
   HomeDiv.appendChild(main);
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => {
     if (inputEmail.value === '' || inputPassword.value === '') {
       swal({
-        title: "Verifica tus datos?",
-        text: "la contraseña debe ser mayo a 6",
+        title: "¡Verifica tus datos!",
+        text: "la contraseña debe ser mayor a 6 digitos",
         icon: "warning",
         dangerMode: true,
       });
@@ -46,3 +54,4 @@ export const Home = () => {
 
   return HomeDiv;
 };
+

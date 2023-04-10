@@ -1,3 +1,5 @@
+//import { loginGoogle } from '../lib/autenticar';
+
 import { onNavigate } from '../router/index';
 
 export const Login = () => {

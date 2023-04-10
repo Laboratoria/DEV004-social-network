@@ -4,6 +4,9 @@ import { onNavigate } from '../router/index';
 export const Register = () => {
   const HomeDiv = document.createElement('main');
   HomeDiv.textContent = 'Bienvenida al registro';
+  const inputName = document.createElement('input');
+  inputName.placeholder = 'Ingresa tu Nombre';
+  inputName.setAttribute('type', 'text');
   const inputEmail = document.createElement('input');
   inputEmail.placeholder = 'Ingresa tu correo';
   inputEmail.setAttribute('type', 'email');
@@ -19,8 +22,8 @@ export const Register = () => {
   buttonRegister.addEventListener('click', () => {
     if (inputEmail.value === '' || inputPassword.value === '') {
       swal({
-        title: 'Verifica tus datos?',
-        text: 'la contraseña debe ser mayo a 6',
+        title: '¡Verifica tus datos!',
+        text: 'la contraseña debe ser mayor a 6 digitos',
         icon: 'warning',
         dangerMode: true,
       });
@@ -37,7 +40,7 @@ export const Register = () => {
     }
   });
 
-  HomeDiv.append(inputEmail, inputPassword, buttonRegister, buttonHome);
+  HomeDiv.append(inputName, inputEmail, inputPassword, buttonRegister, buttonHome);
 
   return HomeDiv;
 };
