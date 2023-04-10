@@ -1,3 +1,5 @@
+import { logo, slogan } from './img';
+
 export const home = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const homeSection = document.createElement('section');
@@ -13,7 +15,7 @@ export const home = (onNavigate) => {
   welcomeHeader.innerHTML = 'Bienvenido';
 
   coverImg.setAttribute('id', 'LogoPetropolis');
-  coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
+  coverImg.src = logo;
   coverImg.setAttribute('alt', 'LogoPetropolis');
   coverImg.classList.add('cover-img');
 
@@ -23,7 +25,7 @@ export const home = (onNavigate) => {
   signInButton.setAttribute('id', 'signInButton');
   signInButton.textContent = 'Registrarse';
   ImgLove.setAttribute('id', 'ImgLove');
-  ImgLove.setAttribute('src', './Img/amolosanimales.png');
+  ImgLove.src = slogan;
   ImgLove.setAttribute('alt', 'ImgLove');
 
   //* Agregando todo a la sección de homeSection
