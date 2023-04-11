@@ -1,42 +1,26 @@
 /* eslint-disable no-alert */
 import { createUser, savedUser, updateName } from '../lib/firebase';
 
-const root = document.getElementById('root');
-export const register = () => {
+export const register = (onNavigate) => {
+  const root = document.getElementById('root');
   const registerDiv = document.createElement('div');
   registerDiv.classList.add('log');
   registerDiv.innerHTML += `<header>
   <img src="./img/logo.png" id="logo"></header>
-  </header>
   <section class="register-container">
     <h1>Tú</h1>
-    <input type="text"
-    id="register-name"
-    name=""
-    placeholder="Ingrese su nombre" />
-        <input type="email"
-          id="register-email"
-          name=""
-          placeholder="Ingrese su email" required=""/>
-        <input type="password"
-          id="register-password"
-          placeholder="Ingrese una contraseña"/>
-          <input type="password"
-          id="register-password2"
-          placeholder="Repita su contraseña"/>
-          <h1>Tu mascota</h1>
-          <input type="text"
-          id="pet-name"
-          name=""
-          placeholder="Nombre de mascota" />
-          <input type="text"
-          id="specie-name"
-          name=""
-          placeholder="Especie" />
-        <button type="submit" id="create-account">Registrarse</button>
-        <button type="submit" id="back-button">Volver a incio</button>
-        </section>`;
+      <input type="text" id="register-name" placeholder="Ingrese su nombre" />
+      <input type="email" id="register-email" placeholder="Ingrese su email" required=""/>
+      <input type="password" id="register-password" placeholder="Ingrese una contraseña"/>
+      <input type="password" id="register-password2" placeholder="Repita su contraseña"/>
+    <h1>Tu mascota</h1>
+      <input type="text" id="pet-name" placeholder="Nombre de mascota" />
+      <input type="text" id="specie-name" placeholder="Especie" />
+    <button type="submit" id="create-account">Registrarse</button>
+    <button type="submit" id="back-button">Volver a incio</button>
+  </section>`;
   root.appendChild(registerDiv);
+
   document.querySelector('#create-account').addEventListener('click', () => {
     const displayName = document.getElementById('register-name').value;
     const signUpEmail = document.getElementById('register-email').value;
@@ -51,21 +35,19 @@ export const register = () => {
     createUser(signUpEmail, signUpPassword)
       .then((usercredentials) => {
         const user = usercredentials.user;
-        updateName(displayName);
+        if (displayName) {
+          updateName(displayName);
+        }
         return savedUser(displayName, signUpEmail, signUpPassword, petName, petSpecie, user.uid);
       })
       .then(() => {
-        window.location.href = '/feed';
-      })
-      // eslint-disable-next-line consistent-return, no-unused-vars
-      .catch((error) => {
-
+        onNavigate('/feed');
       });
   });
 
   const buttonBack = document.getElementById('back-button');
   buttonBack.addEventListener('click', () => {
-    window.location.href = '/';
+    onNavigate('/');
   });
   return registerDiv;
 };
@@ -85,7 +67,6 @@ function validateData() {
   const validatePetName = /[0-9]/g.test(petName);
   const validatePetSpecie = /[0-9]/g.test(petSpecie);
   if (displayName === '') {
-    // eslint-disable-next-line no-alert
     alert('Ingrese su nombre');
     return false;
   } if (signUpEmail === '') {

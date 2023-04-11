@@ -1,8 +1,6 @@
-/* eslint-disable import/no-unresolved */
-import { home } from './components/Home.js';
-import { register } from './components/Register.js';
+import { home } from './components/home.js';
+import { register } from './components/register.js/index.js';
 import { feed } from './components/feed';
-/* import { auth } from './lib/firebase.js'; */
 
 const root = document.getElementById('root');
 const routes = {
