@@ -2,8 +2,17 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signOut } from 'firebase/auth';
 import {
-  getFirestore, collection, addDoc, getDocs, deleteDoc, doc,
-  onSnapshot, serverTimestamp, orderBy, query,
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  serverTimestamp,
+  orderBy,
+  query,
+  updateDoc,
 } from 'firebase/firestore';
 // import { userState } from './authentication';
 
@@ -93,12 +102,6 @@ export const createpost = (usuario, titulo, descripcion) => addDoc((colRef), {
   createdAt: serverTimestamp(Date),
   userId: auth.currentUser.uid,
 });
-// postsRef.add({ title: "Mi publicación", content: "Este es el contenido de mi publicación.", userId: uid })
-//   .then(function(docRef)
-//   { console.log("Documento escrito con ID: ", docRef.id); })
-//   .catch(function(error)
-//   { console.error("Error al escribir el documento: ",
-//    error); });
 
 // cerrar sesion:
 export const exitApp = () => signOut(auth)
@@ -108,3 +111,5 @@ export const exitApp = () => signOut(auth)
   .catch((err) => {
     console.log(err.message);
   });
+
+export const updatePost = (id, newPost) => updateDoc(doc(db, 'post', id), newPost);

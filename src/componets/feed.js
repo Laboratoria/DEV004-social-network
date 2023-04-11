@@ -2,7 +2,8 @@ import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth, deletePost,
+  createpost, getpost, exitApp, auth, deletePost, updatePost,
+
 } from '../lib/firebase.js';
 
 //console.log('estamos en feed', auth);
@@ -127,24 +128,26 @@ export const feed = () => {
       showPost.forEach((postD) => {
         // const postForm = document.createElement('form');
         const form = document.createElement('form');
-        form.setAttribute('id', postD.id);
+        // form.setAttribute('id', postD.id);
 
         form.innerHTML = `<text disabled>
-        ${postD.usuario}
+          ${postD.usuario}
         </text>
-        <textarea disabled>
-        ${postD.titulo}
-        ${postD.descripcion}
-
+        <input id="titulo-${postD.id}" value=${postD.titulo} disabled />
+        <textarea id="${postD.id}" disabled />
+          ${postD.titulo}
+          ${postD.descripcion}
         </textarea>
-         <input type="submit"  id = "btnDeletePost" class= "${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id = "${postD.id}" value="Borrar"/>
-          <input type="submit" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"/>`;
+        <input type="submit" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>
+        <input type="submit" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"/>
+        <input type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"/>`;
+
         //form.setAttribute('id', 'form1');
         //
-       // console.log(auth.currentUser.email, postD.usuario);
-       console.log(auth.currentUser.email);
-       console.log(postD.usuario);
-       
+        // console.log(auth.currentUser.email, postD.usuario);
+        console.log(auth.currentUser.email);
+        console.log(postD.usuario);
+
         squareF.appendChild(form);
       });
       const btnsDeletePost = document.querySelectorAll('#btnDeletePost');
@@ -159,6 +162,38 @@ export const feed = () => {
           formToRemove.remove();
           //console.log(formToRemove);
           deletePost(btnId);
+        });
+      });
+
+      const btnsEditar = document.querySelectorAll('#btnEditPost');
+      btnsEditar.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          console.log(e);
+          const postId = btn.getAttribute('data-id');
+          const postTitulo = 'titulo-' + postId;
+          const textAreaPublication = document.getElementById(postId);
+          const inputPublication = document.getElementById(postTitulo);
+          console.log(inputPublication);
+          textAreaPublication.removeAttribute('disabled');
+          inputPublication.removeAttribute('disabled');
+        });
+      });
+
+      const btnsGuardar = document.querySelectorAll('#btnSaveEditPost');
+      btnsGuardar.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          console.log(e);
+          // guardar en firebase
+          const newTitle = "nuevo titulo";
+          const newDescription = "nueva descripcion";
+          const newPost = {
+            titulo: newTitle,
+            descripcion: newDescription,
+          };
+          const postId = btn.getAttribute('data-id');
+          updatePost(postId, newPost);
         });
       });
     });
