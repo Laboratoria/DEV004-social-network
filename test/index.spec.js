@@ -1,4 +1,3 @@
-/* eslint-disable jest/no-focused-tests */
 import { home } from '../src/components/home';
 import * as firebaseFn from '../src/lib/firebase';
 
@@ -82,13 +81,12 @@ describe('Ir a registro', () => {
   beforeEach(() => {
     document.body.innerHTML = '<div id="root"></div>';
   });
-  it('El usuario quiere ir a registrarse', (done) => {
+  it('El usuario quiere ir a registrarse', () => {
     const mockNavigate = jest.fn();
     const section = home(mockNavigate);
     section.querySelector('#here').dispatchEvent(new Event('click'));
     setTimeout(() => {
       expect(mockNavigate).toHaveBeenCalledWith('/register');
-      done();
     }, 0);
   });
 });
