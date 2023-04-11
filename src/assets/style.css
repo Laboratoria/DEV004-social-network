@@ -9,6 +9,10 @@ body {
   padding: 0px;
   font-family:"Jost" ;
 }
+html, body {
+  height: 100%;
+}
+
 .loginForm{
   box-sizing: border-box;
   display: flex;
@@ -166,8 +170,8 @@ a{
   cursor: pointer;
 } 
 
-.container {
-  max-width: 600px;
+.container-post {
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -178,6 +182,50 @@ a{
 
 #post-list {
   margin-top: 20px;
+  
+}
+.header-muro{
+  color: #fdfffd;
+  font-size: 300%;
+  width: 100%;
+  display: flex;
+  align-items: center; /*alinea los elemntos dentro del header*/
+  justify-content: space-around;
+  height: 250px;
+  background-color: #063075;
+}
+.logo-muro{
+  width:15%;
+  
+}
+.muro{
+  background: #9FDDE8;
+  height: 100%; /* Estableces la altura del div */
+  width: 100%; /* Estableces el ancho del div */
+  margin: 0; /* Elimina los márgenes predeterminados */
+  padding: 0; /* Elimina el relleno predeterminado */
+}
+.btnCerrarSesion {
+  background-color: #1e2a78;
+  color: #fff; /* Para asegurarte de que el texto sea legible */
+  border: none; /* Para eliminar el borde predeterminado del botón */
+  padding: 10px 20px; /* Para agregar un poco de espacio entre el contenido y los bordes del botón */
+  cursor: pointer; /* Para indicar que el botón es clickable */
+}
+h2{
+  text-align: center;
+}
+.post{
+  background-color: white;
+}
+.post img{
+  border-radius: 50%;
+  text-align: left;
+}
+.post-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 @media only screen and (max-width: 600px) {
 .contenedor-login{
@@ -232,6 +280,7 @@ a{
 .btn-register{
   border: none;
 }
+
 }
 
 

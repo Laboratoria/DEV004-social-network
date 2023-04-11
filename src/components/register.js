@@ -14,7 +14,7 @@ export const Register = () => {
     <h1>Registro</h1>
         <input type="text" placeholder="Correo electrónico" name="email" id="email" required>
         <div style="height: 16px;"></div>
-        <input type="password" placeholder="Contraseña" name="psw" id="psw" required>
+        <input type="password" maxlength="16" minlength="6"  placeholder="Contraseña" name="psw" id="psw" required>
         <div style="height: 16px;"></div>
         <button  class="btn-registros">Crear</button>
         <div style="height: 32px;"></div>
