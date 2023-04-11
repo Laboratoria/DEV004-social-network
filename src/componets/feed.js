@@ -156,9 +156,12 @@ export const feed = () => {
           //console.log(btnId);
 
           const formToRemove = document.getElementById(btnId);
-          formToRemove.remove();
-          //console.log(formToRemove);
-          deletePost(btnId);
+          //confirmar si deseo eliminar la pubkicaciòn
+          const deleteMessage = window.confirm('Estas seguro de que deseas eliminar esta publicaciòn?');
+          if (deleteMessage) {
+            formToRemove.remove();
+            deletePost(btnId);
+          }
         });
       });
     });
