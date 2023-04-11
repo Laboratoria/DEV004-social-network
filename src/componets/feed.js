@@ -128,25 +128,40 @@ export const feed = () => {
       showPost.forEach((postD) => {
         // const postForm = document.createElement('form');
         const form = document.createElement('form');
-        // form.setAttribute('id', postD.id);
+        form.classList.add('formularioEditar');
+        form.setAttribute('data-class', postD.id);
+        form.setAttribute('id', 'form');
 
         form.innerHTML = `<text disabled>
           ${postD.usuario}
         </text>
-        <input id="titulo-${postD.id}" value=${postD.titulo} disabled />
+        <input id="titulo-${postD.id}" class="tituloEdit" value=${postD.titulo} disabled />
         <textarea id="${postD.id}" disabled />
-          ${postD.titulo}
           ${postD.descripcion}
         </textarea>
-        <input type="submit" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>
-        <input type="submit" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"/>
-        <input type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"/>`;
-
+        <input type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>
+        <input type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"/>
+        <input type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" />`;
         //form.setAttribute('id', 'form1');
         //
         // console.log(auth.currentUser.email, postD.usuario);
         console.log(auth.currentUser.email);
         console.log(postD.usuario);
+        form.addEventListener('submit', (e) => {
+          debugger
+          e.preventDefault();
+          console.log(e);
+          // guardar en firebase
+          const postId = form.dataset.id;
+          const newTitle = e.target.elements.tituloEdit;
+
+          const newDescription = e.target.elements.post.value;
+          const newPost = {
+            titulo: newTitle,
+            descripcion: newDescription,
+          };
+          updatePost(postId, newPost);
+        });
 
         squareF.appendChild(form);
       });
@@ -180,22 +195,9 @@ export const feed = () => {
         });
       });
 
-      const btnsGuardar = document.querySelectorAll('#btnSaveEditPost');
-      btnsGuardar.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          console.log(e);
-          // guardar en firebase
-          const newTitle = "nuevo titulo";
-          const newDescription = "nueva descripcion";
-          const newPost = {
-            titulo: newTitle,
-            descripcion: newDescription,
-          };
-          const postId = btn.getAttribute('data-id');
-          updatePost(postId, newPost);
-        });
-      });
+      // const formularios = document.querySelectorAll(".formularioEditar");
+      // formularios.forEach((form) => {
+      // });
     });
   };
   return squareF;
