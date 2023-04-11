@@ -137,7 +137,7 @@ export const feed = () => {
         ${postD.descripcion}
 
         </textarea>
-         <input type="submit" class= "${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" "btnDeletePost" data-id = "${postD.id}" value="Borrar"/>
+         <input type="submit"  id = "btnDeletePost" class= "${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id = "${postD.id}" value="Borrar"/>
           <input type="submit" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"/>`;
         //form.setAttribute('id', 'form1');
         //
@@ -147,7 +147,7 @@ export const feed = () => {
        
         squareF.appendChild(form);
       });
-      const btnsDeletePost = document.querySelectorAll('.btnDeletePost');
+      const btnsDeletePost = document.querySelectorAll('#btnDeletePost');
       console.log(btnsDeletePost);
       btnsDeletePost.forEach((btn) => {
         btn.addEventListener('click', (e) => {
