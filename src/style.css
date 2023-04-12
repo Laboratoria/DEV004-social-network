@@ -85,7 +85,7 @@ footer {
     text-align: center;
 }
 
-@media screen and (min-width: 767px){
+@media (max-width: 767.98px){
     body{
         background: #F1FBFE;
         height: 100%;

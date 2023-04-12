@@ -22,7 +22,6 @@ export const Home = () => {
   const article = document.createElement('article');
   const h1 = document.createElement('h1');
   h1.textContent = 'Para Continuar, Inicia Sesión';
-  //tratando de completar Login mientras vuelve MariG
   /*const inputGoogle = document.createElement('input');
   inputGoogle.placeholder = 'Continua con Google';
   inputGoogle.setAttribute('type', 'email');*/
