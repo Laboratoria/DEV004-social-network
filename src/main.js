@@ -1,5 +1,5 @@
 import { home } from './components/home.js';
-import { register } from './components/register.js/index.js';
+import { register } from './register.js';
 import { feed } from './components/feed';
 
 const root = document.getElementById('root');

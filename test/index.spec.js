@@ -1,7 +1,7 @@
-/* eslint-disable jest/no-focused-tests */
+import { register } from '../src/register';
 import { home } from '../src/components/home';
+import { feed } from '../src/components/feed';
 import * as firebaseFn from '../src/lib/firebase';
-import { register } from '../src/components/register';
 
 jest.mock('../src/lib/firebase.js', () => ({
   signIn: jest.fn(),
@@ -10,6 +10,9 @@ jest.mock('../src/lib/firebase.js', () => ({
   createUser: jest.fn(),
   updateName: jest.fn(),
   savedUser: jest.fn(),
+  post: jest.fn(),
+  addPost: jest.fn(),
+  logOut: jest.fn(),
 }));
 
 beforeEach(() => {
@@ -73,7 +76,7 @@ describe('Log In con Google', () => {
   beforeEach(() => {
     document.body.innerHTML = '<div id="root"></div>';
   });
-  it('si el usuario se logea con éxito con google se redirige a /feed', () => {
+  it('si el usuario se logea con éxito se redirige a /feed', () => {
     firebaseFn.loginWithGoogle.mockResolvedValueOnce({ user: { uid: 'user-id' } });
     const mockNavigate = jest.fn();
     const section = home(mockNavigate);
@@ -303,6 +306,42 @@ describe('Ir a home', () => {
     const mockNavigate = jest.fn();
     const section = register(mockNavigate);
     section.querySelector('#back-button').dispatchEvent(new Event('click'));
+    setTimeout(() => {
+      expect(mockNavigate).toHaveBeenCalledWith('/');
+    }, 0);
+  });
+});
+
+describe('Feed', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '<div id="root"></div>';
+  });
+
+  it('Si el usuario crea un post se debe guardar', () => {
+    const createPost = firebaseFn.post.mockResolvedValueOnce({ user: { email: 'test@test.com' } });
+    const section = feed();
+    section.querySelector('#status-description').value = 'test post';
+    section.querySelector('.post').dispatchEvent(new Event('click'));
+    setTimeout(() => {
+      expect(createPost).toHaveBeenCalledTime(1);
+    }, 0);
+  });
+
+  it('Si el usuario deja el campo de post vacio sale una alerta', () => {
+    firebaseFn.post.mockResolvedValueOnce({ user: { email: 'test@test.com' } });
+    const section = feed();
+    section.querySelector('#status-description').value = '';
+    section.querySelector('.post').dispatchEvent(new Event('click'));
+    setTimeout(() => {
+      expect(global.alert).toHaveBeenCalledWith('Ingrese post');
+    }, 0);
+  });
+
+  it('Si el usuario se hace logOut', () => {
+    firebaseFn.logOut.mockResolvedValueOnce({ user: { email: 'test@test.com' } });
+    const mockNavigate = jest.fn();
+    const section = feed(mockNavigate);
+    section.querySelector('#salir').dispatchEvent(new Event('click'));
     setTimeout(() => {
       expect(mockNavigate).toHaveBeenCalledWith('/');
     }, 0);

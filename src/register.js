@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import { createUser, savedUser, updateName } from '../lib/firebase';
+import { createUser, savedUser, updateName } from './lib/firebase';
 
 export const register = (onNavigate) => {
   const root = document.getElementById('root');
