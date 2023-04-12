@@ -1,9 +1,11 @@
 * {
     margin: 0;
-    padding: 0;
+    padding: 10px;
     box-sizing: border-box;
 }
+
 body{
+    background: #F1FBFE;
     height: 100%;
     width: 100%;
 }
@@ -11,6 +13,8 @@ body{
 img{
     height: 150px;
     width: 150px;
+    box-shadow: 0px 0px 16px #856FAB;
+    backdrop-filter: blur 50px;
 }
 
 header {
@@ -23,10 +27,13 @@ header {
     flex-direction: column;
 }
 
-.historia1 {
-    font-size: 30px;
-    font-family: "sans-serif";
-    margin: 30px 0px 10px 0px;
+main{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;  
 }
 
 article {
@@ -35,37 +42,128 @@ article {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 20px;
 }
-.input {
+
+h1, h2{
+    font-size: 15px;
+    font-family: Verdana, Helvetica;
+}
+
+input {
     font-size: 18px;
     font-family: Verdana, Helvetica;
-    border-width: 5px;
+    border-width: 3px;
     border-style: solid;
     border-color: #82B1F8;
     border-radius: 9pt;
     width: 400px;
     height: 35px;
+    gap: 50px; 
 }
 
-.botones {
-    font-size: 18px;
+button{
+    font-size: 10px;
     font-family: Verdana, Helvetica;
     font-weight: bold;
     color: rgb(0, 0, 0);
     border: 0px;
     border-radius: 9pt;
     background: #FFCBA5;
-    width: 160px;
+    width: 150px;
     height: 35px;
+    gap: 15px;
 }
 
 footer {
     background-color: #82B1F8;
     padding: 1em 2em 1em;
     margin: 30px 0px 0px 0px;
-    border: 0px solid rgb(250, 250, 250);
     font-size: 12px;
-    font-family: "sans-serif", sans-serif;
+    font-family: "sans-serif";
     color: rgb(253, 250, 250);
     text-align: center;
 }
+
+/*@media screen and (min-width: 767px){
+    body{
+        background: #F1FBFE;
+        height: 100%;
+        width: 100%;
+    }
+    
+    img{
+        height: 100px;
+        width: 100px;
+        box-shadow: 0px 0px 16px #856FAB;
+        backdrop-filter: blur 50px;
+    }
+    
+    header {
+        padding: 10px;
+        height: 8%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    main{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;  
+    }
+    
+    article {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    h1, h2{
+        font-size: 15px;
+        font-family: Verdana, Helvetica;
+    }
+    
+    input {
+        font-size: 18px;
+        font-family: Verdana, Helvetica;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #82B1F8;
+        border-radius: 9pt;
+        width: 400px;
+        height: 35px;
+        gap: 50px; 
+    }
+    
+    button{
+        font-size: 10px;
+        font-family: Verdana, Helvetica;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+        border: 0px;
+        border-radius: 9pt;
+        background: red;
+        width: 150px;
+        height: 35px;
+        gap: 15px;
+    }
+    
+    footer {
+        background-color: #82B1F8;
+        padding: 1em 2em 1em;
+        margin: 30px 0px 0px 0px;
+        font-size: 12px;
+        font-family: "sans-serif";
+        color: rgb(253, 250, 250);
+        text-align: center;
+    } 
+}*/

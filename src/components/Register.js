@@ -2,8 +2,21 @@ import { createUser } from '../lib/autenticar';
 import { onNavigate } from '../router/index';
 
 export const Register = () => {
+  /*const HomeDiv = document.createElement('section');
+  const header = document.createElement('header');
+  const img = document.createElement('img');
+  img.setAttribute('src', './img/logo.png');
+  img.setAttribute('alt', 'Logo de la marca MaMá Genial');
+  img.id = 'logoEncabezado';
+  header.appendChild(img);
+  HomeDiv.appendChild(header);*/
   const HomeDiv = document.createElement('main');
-  HomeDiv.textContent = 'Bienvenida al registro';
+  const img = document.createElement('img');
+  img.setAttribute('src', './img/logo.png');
+  img.setAttribute('alt', 'Logo de la marca MaMá Genial');
+  img.id = 'logoEncabezado';
+  const h2 = document.createElement('h2');
+  h2.textContent = 'Bienvenida al registro';
   const inputName = document.createElement('input');
   inputName.placeholder = 'Ingresa tu Nombre';
   inputName.setAttribute('type', 'text');
@@ -15,16 +28,16 @@ export const Register = () => {
   inputPassword.setAttribute('type', 'password');
   const buttonHome = document.createElement('button');
   const buttonRegister = document.createElement('button');
-  buttonRegister.textContent = 'registrate';
+  buttonRegister.textContent = 'Registrate';
 
   buttonHome.textContent = 'Regresar al Home';
   buttonHome.addEventListener('click', () => onNavigate('/'));
   buttonRegister.addEventListener('click', () => {
     if (inputEmail.value === '' || inputPassword.value === '') {
       swal({
-        title: '¡Verifica tus datos!',
+        title: '¡Completa todos los campos!',
         text: 'la contraseña debe ser mayor a 6 digitos',
-        icon: 'warning',
+        icon: 'info',
         dangerMode: true,
       });
     } else {
@@ -40,7 +53,7 @@ export const Register = () => {
     }
   });
 
-  HomeDiv.append(inputName, inputEmail, inputPassword, buttonRegister, buttonHome);
+  HomeDiv.append(img, h2, inputName, inputEmail, inputPassword, buttonRegister, buttonHome);
 
   return HomeDiv;
 };

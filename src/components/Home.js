@@ -21,7 +21,7 @@ export const Home = () => {
   const main = document.createElement('main');
   const article = document.createElement('article');
   const h1 = document.createElement('h1');
-  h1.textContent = 'Para continuar, inicia sesión';
+  h1.textContent = 'Para Continuar, Inicia Sesión';
   //tratando de completar Login mientras vuelve MariG
   /*const inputGoogle = document.createElement('input');
   inputGoogle.placeholder = 'Continua con Google';
@@ -45,7 +45,7 @@ export const Home = () => {
       swal({
         title: "¡Verifica tus datos!",
         text: "la contraseña debe ser mayor a 6 digitos",
-        icon: "warning",
+        icon: "info",
         dangerMode: true,
       });
     }else{
@@ -57,6 +57,12 @@ export const Home = () => {
         })
         .catch((error) => { // para promesa fallida
           console.log(error.message);
+          swal({
+            title: "¡Usuario no registrado!",
+            text: "Crea una cuenta",
+            icon: "info",
+            dangerMode: true,
+          });
         });
     }
   });
