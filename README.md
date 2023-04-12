@@ -8,7 +8,7 @@
 * [1. Introducción](#1-Introducción)
 * [2. Usuarios](#2-Usuarios)
 * [3. Definición del producto](#3-Definición-del-producto)
-* [4. Historias y criterios de aceptación](#4-Historias-y-criterios-de-aceptación)
+* [4. Historias](#4-Historias)
 * [5. Prototipo en baja](#5-Prototipo-en-baja)
 * [6. Prototipo en alta](#6-Prototipo-en-alta)
 * [7. Test](#7-Test)
@@ -44,7 +44,7 @@ Cuando quieren mostrar algo que ha hecho su mascota.
 
 Decidimos realizar un diseño simple y limpio, usando una paleta de solo blanco y morados. El sitio es mobile first y es responsivo para que los usuarios puedan verlo donde más les convenga. Además es una SPA, con la cuál utilizamos firebase y firestore.
 
-## 4. Historias y criterios de aceptación
+## 4. Historias
 
 #### HU 1 - Yo, como usuario de Pawsbook quiero saber cómo será y se verá esta red social para participar.
 
@@ -52,11 +52,11 @@ Decidimos realizar un diseño simple y limpio, usando una paleta de solo blanco 
 
 #### HU3 - Yo, como usuario de Pawsbook quiero iniciar sesión para participar de la red.
 
-### HU 4 - Yo, como usuario de Pawsbook quiero crear un post para participar compartir mis experiencia.
+#### HU 4 - Yo, como usuario de Pawsbook quiero crear un post para participar compartir mis experiencia.
 
-### HU 5 - Yo, como usuario de Pawsbook quiero editar mi post para agregra o quitar información.
+#### HU 5 - Yo, como usuario de Pawsbook quiero editar mi post para agregra o quitar información.
 
-### HU 6 - Yo, como usuario de Pawsbook quiero dar y quitar me gusta a las publicaciones para participar de la red.
+#### HU 6 - Yo, como usuario de Pawsbook quiero dar y quitar me gusta a las publicaciones para participar de la red.
 
 ## 5. Prototipo en baja
 
