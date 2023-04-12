@@ -187,7 +187,7 @@ export const feed = () => {
           const btnId = btn.getAttribute('data-id');
           //console.log(btnId);
 
-          const formToRemove = document.getElementById(btnId);
+          const formToRemove = document.getElementById('form');
           formToRemove.remove();
           //console.log(formToRemove);
           deletePost(btnId);
