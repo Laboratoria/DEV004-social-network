@@ -76,6 +76,21 @@ Decidimos realizar un diseño simple y limpio, usando una paleta de solo blanco 
 
 ## 8. Producto final
 
+Versión movil
 
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1179.28 627.23"/>![image](https://user-images.githubusercontent.com/122575839/231553096-59901312-ee08-491d-ad0e-85ddc9278a2b.png)
+![image](https://user-images.githubusercontent.com/122575839/231556959-1403edbf-2763-4790-b57d-1e8d452c8b3f.png)
+![image](https://user-images.githubusercontent.com/122575839/231556842-74ff562a-70f5-4fed-a3eb-b824b516d102.png)
+![image](https://user-images.githubusercontent.com/122575839/231557114-cd371706-1ae0-4f12-b345-3bcb4bdb7b7f.png)
+
+
+
+Versión de escritorio
+
+![image](https://user-images.githubusercontent.com/122575839/231556709-8bff75b6-19bf-4f85-9bbf-114c6207de77.png)
+
+![image](https://user-images.githubusercontent.com/122575839/231556493-7e93c5ae-d9b1-476d-8907-ce981f5a4d8e.png)
+
+![image](https://user-images.githubusercontent.com/122575839/231556601-ea286cec-0a2e-439b-8e71-00e146fb27de.png)
+
+
+
