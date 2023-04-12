@@ -186,11 +186,14 @@ export const feed = () => {
           e.preventDefault();
           const btnId = btn.getAttribute('data-id');
           //console.log(btnId);
-
-          const formToRemove = document.getElementById('form');
-          formToRemove.remove();
-          //console.log(formToRemove);
-          deletePost(btnId);
+          const shouldDeletePost = window.confirm('¿Estás seguro de que deseas eliminar este post?');
+          if (shouldDeletePost) {
+            const formToRemove = document.getElementById('form');
+            formToRemove.remove();
+            //console.log(formToRemove);
+            deletePost(btnId);
+          }
+         
         });
       });
 
