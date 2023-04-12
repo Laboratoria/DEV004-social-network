@@ -1,14 +1,12 @@
-//import { loginGoogle } from '../lib/autenticar';
-
 import { onNavigate } from '../router/index';
 
 export const Login = () => {
-  const HomeDiv = document.createElement('div');
-  HomeDiv.textContent = 'Bienvenida al login';
-  const buttonHome = document.createElement('button');
+  const HomeDiv = document.createElement("div");
+  HomeDiv.textContent = "Bienvenida al login";
+  const buttonHome = document.createElement("button");
 
-  buttonHome.textContent = 'Regresar al Home';
-  buttonHome.addEventListener('click', () => onNavigate('/'));
+  buttonHome.textContent = "Regresar al Home";
+  buttonHome.addEventListener("click", () => onNavigate("/"));
 
   HomeDiv.appendChild(buttonHome);
   // HomeDiv.appendChild(buttonLogin);

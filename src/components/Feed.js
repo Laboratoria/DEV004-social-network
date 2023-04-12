@@ -10,7 +10,7 @@ export const Feed = () => {
 
   buttonHome.textContent = 'Regresar al Home';
   buttonHome.addEventListener('click', () => onNavigate('/'));
-  buttonLoginGoogle.addEventListener('click', () => onNavigate('/loginGoogle'));
+  buttonLoginGoogle.addEventListener('click', () => onNavigate('/feed'));
 
   //HomeDiv.append(h3,buttonHome, buttonLoginGoogle); este lo comentamos al final y pusimos el return h3
   //HomeDiv.appendChild(buttonLogin);
