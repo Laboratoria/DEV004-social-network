@@ -136,7 +136,7 @@ export const feed = () => {
           ${postD.usuario}
         </text>
         <input name="titulo" id="titulo-${postD.id}" class="tituloEdit" value=${postD.titulo} disabled />
-        <textarea name="descripcion" id="${postD.id}" disabled />
+        <textarea name="descripcion" class="descriptionEdit" id="${postD.id}"  disabled />
           ${postD.descripcion}
         </textarea>
         <input type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>
@@ -145,6 +145,7 @@ export const feed = () => {
         //form.setAttribute('id', 'form1');
         //
         // console.log(auth.currentUser.email, postD.usuario);
+        // esta es la funcion para guardar el post editado
         console.log(auth.currentUser.email);
         console.log(postD.usuario);
         form.addEventListener('submit', (e) => {
@@ -155,15 +156,19 @@ export const feed = () => {
           const postId = form.dataset.id;
           const newTitle = e.target.elements.titulo.value;
           const newDescription = e.target.elements.descripcion.value;
+          const newtitleEd = document.querySelector('.tituloEdit');
+          const newdescripEd = document.querySelector('.descriptionEdit');
           const newPost = {
             titulo: newTitle,
             descripcion: newDescription,
           };
-
           console.log(postId);
           console.log(newPost);
 
           updatePost(postId, newPost);
+          newtitleEd.setAttribute('disabled', '');
+          console.log(newtitleEd);
+          newdescripEd.setAttribute('disabled', '');
         });
 
         squareF.appendChild(form);
