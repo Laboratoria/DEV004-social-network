@@ -85,7 +85,7 @@ footer {
     text-align: center;
 }
 
-/*@media screen and (min-width: 767px){
+@media screen and (min-width: 767px){
     body{
         background: #F1FBFE;
         height: 100%;
@@ -166,4 +166,4 @@ footer {
         color: rgb(253, 250, 250);
         text-align: center;
     } 
-}*/
+}
