@@ -129,14 +129,14 @@ export const feed = () => {
         // const postForm = document.createElement('form');
         const form = document.createElement('form');
         form.classList.add('formularioEditar');
-        form.setAttribute('data-class', postD.id);
+        form.setAttribute('data-id', postD.id);
         form.setAttribute('id', 'form');
 
         form.innerHTML = `<text disabled>
           ${postD.usuario}
         </text>
-        <input id="titulo-${postD.id}" class="tituloEdit" value=${postD.titulo} disabled />
-        <textarea id="${postD.id}" disabled />
+        <input name="titulo" id="titulo-${postD.id}" class="tituloEdit" value=${postD.titulo} disabled />
+        <textarea name="descripcion" id="${postD.id}" disabled />
           ${postD.descripcion}
         </textarea>
         <input type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>
@@ -148,18 +148,21 @@ export const feed = () => {
         console.log(auth.currentUser.email);
         console.log(postD.usuario);
         form.addEventListener('submit', (e) => {
-          debugger
           e.preventDefault();
-          console.log(e);
+          console.log(e.target.elements);
           // guardar en firebase
+          console.log(form);
           const postId = form.dataset.id;
-          const newTitle = e.target.elements.tituloEdit;
-
-          const newDescription = e.target.elements.post.value;
+          const newTitle = e.target.elements.titulo.value;
+          const newDescription = e.target.elements.descripcion.value;
           const newPost = {
             titulo: newTitle,
             descripcion: newDescription,
           };
+
+          console.log(postId);
+          console.log(newPost);
+
           updatePost(postId, newPost);
         });
 
