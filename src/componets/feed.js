@@ -16,6 +16,7 @@ export const feed = () => {
   logoF.setAttribute('src', 'https://i.ibb.co/bWGQN64/REDA-1.png');
   logoF.setAttribute('class', 'logoF');
   const userInfoF = document.createElement('div');
+  userInfoF.setAttribute('class', 'userInfoDivF')
   const userAvatar = document.createElement('img');
   userAvatar.setAttribute(
     'src',
@@ -32,6 +33,7 @@ export const feed = () => {
   const parseUser = JSON.parse(currentUserEmail);
   const currentUserEmailDraw = document.createElement('p');
   currentUserEmailDraw.innerHTML = parseUser.email;
+  currentUserEmailDraw.setAttribute('class', 'currentUserMail');
   //console.log('esto es parseUser', parseUser);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
@@ -77,7 +79,7 @@ export const feed = () => {
   squareHeaderF.appendChild(logoF);
   squareF.appendChild(userInfoF);
   userInfoF.appendChild(userAvatar);
-  squareF.appendChild(currentUserEmailDraw);
+  userInfoF.appendChild(currentUserEmailDraw);
   squareF.appendChild(postContainer);
   postContainer.appendChild(postTitle);
   postContainer.appendChild(post);
@@ -132,16 +134,20 @@ export const feed = () => {
         form.setAttribute('data-id', postD.id);
         form.setAttribute('id', 'form');
 
-        form.innerHTML = `<text disabled>
-          ${postD.usuario}
+        form.innerHTML = `<div class="contenedorCurrentUser"> <text disabled>
+         Autor: ${postD.usuario}
         </text>
+        <div class="contenedorPostCompleto">
         <input name="titulo" id="titulo-${postD.id}" class="tituloEdit" value=${postD.titulo} disabled />
         <textarea name="descripcion" class="descriptionEdit" id="${postD.id}"  disabled />
           ${postD.descripcion}
         </textarea>
+        </div>
+        <div class="contenedorIconosPost">
         <input type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>
         <input type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"/>
-        <input type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" />`;
+        <input type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" />
+        </div>`;
         //form.setAttribute('id', 'form1');
         //
         // console.log(auth.currentUser.email, postD.usuario);
