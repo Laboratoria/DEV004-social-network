@@ -2,7 +2,8 @@ import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth, deletePost,
+  createpost, getpost, exitApp, auth, deletePost, updatePost,
+
 } from '../lib/firebase.js';
 
 //console.log('estamos en feed', auth);
@@ -127,24 +128,44 @@ export const feed = () => {
       showPost.forEach((postD) => {
         // const postForm = document.createElement('form');
         const form = document.createElement('form');
-        form.setAttribute('id', postD.id);
+        form.classList.add('formularioEditar');
+        form.setAttribute('data-id', postD.id);
+        form.setAttribute('id', 'form');
 
         form.innerHTML = `<text disabled>
-        ${postD.usuario}
+          ${postD.usuario}
         </text>
-        <textarea disabled>
-        ${postD.titulo}
-        ${postD.descripcion}
-
+        <input name="titulo" id="titulo-${postD.id}" class="tituloEdit" value=${postD.titulo} disabled />
+        <textarea name="descripcion" id="${postD.id}" disabled />
+          ${postD.descripcion}
         </textarea>
-         <input type="submit"  id = "btnDeletePost" class= "${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id = "${postD.id}" value="Borrar"/>
-          <input type="submit" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"/>`;
+        <input type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>
+        <input type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"/>
+        <input type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" />`;
         //form.setAttribute('id', 'form1');
         //
-       // console.log(auth.currentUser.email, postD.usuario);
-       console.log(auth.currentUser.email);
-       console.log(postD.usuario);
-       
+        // console.log(auth.currentUser.email, postD.usuario);
+        console.log(auth.currentUser.email);
+        console.log(postD.usuario);
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          console.log(e.target.elements);
+          // guardar en firebase
+          console.log(form);
+          const postId = form.dataset.id;
+          const newTitle = e.target.elements.titulo.value;
+          const newDescription = e.target.elements.descripcion.value;
+          const newPost = {
+            titulo: newTitle,
+            descripcion: newDescription,
+          };
+
+          console.log(postId);
+          console.log(newPost);
+
+          updatePost(postId, newPost);
+        });
+
         squareF.appendChild(form);
       });
       const btnsDeletePost = document.querySelectorAll('#btnDeletePost');
@@ -161,6 +182,25 @@ export const feed = () => {
           deletePost(btnId);
         });
       });
+
+      const btnsEditar = document.querySelectorAll('#btnEditPost');
+      btnsEditar.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          console.log(e);
+          const postId = btn.getAttribute('data-id');
+          const postTitulo = 'titulo-' + postId;
+          const textAreaPublication = document.getElementById(postId);
+          const inputPublication = document.getElementById(postTitulo);
+          console.log(inputPublication);
+          textAreaPublication.removeAttribute('disabled');
+          inputPublication.removeAttribute('disabled');
+        });
+      });
+
+      // const formularios = document.querySelectorAll(".formularioEditar");
+      // formularios.forEach((form) => {
+      // });
     });
   };
   return squareF;
