@@ -49,8 +49,7 @@ onSnapshot(q, (snapshot) => {
   });
   //console.log('esto es arrPost', arrPostData);
 });
-
-export const saveUsers = (
+export const saveUsers = (name, email, password, nationality, Bdate, ocupation, redaRol) => addDoc(collection(db, 'users'), {
   name,
   email,
   password,
@@ -58,9 +57,10 @@ export const saveUsers = (
   Bdate,
   ocupation,
   redaRol,
-) => addDoc((colRef), {
-  name, email, password, nationality, Bdate, ocupation, redaRol, userId: auth.currentUser.uid,
+  userId: auth.currentUser.uid,
+  like: [],
 });
+
 export const getpost = () => getDocs(q)
   .then(
     (snapshot) => {
@@ -95,12 +95,14 @@ export const deletePost = (id) => deleteDoc(doc(db, 'post', id))
 // console.log(uid);
 
 // obtener los post de un usuario en particular.
+
 export const createpost = (usuario, titulo, descripcion) => addDoc((colRef), {
   usuario,
   titulo,
   descripcion,
   createdAt: serverTimestamp(Date),
   userId: auth.currentUser.uid,
+  likes: [],
 });
 
 // cerrar sesion:

@@ -68,6 +68,7 @@ export const register = () => {
       .then((useCredential) => {
         console.log('esto es usercredential', useCredential.user);
         saveUsers(name, email, password, nationality, Bdate, ocupation, redaRol);
+        console.log(saveUsers);
         navigateTo('/home');
       })
       .catch((error) => {

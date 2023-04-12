@@ -2,7 +2,7 @@ import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth, deletePost, updatePost,
+  createpost, getpost, exitApp, auth, deletePost, updatePost, saveUsers
 
 } from '../lib/firebase.js';
 
@@ -187,7 +187,7 @@ export const feed = () => {
           const btnId = btn.getAttribute('data-id');
           //console.log(btnId);
 
-          const formToRemove = document.getElementById(btnId);
+          const formToRemove = document.getElementById('form');
           formToRemove.remove();
           //console.log(formToRemove);
           deletePost(btnId);
