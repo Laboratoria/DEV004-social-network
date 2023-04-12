@@ -2,7 +2,7 @@ import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth, deletePost, updatePost,
+  createpost, getpost, exitApp, auth, deletePost, updatePost, saveUsers
 
 } from '../lib/firebase.js';
 
