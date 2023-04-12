@@ -53,7 +53,7 @@ export const Register = () => {
     }
   });
 
-  HomeDiv.append(inputEmail, inputPassword, buttonRegister, buttonHome);
+  HomeDiv.append(img, h2, inputName, inputEmail, inputPassword, buttonRegister, buttonHome);
 
   return HomeDiv;
 };
