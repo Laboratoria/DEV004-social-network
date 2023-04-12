@@ -41,8 +41,8 @@ export const Register = () => {
         dangerMode: true,
       });
     } else {
-      console.log(createUser(inputEmail.value, inputPassword.value)); // promesa pendiente
-      createUser(inputEmail.value, inputPassword.value)
+      console.log(inputName.value, inputEmail.value, inputPassword.value); // promesa pendiente
+      createUser(inputName.value, inputEmail.value, inputPassword.value)
         .then((res) => { // then para promesa cumplida
         // enviarlo al muro
           console.log(res);
@@ -53,7 +53,7 @@ export const Register = () => {
     }
   });
 
-  HomeDiv.append(img, h2, inputName, inputEmail, inputPassword, buttonRegister, buttonHome);
+  HomeDiv.append(inputEmail, inputPassword, buttonRegister, buttonHome);
 
   return HomeDiv;
 };
