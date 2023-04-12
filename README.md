@@ -12,7 +12,7 @@
 * [5. Prototipo en baja](#5-Prototipo-en-baja)
 * [6. Prototipo en alta](#6-Prototipo-en-alta)
 * [7. Test](#7-Test)
-* [8. Producto final](#8-Producto final)
+* [8. Producto final](#8-Producto-final)
 
 ***
 
