@@ -16,6 +16,7 @@ export const feed = () => {
   logoF.setAttribute('src', 'https://i.ibb.co/bWGQN64/REDA-1.png');
   logoF.setAttribute('class', 'logoF');
   const userInfoF = document.createElement('div');
+  userInfoF.setAttribute('class', 'userInfoDivF')
   const userAvatar = document.createElement('img');
   userAvatar.setAttribute(
     'src',
@@ -32,6 +33,7 @@ export const feed = () => {
   const parseUser = JSON.parse(currentUserEmail);
   const currentUserEmailDraw = document.createElement('p');
   currentUserEmailDraw.innerHTML = parseUser.email;
+  currentUserEmailDraw.setAttribute('class', 'currentUserMail');
   //console.log('esto es parseUser', parseUser);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
@@ -77,7 +79,7 @@ export const feed = () => {
   squareHeaderF.appendChild(logoF);
   squareF.appendChild(userInfoF);
   userInfoF.appendChild(userAvatar);
-  squareF.appendChild(currentUserEmailDraw);
+  userInfoF.appendChild(currentUserEmailDraw);
   squareF.appendChild(postContainer);
   postContainer.appendChild(postTitle);
   postContainer.appendChild(post);
