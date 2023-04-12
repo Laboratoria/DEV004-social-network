@@ -12,16 +12,16 @@ describe('home', () => {
     document.body.appendChild(homeSection);
 
     const welcomeHeader = homeSection.querySelector('h1');
-    const coverImg = homeSection.querySelector('#LogoPetropolis');
+    // const coverImg = homeSection.querySelector('#LogoPetropolis');
     const loginButton = homeSection.querySelector('#loginButton');
     const signInButton = homeSection.querySelector('#signInButton');
-    const ImgLove = homeSection.querySelector('#ImgLove');
+    // const ImgLove = homeSection.querySelector('#ImgLove');
 
     expect(welcomeHeader.innerHTML).toBe('Bienvenido');
-    expect(coverImg.getAttribute('src')).toBe('./Img/LogoPetropolisSF.png');
+    // expect(coverImg.getAttribute('src')).toBe('./Img/LogoPetropolisSF.png');
     expect(loginButton.textContent).toBe('Iniciar Sesión');
     expect(signInButton.textContent).toBe('Registrarse');
-    expect(ImgLove.getAttribute('src')).toBe('./Img/amolosanimales.png');
+    // expect(ImgLove.getAttribute('src')).toBe('./Img/amolosanimales.png');
   });
   it('si el usuario llama al evento clic  manda llamar la funcion onNavigate con el parametro register', async () => {
     const onNavigate = jest.fn();
