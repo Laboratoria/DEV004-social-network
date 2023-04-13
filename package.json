@@ -18,7 +18,8 @@
     "test": "jest  --coverage --env=jsdom",
     "dev": "vite dev src",
     "start": "npm run dev",
-    "build": "vite build",
+    "build": "vite build && npm run postbuild",
+    "postbuild": "copyfiles -f ./src/img/**/*./dist/img",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -43,6 +44,7 @@
     "commit": "36bf90dc273bab8ffe9546b09eece6a132f8a669"
   },
   "dependencies": {
+    "copyfiles": "^2.4.1",
     "firebase": "^9.17.1",
     "firebaseui": "^6.0.2",
     "openai": "^3.2.1"
