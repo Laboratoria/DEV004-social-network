@@ -2,7 +2,7 @@ import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth, deletePost, updatePost, saveUsers
+  createpost, getpost, exitApp, auth, deletePost, updatePost, saveUsers, addLike,
 
 } from '../lib/firebase.js';
 
@@ -10,6 +10,7 @@ import {
 export const feed = () => {
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');
+  squareF.setAttribute('id', 'squareFPerro');
   const squareHeaderF = document.createElement('header');
   squareHeaderF.setAttribute('class', 'squareHeaderF');
   const logoF = document.createElement('img');
@@ -34,7 +35,7 @@ export const feed = () => {
   const currentUserEmailDraw = document.createElement('p');
   currentUserEmailDraw.innerHTML = parseUser.email;
   currentUserEmailDraw.setAttribute('class', 'currentUserMail');
-  //console.log('esto es parseUser', parseUser);
+  // console.log('esto es parseUser', parseUser);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');
@@ -123,6 +124,8 @@ export const feed = () => {
   });
   const dibujar = () => {
     const myPromise = getpost();
+    // const formularioPost = document.getElementById('squareFPerro');
+    squareF.innerHTML = '';
     myPromise.then((showPost) => {
     // nos aseguramos que la data provenga de feed.js y no de
     // firebase.
@@ -138,16 +141,16 @@ export const feed = () => {
          Autor: ${postD.usuario}
         </text>
         <div class="contenedorPostCompleto">
-        <input name="titulo" id="titulo-${postD.id}" class="tituloEdit" value=${postD.titulo} disabled />
+        <input name="titulo" id="titulo-${postD.id}" class="tituloEdit" value="${postD.titulo}" disabled />
         <textarea name="descripcion" class="descriptionEdit" id="${postD.id}"  disabled />
-          ${postD.descripcion}
+${postD.descripcion}
         </textarea>
         </div>
         <div class="contenedorIconosPost">
         <ion-icon name="trash-outline" type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"></ion-icon>
         <ion-icon name="create-outline" type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"></ion-icon> 
         <ion-icon name="save-outline" type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"></ion-icon>
-        <ion-icon id="corazon" name="heart-outline"></ion-icon>
+        <ion-icon class="like" id="like-${postD.id}" name="heart-outline"></ion-icon> ${postD.likes.length}.
         </div>`;
         //form.setAttribute('id', 'form1');
         //
@@ -178,7 +181,15 @@ export const feed = () => {
           console.log(newtitleEd);
           newdescripEd.setAttribute('disabled', '');
         });
-
+        const like = form.querySelector(`#like-${postD.id}`);
+        console.log(like);
+        like.addEventListener('click', (e) => {
+          e.preventDefault();
+          console.log(auth.currentUser.email);
+          addLike(postD.id, [...postD.likes, auth.currentUser.email]).then(() => {
+            dibujar();
+          });
+        });
         squareF.appendChild(form);
       });
       const btnsDeletePost = document.querySelectorAll('#btnDeletePost');
@@ -216,6 +227,16 @@ export const feed = () => {
 
       // const formularios = document.querySelectorAll(".formularioEditar");
       // formularios.forEach((form) => {
+      // });
+      // const likes = document.querySelectorAll('.like');
+      // console.log(likes);
+      // likes.forEach((like) => {
+      //   like.addEventListener('click', (e) => {
+      //     e.preventDefault();
+      //     console.log(auth.currentUser.email);
+      //     const postId = like.getAttribute('like-id');
+      //     addLike(postId, parseUser.email);
+      //   });
       // });
     });
   };
