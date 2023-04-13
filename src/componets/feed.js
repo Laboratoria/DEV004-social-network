@@ -144,12 +144,14 @@ export const feed = () => {
         </textarea>
         </div>
         <div class="contenedorIconosPost">
-        <input type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>
-        <input type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"/>
-        <input type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" />
+        <ion-icon name="trash-outline" type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"></ion-icon>
+        <ion-icon name="create-outline" type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"></ion-icon> 
+        <ion-icon name="save-outline" type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"></ion-icon>
+        <ion-icon id="corazon" name="heart-outline"></ion-icon>
         </div>`;
         //form.setAttribute('id', 'form1');
         //
+        // <input type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>//
         // console.log(auth.currentUser.email, postD.usuario);
         // esta es la funcion para guardar el post editado
         console.log(auth.currentUser.email);
