@@ -1,10 +1,5 @@
 
 body {
-  background-image: url("mar.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
   margin: 0px;
   padding: 0px;
   font-family:"Jost" ;
@@ -12,7 +7,16 @@ body {
 html, body {
   height: 100%;
 }
-
+.home-background {
+  background-color: #ADD8E6;
+}
+.others-background{
+  background-image: url("mar.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
 .loginForm{
   box-sizing: border-box;
   display: flex;
@@ -199,7 +203,7 @@ a{
   
 }
 .muro{
-  background: #9FDDE8;
+ 
   height: 100%; /* Estableces la altura del div */
   width: 100%; /* Estableces el ancho del div */
   margin: 0; /* Elimina los márgenes predeterminados */
@@ -227,6 +231,46 @@ h2{
   align-items: center;
   justify-content: space-around;
 }
+/*
+.mensaje-envio-container {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+}*/
+
+.contenedor-restablecer-contraseña {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-height: 80vh;
+  background-color: #F7F6F6;
+  text-align: center;
+  margin: 0 auto;
+  padding: 36px 10px;
+  border-radius: 8px;
+}
+#contenedor-msj{
+  background-color: #fefefe;
+  margin: auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+#mensaje-envio {
+  margin: 10px;
+  color: black;
+}
 @media only screen and (max-width: 600px) {
 .contenedor-login{
   background: none;
@@ -250,15 +294,24 @@ h2{
   body {
     background-image: url("fondoMar.jpeg");
     background-size: cover;
-    /* background-repeat: no-repeat;*/
     background-position: absolute;
     background-size: 525px 800px;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     background-attachment: fixed;
     font-family: "Jost";
+  
   }
-
+  .home-background {
+    background-color: #ADD8E6;
+  }
+  .others-background{
+    background-image: url("fondoMar.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+  }
   p {
     color: #fdfbfb;
     text-align: center;

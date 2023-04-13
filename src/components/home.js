@@ -6,6 +6,8 @@ import { initFirebase } from '../helpers/firebase';
 import { navigateTo } from '../router';
 
 export const Home = () => {
+  document.body.classList.add('home-background');
+  document.body.classList.remove('others-background');
   const div = document.createElement('div');
   div.className = 'muro';
   div.innerHTML = `
@@ -18,7 +20,7 @@ export const Home = () => {
     <div class="container-post">
       <form id="post-form">
         <p>¿Cuál ha sido tu destino de viaje favorito hasta ahora y por qué lo recomendarías?</p>
-        <textarea id="post-content" placeholder="Cuéntanos tus aventuras......"></textarea>
+        <textarea id="post-content" placeholder="Cuéntanos tus aventuras......" required></textarea>
         <button type="submit">Publicar</button>
       </form>
       <div id="post-list"></div>
@@ -81,11 +83,10 @@ export const Home = () => {
     const postContent = postForm.querySelector('#post-content').value;
     const auth = getAuth();
     const user = auth.currentUser;
-
     const post = {
-      autorPhotoURL: user.photoURL,
+      autorPhotoURL: user.photoURL || `https://ui-avatars.com/api/?name=${user.email.split('@')[0]}&size=96&background=007bff&color=fff&rounded=true`,
       descripcion: postContent,
-      autor: user.displayName,
+      autor: user.displayName || user.email.split('@')[0], // utilizar displayName si está definido, si no utilizar el nombre de usuario basado en el correo electrónico
       fecha_creacion: new Date(),
     };
 

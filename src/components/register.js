@@ -2,6 +2,8 @@ import { navigateTo } from '../router.js';
 import { registerWithEmail } from '../helpers/accederCongmail.js';
 
 export const Register = () => {
+  document.body.classList.add('others-background');
+  document.body.classList.remove('home-background');
   const div = document.createElement('div');
   div.className = 'contenedor-registro';
   div.innerHTML = `
@@ -12,7 +14,7 @@ export const Register = () => {
     <p>Únete a nuestra comunidad de viajeros y comparte tus aventuras con el mundo. ¡Viaja sin límites!</p>
     <form id="registerForm" class="register-Form">
     <h1>Registro</h1>
-        <input type="text" placeholder="Correo electrónico" name="email" id="email" required>
+        <input type="email" placeholder="Correo electrónico" name="email" id="email" required>
         <div style="height: 16px;"></div>
         <input type="password" maxlength="16" minlength="6"  placeholder="Contraseña" name="psw" id="psw" required>
         <div style="height: 16px;"></div>
@@ -38,6 +40,22 @@ export const Register = () => {
         alert(error.message);
       });
   });
-
+/*
+  div.querySelector('#registerForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.psw.value;
+    const username = email.split('@')[0];
+    const userData = { email, password, username }; // crear objeto con las tres propiedades
+    registerWithEmail(userData)
+      .then(() => {
+        navigateTo('/home');
+      })
+      .catch((error) => {
+        console.error(error);
+        alert(error.message);
+      });
+  });
+*/
   return div;
 };

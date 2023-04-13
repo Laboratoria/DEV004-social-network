@@ -1,8 +1,10 @@
 import { navigateTo } from '../router';
-import { signInWithGoogle, signInWithPassword } from '../helpers/accederCongmail';
+import { signInWithGoogle, signInWithPassword, } from '../helpers/accederCongmail';
 
 export const Login = () => {
   // Create a div element to hold the login component
+  document.body.classList.add('others-background');
+  document.body.classList.remove('home-background');
   const div = document.createElement('div');
   div.className = 'contenedor-login';
   div.innerHTML = `
@@ -20,7 +22,7 @@ export const Login = () => {
   </div>
   </button>
   <p>o</p>
-  <input type="text" id="username" name="username" placeholder="Correo electrónico " required>
+  <input type="email" id="username" name="username" placeholder="Correo electrónico " required>
   <div style="height: 16px;"></div>
   <input type="password" id="password" name="password" placeholder="Contraseña" required>
   <div style="height: 32px;"></div>
@@ -28,7 +30,7 @@ export const Login = () => {
   <div style="height: 16px;"></div>
   <div class="col">
   <div>
-  <a href="#" class="btn">¿Olvidaste tu contraseña ? <span style="color: #66DA5F;">Recuperala</span></a>
+  <a href="#" class="btn" >¿Olvidaste tu contraseña ? <span class="olvidaste-contraseña-btn" style="color: #66DA5F;">Recuperala</span></a>
   </div>
   <div style="height: 16px;"></div>
   <div>
@@ -83,22 +85,13 @@ export const Login = () => {
       },
     );
   });
-
-  /* div.querySelector('.fb-btn').addEventListener('click', (e) => {
-    e.preventDefault();
-    signInWithFacebook().then(
-      (useCredential) => {
-        navigateTo('/home');
-      },
-      (error) => {
-        openModal(error.message);
-      },
-    );
-  }); */
-
   div.querySelector('.signup-btn').addEventListener('click', (e) => {
     e.preventDefault();
     navigateTo('/register');
+  });
+  div.querySelector('.btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    navigateTo('/restablecer');
   });
 
   // Return the div element
