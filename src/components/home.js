@@ -1,5 +1,4 @@
-// import { onNavigate } from '../onNavigate';
-// import { onNavigate } from '../main';
+import { logo, slogan } from './img';
 
 export const home = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
@@ -9,13 +8,14 @@ export const home = (onNavigate) => {
   const loginButton = document.createElement('button');
   const signInButton = document.createElement('button');
   const ImgLove = document.createElement('img');
+
   //* Asignando atributos para todos los elementos creados.
   homeSection.setAttribute('id', 'homeSection');
 
   welcomeHeader.innerHTML = 'Bienvenido';
 
   coverImg.setAttribute('id', 'LogoPetropolis');
-  coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
+  coverImg.src = logo;
   coverImg.setAttribute('alt', 'LogoPetropolis');
   coverImg.classList.add('cover-img');
 
@@ -25,8 +25,9 @@ export const home = (onNavigate) => {
   signInButton.setAttribute('id', 'signInButton');
   signInButton.textContent = 'Registrarse';
   ImgLove.setAttribute('id', 'ImgLove');
-  ImgLove.setAttribute('src', './Img/AM LOS ANIMALES.png');
+  ImgLove.src = slogan;
   ImgLove.setAttribute('alt', 'ImgLove');
+
   //* Agregando todo a la sección de homeSection
   homeSection.appendChild(welcomeHeader);
   homeSection.appendChild(coverImg);

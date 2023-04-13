@@ -1,26 +1,35 @@
+import { updateProfile } from 'firebase/auth';
+import { authGoogle, registerWithEmail } from '../lib/authentication';
+import { auth } from '../lib/firebaseConfig';
+import { logo, googleAccess } from './img';
+
 export const register = (onNavigate) => {
   //* Aqui estamos creando lo que va en HTML.
   const signInSection = document.createElement('section');
   const coverImg = document.createElement('img');
   const signInHeader = document.createElement('h1');
   const nameInput = document.createElement('input');
+  const formRegister = document.createElement('form');
   const emailInput = document.createElement('input');
   const passwordLabel = document.createElement('label');
   const passwordInput = document.createElement('input');
   const SignInLabel = document.createElement('label');
   const SignInBtn = document.createElement('button');
   const BtnGoogle = document.createElement('img');
-  const loginBtn = document.createElement('button'); //* Estamos asignandi atributos para todos los elementos creados.
+  const loginBtn = document.createElement('button');
 
+  //* Estamos asignandi atributos para todos los elementos creados.
   signInSection.setAttribute('id', 'signInSeccion');
   signInHeader.innerHTML = 'Crea una cuenta';
-  // onNavigate('/home')
 
   coverImg.setAttribute('id', 'LogoPetropolis');
-  coverImg.setAttribute('src', './Img/LogoPetropolisSF.png');
+  coverImg.src = logo;
   coverImg.setAttribute('alt', 'LogoPetropolis');
 
+  formRegister.setAttribute('id', 'form');
+
   nameInput.setAttribute('type', 'text');
+
   nameInput.setAttribute('id', 'name');
   nameInput.setAttribute('name', 'name');
   nameInput.setAttribute('placeholder', 'Escribe tu nombre');
@@ -49,28 +58,68 @@ export const register = (onNavigate) => {
   loginBtn.textContent = 'Iniciar Sesión';
 
   BtnGoogle.setAttribute('id', 'BtnGoogle');
-  BtnGoogle.setAttribute('src', './Img/BtnGoogle.png');
+  BtnGoogle.src = googleAccess;
   BtnGoogle.setAttribute('alt', 'BtnGoogle');
   //* Aqui estamos agregando todo a la sección de SignInPage
   signInSection.appendChild(signInHeader);
   signInSection.appendChild(coverImg);
-  signInSection.appendChild(nameInput);
-  signInSection.appendChild(emailInput);
-  signInSection.appendChild(passwordLabel);
-  signInSection.appendChild(passwordInput);
-  signInSection.appendChild(SignInBtn);
-  signInSection.appendChild(SignInLabel);
-  signInSection.appendChild(loginBtn);
-  signInSection.appendChild(BtnGoogle);
+  formRegister.appendChild(nameInput);
+  formRegister.appendChild(emailInput);
+  formRegister.appendChild(passwordLabel);
+  formRegister.appendChild(passwordInput);
+  formRegister.appendChild(SignInBtn);
+  formRegister.appendChild(SignInLabel);
+  formRegister.appendChild(loginBtn);
+  formRegister.appendChild(BtnGoogle);
+  signInSection.appendChild(formRegister);
 
   loginBtn.addEventListener('click', () => onNavigate('/login'));
-  // eslint-disable-next-line func-names
-  loginBtn.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevenir el envío del formulario por defecto
-    const username = nameInput.value;
-    console.log(username);
+  formRegister.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value;
     const password = passwordInput.value;
-    console.log(password);
+    const name = nameInput.value;
+    console.log(email, password);
+
+    try {
+      const UserCredentials = await registerWithEmail(email, password);
+      console.log({ UserCredentials });
+      console.log('currentUser', auth.currentUser);
+      updateProfile(auth.currentUser, {
+        displayName: nameInput.value,
+        // photoURL: 'https://example.com/john-doe/profile.jpg',
+        // console.log(displayName);
+      }).then(() => {
+        // Profile updated!
+      }).catch((error) => {
+        console.log(error);
+      });
+
+      localStorage.setItem('name', name);
+      onNavigate('/welcome');
+      // eslint-disable-next-line no-console
+      console.log(UserCredentials);
+    } catch (error) {
+      if (error.code === 'auth/weak-password') {
+        alert('error en contraseña');
+      }
+      if (error.code === 'auth/email-alre-in-use') {
+        alert('El correo ya está registrado');
+      }
+    }
   });
+
+  BtnGoogle.addEventListener('click', async () => {
+    try {
+      await authGoogle();
+      onNavigate('/welcome');
+      const user = auth.currentUser;
+      const name = user.displayName;
+      localStorage.setItem('name', name);
+    } catch (error) {
+      alert('Google error');
+    }
+  });
+
   return signInSection;
 };
