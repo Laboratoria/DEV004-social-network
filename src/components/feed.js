@@ -45,7 +45,7 @@ export const feed = (onNavigate) => {
     const statusDescription = feedDiv.querySelector('#status-description');
     const postText = statusDescription.value;
     const validatePost = document.getElementById('status-description').value;
-    if (validatePost === '') {
+    if (validatePost.trim() === '') {
       alert('Ingrese post');
       return false;
     }

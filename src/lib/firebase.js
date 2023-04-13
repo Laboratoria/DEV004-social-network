@@ -74,6 +74,9 @@ export const post = async (postText) => {
 /*   console.log('Document written with ID: ', docRef.id); */
 };
 
+/* .collection("userpost")
+.orderBy("dateCreate", "desc") */
+
 /* capturar post */
 export const readPosts = () => query(colRef, orderBy('dateCreate', 'desc'));
 export const listenToPosts = (callback) => {
