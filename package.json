@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "Social Network @ Laboratoria",
-  "main": "src/index.html",
+  "deploy-vercel": "src/index.html",
   "keywords": [
     "javascript",
     "firebase",
