@@ -2,7 +2,7 @@ import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth, deletePost, updatePost, saveUsers
+  createpost, getpost, exitApp, auth, deletePost, updatePost, saveUsers, addLike,
 
 } from '../lib/firebase.js';
 
@@ -34,7 +34,7 @@ export const feed = () => {
   const currentUserEmailDraw = document.createElement('p');
   currentUserEmailDraw.innerHTML = parseUser.email;
   currentUserEmailDraw.setAttribute('class', 'currentUserMail');
-  //console.log('esto es parseUser', parseUser);
+  // console.log('esto es parseUser', parseUser);
   userExpertChecked.setAttribute('class', 'userExpertChecked');
   userInfoF.setAttribute('class', 'userInfoF');
   const postContainer = document.createElement('form');
@@ -147,7 +147,7 @@ export const feed = () => {
         <ion-icon name="trash-outline" type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"></ion-icon>
         <ion-icon name="create-outline" type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"></ion-icon> 
         <ion-icon name="save-outline" type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"></ion-icon>
-        <ion-icon id="corazon" name="heart-outline"></ion-icon>
+        <ion-icon class="like" like-id="${postD.id}, name="heart-outline"></ion-icon>
         </div>`;
         //form.setAttribute('id', 'form1');
         //
@@ -217,6 +217,15 @@ export const feed = () => {
       // const formularios = document.querySelectorAll(".formularioEditar");
       // formularios.forEach((form) => {
       // });
+      const likes = document.querySelectorAll('.like');
+      console.log(likes);
+      likes.forEach((like) => {
+        like.addEventListener('click', (e) => {
+          e.preventDefault();
+          console.log(auth.currentUser.email);
+          addLike(parseUser.email,)
+        });
+      });
     });
   };
   return squareF;
