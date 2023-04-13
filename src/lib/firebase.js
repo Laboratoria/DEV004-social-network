@@ -117,4 +117,4 @@ export const exitApp = () => signOut(auth)
 
 export const updatePost = (id, newPost) => updateDoc(doc(db, 'post', id), newPost);
 
-export const addLike = (id, email) => updateDoc(doc(db, 'post', id), { likes: arrayUnion(email) });
+export const addLike = (id, emails) => updateDoc(doc(db, 'post', id), { likes: emails });
