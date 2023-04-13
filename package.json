@@ -19,7 +19,7 @@
     "dev": "vite dev src",
     "start": "npm run dev",
     "build": "vite build && npm run postbuild",
-    "postbuild": "copyfiles -f ./src/img/**/*./dist/img",
+    "postbuild": "copyfiles -f ./src/img/**/* ./dist/img",
     "preview": "vite preview"
   },
   "devDependencies": {
