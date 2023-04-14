@@ -32,6 +32,7 @@ export const Register = () => {
 
   buttonHome.textContent = 'Regresar al Home';
   buttonHome.addEventListener('click', () => onNavigate('/'));
+  buttonRegister.addEventListener('click', () => onNavigate('/feed'));
   buttonRegister.addEventListener('click', () => {
     if (inputEmail.value === '' || inputPassword.value === '') {
       swal({

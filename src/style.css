@@ -74,6 +74,9 @@ button{
     height: 35px;
     gap: 15px;
 }
+#idLogin{
+    background: #CEC8EF;
+}
 
 footer {
     background-color: #82B1F8;

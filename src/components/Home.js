@@ -9,7 +9,9 @@ export const Home = () => {
 
   buttonRegister.textContent = 'Registrate';
   buttonLogin.textContent = 'Inicia Sesión';
+  buttonLogin.setAttribute("id", "idLogin");
   buttonLoginGoogle.textContent = 'Continua con Google'
+  buttonLoginGoogle.setAttribute("id", "idGoogle");
   const header = document.createElement('header');
   const img = document.createElement('img');
   img.setAttribute('src', './img/logo.png');
@@ -26,7 +28,6 @@ export const Home = () => {
   inputGoogle.placeholder = 'Continua con Google';
   inputGoogle.setAttribute('type', 'email');*/
   buttonLoginGoogle.addEventListener('click', () => onNavigate('/feed'));
-  //
   const inputEmail = document.createElement('input');
   inputEmail.placeholder = 'Ingresa tu correo';
   inputEmail.setAttribute('type', 'email');
@@ -35,7 +36,7 @@ export const Home = () => {
   inputPassword.setAttribute('type', 'password');
   /* img.setAttribute('alt', 'Logo de la marca MaMá Genial');
   img.id = 'logoEncabezado'; */
-  article.append(h1, buttonLoginGoogle, inputEmail, inputPassword, buttonLogin, buttonRegister);
+  article.append(h1,inputEmail, inputPassword, buttonLogin, buttonRegister, buttonLoginGoogle);
   main.appendChild(article);
   HomeDiv.appendChild(main);
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
@@ -52,7 +53,8 @@ export const Home = () => {
       loginUser(inputEmail.value, inputPassword.value)
       .then((res) => { // then para promesa cumplida
         // enviarlo al muro
-          console.log(res);
+        console.log(res)
+        buttonLogin.addEventListener('click', () => onNavigate('/feed'));
         })
         .catch((error) => { // para promesa fallida
           console.log(error.message);
@@ -62,6 +64,7 @@ export const Home = () => {
             icon: "info",
             dangerMode: true,
           });
+          // quisa aqui ponemos el borrar campos 
         });
     }
   });
