@@ -1,13 +1,12 @@
-import { updateCurrentUser } from 'firebase/auth';
+// import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth, deletePost, updatePost, saveUsers, addLike,
+  createpost, getpost, exitApp, auth, deletePost, updatePost, addLike,
 
 } from '../lib/firebase.js';
-
 //console.log('estamos en feed', auth);
-export const feed = () => {
+  export const feed = () => {
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');
   squareF.setAttribute('id', 'squareFPerro');
@@ -17,7 +16,7 @@ export const feed = () => {
   logoF.setAttribute('src', 'https://i.ibb.co/bWGQN64/REDA-1.png');
   logoF.setAttribute('class', 'logoF');
   const userInfoF = document.createElement('div');
-  userInfoF.setAttribute('class', 'userInfoDivF')
+  userInfoF.setAttribute('class', 'userInfoDivF');
   const userAvatar = document.createElement('img');
   userAvatar.setAttribute(
     'src',
@@ -116,7 +115,7 @@ export const feed = () => {
 
     // el dibjuar post debe estar dentro de una promesa para que dibuje
       .then(() => {
-        dibujar();
+        dibujar( );
         // document.querySelector('class', 'postContainer').reset();
         postContainer.reset();
       });
@@ -151,6 +150,9 @@ ${postD.descripcion}
         <ion-icon name="create-outline" type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"></ion-icon> 
         <ion-icon name="save-outline" type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"></ion-icon>
         <ion-icon class="like" id="like-${postD.id}" name="heart-outline"></ion-icon> ${postD.likes.length}.
+        <div class="nuevoPostContainer">
+        <a href="/feed">publicar nuevamente</a> 
+        </div>
         </div>`;
         //form.setAttribute('id', 'form1');
         //
