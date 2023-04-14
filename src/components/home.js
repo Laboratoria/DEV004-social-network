@@ -16,7 +16,7 @@ export const Home = () => {
       <h1>Wanderlust</h1>
       <img class="btnCerrarSesion" src="assets/logOutIcon.png" alt="Cerrar sesión">
     </header>
-    <h2>Bienvenido a wanderlust</h2>
+    <h1>Bienvenido a wanderlust</h1>
     <div class="container-post">
       <form id="post-form">
         <p>¿Cuál ha sido tu destino de viaje favorito hasta ahora y por qué lo recomendarías?</p>
@@ -30,14 +30,17 @@ export const Home = () => {
   const postList = div.querySelector('#post-list');
   const { db } = initFirebase(); // obtener la referencia al objeto db
 
+  // eslint-disable-next-line no-unused-vars
   div.querySelector('.btnCerrarSesion').addEventListener('click', (e) => {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
         navigateTo('/');
+        // eslint-disable-next-line no-console
         console.log('Sesión cerrada con éxito');
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error(error);
       });
   });
@@ -46,6 +49,7 @@ export const Home = () => {
     postList.innerHTML = '';
 
     publicaciones.forEach((publicacion) => {
+      // eslint-disable-next-line no-console
       console.log(publicacion);
       const postDiv = document.createElement('div');
       postDiv.className = 'post';
@@ -56,7 +60,6 @@ export const Home = () => {
         </header>
         <p>${publicacion.descripcion}</p>
       `;
-      console.log(`https://ui-avatars.com/api/?name=${publicacion.autor}&size=96&background=007bff&color=fff&rounded=true`);
       postList.appendChild(postDiv);
     });
   };
@@ -93,8 +96,11 @@ export const Home = () => {
     // agregar la publicación a la base de datos
     try {
       const docRef = await addDoc(collection(db, 'publicaciones'), post);
+      // eslint-disable-next-line no-console
       console.log('Publicación agregada con ID:', docRef.id);
+    // eslint-disable-next-line no-shadow
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.error('Error al agregar la publicación:', e);
     }
 

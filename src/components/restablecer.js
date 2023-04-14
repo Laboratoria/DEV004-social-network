@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { mostrarVentanaRecuperarContraseña } from '../helpers/accederCongmail.js';
 import { navigateTo } from '../router.js';
 
@@ -13,10 +14,10 @@ export const RecuperarContrasena = () => {
     </picture>
     <p>¡No te preocupes, te ayudaremos a recuperar tu contraseña!</p>
     <form id="recuperar-Form" class="register-Form">
-      <h1>Recuperar contraseña</h1>
+      <h2>Recuperar contraseña</h2>
       <input type="email" placeholder="Correo electrónico" name="email" id="email" required>
       <div style="height: 16px;"></div>
-      <button class="btn-registros">Enviar correo de recuperación</button>
+      <button class="btn-registros">Enviar</button>
       <div style="height: 32px;"></div>
       <a href="#" style="color: black;" class="btn">
         ¿Ya tienes una cuenta?<br>
@@ -45,7 +46,7 @@ export const RecuperarContrasena = () => {
     mostrarVentanaRecuperarContraseña(email)
       .then(() => {
         // mostrar mensaje de éxito
-        mensajeEnvio.textContent='Correo enviado correctamente.';
+        mensajeEnvio.textContent = 'Correo enviado correctamente, revise su bandeja de gmail';
         mensajeEnvioContainer.style.display = 'flex';
       })
       .catch((error) => {
@@ -53,13 +54,13 @@ export const RecuperarContrasena = () => {
         mensajeEnvioContainer.style.display = 'flex';
       });
   });
-  
+
   // Función para mostrar el modal de recuperación de contraseña
   const mostrarModalRecuperarContraseña = (mensaje) => {
     mensajeEnvio.textContent = mensaje;
     mensajeEnvioContainer.style.display = 'flex';
   };
-  
+
   // función para ocultar el modal de recuperación de contraseña
   div.querySelector('.close').addEventListener('click', (e) => {
     e.preventDefault();

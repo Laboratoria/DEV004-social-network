@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { navigateTo } from '../router';
-import { signInWithGoogle, signInWithPassword, } from '../helpers/accederCongmail';
+import { signInWithGoogle, signInWithPassword } from '../helpers/accederCongmail';
 
 export const Login = () => {
   // Create a div element to hold the login component

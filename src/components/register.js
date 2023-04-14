@@ -13,7 +13,7 @@ export const Register = () => {
 </picture>
     <p>Únete a nuestra comunidad de viajeros y comparte tus aventuras con el mundo. ¡Viaja sin límites!</p>
     <form id="registerForm" class="register-Form">
-    <h1>Registro</h1>
+    <h2>Registro</h2>
         <input type="email" placeholder="Correo electrónico" name="email" id="email" required>
         <div style="height: 16px;"></div>
         <input type="password" maxlength="16" minlength="6"  placeholder="Contraseña" name="psw" id="psw" required>
@@ -36,11 +36,13 @@ export const Register = () => {
         navigateTo('/home');
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error(error);
+        // eslint-disable-next-line no-alert
         alert(error.message);
       });
   });
-/*
+  /*
   div.querySelector('#registerForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const email = e.target.email.value;

@@ -25,6 +25,7 @@ export const initRouter = (routes) => {
   }, LOCAL_ROUTES);
 
   // Add event listener to handle back/forward button
+  // eslint-disable-next-line no-unused-vars
   window.addEventListener('popstate', (e) => {
     navigateTo(window.location.pathname, false);
   });
