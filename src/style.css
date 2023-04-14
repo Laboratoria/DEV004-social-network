@@ -1,0 +1,671 @@
+/*  se corrigen los margenes que tiene HTML por default */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 20px;
+  }
+  body{
+    background-color: #F1FAEE;
+
+  }
+    .container {
+      display: flex;
+      justify-content: center;
+      background-color: #F1FAEE;
+      justify-items: center;
+      margin-top: 70px;
+      margin-bottom: 70px;
+    }
+  .square{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 80%;
+    background-color: #E0EAF1;
+  }
+  .headerHome {
+    background-color: #B8D1E0;
+      width: 100% ;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+
+  }
+  .logo {
+    display: flex;
+    width: 40%;
+    height: 50%;
+    margin-top: 0%;
+    
+  }
+  .welcome{
+    color: #1d3557; 
+    font-size: 120%;
+    font-weight: 700;
+    display: flex;
+    margin: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+  }
+/* lo que tiene que ver con botones, tiene que estar junto, no importa que vista sea, sino, error de eslint */
+.btnLogin , .btnRegister, .btnEnviarLogin, .btnPubF, .btnHomeF, .btnLogOut {
+  height: 56px;
+    width: 50%;
+    align-items: center;    
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    font-size: 80%;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 24px;
+    overflow-wrap: break-word;
+    padding: 24px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btnPubF {
+  width: 30%;
+  height:50px ;
+}
+.btnHomeF {
+  width: 20%;
+  height: 50px;
+}
+.btnLogin:hover, .btnRegister:hover,.btnEnviarLogin:hover, .btnPubF:hover, .btnHomeF:hover, .btnLogOut:hover{
+  background-color: #B8D1E0;
+}
+.btnRegister, .btnEnviarLogin, .btnPubF {
+  background-color: #FFB703;
+}
+.btnLogin, .btnHomeF {
+  background-color: #1d3557;
+}
+.btnLogOut{
+  background-color: #1d3557;
+  margin-top: 2%;
+  margin-left: 75%;
+  margin-right: 7%;
+  width: 300px;
+  height: 10px;
+  font-size: 60%;
+  
+}
+.footerHome, .footerlog{
+  background-color:#B8D1E0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.marca{
+  color: #f6f7fa;
+  margin-top: 0%;
+  font-size: 80%; 
+}
+/*login*/
+
+#loginForm {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}   
+.contenedorMadre{
+  background-color: #E0EAF1;
+  display: flex;
+  width:30em;
+  height: 33em;
+  justify-content: center;
+  align-items: center ;
+  flex-direction: column;
+    
+}
+.contenedorlogo{
+  background-color: #B8D1E0;
+  width: 30em ;
+  height: 20em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.loginLogo{
+  display: flex;
+  width: 40%;
+ 
+  margin-top: 0%;
+}
+h1{
+  color: #1d3557; 
+  font-size: 1.5em;
+  font-weight: 600;
+  display: flex;
+  margin: 10%;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+.labelogin{
+  background-color: #1d3557;
+  color:  #B8D1E0;
+  
+}
+.inputLogin{
+  display: flex;
+  text-align: center;
+  width: 80%;
+  height: 25%;
+  margin: 5%;
+  flex-direction: column;
+
+  
+}
+.btnEnviarLogin{
+  width: 100%;
+  
+}
+.googleBtn{
+  display: flex;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+#wrong{
+  background-color: #888;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  flex-direction: column;
+
+}
+
+/*vista register desktop*/
+body{
+  background-color:  #F1FAEE;
+  
+}
+.container{
+  display: flex;
+  background-color: #F1FAEE;
+  margin:0;
+  padding: 0%; 
+}
+
+/*este serà el header*/
+#registerForm{
+  background-color: #B8D1E0;
+  display: flex;
+  width: 80%;
+  height: 80%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  flex-direction: column;
+    
+  justify-content: center;
+  align-items: center;
+}
+
+.tituloReg{
+  margin-top: 5%;
+  color: red;
+}
+
+.containerTitulo{  
+  background-color: #E0EAF1;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  width: 100%;
+  display: flex;
+}
+
+.containerRegister{  
+  background-color: #E0EAF1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-top: 0%;
+  margin-bottom: 1%;
+  width: 100%;
+  justify-self: right;
+  align-items: start;
+}
+
+.labelsReg{ 
+  grid-row: 1/2;
+}
+
+.footerReg{
+  display: flex;
+  justify-content: left;    
+}
+
+.contLogoReg{
+  background-color:#B8D1E0;
+}
+
+.logoReg{
+  display: flex;
+  width: 30%;
+  height: 30%;
+  margin-right: 45%;
+  margin-top: 0%;
+  margin-bottom: -5%;  
+}
+
+.labelReg{
+  width: 80%;
+}
+
+.inputReg{
+  width: 80%;
+  height:60% ;
+  display: grid;
+}
+/*Vista desktop feed*/
+.squareF {
+ display: flex;
+ align-items: center;
+ align-content: center;
+ background-color:#E0EAF1;
+width: 70%;
+height: 60%;
+flex-direction: column;
+}
+.squareHeaderF {
+  background-color: #B8D1E0;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 5%;
+  display: flex;
+  align-items: stretch;
+  align-content: space-between;
+}
+.logoF {
+  background-color:auto;
+  width: 150px;
+  height: 150px;
+  margin: 0;
+ 
+}
+.userInfoF{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width:60%;
+  flex-direction: row;
+}
+  /* .userInfoDivF {
+   display: flex;
+   align-items: center;
+   background-color: #1d3557;
+   width: 50%;
+   height: 80%;
+  } */
+
+
+.userAvatar {
+width: 10%;
+height: 10%;
+margin: 2%;
+
+
+}
+.userExpertChecked {
+  width: 4%;
+  height: 4%;
+}
+.postContainer {
+  width: 60%;
+  height: 20%;
+  background-color: #E0EAF1;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+.postTitle{
+  background-color:#B8D1E0;
+  width: 100%;
+  height: auto;
+  margin: 2%;
+  resize: none;
+  border-radius:15px;
+  border-color: #1d3557;
+  border-width: 2px;
+}
+.post{
+  width: 100%;
+  height: 400%;
+  resize: none;
+  background-color:#B8D1E0;
+  border-radius:15px;
+  border-color: #1d3557;
+  border-width: 2px;
+  margin-bottom: 5%;
+}
+.subsquareF{
+  align-items: center;
+  background-color: #E0EAF1;
+  display: flex;
+  width: 60%;
+  height: 20%;
+  flex-direction: column;
+}
+
+.squareFooterF {
+  display: flex;
+  background-color:#B8D1E0;
+  width: 100%;
+  height: 50px;
+  flex-direction: column;
+  color: #F1FAEE;
+  text-align: center;
+  padding: 1%;
+  font-weight: 100;
+}
+
+#form{
+  /* background-color: #1d3557; */
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+.contenedorPostCompleto {
+  display: flex;
+  flex-direction: column;
+  
+}
+.contenedorIconosPost{
+  flex-direction: row;
+  display: flex;
+}
+
+textarea, input {
+  background-color:#1d3557;
+  color: #FFB703;
+}
+/*Vista para movil*/
+
+@media(max-width:390px){
+  /*home*/
+  .container{
+    display:flex;
+    background-color: #F1FAEE;
+  }   
+  
+  .square{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    background-color: #E0EAF1;  
+  }
+
+  .headerHome {
+    background-color: #B8D1E0;
+    width: 100% ;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo {
+    display: flex;
+    width: 95%;
+    height: 125%;
+    margin-top: 0%;
+  }
+
+  .welcome{
+    color: #1d3557; 
+    font-size: 80%;
+    font-weight: 700;
+    display: flex;
+    margin: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+
+  .btnLogin , .btnRegister {
+    height: 56px;
+    width: 50%;
+    align-items: center;    
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    font-size: 80%;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 24px;
+    overflow-wrap: break-word;
+    padding: 24px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    margin: 3%;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+  }
+  .btnLogin:hover, .btnRegister:hover{
+    background-color: #B8D1E0;
+  }
+  .btnRegister{
+    background-color: #FFB703;
+  }
+  .btnLogin{
+    background-color: #1d3557;
+  }
+  .footerHome{
+    background-color:#B8D1E0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  .marca{
+    color: #f6f7fa;
+    margin-top: 5%;
+    font-size: 70%; 
+  }
+  /*login*/
+  #loginForm {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    
+    
+  }   
+  .contenedorMadre{
+    background-color: #E0EAF1;
+    display: flex;
+    width:30em;
+    height: 33em;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+      
+  }
+  .contenedorlogo{
+    background-color: #B8D1E0;
+    width: 30em ;
+    height: 20em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .loginLogo{
+    display: flex;
+    width: 40%;
+   
+    margin-top: 0%;
+  }
+  h1{
+    color: #1d3557; 
+    font-size: 65%;
+    font-weight: 600;
+    display: flex;
+    margin: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+  .labelogin{
+    background-color: #1d3557;
+    color:  #B8D1E0;
+    
+  }
+  .inputLogin{
+    display: flex;
+    text-align: center;
+    width: 55%;
+    height: 25%;
+    margin: 5%;
+    flex-direction: column;
+  
+    
+  }
+  .btnEnviarLogin{
+    width: 100%;
+    
+  }
+  .googleBtn{
+    display: flex;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  } 
+  #wrong{
+    background-color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+  
+  }
+  
+  
+/*vista para movil reg*/
+@media(max-width:390px){
+  body{
+    background-color:  #F1FAEE; 
+  }
+}
+/*este serà el header*/
+#registerForm{
+  background-color: #B8D1E0;
+  display: grid;
+  width: 80%;
+  height: 80%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  justify-content: center;
+  align-items: center ;
+}
+
+.tituloReg{
+  margin-top: 5%;
+  color: red;
+}
+
+.containerTitulo{
+  
+  background-color: #E0EAF1;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  width: 100%;
+  display: flex;
+
+}
+.containerRegister{
+  
+  background-color: #E0EAF1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  
+  
+  margin-top: 0%;
+  margin-bottom: 1%;
+  width: 100%;
+  justify-self: right;
+  align-items: start;
+  
+  
+  
+}
+.labelsReg{ 
+  grid-row: 1/2;
+
+}
+.footerReg{
+display: flex;
+justify-content: left;
+
+
+    
+}
+.contLogoReg{
+  background-color:#B8D1E0;
+
+}
+.logoReg{
+  display: flex;
+  width: 30%;
+  height: 30%;
+  margin-right: 45%;
+  margin-top: 0%;
+  margin-bottom: -5%;
+  
+}
+
+.labelReg{
+  
+  width: 80%;
+
+}
+.inputReg{
+  width: 80%;
+  height:60% ;
+  display: grid;
+  
+}
+}
+
+.show{
+  display: block;
+}
+.noShow {
+  display: none;
+}
+#corazon {
+  color: red;
+  
+}

@@ -1,0 +1,758 @@
+[33mcommit 896cd65866804937512c69343ddb79a39011d740[m[33m ([m[1;36mHEAD -> [m[1;32mestilosLady5[m[33m, [m[1;31morigin/estilosLady5[m[33m)[m
+Merge: e3343fe 6d15ad5
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Wed Mar 29 19:09:59 2023 -0600
+
+    Merge pull request #33 from katalimbu/kata7
+    
+    feed muestra en consolelog
+
+[33mcommit 6d15ad59876c4aa6b17485388605debed52db307[m[33m ([m[1;31morigin/kata7[m[33m)[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Wed Mar 29 21:33:28 2023 -0300
+
+    feed muestra en consolelog
+
+[33mcommit e3343fe9d353c841712b30f7e945114a17ed0242[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Tue Mar 28 22:05:41 2023 -0300
+
+    correccion feed firebase
+
+[33mcommit 6f89bbdea3f5e7bcab154799a3c1fc9da78f2f13[m
+Merge: bad1346 6ba229d
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Tue Mar 28 21:57:47 2023 -0300
+
+    Merge pull request #32 from katalimbu/prueba
+    
+    Prueba
+
+[33mcommit 6ba229de0281e114ebc3b7e67cfe033cdcc32abc[m[33m ([m[1;31morigin/prueba[m[33m)[m
+Merge: 6294a45 bad1346
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Tue Mar 28 21:57:36 2023 -0300
+
+    Merge branch 'main' into prueba
+
+[33mcommit 6294a452f6612428512bcd873a1acdaf07ab1236[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 28 18:52:23 2023 -0600
+
+    vista feed lista para hacer post
+
+[33mcommit 33cc3b910513a8906eb2cc226ec42276d57b7d01[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 28 18:44:41 2023 -0600
+
+    vista feed con iconos de usuario y sin iconos de like y coment
+
+[33mcommit bad13461e8d2ae9744ad560ffb87db3501cbb866[m
+Merge: cee9bef f633f86
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Tue Mar 28 19:26:38 2023 -0500
+
+    Merge pull request #31 from katalimbu/kata7
+    
+    Kata7
+
+[33mcommit 724af10dbbe9bc37d6e9adaa1cc048320c6dd5e6[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 28 17:50:02 2023 -0600
+
+    vista feed con iconos de usuario
+
+[33mcommit a7fc5d0b0d01614ae504c5a7fdc1f25349f65507[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 28 17:25:42 2023 -0600
+
+    vista feed sin avatar
+
+[33mcommit f633f86e634601df0e8e44d4e02690ec881f25d0[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Tue Mar 28 14:22:40 2023 -0300
+
+    unimos el post con firestore
+
+[33mcommit 88298bec2c8c167def6c8735b59c51bf8250fada[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Tue Mar 28 13:42:15 2023 -0300
+
+     test register error
+
+[33mcommit cee9bef276dc3aee85e66932b2e89099d5903835[m
+Merge: 71e47ce a082196
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Tue Mar 28 13:34:43 2023 -0300
+
+    Merge pull request #30 from katalimbu/prueba
+    
+    Prueba
+
+[33mcommit a0821961670da4a8d3d572e2a79a6d3ec764d12a[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 28 10:31:58 2023 -0600
+
+    vista feed incompleta
+
+[33mcommit 71e47ce2c61e2471418845eda8c6d4f9b8ea387c[m
+Merge: a7bca15 0a71d60
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Mon Mar 27 22:05:53 2023 -0300
+
+    Merge pull request #29 from katalimbu/estilosLady3
+    
+    Estilos lady3
+
+[33mcommit a37f1c58c1df79389518f2357f002835c980afcf[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Mon Mar 27 18:51:54 2023 -0600
+
+    cambios en feed
+
+[33mcommit a7bca15a1bf6eb38d96b36c00f941dadfd416845[m
+Merge: c9f070a 6a27c35
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Mon Mar 27 18:47:19 2023 -0600
+
+    Merge pull request #28 from katalimbu/kata51
+    
+    Kata51
+
+[33mcommit 6a27c35b1e891c3aaa9f7865db9af9871a2a7896[m[33m ([m[1;31morigin/kata51[m[33m)[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Mon Mar 27 21:39:47 2023 -0300
+
+    test soble login 100% y el de register sin los errores
+
+[33mcommit 0a71d60c5f295a53876e5e1af810ce3c81650f09[m[33m ([m[1;31morigin/estilosLady3[m[33m)[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Mon Mar 27 18:59:56 2023 -0500
+
+    Insertar datos en js, funciona
+
+[33mcommit 06b7c50710c49d943b5707b27a3b3669da730b72[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Mon Mar 27 18:53:41 2023 -0500
+
+    insertar datos en firestore, no funciona
+
+[33mcommit c9f070aea198dd19c86aaa8473d2c63e06845373[m[33m ([m[1;31morigin/ladyRepaso3[m[33m, [m[1;32mladyRepaso3[m[33m)[m
+Merge: b9250ec 2c04268
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Mon Mar 27 07:49:42 2023 -0600
+
+    Merge pull request #27 from katalimbu/kata5
+    
+    Kata5
+
+[33mcommit 156487579c7ad478cd5d9c75dc2591a05ded3e0e[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Sat Mar 25 17:50:43 2023 -0300
+
+    login responsivo
+
+[33mcommit 2c04268162ecc32a4b1bc474c07a96814e98a92b[m[33m ([m[1;31morigin/kata5[m[33m)[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Fri Mar 24 23:27:04 2023 -0300
+
+     login con errores en inner y css listo
+
+[33mcommit ea5692c0d9697ef0890cd08f8537c80e06be98e7[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Fri Mar 24 22:56:52 2023 -0300
+
+     errores activos en login y mejoras de css
+
+[33mcommit ae9cf7349f19659c91e66d52bda8217e6c28fd2c[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Fri Mar 24 18:10:21 2023 -0300
+
+    css login sin terminar
+
+[33mcommit b9250ecf33af1628353020bb256dcc3334b72550[m
+Merge: f7c3968 a087329
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Fri Mar 24 13:06:16 2023 -0600
+
+    Merge pull request #26 from katalimbu/estilosLady2
+    
+    Estilos lady2
+
+[33mcommit a0873294a5b1eb71dcc426b4ac7a87e6555a0048[m[33m ([m[1;31morigin/estilosLady2[m[33m, [m[1;32mestilosLady2[m[33m)[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Fri Mar 24 13:39:53 2023 -0500
+
+    funciòn feed y configuracion de firestore
+
+[33mcommit ec78e52881f97b317784ab30710a6b95080ff34a[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Fri Mar 24 11:23:14 2023 -0500
+
+    agregamos la ruta del feed
+
+[33mcommit 0e21c3dd0eaed3e6ba63c6227608c829e820e7a3[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Thu Mar 23 19:53:34 2023 -0500
+
+    agrego el archivo del feed
+
+[33mcommit f7c3968f253f049b6cf189d1efff8108201283cf[m
+Merge: ee6716e 06279ee
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Thu Mar 23 19:12:13 2023 -0500
+
+    Merge pull request #25 from katalimbu/estilos
+    
+    Estilos
+
+[33mcommit 06279eedff30e4491d035509eeef2324a1b1e481[m[33m ([m[1;31morigin/estilos[m[33m)[m
+Merge: e35f2e2 ee6716e
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Thu Mar 23 21:02:37 2023 -0300
+
+    Merge branch 'main' into estilos
+
+[33mcommit e35f2e2ff004b60281edc7d8e585f516c15d7ce7[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Thu Mar 23 15:59:56 2023 -0300
+
+    alertas en el login
+
+[33mcommit ee6716e4b289146bbe6f909e9a7b2f50a28323ba[m
+Merge: 4e60a5a 424fb06
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Thu Mar 23 15:05:36 2023 -0300
+
+    Merge pull request #24 from katalimbu/estilosLady2
+    
+    Estilos lady2
+
+[33mcommit 424fb0644014fb8dda237fb2a603ce36bfc96666[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Thu Mar 23 13:02:01 2023 -0500
+
+    css de vista mobile register
+
+[33mcommit 67351d9519e8ac6cf443ce5b832b7e568c1fb751[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Thu Mar 23 15:01:49 2023 -0300
+
+    ordenado de los divs de login para usarlos en css
+
+[33mcommit 47512e2f60669f14a6f6566ee2f952d1afafacbe[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Thu Mar 23 12:56:17 2023 -0500
+
+    inciio de css vista register
+
+[33mcommit a55f3b3ac6b1e700950bfefd16397b880710afed[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Mar 22 22:25:48 2023 -0500
+
+    vista register con css primera parte
+
+[33mcommit 9c5a3994c3fee9e4038e7e571cc6c8c60d7f0201[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Thu Mar 23 00:04:50 2023 -0300
+
+    login sin css con modal que no entendemos
+
+[33mcommit 4e60a5acafb089998b3034be75ef37400a50be7a[m
+Merge: c959216 0825423
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Wed Mar 22 19:38:02 2023 -0500
+
+    Merge pull request #23 from katalimbu/innerchuz
+    
+    Innerchuz
+
+[33mcommit 08254237800fdc544aba1f23c511a8991eb597b8[m[33m ([m[1;31morigin/innerchuz[m[33m)[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Wed Mar 22 14:23:20 2023 -0600
+
+    inners en register listos
+
+[33mcommit c581bbc6d02e9c98359fd3313c47ee60710b5a93[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Wed Mar 22 14:09:22 2023 -0600
+
+    se desplegó el primer inner, sin estilos
+
+[33mcommit 1e1f06860e137941fc366bf6a13744e5d50b7f8a[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Wed Mar 22 15:10:03 2023 -0300
+
+    google
+
+[33mcommit e68870f8dd32a4f564c22be2167ace6006dcb9cb[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Wed Mar 22 14:05:25 2023 -0300
+
+    logo google
+
+[33mcommit c959216f78afc4859ce678ca82f8d0bd957d0032[m
+Merge: c9661a2 f348953
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Wed Mar 22 13:46:44 2023 -0300
+
+    Merge pull request #22 from katalimbu/estilosChuzHome
+    
+    Estilos chuz home
+
+[33mcommit f348953c813ceeba980c0424c5a9b5cbc29fd6aa[m[33m ([m[1;31morigin/estilosChuzHome[m[33m)[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 21 23:43:22 2023 -0600
+
+    estilos vista home corrección en vista register
+
+[33mcommit bfce761feb9bce8add9b9a9f06915ef04b8bbb08[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 21 23:21:35 2023 -0600
+
+    estilos completos vista home primera version
+
+[33mcommit c9661a2ab12e3319a7d7b548c48ef6257eabd18b[m
+Merge: 7f07956 8cfb555
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Tue Mar 21 23:36:45 2023 -0300
+
+    Merge pull request #20 from katalimbu/estilosLady
+    
+    estilos en vista Home
+
+[33mcommit 8cfb555ecd755bbe9f0db81e50876120ece8dc23[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Tue Mar 21 21:34:26 2023 -0500
+
+    estilos en vista Home
+
+[33mcommit 7f0795685a678161e9c7442afeb5fbe8a66bfac0[m
+Merge: 953946c 19a5029
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Tue Mar 21 20:03:41 2023 -0500
+
+    Merge pull request #19 from katalimbu/estilosChuz1
+    
+    Estilos chuz1
+
+[33mcommit 19a5029a97e889180f57a16a2cdf9d508c224bc8[m[33m ([m[1;31morigin/estilosChuz1[m[33m)[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 21 19:01:27 2023 -0600
+
+    estilos en home sin terminar
+
+[33mcommit dd3d11f8cc6f8c9f251a16c401932ca97f812129[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 21 14:25:05 2023 -0600
+
+    home es responsive, breakpoint de celular funcionando
+
+[33mcommit 953946c853c6cf7669fa89eaf9693419c849badd[m
+Merge: fbdfc19 f817858
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Tue Mar 21 13:04:09 2023 -0600
+
+    Merge pull request #18 from katalimbu/estilos
+    
+    Estilos
+
+[33mcommit f817858987f7db7c3067b51e80c9fb2ec5ecffa5[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Tue Mar 21 16:00:04 2023 -0300
+
+    estilos en home
+
+[33mcommit 2255d8040525ee453a5b9171c2d04dce18adf416[m
+Merge: fe1d6bd fbdfc19
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Tue Mar 21 13:46:54 2023 -0300
+
+    Merge branch 'main' of github.com:katalimbu/DEV004-social-network into main
+
+[33mcommit fbdfc19a4622dfefc85e16f5aacf78e8afa2400b[m[33m ([m[1;31morigin/lady3[m[33m, [m[1;32mlady3[m[33m)[m
+Merge: acdeb05 d3c86bd
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Tue Mar 21 10:26:52 2023 -0600
+
+    Merge pull request #17 from katalimbu/test
+    
+    Test
+
+[33mcommit fe1d6bd962854cc3d717a430009c3c571dd79463[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Tue Mar 21 13:17:59 2023 -0300
+
+    correciones slint register post pull lady
+
+[33mcommit acdeb0517c02fe753e588644a77a4dfd782832a8[m
+Merge: e771d53 59a0f32
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Tue Mar 21 10:10:59 2023 -0600
+
+    Merge pull request #16 from katalimbu/lady2
+    
+    agrego los errores a register
+
+[33mcommit 59a0f326aaa44b97e68bf4289013d15d9b9220b8[m[33m ([m[1;31morigin/lady2[m[33m)[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Tue Mar 21 11:05:41 2023 -0500
+
+    agrego los errores a register
+
+[33mcommit e771d539d8bb403c03890c47f0c0743d0d6bad1a[m
+Merge: b37854b f8f0085
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Tue Mar 21 10:33:46 2023 -0500
+
+    Merge pull request #15 from katalimbu/kata4
+    
+    el login funciona junto con la autentificacion de google
+
+[33mcommit d3c86bd3e890cf05dd5453368bb6ab03c335c817[m[33m ([m[1;31morigin/test[m[33m)[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Tue Mar 21 12:14:24 2023 -0300
+
+    cambios en el register por los test
+
+[33mcommit b68a540b38cdf554b18800c3ecc357b9b0fb5cd5[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Mon Mar 20 20:21:03 2023 -0300
+
+    prueba de test que pasa segun explicacion de jorge y archivo de carlos
+
+[33mcommit f8f0085f9f19cbacbb3f37327cf0fbc51699b590[m[33m ([m[1;31morigin/kata4[m[33m)[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Mon Mar 20 19:33:56 2023 -0300
+
+    el login funciona junto con la autentificacion de google
+
+[33mcommit b37854bd0d143c22da2fb90764b05386c446e7a0[m[33m ([m[1;31morigin/ladyRepaso1[m[33m)[m
+Merge: 2a3d378 5ba1353
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Thu Mar 16 18:42:54 2023 -0300
+
+    Merge pull request #14 from katalimbu/lady2
+    
+    inicio de test
+
+[33mcommit 5ba1353e6f45414ffad1d3e097195a9bcc0b18d3[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Thu Mar 16 16:29:17 2023 -0500
+
+    inicio de test
+
+[33mcommit 2a3d378e71e1b37b8da1911dbdb31047dc2d9853[m
+Merge: 2baa834 d0694c7
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Thu Mar 16 12:49:42 2023 -0600
+
+    Merge pull request #13 from katalimbu/kata4
+    
+    Kata4
+
+[33mcommit d0694c75e9d4a1e83e31ddc82528d3dcf56c56b7[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Thu Mar 16 15:47:24 2023 -0300
+
+    inicio css home
+
+[33mcommit f0c106d430b4588261be6471cc4dd9f14e5697f0[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Thu Mar 16 14:47:14 2023 -0300
+
+    carpeta con imagen
+
+[33mcommit c1f863f607d2b2a859ab5718c10e85e23d193530[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Thu Mar 16 14:25:56 2023 -0300
+
+    logo reda
+
+[33mcommit 2baa834375c61464744f2691c8bac41478dd5c1d[m
+Merge: 5e9d844 9c5b329
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Wed Mar 15 22:42:04 2023 -0300
+
+    Merge pull request #12 from katalimbu/lady2
+    
+    Lady2
+
+[33mcommit 9c5b3293dc0c3acd958f15e7b6bd242ec7a460ac[m
+Merge: 6982e42 5e9d844
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Mar 15 20:33:52 2023 -0500
+
+    Merge branch 'main' into lady2
+
+[33mcommit 5e9d8448bb030ff93b2507aa1adf5de21836e4a0[m
+Merge: 9fb9c16 d055ffe
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Wed Mar 15 20:30:20 2023 -0500
+
+    Merge pull request #11 from katalimbu/Chuz2
+    
+    Chuz2
+
+[33mcommit 6982e422aa5e41ca060c9dc357763e5e02f8ac01[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Mar 15 20:23:52 2023 -0500
+
+    agrego botones al inciio
+
+[33mcommit d055ffe898a8d870f394bbdadaf1dc5b486061de[m[33m ([m[1;31morigin/Chuz2[m[33m)[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Wed Mar 15 18:54:13 2023 -0600
+
+    registro con inputs correctos
+
+[33mcommit 8fef9e55184294816dbbc1c5a6115f25a562dd15[m
+Merge: 9fb9c16 41fb58c
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Mar 15 12:48:13 2023 -0500
+
+    Merge remote-tracking branch 'origin/Chuz2' into lady2
+
+[33mcommit 41fb58c722549d9b719c24ee737de03364bc9f50[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Wed Mar 15 11:17:40 2023 -0600
+
+    router y firebase registro con gmail funcionando
+
+[33mcommit 94c138b3e0a98ecdc7219ef8690984798e64342a[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 14 21:36:46 2023 -0600
+
+    problemas con imports en main y en firebase, pero funcionan las rutas
+
+[33mcommit 1580cf550eae4ac42240f3f207fed4189421758d[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 14 21:01:02 2023 -0600
+
+    rutas funcionando error en deploy firebase
+
+[33mcommit 0d6998783fa057c9bddb4225cc612737be2645c0[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Mar 14 20:44:16 2023 -0600
+
+    proyecto conectado a firebase, no funciona aun
+
+[33mcommit 6e0cca056c2ba68605e0b70521d173223414466d[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Mon Mar 13 20:10:26 2023 -0600
+
+    pequeña prueba
+
+[33mcommit 9fb9c16ebd25a0a836b1c44e7282bb9cad2a9f44[m
+Merge: 9bd0245 04650fb
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Mon Mar 13 23:03:16 2023 -0300
+
+    Merge pull request #10 from katalimbu/lady1
+    
+    salto de línea
+
+[33mcommit 04650fb00a255c8efb0bc6215b66169d15016c49[m[33m ([m[1;31morigin/lady1[m[33m)[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Mon Mar 13 20:59:53 2023 -0500
+
+    salto de linea
+
+[33mcommit 9bd0245f52b6891d2423e368f0af97e54617b73a[m[33m ([m[1;31morigin/ChuzSN[m[33m, [m[1;31morigin/ChuzColab[m[33m)[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Mon Mar 13 22:06:38 2023 -0300
+
+    funciona las ruts ancladas al iu
+
+[33mcommit b776892baafa6d85946d502086d2d2577ddc04ce[m
+Merge: 118a128 765e9d7
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Mon Mar 13 21:53:22 2023 -0300
+
+    Merge pull request #9 from ChuzAlvaca/ChuzRepoKata
+    
+    Chuz repo kata
+
+[33mcommit 765e9d795f6607e1f0680b7c39c8a69d52637699[m
+Merge: 8930449 118a128
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Mon Mar 13 21:16:29 2023 -0300
+
+    Merge branch 'ChuzRepoKata' into ChuzRepoKata
+
+[33mcommit 89304497e606fcb3804e0e7d5077ceed1f8f7a50[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Mon Mar 13 12:58:30 2023 -0600
+
+    se despliega la interfaz de usuario con vista anclada a ruta
+
+[33mcommit 118a1285aacde6ea987100429de5be5742932baf[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Fri Mar 10 15:26:42 2023 -0300
+
+    union de las rutas sin resultado aun
+
+[33mcommit 2f52310d18613f6cfcd6a56e466e0c7616bf9413[m[33m ([m[1;31morigin/Chuz[m[33m)[m
+Merge: aad46f2 6c3e373
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Fri Mar 10 10:58:29 2023 -0600
+
+    Merge pull request #6 from Lady9696/ladysn1
+    
+    Ladysn1
+
+[33mcommit 6c3e373e299e9971f98e61a767bb8a93c1370a49[m
+Merge: dfdbd8c aad46f2
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Fri Mar 10 11:32:06 2023 -0500
+
+    Merge branch 'main' into ladysn1
+
+[33mcommit aad46f2b4e095a0c57adeecd554450706badc059[m
+Merge: d40355e 3ef05b6
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Fri Mar 10 10:24:40 2023 -0600
+
+    Merge pull request #5 from katalimbu/kataSN1
+    
+    primera funcion en login
+
+[33mcommit 3ef05b68dafa86c20f36a961b61974cb3c536f65[m
+Merge: 4ed2870 d40355e
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Fri Mar 10 13:23:36 2023 -0300
+
+    Merge branch 'main' into kataSN1
+
+[33mcommit d40355e1fd17d20a71defd005e3924e8571c96a3[m
+Merge: af2a947 9e37377
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Fri Mar 10 13:14:01 2023 -0300
+
+    Merge pull request #4 from ChuzAlvaca/ChuzSN
+    
+    Chuz sn
+
+[33mcommit 9e37377577b07fe5e3686c54a109b0c98c36707a[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Fri Mar 10 10:11:19 2023 -0600
+
+    primer select rol en reda, falta select anidado especialista
+
+[33mcommit dfdbd8c3d1560dc70be84ca0b3701ed18ae8993f[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Fri Mar 10 10:14:14 2023 -0500
+
+    vistahome
+
+[33mcommit 420265cb75b5ddc07440ec81144bdb6fd29a7c5e[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Fri Mar 10 08:06:23 2023 -0600
+
+    desplegable genérico en register
+
+[33mcommit cc13c4c9ae1ad6a95f551818f3626a1ee87eb86a[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Thu Mar 9 21:21:36 2023 -0600
+
+    todos los inputs en component register, falta option de rol
+
+[33mcommit f26a2d17dfb40a7c221039faff08602fd0eaf412[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Thu Mar 9 20:13:33 2023 -0600
+
+    los inputs en el component register tienen placeholder
+
+[33mcommit 6ac6d1c54bf1ed2c8112b92a18a36662a315339f[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Thu Mar 9 19:48:29 2023 -0600
+
+    primera estructura del component registro
+
+[33mcommit 4ed2870292a031667f8bff8f4b57ffff43a87e53[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Thu Mar 9 22:39:29 2023 -0300
+
+    primera funcion en login
+
+[33mcommit f7afcf28fb7670581a4ac2ce9c0a1d36ebabf10c[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Mar 8 19:54:36 2023 -0500
+
+    componentehome
+
+[33mcommit af2a947a5f55e03f55b82b990c96f5f0d49d2f2f[m
+Merge: d7b336f 41e4315
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Wed Mar 8 16:04:20 2023 -0300
+
+    Merge pull request #3 from Lady9696/ladysn1
+    
+    vistahome
+
+[33mcommit 41e4315644c83d96bd6d96070af2e38e04820317[m
+Merge: 2449b65 d7b336f
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Wed Mar 8 16:04:07 2023 -0300
+
+    Merge branch 'main' into ladysn1
+
+[33mcommit 2449b652bbd7679e948f27082ea8ed3974874582[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Mar 8 13:58:54 2023 -0500
+
+    vistahome
+
+[33mcommit d7b336fe44233d0211fdfbca72e9ba78ab2ba385[m
+Merge: 7f916e6 46e409d
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Wed Mar 8 12:13:39 2023 -0600
+
+    Merge pull request #2 from katalimbu/kataSN1
+    
+    pruebita
+
+[33mcommit 46e409d1d794dca4e89c5cfa72d73fe9d826c70d[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Wed Mar 8 15:06:39 2023 -0300
+
+    pruebita
+
+[33mcommit 7f916e6d0bf5c7660642102691d12fff0f52c689[m
+Merge: 796b2b1 d695f58
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Wed Mar 8 12:45:39 2023 -0500
+
+    Merge pull request #1 from Lady9696/ladysn1
+    
+    ensayo
+
+[33mcommit d695f588de1c06e633018ba2cb90ff1037ea40a0[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Mar 8 12:42:59 2023 -0500
+
+    ensayo
+
+[33mcommit 796b2b10a8787b089b6edfc1306c01c13a585ea3[m
+Author: Génesis Mauries <39414582+GenesisMauries@users.noreply.github.com>
+Date:   Thu Feb 16 09:13:46 2023 -0600
+
+    Update README.md
+
+[33mcommit 3a07193eba952fb2d969da4a06d6866f687bcfa1[m
+Author: Génesis Mauries <39414582+GenesisMauries@users.noreply.github.com>
+Date:   Tue Feb 7 08:53:23 2023 -0600
+
+    Update README.md
+
+[33mcommit 6ca1a795a2366217b49227fa57e119d3e78d6524[m
+Author: Génesis Mauries <39414582+GenesisMauries@users.noreply.github.com>
+Date:   Tue Feb 7 08:41:45 2023 -0600
+
+    Update README.md
+
+[33mcommit a36935b091424dc98b5328c70d1d84c2d490f54a[m
+Author: genesismauries <exodo_54@hotmail.com>
+Date:   Thu Feb 2 14:38:10 2023 -0600
+
+    chore(init): Adds project files from curriculum
