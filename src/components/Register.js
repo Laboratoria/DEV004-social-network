@@ -14,7 +14,7 @@ export const Register = () => {
   const img = document.createElement('img');
   img.setAttribute('src', './img/logo.png');
   img.setAttribute('alt', 'Logo de la marca MaMá Genial');
-  img.id = 'logoEncabezado';
+  img.id = 'logoEncabezadoRegister';
   const h2 = document.createElement('h2');
   h2.textContent = 'Bienvenida al registro';
   const inputName = document.createElement('input');
