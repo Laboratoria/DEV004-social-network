@@ -1,5 +1,6 @@
 // import { loginGoogle } from '../lib/autenticar';
-// import { onNavigate } from '../router/index';
+import { onNavigate } from '../router/index';
+
 
 export const Feed = () => {
   const HomeDiv = document.createElement('div');
@@ -7,13 +8,15 @@ export const Feed = () => {
   h3.textContent = 'Bienvenida al login';
   const buttonHome = document.createElement('button');
   const buttonLoginGoogle = document.createElement('button');
+  const buttonCerrarSesion = document.createElement('button');
 
   buttonHome.textContent = 'Regresar al Home';
-  buttonHome.addEventListener('click', () => onNavigate('/'));
+  //buttonHome.addEventListener('click', () => onNavigate('/'));
+  buttonCerrarSesion.textContent = 'Cerrar Sesión';
   buttonLoginGoogle.addEventListener('click', () => onNavigate('/feed'));
-
-  //HomeDiv.append(h3,buttonHome, buttonLoginGoogle); este lo comentamos al final y pusimos el return h3
+  buttonCerrarSesion.addEventListener('click', () => onNavigate('/'));
+  HomeDiv.append(h3, buttonCerrarSesion); //este lo comentamos al final y pusimos el return h3
   //HomeDiv.appendChild(buttonLogin);
 
-  return h3;
+  return HomeDiv;
 };
