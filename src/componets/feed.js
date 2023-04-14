@@ -150,10 +150,16 @@ ${postD.descripcion}
         <ion-icon name="trash-outline" type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"></ion-icon>
         <ion-icon name="create-outline" type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"></ion-icon> 
         <ion-icon name="save-outline" type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"></ion-icon>
-        <ion-icon class="like" id="like-${postD.id}" name="heart-outline"></ion-icon> ${postD.likes.length}.
+        <ion-icon  name="${(postD.likes ?? []).includes(auth.currentUser.email)? 'heart' :'heart-outline' }"id="like-${postD.id}" ></ion-icon>  ${postD.likes.length}.
         </div>`;
+        //<ion-icon class="like"  name="${(postD.likes ?? []).includes(auth.currentUser.email)? 'heart' :'heart-outline' }" data-id="${postD.id}"></ion-icon>
         //form.setAttribute('id', 'form1');
-        //
+        //name="${(postD.likes ?? []).includes(auth.currentUser.email)? 'heart' :'heart-outline' }"></ion-icon> ${postD.likes.length}.
+     
+        //<ion-icon name="heart"></ion-icon>
+        //<ion-icon name="heart-outline"></ion-icon>
+        //${postD.likes === auth.currentUser.email? 'heart':
+        
         // <input type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>//
         // console.log(auth.currentUser.email, postD.usuario);
         // esta es la funcion para guardar el post editado
