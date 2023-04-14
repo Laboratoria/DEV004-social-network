@@ -115,7 +115,7 @@ export const feed = () => {
 
     // el dibjuar post debe estar dentro de una promesa para que dibuje
       .then(() => {
-        dibujar();
+        dibujar( );
         // document.querySelector('class', 'postContainer').reset();
         postContainer.reset();
       });
@@ -137,7 +137,7 @@ export const feed = () => {
         form.setAttribute('id', 'form');
 
         form.innerHTML = `<div class="contenedorCurrentUser"> <text disabled>
-         Autor: ${postD.usuario}
+        Autor: ${postD.usuario}
         </text>
         <div class="contenedorPostCompleto">
         <input name="titulo" id="titulo-${postD.id}" class="tituloEdit" value="${postD.titulo}" disabled />
@@ -150,6 +150,10 @@ ${postD.descripcion}
         <ion-icon name="create-outline" type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"></ion-icon> 
         <ion-icon name="save-outline" type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"></ion-icon>
         <ion-icon  name="${(postD.likes ?? []).includes(auth.currentUser.email)? 'heart' :'heart-outline' }" id="like-${postD.id}" ></ion-icon>  ${postD.likes.length}.
+        <div class="nuevoPostContainer">
+        <a href="/feed">publicar nuevamente</a> 
+        </div>
+        
         
         </div>`;
         // Oh con coni:?? significa que si el primer arreglo no existe, retorna el array vacio.(nullish)
