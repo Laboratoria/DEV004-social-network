@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    padding: 10px;
     box-sizing: border-box;
 }
 
@@ -11,14 +10,18 @@ body{
 }
 
 img{
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     box-shadow: 0px 0px 16px #856FAB;
     backdrop-filter: blur 50px;
 }
 
+#logoEncabezadoRegister{
+    margin-top: 50px;
+}
+
 header {
-    padding: 10px;
+    padding: 50px;
     height: 8%;
     width: 100%;
     display: flex;
@@ -88,85 +91,53 @@ footer {
     text-align: center;
 }
 
-@media (max-width: 767.98px){
-    body{
-        background: #F1FBFE;
-        height: 100%;
-        width: 100%;
+@media (max-width: 991.98px){
+
+    img{
+        height: 150px;
+        width: 150px;
     }
-    
+
+}
+
+@media (max-width: 767.98px){
     img{
         height: 100px;
         width: 100px;
-        box-shadow: 0px 0px 16px #856FAB;
-        backdrop-filter: blur 50px;
     }
-    
-    header {
-        padding: 10px;
-        height: 8%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    
-    main{
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;  
-    }
-    
-    article {
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
-    }
-    
+
     h1, h2{
-        font-size: 15px;
+        font-size: 13px;
         font-family: Verdana, Helvetica;
     }
     
     input {
-        font-size: 18px;
-        font-family: Verdana, Helvetica;
-        border-width: 3px;
-        border-style: solid;
-        border-color: #82B1F8;
-        border-radius: 9pt;
-        width: 400px;
-        height: 35px;
-        gap: 50px; 
+        font-size: 12px;
+        width: 200px;
+        height: 15px;
+        gap: 25px; 
     }
     
-    button{
-        font-size: 10px;
-        font-family: Verdana, Helvetica;
-        font-weight: bold;
-        color: rgb(0, 0, 0);
-        border: 0px;
-        border-radius: 9pt;
-        background: red;
+    /*button{
+        background: peru;
         width: 150px;
         height: 35px;
         gap: 15px;
-    }
-    
-    footer {
-        background-color: #82B1F8;
-        padding: 1em 2em 1em;
-        margin: 30px 0px 0px 0px;
-        font-size: 12px;
-        font-family: "sans-serif";
-        color: rgb(253, 250, 250);
-        text-align: center;
-    } 
+    }*/
+
+}
+
+@media (max-width: 575.98px){
+
+    h1, h2{
+    font-size: 10.5px;
+}
+
+/*button{
+    background: palevioletred;
+    width: 150px;
+    height: 35px;
+    gap: 15px;
+}*/
+
 }

@@ -1,5 +1,6 @@
 import { onNavigate } from '../router/index';
 import { loginUser } from '../lib/autenticar';
+//import { loginGoogle } from '../lib/autenticar';
 
 export const Home = () => {
   const HomeDiv = document.createElement('section');

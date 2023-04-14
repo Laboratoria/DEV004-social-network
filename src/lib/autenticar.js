@@ -2,7 +2,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-import { signOut } from "firebase/auth";
+//import { signOut } from "firebase/auth";
 //import {  auth } from "firebase/auth";
 
 import { initializeApp } from 'firebase/app';
@@ -60,13 +60,9 @@ return signInWithPopup(auth, provider)
     // ...
   });
 };
-export const logOut = () => {
+/*export const logOut = () => {
 const auth = getAuth();
-signOut(auth).then(() => {
-  console.log(logOut);// Sign-out successful.
-}).catch((error) => {
-  // An error happened.
-});
-};
+return signOut(auth)
+};*/
   
 
