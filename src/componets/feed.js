@@ -1,12 +1,11 @@
-import { updateCurrentUser } from 'firebase/auth';
 import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
-  createpost, getpost, exitApp, auth, deletePost, updatePost, saveUsers, addLike,
+  createpost, getpost, exitApp, auth, deletePost, updatePost, addLike, updatelike,
 
 } from '../lib/firebase.js';
 
-//console.log('estamos en feed', auth);
+// console.log('estamos en feed', auth);
 export const feed = () => {
   const squareF = document.createElement('div');
   squareF.setAttribute('class', 'squareF');
@@ -17,7 +16,7 @@ export const feed = () => {
   logoF.setAttribute('src', 'https://i.ibb.co/bWGQN64/REDA-1.png');
   logoF.setAttribute('class', 'logoF');
   const userInfoF = document.createElement('div');
-  userInfoF.setAttribute('class', 'userInfoDivF')
+  userInfoF.setAttribute('class', 'userInfoDivF');
   const userAvatar = document.createElement('img');
   userAvatar.setAttribute(
     'src',
@@ -107,7 +106,7 @@ export const feed = () => {
     // console.log(postContainer);
     const feedTitle = e.target.elements.postTitle.value;
     const feedPost = e.target.elements.post.value;
-    //console.log(parseUser.email);
+    // console.log(parseUser.email);
     const feedUser = parseUser.email;
     // console.log(feedTitle);
     // console.log(feedPost);
@@ -150,26 +149,17 @@ ${postD.descripcion}
         <ion-icon name="trash-outline" type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"></ion-icon>
         <ion-icon name="create-outline" type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"></ion-icon> 
         <ion-icon name="save-outline" type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"></ion-icon>
-        <ion-icon  name="${(postD.likes ?? []).includes(auth.currentUser.email)? 'heart' :'heart-outline' }"id="like-${postD.id}" ></ion-icon>  ${postD.likes.length}.
-        </div>`;
-        //<ion-icon class="like"  name="${(postD.likes ?? []).includes(auth.currentUser.email)? 'heart' :'heart-outline' }" data-id="${postD.id}"></ion-icon>
-        //form.setAttribute('id', 'form1');
-        //name="${(postD.likes ?? []).includes(auth.currentUser.email)? 'heart' :'heart-outline' }"></ion-icon> ${postD.likes.length}.
-     
-        //<ion-icon name="heart"></ion-icon>
-        //<ion-icon name="heart-outline"></ion-icon>
-        //${postD.likes === auth.currentUser.email? 'heart':
+        <ion-icon  name="${(postD.likes ?? []).includes(auth.currentUser.email)? 'heart' :'heart-outline' }" id="like-${postD.id}" ></ion-icon>  ${postD.likes.length}.
         
-        // <input type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"/>//
-        // console.log(auth.currentUser.email, postD.usuario);
-        // esta es la funcion para guardar el post editado
-        console.log(auth.currentUser.email);
-        console.log(postD.usuario);
+        </div>`;
+        // Oh con coni:?? significa que si el primer arreglo no existe, retorna el array vacio.(nullish)
+        //<ion-icon name="heart-outline"></ion-icon>
+        // ojo con los dos signos de interrogaciòn juntos, no son un operador ternario
+        // <ion-icon class="like"  name="${(postD.likes ?? []).includes(auth.currentUser.email)?
+        // 'heart' :'heart-outline' }" data-id="${postD.id}"></ion-icon>
         form.addEventListener('submit', (e) => {
           e.preventDefault();
-          console.log(e.target.elements);
           // guardar en firebase
-          console.log(form);
           const postId = form.dataset.id;
           const newTitle = e.target.elements.titulo.value;
           const newDescription = e.target.elements.descripcion.value;
@@ -179,22 +169,34 @@ ${postD.descripcion}
             titulo: newTitle,
             descripcion: newDescription,
           };
-          console.log(postId);
-          console.log(newPost);
-
+          // console.log(postId);
+          // console.log(newPost);
           updatePost(postId, newPost);
           newtitleEd.setAttribute('disabled', '');
           console.log(newtitleEd);
           newdescripEd.setAttribute('disabled', '');
         });
         const like = form.querySelector(`#like-${postD.id}`);
-        console.log(like);
+        // console.log(like);
         like.addEventListener('click', (e) => {
           e.preventDefault();
-          console.log(auth.currentUser.email);
-          addLike(postD.id, [...postD.likes, auth.currentUser.email]).then(() => {
-            dibujar();
-          });
+          // console.log(e);
+          // console.log(auth.currentUser.email);
+        // este like representa un booleano
+          const like = (postD.likes ?? []).includes(auth.currentUser.email);
+          if (like === true) {
+            const newLikes = postD.likes.filter((email) => email !== auth.currentUser.email);
+            updatelike(postD.id, newLikes).then(() => {
+              dibujar();
+            });         
+          }
+          else {
+            addLike(postD.id, [...postD.likes, auth.currentUser.email]).then(() => {
+              console.log(postD.likes, 'esto es el array de likes');
+              dibujar();
+              console.log(postD.likes, 'esto es el array de likes');
+            });
+          }
         });
         squareF.appendChild(form);
       });
@@ -204,15 +206,14 @@ ${postD.descripcion}
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           const btnId = btn.getAttribute('data-id');
-          //console.log(btnId);
+          // console.log(btnId);
           const shouldDeletePost = window.confirm('¿Estás seguro de que deseas eliminar este post?');
           if (shouldDeletePost) {
             const formToRemove = document.getElementById('form');
             formToRemove.remove();
-            //console.log(formToRemove);
+            // console.log(formToRemove);
             deletePost(btnId);
           }
-         
         });
       });
 
@@ -222,7 +223,7 @@ ${postD.descripcion}
           e.preventDefault();
           console.log(e);
           const postId = btn.getAttribute('data-id');
-          const postTitulo = 'titulo-' + postId;
+          const postTitulo = `titulo-${postId}`;
           const textAreaPublication = document.getElementById(postId);
           const inputPublication = document.getElementById(postTitulo);
           console.log(inputPublication);
@@ -230,20 +231,6 @@ ${postD.descripcion}
           inputPublication.removeAttribute('disabled');
         });
       });
-
-      // const formularios = document.querySelectorAll(".formularioEditar");
-      // formularios.forEach((form) => {
-      // });
-      // const likes = document.querySelectorAll('.like');
-      // console.log(likes);
-      // likes.forEach((like) => {
-      //   like.addEventListener('click', (e) => {
-      //     e.preventDefault();
-      //     console.log(auth.currentUser.email);
-      //     const postId = like.getAttribute('like-id');
-      //     addLike(postId, parseUser.email);
-      //   });
-      // });
     });
   };
   return squareF;
