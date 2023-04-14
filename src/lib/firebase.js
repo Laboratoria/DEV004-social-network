@@ -13,7 +13,6 @@ import {
   orderBy,
   query,
   updateDoc,
-  arrayUnion,
 } from 'firebase/firestore';
 // import { userState } from './authentication';
 
@@ -118,3 +117,4 @@ export const exitApp = () => signOut(auth)
 export const updatePost = (id, newPost) => updateDoc(doc(db, 'post', id), newPost);
 
 export const addLike = (id, emails) => updateDoc(doc(db, 'post', id), { likes: emails });
+export const updatelike = (id, emails) => updateDoc(doc(db, 'post', id), { likes: emails });
