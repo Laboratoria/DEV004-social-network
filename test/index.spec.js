@@ -18,7 +18,7 @@ jest.mock('../src/lib/firebase', () => ({
 }));
 
 describe('register', () => {
-  it('si el usuario se registrò correctamente debe direccionarse a home', () => {
+  it('si el usuario se registrò correctamente debe direccionarse a home', (done) => {
     // router.navigateTo = jest.fn().mockImplementation(() => {
     // expect(router.navigateTo).toHaveBeenCalled();
     //   done();
@@ -35,14 +35,17 @@ describe('register', () => {
     document.querySelector('#btnregister').click();
     // document.querySelector('#btnregister').dispatchEvent(new Event('submit'));
     expect(registerWithEmail).toHaveBeenCalledWith(expect.any(String), expect.any(String));
-    expect(saveUsers).toHaveBeenCalledWith()
-    Promise.resolve().then(() => { expect(navigateTo).toHaveBeenCalledWith('/home')});
+    setTimeout(() => { 
+      expect(saveUsers).toHaveBeenCalled();
+      expect(navigateTo).toHaveBeenCalledWith('/home');
+      done();
+    });
   });
 });
 it('si el usuario no comepleta los datos correctamente envia error ', (done) => {
   registerWithEmail.mockResolvedValue(Promise.reject({ code: 'error' }));
   document.body.appendChild(register());
-  document.querySelector('#btnregister').submit();
+  document.querySelector('#btnregister').click();
   router.registerError = jest.fn().mockImplementation(() => {
     expect(router.registerError).toHaveBeenCalled();
     done();
