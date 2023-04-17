@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+body {
+  background: #9ae2dd;
+  /*background: linear-gradient(to bottom,#9ae2dd,rgb(246, 243, 245))
+    /*background-image:linear-gradient(#9AE2DD,#ffffff);*/
+  background: -webkit-linear-gradient(to bottom, #9ae2dd, #ffffff);
+  background: linear-gradient(to bottom, #9ae2dd, #ffffff);
+}
+h1 {
+  font-size: 200px;
+  text-align: center;
+
+  margin-top: 200px;
+}
+
+#logo {
+  /*background: -webkit-linear-gradient(to bottom,#9AE2DD, #FFFFFf );
+    background: linear-gradient(to bottom,#9AE2DD, #FFFFFf);*/
+  fallback: for old;
+  text-align: center;
+  /*width: 2500px;
+    /*height: 2500px;*/
+}
