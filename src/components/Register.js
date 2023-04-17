@@ -1,6 +1,7 @@
 import { createUser } from '../lib/autenticar';
 import { onNavigate } from '../router/index';
 
+//CREANDO ELEMENTOS DE REGISTER
 export const Register = () => {
   /*const HomeDiv = document.createElement('section');
   const header = document.createElement('header');
@@ -31,8 +32,9 @@ export const Register = () => {
   buttonRegister.textContent = 'Registrate';
 
   buttonHome.textContent = 'Regresar al Home';
+
+  //INTERACCION (EVETOS CLICK >> 3 botones de home)
   buttonHome.addEventListener('click', () => onNavigate('/'));
-  buttonRegister.addEventListener('click', () => onNavigate('/feed'));
   buttonRegister.addEventListener('click', () => {
     if (inputEmail.value === '' || inputPassword.value === '') {
       swal({
@@ -53,6 +55,7 @@ export const Register = () => {
         });
     }
   });
+  buttonRegister.addEventListener('click', () => onNavigate('/feed'));
 
   HomeDiv.append(img, h2, inputName, inputEmail, inputPassword, buttonRegister, buttonHome);
 

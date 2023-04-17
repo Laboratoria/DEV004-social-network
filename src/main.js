@@ -4,6 +4,7 @@ import {Home} from './components/Home';
 import {Login} from './components/Login';
 import {Register} from './components/Register';
 import { Feed } from './components/Feed';
+import { authStateChangedevent} from './lib/autenticar'
 
 addRoutes({
   '/': Home,
@@ -20,3 +21,10 @@ window.onpopstate = () => {
   onNavigate(window.location.pathname);
 };
 
+authStateChangedevent((user)=>{
+  if(user){
+    onNavigate('/feed')
+  }else{
+    onNavigate('/')
+  }
+})
