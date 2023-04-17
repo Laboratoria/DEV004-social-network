@@ -9,7 +9,7 @@ jest.mock('../src/lib/authentication');
 describe('register', () => {
   it('si el usuario se registrò correctamente debe direccionarse a home', () => {
     router.navigateTo = jest.fn().mockImplementation(() => {
-      expect(router.navigateTo).toHaveBeenCalled();
+    expect(router.navigateTo).toHaveBeenCalled();
       done();
     });
     registerWithEmail.mockResolvedValue(Promise.resolve());
@@ -21,7 +21,7 @@ describe('register', () => {
     document.querySelector('#Bdate').value = '12-12-2003';
     document.querySelector('#ocupation').value = 'teacher';
     document.querySelector('#redaRol').value = 'especialista';
-    document.querySelector('#btnregister').dispatchEvent(new Event('click'));
+    document.querySelector('#btnregister').dispatchEvent(new Event('submit'));
   });
 });
 it('si el usuario no comepleta los datos correctamente envia error ', (done) => {
@@ -31,7 +31,7 @@ it('si el usuario no comepleta los datos correctamente envia error ', (done) => 
   });
   registerWithEmail.mockResolvedValue(Promise.reject({ code: 'error' }));
   document.body.appendChild(register());
-  document.querySelector('#btnregister').click();
+  document.querySelector('#btnregister').submit();
 });
 
 
@@ -45,7 +45,7 @@ describe('login', () => {
     document.body.appendChild(Login());
     document.querySelector('#username').value = 'reda@gmail.com';
     document.querySelector('#psw').value = '12345';
-    document.querySelector('.btnEnviarLogin').dispatchEvent(new Event('click'));
+    document.querySelector('.btnEnviarLogin').dispatchEvent(new Event('sumbit'));
     // document.querySelector('.btnEnviarLogin').click()
   });
 
@@ -69,7 +69,7 @@ describe('login with google', () => {
     });
     signInWithGoogle.mockResolvedValue(Promise.resolve());
     document.body.appendChild(Login());
-    document.querySelector('.google').dispatchEvent(new Event('click'));
+    document.querySelector('.google').dispatchEvent(new Event('submit'));
     // document.querySelector('.btnEnviarLogin').click()
   });
 
