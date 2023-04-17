@@ -66,9 +66,12 @@ export const register = () => {
     const redaRol = e.target.elements.RedaRol.value;
     registerWithEmail(email, password)
       .then((useCredential) => {
-        console.log('esto es usercredential', useCredential.user);
-        saveUsers(name, email, password, nationality, Bdate, ocupation, redaRol);
-        console.log(saveUsers);
+        // console.log('esto es usercredential', useCredential.user);
+        // encadenamiento de promesas asincronas
+        return saveUsers(name, email, password, nationality, Bdate, ocupation, redaRol);
+        // console.log(saveUsers);
+      })
+      .then(() => {
         navigateTo('/home');
       })
       .catch((error) => {
