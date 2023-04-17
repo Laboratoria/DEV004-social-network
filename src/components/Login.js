@@ -1,5 +1,7 @@
 import { onNavigate } from '../router/index';
 
+
+//CREAMOS LOS ELEMENTOS (para el muro)
 export const Login = () => {
   const HomeDiv = document.createElement("div");
   HomeDiv.textContent = "Bienvenida al login";
