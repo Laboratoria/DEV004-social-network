@@ -19,7 +19,7 @@ beforeEach(() => {
   document.body.innerHTML = '<div id="root"></div>';
 });
 
-describe('Sing In', () => {
+describe('Sign In', () => {
   it('si el usurio se logea con éxito se redirige a /feed', (done) => {
     firebaseFn.signIn.mockResolvedValueOnce({ user: { email: 'test@test.com' } });
     const mockNavigate = jest.fn();
