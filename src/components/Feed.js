@@ -4,23 +4,33 @@ import { onNavigate } from '../router/index';
 // CREAR ELEMENTOS DEL MURO
 export const Feed = () => {
   const HomeDiv = document.createElement('div');
-  const h3 = document.createElement('h3');
-  h3.textContent = 'Bienvenida al login';
-  const buttonHome = document.createElement('button');
-  const buttonLoginGoogle = document.createElement('button');
+  const header = document.createElement('header');
+  header.id = 'encabezadoFeed';
+  const img = document.createElement('img');
+  img.setAttribute('src', './img/banner.jpg');
+  img.setAttribute('alt', 'Banner Mamá Genial');
+  img.id = 'banner';
+  header.appendChild(img);
+  //HomeDiv.appendChild(header);
+  const main = document.createElement('main');
+  main.id = 'muro';
+  const inputFeed = document.createElement('input');
+  inputFeed.id = 'inputComentarios';
+  inputFeed.placeholder = '¿Cómo te sientes hoy?';
+  const buttonPublicar = document.createElement('button');
+  buttonPublicar.id = 'publicar';
+  buttonPublicar.textContent = 'Publicar';
+  main.append(inputFeed, buttonPublicar);
   const buttonCerrarSesion = document.createElement('button');
-
-  // buttonHome.textContent = "Regresar al Home";
-  // buttonHome.addEventListener('click', () => onNavigate('/'));
-
+  buttonCerrarSesion.id = 'CerrarSesion';
   // BOTON CERRAR SESIÓN Y EVENTO (interacción)
   buttonCerrarSesion.textContent = 'Cerrar Sesión';
-  // buttonLoginGoogle.addEventListener("click", () => onNavigate("/feed"));
-
   buttonCerrarSesion.addEventListener('click', () => {
     logOut().then((resp) => onNavigate('/'));
   });
-  HomeDiv.append(h3, buttonCerrarSesion); // este lo comentamos al final y pusimos el return h3
+HomeDiv.append(header, main, buttonCerrarSesion);
+
+  //HomeDiv.append(img, inputFeed, buttonPublicar, buttonCerrarSesion); // este lo comentamos al final y pusimos el return h3
   // HomeDiv.appendChild(buttonLogin);
 
   return HomeDiv;
