@@ -1,21 +1,21 @@
-import { onNavigate } from "../router";
+import { onNavigate } from '../router';
 
 export const home = () => {
   // crea contenedor principal
-  const article = document.createElement("article");
-  const buttonRegister = document.createElement("button");
-  const buttonWall = document.createElement("button");
+  const article = document.createElement('article');
+  const buttonRegister = document.createElement('button');
+  const buttonWall = document.createElement('button');
   // modifica propiedades de los elemento
-  buttonRegister.textContent = "Ir a register";
-  buttonWall.textContent = "Ir al muro";
+  buttonRegister.textContent = 'Ir a register';
+  buttonWall.textContent = 'Ir al muro';
   // añade evento a los botones
-  buttonRegister.addEventListener("click", () => {
+  buttonRegister.addEventListener('click', () => {
     // llama funcion navigate y pasa string con la ruta
-    onNavigate("/register");
+    // onNavigate('/register');
   });
-  buttonWall.addEventListener("click", () => {
+  buttonWall.addEventListener('click', () => {
     // llama funcion navigate y pasa string con la ruta
-    onNavigate("/wall");
+    onNavigate('/wall');
   });
   // suman elementos a contenedor madre
   article.append(buttonRegister, buttonWall);
