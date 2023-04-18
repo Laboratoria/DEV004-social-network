@@ -1,10 +1,9 @@
 // importamos la funcion que vamos a testear
 import { register } from '../src/componets/register';
-import { navigateTo, registerError } from '../src/router';
+import { navigateTo, registerError, showError } from '../src/router';
 import { Login } from '../src/componets/login';
 import { signInWithPassword, registerWithEmail, signInWithGoogle } from '../src/lib/authentication';
 import { saveUsers } from '../src/lib/firebase';
-
 
 jest.mock('../src/lib/authentication', () => ({
   signInWithPassword: jest.fn().mockImplementation(() => Promise.resolve()),
@@ -45,14 +44,14 @@ describe('register', () => {
   });
 });
 it('si el usuario no comepleta los datos correctamente envia error ', (done) => {
-  registerWithEmail.mockRejectedValue ({ code: 'error' });
+  registerWithEmail.mockRejectedValue({ code: 'error' });
   document.body.appendChild(register());
   document.querySelector('#btnregister').click();
- expect(router.registerError).toHaveBeenCalled();
+  setTimeout(() => {
+    expect(registerError).toHaveBeenCalled();
     done();
   });
-
-
+});
 
 describe('login', () => {
   it('si el usuario se registrò correctamente debe direccionarse a feed', (done) => {
@@ -63,17 +62,17 @@ describe('login', () => {
     document.querySelector('.btnEnviarLogin').dispatchEvent(new Event('submit'));
     // document.querySelector('.btnEnviarLogin').click()
     router.navigateTo = jest.fn().mockImplementation(() => {
-      expect(router.navigateTo).toHaveBeenCalled();
+      expect(navigateTo).toHaveBeenCalled();
       done();
     });
   });
 
   it('el login falla con un error', (done) => {
-    router.showError = jest.fn().mockImplementation(() => {
-      expect(router.showError).toHaveBeenCalled();
+    showError = jest.fn().mockImplementation(() => {
+      expect(showError).toHaveBeenCalled();
       done();
     });
-    signInWithPassword.mockResolvedValue(Promise.reject({ code: 'error' }));
+    signInWithPassword.mockRejectedValue({ code: 'error' });
     document.body.appendChild(Login());
     document.querySelector('.btnEnviarLogin').click();
     console.log('wrong');
