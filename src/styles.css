@@ -6,23 +6,22 @@
     "Lucida Sans", Arial, sans-serif;
 }
 body {
-  background: #9ae2dd;
-  /*background: linear-gradient(to bottom,#9ae2dd,rgb(246, 243, 245))
-    /*background-image:linear-gradient(#9AE2DD,#ffffff);*/
-  background: -webkit-linear-gradient(to bottom, #9ae2dd, #ffffff);
-  background: linear-gradient(to bottom, #9ae2dd, #ffffff);
+  background: linear-gradient(#9ae2dd, #ffffff);
+  background-attachment: no-repeat;
+  height: 100%;
+  margin: 0;
+  background-attachment: fixed;
 }
+
 h1 {
-  font-size: 20px;
+  font-size: 80px;
   text-align: center;
   margin-top: 100px;
 }
 
 #logo {
-  /*background: -webkit-linear-gradient(to bottom,#9AE2DD, #FFFFFf );
-    background: linear-gradient(to bottom,#9AE2DD, #FFFFFf);*/
-  fallback: for old;
   text-align: center;
-  width: 100px;
-  height: 81px;
+}
+.btn {
+  background-color: rgb(17, 205, 48);
 }
