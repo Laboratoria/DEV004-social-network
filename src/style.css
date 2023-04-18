@@ -7,13 +7,13 @@
     font-size: 20px;
   }
   body{
-    background-color: #F1FAEE;
+    background-color:green;
 
   }
     .container {
       display: flex;
       justify-content: center;
-      background-color: #F1FAEE;
+      background-color: purple;
       justify-items: center;
       margin-top: 70px;
       margin-bottom: 70px;
@@ -25,10 +25,10 @@
     align-items: center;
     width: 60%;
     height: 80%;
-    background-color: #E0EAF1;
+    background-color: pink;
   }
   .headerHome {
-    background-color: #B8D1E0;
+    background-color: blue;
       width: 100% ;
       height: 50%;
       display: flex;

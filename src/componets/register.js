@@ -65,10 +65,9 @@ export const register = () => {
     const ocupation = e.target.elements.ocupation.value;
     const redaRol = e.target.elements.RedaRol.value;
     registerWithEmail(email, password)
-      .then((useCredential) => {
-        console.log('esto es usercredential', useCredential.user);
-        saveUsers(name, email, password, nationality, Bdate, ocupation, redaRol);
-        console.log(saveUsers);
+      .then((useCredential) =>
+        saveUsers(name, email, password, nationality, Bdate, ocupation, redaRol))
+      .then(() => {
         navigateTo('/home');
       })
       .catch((error) => {
