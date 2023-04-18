@@ -16,14 +16,12 @@ body {
 h1 {
   font-size: 80px;
   text-align: center;
-
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
 #logo {
   text-align: center;
 }
-
 .btn {
   background-color: rgb(17, 205, 48);
 }
