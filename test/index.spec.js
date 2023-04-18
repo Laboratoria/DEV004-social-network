@@ -9,7 +9,7 @@ jest.mock('../src/lib/authentication');
 describe('register', () => {
   it('si el usuario se registrò correctamente debe direccionarse a home', () => {
     router.navigateTo = jest.fn().mockImplementation(() => {
-    expect(router.navigateTo).toHaveBeenCalled();
+      expect(router.navigateTo).toHaveBeenCalled();
       done();
     });
     registerWithEmail.mockResolvedValue(Promise.resolve());
