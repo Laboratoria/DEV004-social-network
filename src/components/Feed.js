@@ -4,26 +4,40 @@ import { onNavigate } from '../router/index';
 // CREAR ELEMENTOS DEL MURO
 export const Feed = () => {
   const HomeDiv = document.createElement('div');
-  const h3 = document.createElement('h3');
-  h3.textContent = 'Bienvenida al login';
   const header = document.createElement('header');
+  header.id = 'encabezadoFeed';
   const img = document.createElement('img');
-  img.setAttribute('src', './img/bannerMaMaGenial.png');
-  img.setAttribute('alt', 'Logo de la marca MaMá Genial');
-  img.id = 'logoEncabezado';
+  img.setAttribute('src', './img/bannerM.png');
+  img.setAttribute('alt', 'Banner Mamá Genial');
+  img.id = 'banner';
+  header.appendChild(img);
+  //HomeDiv.appendChild(header);
+  const main = document.createElement('main');
+  main.id = 'muro';
+  const inputFeed = document.createElement('input');
+  inputFeed.id = 'inputComentarios';
+  inputFeed.placeholder = '¿Cómo te sientes hoy?';
+  const buttonPublicar = document.createElement('button');
+  buttonPublicar.id = 'publicar';
+  buttonPublicar.textContent = 'Publicar';
+  buttonPublicar.addEventListener('click', () => {
+    console.log(inputFeed.value);
+  });
+  main.append(inputFeed, buttonPublicar);
+
+  const nav = document.createElement('nav')
   const buttonCerrarSesion = document.createElement('button');
-
-  // buttonHome.textContent = "Regresar al Home";
-  // buttonHome.addEventListener('click', () => onNavigate('/'));
-
+  buttonCerrarSesion.id = 'cerrarSesion';
   // BOTON CERRAR SESIÓN Y EVENTO (interacción)
   buttonCerrarSesion.textContent = 'Cerrar Sesión';
-  // buttonLoginGoogle.addEventListener("click", () => onNavigate("/feed"));
-
   buttonCerrarSesion.addEventListener('click', () => {
     logOut().then((resp) => onNavigate('/'));
   });
-  HomeDiv.append(h3, header, img, buttonCerrarSesion); // este lo comentamos al final y pusimos el return h3
+ nav.appendChild(buttonCerrarSesion)
+HomeDiv.append(header, nav, main);
+
+  //HomeDiv.append(img, inputFeed, buttonPublicar, buttonCerrarSesion); // este lo comentamos al final y pusimos el return h3
+
   // HomeDiv.appendChild(buttonLogin);
 
   return HomeDiv;
