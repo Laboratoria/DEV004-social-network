@@ -1,9 +1,10 @@
 // importamos la funcion que vamos a testear
 import { register } from '../src/componets/register';
-import { navigateTo } from '../src/router';
+import { navigateTo, registerError } from '../src/router';
 import { Login } from '../src/componets/login';
 import { signInWithPassword, registerWithEmail, signInWithGoogle } from '../src/lib/authentication';
 import { saveUsers } from '../src/lib/firebase';
+
 
 jest.mock('../src/lib/authentication', () => ({
   signInWithPassword: jest.fn().mockImplementation(() => Promise.resolve()),
@@ -12,6 +13,7 @@ jest.mock('../src/lib/authentication', () => ({
 }));
 jest.mock('../src/router', () => ({
   navigateTo: jest.fn(),
+  registerError: jest.fn(),
 }));
 jest.mock('../src/lib/firebase', () => ({
   saveUsers: jest.fn().mockImplementation(() => Promise.resolve()),
@@ -43,14 +45,13 @@ describe('register', () => {
   });
 });
 it('si el usuario no comepleta los datos correctamente envia error ', (done) => {
-  registerWithEmail.mockResolvedValue(Promise.reject({ code: 'error' }));
+  registerWithEmail.mockRejectedValue ({ code: 'error' });
   document.body.appendChild(register());
   document.querySelector('#btnregister').click();
-  router.registerError = jest.fn().mockImplementation(() => {
-    expect(router.registerError).toHaveBeenCalled();
+ expect(router.registerError).toHaveBeenCalled();
     done();
   });
-});
+
 
 
 describe('login', () => {
