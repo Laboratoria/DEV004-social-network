@@ -6,8 +6,11 @@ export const Feed = () => {
   const HomeDiv = document.createElement('div');
   const h3 = document.createElement('h3');
   h3.textContent = 'Bienvenida al login';
-  const buttonHome = document.createElement('button');
-  const buttonLoginGoogle = document.createElement('button');
+  const header = document.createElement('header');
+  const img = document.createElement('img');
+  img.setAttribute('src', './img/bannerMaMaGenial.png');
+  img.setAttribute('alt', 'Logo de la marca MaMá Genial');
+  img.id = 'logoEncabezado';
   const buttonCerrarSesion = document.createElement('button');
 
   // buttonHome.textContent = "Regresar al Home";
@@ -20,7 +23,7 @@ export const Feed = () => {
   buttonCerrarSesion.addEventListener('click', () => {
     logOut().then((resp) => onNavigate('/'));
   });
-  HomeDiv.append(h3, buttonCerrarSesion); // este lo comentamos al final y pusimos el return h3
+  HomeDiv.append(h3, header, img, buttonCerrarSesion); // este lo comentamos al final y pusimos el return h3
   // HomeDiv.appendChild(buttonLogin);
 
   return HomeDiv;
