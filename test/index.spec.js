@@ -36,7 +36,7 @@ describe('register', () => {
     document.querySelector('#btnregister').click();
     // document.querySelector('#btnregister').dispatchEvent(new Event('submit'));
     expect(registerWithEmail).toHaveBeenCalledWith(expect.any(String), expect.any(String));
-    setTimeout(() => { 
+    setTimeout(() => {
       expect(saveUsers).toHaveBeenCalled();
       expect(navigateTo).toHaveBeenCalledWith('/home');
       done();
@@ -54,17 +54,20 @@ it('si el usuario no comepleta los datos correctamente envia error ', (done) => 
 });
 
 describe('login', () => {
-  it('si el usuario se registrò correctamente debe direccionarse a feed', (done) => {
-    signInWithPassword.mockResolvedValue(Promise.resolve());
+  it.only('si el usuario se loguea correctamente debe direccionarse a feed', (done) => {
+   // signInWithPassword.mockResolvedValue(Promise.resolve());
     document.body.appendChild(Login());
     document.querySelector('#username').value = 'reda@gmail.com';
     document.querySelector('#psw').value = '12345';
-    document.querySelector('.btnEnviarLogin').dispatchEvent(new Event('submit'));
+    document.querySelector('.btnEnviarLogin').dispatchEvent(new Event('click'));
     // document.querySelector('.btnEnviarLogin').click()
-    router.navigateTo = jest.fn().mockImplementation(() => {
-      expect(navigateTo).toHaveBeenCalled();
+    // router.navigateTo = jest.fn().mockImplementation(() => {
+    expect(signInWithPassword).toHaveBeenCalledWith(expect.any(String), expect.any(String));
+    setTimeout(() => {
+      expect(navigateTo).toHaveBeenCalledWith('/feed');
       done();
     });
+    // });
   });
 
   it('el login falla con un error', (done) => {
