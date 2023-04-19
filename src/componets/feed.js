@@ -138,7 +138,7 @@ export const feed = () => {
           <div class="contenedorIconosPost">
           <ion-icon name="trash-outline" type="button" id="btnDeletePost" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}" value="Borrar"></ion-icon>
           <ion-icon name="create-outline" type="button" id="btnEditPost" value="Editar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}" data-id="${postD.id}"></ion-icon> 
-          <ion-icon name="save-outline" type="submit" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"></ion-icon>
+          <ion-icon name="save-outline" type="button" id="btnSaveEditPost" value="Guardar" class="${auth.currentUser.email === postD.usuario ? 'show' : 'noShow'}"></ion-icon>
           <ion-icon class="corazonIcon" name="${(postD.likes || []).includes(auth.currentUser.email) ? 'heart' : 'heart-outline'}" id="like-${postD.id}" ></ion-icon>  ${postD.likes.length}.
           </div>
           <div class="nuevoPostContainer">
@@ -147,6 +147,7 @@ export const feed = () => {
           
           
           </div>`;
+
           // Oh con coni:?? significa que si el primer arreglo no existe
           // retorna el array vacio.(nullish)
           // <ion-icon name="heart-outline"></ion-icon>
@@ -154,13 +155,16 @@ export const feed = () => {
           // <ion-icon class="like"  name="${(postD.likes ?? []).includes(auth.currentUser.email)?
           // 'heart' :'heart-outline' }" data-id="${postD.id}"></ion-icon>
           console.log(form);
-          form.addEventListener('submit', (event) => {
-            console.log("submit!");
+          const saveBtn = form.querySelector('#btnSaveEditPost');
+          saveBtn.addEventListener('click', (event) => {
             event.preventDefault();
             // guardar en firebase
+            console.log(event);
+            // aca cambiamos la manera de obtener los elementos del form,
+            // porque al hacerlo desde el boton, no lograbamos obtener nada.
             const postId = form.dataset.id;
-            const newTitle = event.target.elements.titulo.value;
-            const newDescription = event.target.elements.descripcion.value;
+            const newTitle = form.elements.titulo.value;
+            const newDescription = form.elements.descripcion.value;
             const newtitleEd = document.querySelector('.tituloEdit');
             const newdescripEd = document.querySelector('.descriptionEdit');
             const newPost = {
