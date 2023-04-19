@@ -5,6 +5,7 @@ export const home = () => {
   // crea contenedor principal
   const article = document.createElement('article');
   const body = document.createElement('body');
+
   const h1 = document.createElement('h1');
   h1.textContent = 'Bienvenidos a Friendly Pets!';
 
