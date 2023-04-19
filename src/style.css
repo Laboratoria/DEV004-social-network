@@ -14,7 +14,7 @@
     .container {
       display: flex;
       justify-content: center;
-      background-color: white;
+      background-color:#1d3557;
       justify-items: center;
       margin-top: 70px;
       margin-bottom: 70px;
@@ -209,7 +209,7 @@ h1{
 
 /*vista register desktop*/
 body{
-  background-color:  white;
+  background-color:#1d3557;
   
 }
 .container{
@@ -423,7 +423,7 @@ textarea, input {
   /*home*/
   .container{
     display:flex;
-    background-color: #F1FAEE;
+    background-color:#1d3557;
   }   
   
   .square{
@@ -590,7 +590,7 @@ textarea, input {
 /*vista para movil reg*/
 @media(max-width:390px){
   body{
-    background-color:  #F1FAEE; 
+    background-color:#1d3557; 
   }
 }
 /*este serà el header*/
