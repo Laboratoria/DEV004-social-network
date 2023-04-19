@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 body {
   background: linear-gradient(#9ae2dd, #ffffff);
@@ -14,13 +14,14 @@ body {
 
 .singIn {
   border: none;
-  border-radius: 0,2rem;
+  border-radius: 10px;
+  cursor: pointer;
   padding: 0.7rem 0.8rem;
   background: #9ae2dd;
   margin-top: 2rem;
   margin-bottom: 3rem;
   color: #ffffff;
-  transition: all .8s ease;
+  transition: all 0.8s ease;
 }
 
 h1 {
@@ -33,17 +34,25 @@ h1 {
 .logo {
   display: flex;
   width: 50%;
-  padding-left: 50px ;
-  margin: 10em 5px 0em 5em ; /*izqu arrib dere abaj*/
-
 }
 
 p {
   color: #a7a9ac;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   font-size: 10px;
 }
 @media (min-width: 415px) {
+}
 
+#img-google {
+  height: 5%;
+  width: 5%;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
