@@ -3,6 +3,7 @@
     box-sizing: border-box;
 }
 
+/*ESTILOS HOME*/
 body{
     background: #F1FBFE;
     height: 100%;
@@ -26,36 +27,6 @@ header {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#encabezadoFeed{
-    padding: 0px;
-}
-
-#banner{
-    width: 100%;
-    height: 100%;
-}
-
-#muro {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0px 0px 0px;
-    padding: 20px;
-}
-
-#inputComentarios{
-    width: 900px;
-    height: 65px;
-    gap: 50px; 
-}
-
-#cerrarSesion{
-    display: flex;
-    justify-content: right;
     align-items: center;
     flex-direction: column;
 }
@@ -107,11 +78,47 @@ button{
     height: 35px;
     gap: 15px;
 }
+
+/*LOGIN GOOGLE*/
 #idLogin{
     background: #CEC8EF;
 }
 
-footer {
+/*ESTILOS FEED*/
+#encabezadoFeed{
+    padding: 0px;
+    margin: 0px 0px 25px 0px;
+}
+
+#banner{
+    width: 100%;
+    height: 100%;
+}
+
+#muro {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#inputComentarios{
+    width: 900px;
+    height: 65px;
+    gap: 50px; 
+    margin: 30px 0px 0px 0px;
+}
+
+nav{
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+#cerrarSesion{
+background: #82B1F8;
+}
+
+/*footer {
     background-color: #82B1F8;
     padding: 1em 2em 1em;
     margin: 30px 0px 0px 0px;
@@ -119,8 +126,9 @@ footer {
     font-family: "sans-serif";
     color: rgb(253, 250, 250);
     text-align: center;
-}
+}*/
 
+/*MEDIAQUERY*/
 @media (max-width: 991.98px){
 
     img{
@@ -179,7 +187,7 @@ footer {
 }
 
 button{
-    background: palevioletred;
+    background: rgb(227, 134, 165);
     width: 150px;
     height: 35px;
     gap: 15px;
