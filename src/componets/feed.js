@@ -119,6 +119,7 @@ export const feed = () => {
       // nos aseguramos que la data provenga de feed.js y no de
       // firebase.
         // console.log('feed', showPost);
+        // esto filtra todo los post que no tengan like
         showPost.filter((p) => p.likes !== undefined).forEach((postD) => {
           // const postForm = document.createElement('form');
           const form = document.createElement('form');
