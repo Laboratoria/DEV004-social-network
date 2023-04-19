@@ -9,7 +9,7 @@ export const Login = () => {
     <div class='contenedorlogo'>
       <img src= 'https://i.ibb.co/bWGQN64/REDA-1.png' class='loginLogo' alt='Logo Reda' />
     </div>
-    <h1>Únete a la red de cuidadores más grande de Latinoamérica…</h1>
+    <h1 class="redaText">Únete a la red de cuidadores más grande de Latinoamérica…</h1>
     <div class="inputLogin">
       <label class='labelogin'  for="username"><b>Usuario</b></label>
       <input type="text" placeholder="Correo electrónico" name="username" id="username" required>
