@@ -5,15 +5,17 @@
     padding: 0;
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-size: 20px;
+    
   }
   body{
-    background-color:green;
-
+    background-image: url(https://i.ibb.co/3kTLJN5/fondoreda.png);
+/* vista home */
   }
     .container {
       display: flex;
       justify-content: center;
-      background-color: purple;
+
+      background-color:#1d3557;
       justify-items: center;
       margin-top: 70px;
       margin-bottom: 70px;
@@ -23,9 +25,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    height: 80%;
-    background-color: pink;
+
+    width: 40%;
+    height: 100%;
+    background-color: #E0EAF1;
+    border-radius: 10px;
   }
   .headerHome {
     background-color: blue;
@@ -33,6 +37,8 @@
       height: 50%;
       display: flex;
       justify-content: center;
+      border-top-left-radius: 20px ;
+      border-top-right-radius: 20px ;
 
   }
   .logo {
@@ -111,6 +117,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom-left-radius: 20px ;
+  border--right-radius: 20px ;
 }
 .marca{
   color: #f6f7fa;
@@ -121,7 +129,7 @@
 
 #loginForm {
   display: flex;
-  width: 100%;
+  width: 50%;
   height: 100%;
 }   
 .contenedorMadre{
@@ -132,6 +140,7 @@
   justify-content: center;
   align-items: center ;
   flex-direction: column;
+  border-radius: 10px;
     
 }
 .contenedorlogo{
@@ -194,15 +203,20 @@ h1{
   flex-direction: column;
 
 }
+#root{
+  background-color: #1d3557;
+  display: flex;
+  align-items: center;
+}
 
 /*vista register desktop*/
 body{
-  background-color:  #F1FAEE;
+  background-color:#1d3557;
   
 }
 .container{
   display: flex;
-  background-color: #F1FAEE;
+  background-image: url('https://i.ibb.co/3kTLJN5/fondoreda.png');
   margin:0;
   padding: 0%; 
 }
@@ -278,12 +292,15 @@ body{
   display: grid;
 }
 /*Vista desktop feed*/
+.corazonIcon{
+  color:purple;
+}
 .squareF {
  display: flex;
  align-items: center;
  align-content: center;
  background-color:#E0EAF1;
-width: 70%;
+width: 40%;
 height: 60%;
 flex-direction: column;
 }
@@ -408,7 +425,7 @@ textarea, input {
   /*home*/
   .container{
     display:flex;
-    background-color: #F1FAEE;
+    background-color:#1d3557;
   }   
   
   .square{
@@ -575,7 +592,7 @@ textarea, input {
 /*vista para movil reg*/
 @media(max-width:390px){
   body{
-    background-color:  #F1FAEE; 
+    background-color:#1d3557; 
   }
 }
 /*este serà el header*/
