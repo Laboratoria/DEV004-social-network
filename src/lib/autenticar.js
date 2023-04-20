@@ -6,7 +6,7 @@ import {
 
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebase';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, query } from 'firebase/firestore';
 import { collection, addDoc } from "firebase/firestore";
 initializeApp(firebaseConfig);
 
@@ -90,3 +90,7 @@ const docRef = addDoc(collection(db, "post"), {
 console.log("Document written with ID: ", text);
 return docRef
 };
+
+export const refPost = () => {
+  return query(collection(db, 'post'))
+}
