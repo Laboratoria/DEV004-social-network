@@ -358,6 +358,14 @@ font-weight: 300;
   width:60%;
   flex-direction: row;
 }
+.contenedorCurrentUser{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  flex-direction: column;
+}
+
   /* .userInfoDivF {
    display: flex;
    align-items: center;
@@ -729,6 +737,7 @@ justify-content: left;
   .squareF {
     width: 80%;
     height: 100%;
+  
    }
    .btnLogOut{
     margin-left: 15%;  
