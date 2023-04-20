@@ -63,7 +63,11 @@ export const feed = () => {
 
   const btnLogOut = document.createElement('button');
   btnLogOut.setAttribute('class', 'btnLogOut');
-  btnLogOut.innerHTML = 'Cerrar sesión';
+  //btnLogOut.innerHTML = 'Cerrar sesión';
+  const icon = document.createElement('ion-icon');
+  icon.setAttribute('name', 'log-out-outline');
+  btnLogOut.appendChild(icon);
+
 
   const likeIcon = document.createElement('img');
   // likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
