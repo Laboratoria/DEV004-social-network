@@ -1,4 +1,4 @@
-import { loginGoogle, logOut } from '../lib/autenticar';
+import { createUser, loginGoogle, logOut } from '../lib/autenticar';
 import { onNavigate } from '../router/index';
 import { crearPost } from '../lib/autenticar';
 
@@ -22,7 +22,7 @@ export const Feed = () => {
   buttonPublicar.id = 'publicar';
   buttonPublicar.textContent = 'Publicar';
   buttonPublicar.addEventListener('click', () => {
-   console.log(crearPost);
+  crearPost(inputFeed.value)
   });
   main.append(inputFeed, buttonPublicar);
 
