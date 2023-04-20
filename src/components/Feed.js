@@ -1,6 +1,7 @@
-import { loginGoogle, logOut } from '../lib/autenticar';
+import { logOut, crearPost, refPost } from '../lib/autenticar';
 import { onNavigate } from '../router/index';
-import { crearPost } from '../lib/autenticar';
+import { onSnapshot } from '@firebase/firestore';
+
 
 // CREAR ELEMENTOS DEL MURO
 export const Feed = () => {
@@ -22,10 +23,21 @@ export const Feed = () => {
   buttonPublicar.id = 'publicar';
   buttonPublicar.textContent = 'Publicar';
   buttonPublicar.addEventListener('click', () => {
-   console.log(crearPost);
+  crearPost(inputFeed.value)
   });
   main.append(inputFeed, buttonPublicar);
-
+  onSnapshot(refPost(), (querySnapshot) =>{
+    const articlePost = document.createElement('article')
+querySnapshot.forEach((post)=>{
+  console.log(post.data().email, post.data().comentario)
+  const p = document.createElement('p')
+  p.textContent = post.data().comentario
+  const strong = document.createElement('strong')
+  strong.textContent = post.data().email
+  articlePost.append(p, strong)
+  HomeDiv.appendChild(articlePost)
+})
+  })
   const nav = document.createElement('nav')
   const buttonCerrarSesion = document.createElement('button');
   buttonCerrarSesion.id = 'cerrarSesion';

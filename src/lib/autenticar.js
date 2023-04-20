@@ -6,7 +6,7 @@ import {
 
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebase';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, query } from 'firebase/firestore';
 import { collection, addDoc } from "firebase/firestore";
 initializeApp(firebaseConfig);
 
@@ -80,12 +80,17 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-export const crearPost = () => {
+export const crearPost = (text) => {
 // Add a new document with a generated id.
-const docRef = addDoc(collection(db, "cities"), {
-  name: "Tokyo",
-  country: "Japan"
+const docRef = addDoc(collection(db, "post"), {
+  comentario: text,
+  email: getAuth().currentUser.email,
+
 });
-console.log("Document written with ID: ", docRef.id);
-return crearPost
+console.log("Document written with ID: ", text);
+return docRef
 };
+
+export const refPost = () => {
+  return query(collection(db, 'post'))
+}
