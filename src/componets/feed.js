@@ -63,11 +63,10 @@ export const feed = () => {
 
   const btnLogOut = document.createElement('button');
   btnLogOut.setAttribute('class', 'btnLogOut');
-  //btnLogOut.innerHTML = 'Cerrar sesión';
+  // btnLogOut.innerHTML = 'Cerrar sesión';
   const icon = document.createElement('ion-icon');
   icon.setAttribute('name', 'log-out-outline');
   btnLogOut.appendChild(icon);
-
 
   const likeIcon = document.createElement('img');
   // likeIcon.setAttribute('src', 'https://cdn-icons-png.flaticon.com/512/4140/4140047.png');
@@ -132,7 +131,7 @@ export const feed = () => {
           form.setAttribute('id', 'form');
 
           form.innerHTML = `<div class="contenedorCurrentUser"> <text disabled>
-          Autor: ${postD.usuario}
+           ${postD.usuario}
           </text>
           <div class="contenedorPostCompleto">
           <input name="titulo" id="titulo-${postD.id}" class="tituloEdit" value="${postD.titulo}" disabled />
@@ -147,7 +146,8 @@ export const feed = () => {
           <ion-icon class="corazonIcon" name="${(postD.likes || []).includes(auth.currentUser.email) ? 'heart' : 'heart-outline'}" id="like-${postD.id}" ></ion-icon>  ${postD.likes.length}.
           </div>
           <div class="nuevoPostContainer">
-          <a href="/feed">publicar nuevamente</a> 
+          <a href="/feed"><ion-icon name="add-circle-outline"></ion-icon>
+          </a> 
           </div>
           
           
