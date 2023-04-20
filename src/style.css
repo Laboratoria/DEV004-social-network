@@ -61,7 +61,7 @@ input {
     border-style: solid;
     border-color: #82B1F8;
     border-radius: 9pt;
-    width: 400px;
+    width: 340px;
     height: 35px;
     gap: 50px; 
 }
@@ -74,7 +74,7 @@ button{
     border: 0px;
     border-radius: 9pt;
     background: #FFCBA5;
-    width: 150px;
+    width: 340px;
     height: 35px;
     gap: 15px;
 }
@@ -116,6 +116,11 @@ nav{
 
 #cerrarSesion{
 background: #82B1F8;
+width: 150px;
+}
+
+#publicar{
+    width: 150px;
 }
 
 /*footer {
@@ -157,7 +162,7 @@ background: #82B1F8;
     input {
         font-size: 12px;
         width: 200px;
-        height: 15px;
+        height: 35px;
         gap: 25px; 
     }
 
@@ -168,7 +173,7 @@ background: #82B1F8;
     
     button{
         background: peru;
-        width: 150px;
+        width: 200px;
         height: 35px;
         gap: 15px;
     }
@@ -188,7 +193,7 @@ background: #82B1F8;
 
 button{
     background: rgb(227, 134, 165);
-    width: 150px;
+    width: 200px;
     height: 35px;
     gap: 15px;
 }

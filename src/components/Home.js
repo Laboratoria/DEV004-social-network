@@ -34,7 +34,8 @@ export const Home = () => {
     // llamar a la funcion logincongoogle
     loginGoogle()
       .then((credential) => {
-        const user = credential.user.uid;
+        const user = credential.user;
+        //const user = credential.user.uid;
         console.log(user);
         onNavigate('/feed');
       })

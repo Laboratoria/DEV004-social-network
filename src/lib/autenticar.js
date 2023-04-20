@@ -6,8 +6,10 @@ import {
 
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebase';
-
+import { getFirestore } from 'firebase/firestore';
+import { collection, addDoc } from "firebase/firestore";
 initializeApp(firebaseConfig);
+
 
 // FUNCIONES DE FIREBASE/PRESENTES EN HOME (crearUser, LoginUser, loginGoogle)
 
@@ -69,4 +71,21 @@ export const logOut = () => {
 export const authStateChangedevent = (cb) => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => cb(user));
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+export const crearPost = () => {
+// Add a new document with a generated id.
+const docRef = addDoc(collection(db, "cities"), {
+  name: "Tokyo",
+  country: "Japan"
+});
+console.log("Document written with ID: ", docRef.id);
+return crearPost
 };

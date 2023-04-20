@@ -1,5 +1,6 @@
 import { loginGoogle, logOut } from '../lib/autenticar';
 import { onNavigate } from '../router/index';
+import { crearPost } from '../lib/autenticar';
 
 // CREAR ELEMENTOS DEL MURO
 export const Feed = () => {
@@ -21,7 +22,7 @@ export const Feed = () => {
   buttonPublicar.id = 'publicar';
   buttonPublicar.textContent = 'Publicar';
   buttonPublicar.addEventListener('click', () => {
-    console.log(inputFeed.value);
+   console.log(crearPost);
   });
   main.append(inputFeed, buttonPublicar);
 
