@@ -340,7 +340,6 @@ margin-top: 3%;
   width: 150px;
   height: 150px;
   margin-left: 9%;
- 
 }
 .currentUserMail{
   font-size: 90%;
@@ -365,26 +364,10 @@ font-weight: 300;
   align-self: center;
   flex-direction: column;
 }
-
-  /* .userInfoDivF {
-   display: flex;
-   align-items: center;
-   background-color: #1d3557;
-   width: 50%;
-   height: 80%;
-  } */
-
-
 .userAvatar {
 width: 13%;
 height: 13%;
 margin: 0%;
-
-
-}
-.userExpertChecked {
-  width: 4%;
-  height: 4%;
 }
 .postContainer {
   width: 60%;
@@ -423,7 +406,6 @@ margin: 0%;
   height: 20%;
   flex-direction: column;
 }
-
 .squareFooterF {
   display: flex;
   background-color:#B8D1E0;
@@ -435,7 +417,6 @@ margin: 0%;
   padding: 1%;
   font-weight: 100;
 }
-
 #form{
   /* background-color: #1d3557; */
   display: flex;
@@ -447,29 +428,23 @@ margin: 0%;
 .contenedorPostCompleto {
   display: flex;
   flex-direction: column;
-  
 }
 .contenedorIconosPost{
   flex-direction: row;
   display: flex;
 }
-
 textarea, input {
   background-color: #3e6e8347;
   color:#1d3557;
   border-radius: 10px;
- 
 }
-
-/*Vista para movil*/
-
+/*------------Vistas para movil*/
 @media(max-width:390px){
-  /*home*/
+  /*-------------------home----------------------*/
   .container{
     display:flex;
     background-color:#1d3557;
   }   
-  
   .square{
     display: flex;
     flex-direction: column;
@@ -480,7 +455,6 @@ textarea, input {
     background-color: #E0EAF1;  
     margin-top: 25%;
   }
-
   .headerHome {
     background-color: #B8D1E0;
     width: 100% ;
@@ -488,14 +462,12 @@ textarea, input {
     display: flex;
     justify-content: center;
   }
-
   .logo {
     display: flex;
     width: 95%;
     height: 125%;
     margin-top: 0%;
   }
-
   .welcome{
     color: #1d3557; 
     font-size: 80%;
@@ -505,7 +477,6 @@ textarea, input {
     margin-top: 10%;
     margin-bottom: 5%;
   }
-
   .btnLogin , #btnregister {
     height: 56px;
     width: 50%;
@@ -529,7 +500,6 @@ textarea, input {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-
   }
   .btnLogin:hover, .btnRegister:hover{
     background-color: #B8D1E0;
@@ -554,13 +524,11 @@ textarea, input {
     margin-top: 5%;
     font-size: 70%; 
   }
-  /*login movil*/
+  /*----------------login movil------------*/
   #loginForm {
     display: flex;
     width: 100%;
     height: 100%;
-    
-    
   }   
   .footerlog{
     margin-bottom: 25%;
@@ -573,7 +541,6 @@ textarea, input {
     justify-content: center;
     align-items: center ;
     flex-direction: column;
-      
   }
   .contenedorlogo{
     background-color: #B8D1E0;
@@ -582,12 +549,10 @@ textarea, input {
     display: flex;
     justify-content: center;
     align-items: center;
-  
   }
   .loginLogo{
     display: flex;
     width: 40%;
-    
   }
   .redaText{
     align-items: center;
@@ -599,7 +564,6 @@ textarea, input {
     margin: 10%;
     margin-top: 10%;
     margin-bottom: 5%;
-    
   }
   h1{
     color: #1d3557; 
@@ -610,8 +574,6 @@ textarea, input {
     margin-top: 10%;
     margin-bottom: 5%;
   }
-    
-    
     .inputLogin{
     display: flex;
     text-align: center;
@@ -619,14 +581,9 @@ textarea, input {
     height: 25%;
     margin: 5%;
     flex-direction: column;
-    
-    
-  
-    
   }
   .btnEnviarLogin{
     width: 100%;
-    
   }
   .googleBtn{
     display: flex;
@@ -643,17 +600,12 @@ textarea, input {
     justify-content: center;
     align-items: center ;
     flex-direction: column;
-  
   }
-  
-  
-/*vista para movil reg*/
+/*-----------vista para movil register-----------*/
 @media(max-width:390px){
   body{
-    background-color:#1d3557; 
+    background-color:  #F1FAEE; 
   }
-}
-/*este serà el header*/
 #registerForm{
   background-color: #B8D1E0;
   display: grid;
@@ -663,53 +615,39 @@ textarea, input {
   margin-bottom: 10%;
   justify-content: center;
   align-items: center ;
-}
 
+}
 .tituloReg{
   margin-top: 5%;
-  color: red;
+  color:#1d3557;
 }
-
 .containerTitulo{
-  
   background-color: #E0EAF1;
   margin-top: 0%;
   margin-bottom: 0%;
   width: 100%;
   display: flex;
-
 }
 .containerRegister{
-  
   background-color: #E0EAF1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  
-  
   margin-top: 0%;
   margin-bottom: 1%;
   width: 100%;
   justify-self: right;
   align-items: start;
-  
-  
-  
 }
 .labelsReg{ 
   grid-row: 1/2;
-
 }
 .footerReg{
 display: flex;
 justify-content: left;
-
-
-    
 }
 .contLogoReg{
   background-color:#B8D1E0;
-
 }
 .logoReg{
   display: flex;
@@ -718,28 +656,27 @@ justify-content: left;
   margin-right: 45%;
   margin-top: 0%;
   margin-bottom: -5%;
-  
 }
-
 .labelReg{
-  
-  width: 80%;
-
+  width: 50%;
+  height: 50%;
+  font-size: 3px;
 }
 .inputReg{
-  width: 80%;
-  height:60% ;
+  width: 50%;
+  height:50% ;
   display: grid;
-  
 }
- /* vista movil feed */
+}
+
+
+ /*---------- vista movil feed --------*/
  @media(max-width:390px){
   .squareF {
     width: 80%;
     height: 100%;
-  
-   }
-   .btnLogOut{
+  }
+  .btnLogOut{
     margin-left: 15%;  
   }
   .btnPubF {
@@ -748,10 +685,9 @@ justify-content: left;
   .btnHomeF {
     width: 40%;
   }
- }
-
 }
-
+}
+/* cosas extras que hay que revisar */
 .show{
   display: block;
 }
@@ -760,5 +696,4 @@ justify-content: left;
 }
 #corazon {
   color: red;
-  
 }
