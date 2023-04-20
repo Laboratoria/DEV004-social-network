@@ -3,7 +3,8 @@ import { register } from '../src/componets/register';
 import { navigateTo, registerError, showError } from '../src/router';
 import { Login } from '../src/componets/login';
 import { signInWithPassword, registerWithEmail, signInWithGoogle } from '../src/lib/authentication';
-import { saveUsers } from '../src/lib/firebase';
+import { saveUsers, createpost, auth } from '../src/lib/firebase';
+import { feed } from '../src/componets/feed';
 
 jest.mock('../src/lib/authentication', () => ({
   signInWithPassword: jest.fn().mockImplementation(() => Promise.resolve()),
@@ -16,9 +17,39 @@ jest.mock('../src/router', () => ({
   showError: jest.fn(),
 
 }));
+
 jest.mock('../src/lib/firebase', () => ({
   saveUsers: jest.fn().mockImplementation(() => Promise.resolve()),
+  createpost: jest.fn().mockImplementation(() => Promise.resolve()),
+  getpost: jest.fn().mockImplementation(() => Promise.resolve(
+    [{
+      id: '1',
+      usuario: 'prueba@gmail.com',
+      titulo: 'titulo',
+      descripcion: 'post',
+      likes: [],
+    }],
+  )),
+  auth: jest.fn(),
+  // auth: jest.fn().mockReturnValue(({ currentUser: { email: 'correo@gmail.com' } })),
 }));
+
+jest.spyOn(Storage.prototype, 'getItem');
+Storage.prototype.getItem = jest.fn(() => {
+  console.log('hola Mock');
+  return JSON.stringify({ email: 'reda@gmail.com' });
+});
+// class SessionStorageMock {
+//   constructor() {
+//     this.store = {};
+//   }
+// }
+// const sessionStorageMockInstance = new SessionStorageMock();
+// sessionStorageMockInstance.getItem = jest.fn(() => {
+//   console.log('hola Mock');
+//   return JSON.stringify({ email: 'reda@gmail.com' });
+// });
+// global.sessionStorage = sessionStorageMockInstance;
 
 describe('register', () => {
   it('si el usuario se registrò correctamente debe direccionarse a home', (done) => {
@@ -107,6 +138,21 @@ describe('login with google', () => {
     document.querySelector('.google').click();
     setTimeout(() => {
       expect(showError).toHaveBeenCalled();
+      done();
+    });
+  });
+});
+describe('feed', () => {
+  it.only('el usuario retorna un post y llama a la funcion dibujar después del crear el post', (done) => {
+    document.body.appendChild(feed());
+    document.querySelector('#post').value = 'post';
+    document.querySelector('#postTitle').value = 'titulo';
+    document.querySelector('.postContainer').submit();
+    createpost.mockResolvedValue();
+    auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } })
+    setTimeout(() => {
+      expect(createpost).toHaveBeenCalled();
+      // expect(document.querySelector('#titulo-1').value).toBeEqual('titulo');
       done();
     });
   });
