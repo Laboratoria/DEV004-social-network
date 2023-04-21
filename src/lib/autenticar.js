@@ -81,6 +81,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const crearPost = (text) => {
+  //crearPost.innerHTML = ''
 // Add a new document with a generated id.
 const docRef = addDoc(collection(db, "post"), {
   comentario: text,

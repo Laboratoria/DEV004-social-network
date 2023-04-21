@@ -28,13 +28,14 @@ export const Feed = () => {
   main.append(inputFeed, buttonPublicar);
   onSnapshot(refPost(), (querySnapshot) =>{
     const articlePost = document.createElement('article')
+    articlePost.id= 'postRealizado'
 querySnapshot.forEach((post)=>{
   console.log(post.data().email, post.data().comentario)
   const p = document.createElement('p')
   p.textContent = post.data().comentario
   const strong = document.createElement('strong')
   strong.textContent = post.data().email
-  articlePost.append(p, strong)
+  articlePost.append(strong, p)
   HomeDiv.appendChild(articlePost)
 })
   })
