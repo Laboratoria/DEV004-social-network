@@ -30,8 +30,11 @@ jest.mock('../src/lib/firebase', () => ({
       likes: [],
     }],
   )),
-  auth: jest.fn(),
-  // auth: jest.fn().mockReturnValue(({ currentUser: { email: 'correo@gmail.com' } })),
+  // este es un obejeto, no una funcion
+  auth: { currentUser: { email: 'correo@gmail.com' } },
+  // auth: jest.fn(() => ({ currentUser: { email: 'correo@gmail.com' } })),
+  // auth: jest.fn().mockImplementation(() => ({ currentUser: { email: 'correo@gmail.com' } }))
+  // auth: jest.fn().mockReturnValue(true),
 }));
 
 jest.spyOn(Storage.prototype, 'getItem');
@@ -143,13 +146,13 @@ describe('login with google', () => {
   });
 });
 describe('feed', () => {
-  it.only('el usuario retorna un post y llama a la funcion dibujar después del crear el post', (done) => {
+  it('el usuario retorna un post y llama a la funcion dibujar después del crear el post', (done) => {
     document.body.appendChild(feed());
     document.querySelector('#post').value = 'post';
     document.querySelector('#postTitle').value = 'titulo';
     document.querySelector('.postContainer').submit();
     createpost.mockResolvedValue();
-    auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } })
+    // auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } });
     setTimeout(() => {
       expect(createpost).toHaveBeenCalled();
       // expect(document.querySelector('#titulo-1').value).toBeEqual('titulo');
@@ -157,3 +160,19 @@ describe('feed', () => {
     });
   });
 });
+
+// describe('feed', () => {
+//   it.only('el usuario retorna un post y llama a la funcion dibujar después del crear el post', (done) => {
+//     document.body.appendChild(feed());
+//     document.querySelector('#post').value = 'post';
+//     document.querySelector('#postTitle').value = 'titulo';
+//     document.querySelector('.postContainer').submit();
+//     createpost.mockResolvedValue();
+//     // auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } })
+//     setTimeout(() => {
+//       expect(createpost).toHaveBeenCalled();
+//       // expect(document.querySelector('#titulo-1').value).toBeEqual('titulo');
+//       done();
+//     });
+//   });
+// });
