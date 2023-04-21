@@ -2,7 +2,6 @@ import { navigateTo } from '../router';
 // import { createpost, getpost, eliminatePost } from '../lib/firebase.js';
 import {
   createpost, getpost, exitApp, auth, deletePost, updatePost, addLike, updatelike,
-
 } from '../lib/firebase.js';
 
 // console.log('estamos en feed', auth);
@@ -106,7 +105,7 @@ export const feed = () => {
 
   postContainer.addEventListener('submit', (e) => {
     e.preventDefault();
-    // console.log(postContainer);
+    console.log(postContainer, 'estamos con ivy');
     const feedTitle = e.target.elements.postTitle.value;
     const feedPost = e.target.elements.post.value;
     // console.log(parseUser.email);
@@ -129,7 +128,7 @@ export const feed = () => {
           form.classList.add('formularioEditar');
           form.setAttribute('data-id', postD.id);
           form.setAttribute('id', 'form');
-
+          console.log('auth', auth.currentUser);
           form.innerHTML = `<div class="contenedorCurrentUser"> <text disabled>
            ${postD.usuario}
           </text>
