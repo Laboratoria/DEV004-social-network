@@ -3,7 +3,7 @@ import { register } from '../src/componets/register';
 import { navigateTo, registerError, showError } from '../src/router';
 import { Login } from '../src/componets/login';
 import { signInWithPassword, registerWithEmail, signInWithGoogle } from '../src/lib/authentication';
-import { saveUsers, createpost, auth } from '../src/lib/firebase';
+import { saveUsers, createpost, updatePost, addLike, getpost, deletePost } from '../src/lib/firebase';
 import { feed } from '../src/componets/feed';
 
 jest.mock('../src/lib/authentication', () => ({
@@ -32,12 +32,17 @@ jest.mock('../src/lib/firebase', () => ({
   )),
   // este es un obejeto, no una funcion
   auth: { currentUser: { email: 'correo@gmail.com' } },
+  updatelike: jest.fn().mockImplementation(() => Promise.resolve()),
+  addLike: jest.fn().mockImplementation(() => Promise.resolve()),
+  deletePost: jest.fn().mockImplementation(() => Promise.resolve()),
+  updatePost: jest.fn().mockImplementation(() => Promise.resolve()),
   // auth: jest.fn(() => ({ currentUser: { email: 'correo@gmail.com' } })),
   // auth: jest.fn().mockImplementation(() => ({ currentUser: { email: 'correo@gmail.com' } }))
   // auth: jest.fn().mockReturnValue(true),
 }));
 
 jest.spyOn(Storage.prototype, 'getItem');
+jest.spyOn(window, 'confirm');
 Storage.prototype.getItem = jest.fn(() => {
   console.log('hola Mock');
   return JSON.stringify({ email: 'reda@gmail.com' });
@@ -155,24 +160,75 @@ describe('feed', () => {
     // auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } });
     setTimeout(() => {
       expect(createpost).toHaveBeenCalled();
-      // expect(document.querySelector('#titulo-1').value).toBeEqual('titulo');
+      done();
+    });
+  });
+
+  it('el usuario da like en un post', (done) => {
+    document.body.appendChild(feed());
+    document.querySelector('#post').value = 'post';
+    document.querySelector('#postTitle').value = 'titulo';
+    document.querySelector('.postContainer').submit();
+    createpost.mockResolvedValue();
+    addLike.mockResolvedValue();
+    // obtener un post y darle like
+    document.querySelector('#like-1').click();
+
+    // auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } });
+    setTimeout(() => {
+      expect(addLike).toHaveBeenCalledWith('1', ['correo@gmail.com']);
+      done();
+    });
+  });
+
+  it('el usuario elimina su post', (done) => {
+    document.body.appendChild(feed());
+    document.querySelector('#post').value = 'post';
+    document.querySelector('#postTitle').value = 'titulo';
+    document.querySelector('.postContainer').submit();
+    createpost.mockResolvedValue();
+    window.confirm.mockReturnValue(true);
+    document.querySelector('#btnDeletePost').click();
+
+    // auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } });
+    setTimeout(() => {
+      expect(window.confirm).toHaveBeenCalled();
+      expect(deletePost).toHaveBeenCalled();
+      done();
+    });
+  });
+
+  it('el usuario edita su post', (done) => {
+    document.body.appendChild(feed());
+    document.querySelector('#post').value = 'post';
+    document.querySelector('#postTitle').value = 'titulo';
+    document.querySelector('.postContainer').submit();
+    createpost.mockResolvedValue();
+
+    document.querySelector('#btnEditPost').click();
+
+    // auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } });
+    setTimeout(() => {
+      expect(document.getElementById('1').getAttribute('disabled')).toBeNull();
+      expect(document.getElementById('titulo-1').getAttribute('disabled')).toBeNull();
+      done();
+    });
+  });
+
+  it('el usuario guarda su post', (done) => {
+    document.body.appendChild(feed());
+    document.querySelector('#post').value = 'post';
+    document.querySelector('#postTitle').value = 'titulo';
+    document.querySelector('.postContainer').submit();
+    createpost.mockResolvedValue();
+
+    document.querySelector('#btnEditPost').click();
+    document.querySelector('#btnSaveEditPost').click();
+
+    // auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } });
+    setTimeout(() => {
+      expect(updatePost).toHaveBeenCalled();
       done();
     });
   });
 });
-
-// describe('feed', () => {
-//   it.only('el usuario retorna un post y llama a la funcion dibujar después del crear el post', (done) => {
-//     document.body.appendChild(feed());
-//     document.querySelector('#post').value = 'post';
-//     document.querySelector('#postTitle').value = 'titulo';
-//     document.querySelector('.postContainer').submit();
-//     createpost.mockResolvedValue();
-//     // auth.mockReturnValue({ currentUser: { email: 'correo@gmail.com' } })
-//     setTimeout(() => {
-//       expect(createpost).toHaveBeenCalled();
-//       // expect(document.querySelector('#titulo-1').value).toBeEqual('titulo');
-//       done();
-//     });
-//   });
-// });

@@ -190,6 +190,7 @@ export const feed = () => {
             // console.log(auth.currentUser.email);
             // este like representa un booleano
             const postLike = (postD.likes || []).includes(auth.currentUser.email);
+            console.log('posts', postD);
             if (postLike === true) {
               const newLikes = postD.likes.filter((email) => email !== auth.currentUser.email);
               updatelike(postD.id, newLikes).then(() => {
@@ -214,6 +215,7 @@ export const feed = () => {
             const btnId = btn.getAttribute('data-id');
             // console.log(btnId);
             const shouldDeletePost = window.confirm('¿Estás seguro de que deseas eliminar este post?');
+            console.log('shouldDeletePost', shouldDeletePost);
             if (shouldDeletePost) {
               const formToRemove = document.getElementById('form');
               formToRemove.remove();
