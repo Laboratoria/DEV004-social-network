@@ -5,27 +5,25 @@
     padding: 0;
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-size: 20px;
-    
   }
   body{
     background-image: url(https://i.ibb.co/3kTLJN5/fondoreda.png);
-/* vista home */
+
+    /* -----------------vista home----------------- */
   }
     .container {
-      display: flex;
-      justify-content: center;
-
-      background-color:#1d3557;
-      justify-items: center;
-      margin-top: 70px;
-      margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    background-color:#1d3557;
+    justify-items: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
     }
   .square{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     width: 40%;
     height: 100%;
     background-color: #E0EAF1;
@@ -34,20 +32,18 @@
   }
   .headerHome {
     background-color: #B8D1E0;
-      width: 100% ;
-      height: 50%;
-      display: flex;
-      justify-content: center;
-      border-top-left-radius: 20px ;
-      border-top-right-radius: 20px ;
-
+    width: 100% ;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 20px ;
+    border-top-right-radius: 20px ;
   }
   .logo {
     display: flex;
     width: 40%;
     height: 50%;
     margin-top: 0%;
-    
   }
   .welcome{
     color: #1d3557; 
@@ -59,8 +55,9 @@
     margin-bottom: 5%;
     text-align: center;
   }
+  /*          ------botones------- */
 /* lo que tiene que ver con botones, tiene que estar junto, no importa que vista sea, sino, error de eslint */
-.btnLogin , .btnRegister, .btnEnviarLogin, .btnPubF, .btnHomeF, .btnLogOut {
+.btnLogin , #btnregister, .btnRegister,.btnEnviarLogin, .btnPubF, .btnHomeF, .btnLogOut {
   height: 56px;
     width: 50%;
     align-items: center;    
@@ -83,7 +80,13 @@
     -webkit-user-select: none;
     touch-action: manipulation;
 }
-
+#btnregister{
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  font-size: 100%;
+}
 .btnPubF {
   width: 30%;
   height:50px ;
@@ -92,18 +95,11 @@
   width: 20%;
   height: 50px;
 }
-.btnLogin:hover, .btnRegister:hover,.btnEnviarLogin:hover, .btnPubF:hover, .btnHomeF:hover{
-  background-color: #B8D1E0;
-}
-.btnRegister, .btnEnviarLogin, .btnPubF {
+#btnregister,.btnRegister, .btnEnviarLogin, .btnPubF {
   background-color: #FFB703;
 }
 .btnLogin, .btnHomeF {
   background-color: #1d3557;
-}
-.btnLogOut:hover{
-  background-color: #1d3557;
-  color: #B8D1E0;
 }
 .btnLogOut{
   background-color: #B8D1E0;
@@ -114,8 +110,27 @@
   height: 10px;
   border: none;
   color: #1d3557;
-  
 }
+.btnEnviarLogin{
+  width: 100%;
+}
+.googleBtn{
+  display: flex;
+}
+.btnLogin:hover, #btnregister:hover,.btnEnviarLogin:hover, .btnPubF:hover, .btnHomeF:hover, .btnRegister:hover{
+  background-color: #B8D1E0;
+}
+.btnLogOut:hover{
+  background-color: #1d3557;
+  color: #B8D1E0;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+/*          ------Fin botones------- */
 .footerHome, .footerlog{
   background-color:#B8D1E0;
   width: 100%;
@@ -125,20 +140,16 @@
   align-items: center;
   border-bottom-left-radius: 20px ;
  border-bottom-right-radius: 20px;
- 
 }
 .footerlog{
   margin-bottom: 35%;
 }
-
-
 .marca{
   color: #f6f7fa;
   margin-top: 0%;
   font-size: 80%; 
 }
-/*login*/
-
+/*-----------login----------------*/
 #loginForm {
   display: flex;
   width: 50%;
@@ -153,7 +164,6 @@
   align-items: center ;
   flex-direction: column;
   border-radius: 10px;
-    
 }
 .contenedorlogo{
   background-color: #B8D1E0;
@@ -162,13 +172,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .loginLogo{
   display: flex;
   width: 40%;
   margin-top: 40%;
-  
 }
 h1{
   color: #1d3557; 
@@ -184,8 +192,6 @@ h1{
   border-radius: 10px;
   color:#1d3557;
   height: 30px;
-  
-  
 }
 .inputLogin{
   display: flex;
@@ -194,43 +200,26 @@ h1{
   height: 25%;
   margin: 5%;
   flex-direction: column;
-
-  
 }
 #username{
   margin-bottom: 4%;
 }
-.btnEnviarLogin{
-  width: 100%;
-  
-}
-.googleBtn{
-  display: flex;
-}
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-} 
 #wrong{
   background-color: #888;
   display: flex;
   justify-content: center;
   align-items: center ;
   flex-direction: column;
-
 }
 #root{
   background-color: #1d3557;
   display: flex;
   align-items: center;
 }
-
-/*vista register desktop*/
+/*-------------vista register desktop--------*/
+/*-------------body y container con error, si se mueven se cae la pagina, marcar como issue--------*/
 body{
   background-color:#1d3557;
-  
 }
 .container{
   display: flex;
@@ -238,34 +227,40 @@ body{
   margin:0;
   padding: 0%; 
 }
-
-/*este serà el header*/
+/*-------------vista register desktop---------*/
 #registerForm{
+  color: #1d3557;
   background-color: #B8D1E0;
   display: flex;
-  width: 80%;
+  width: 50%;
   height: 80%;
-  margin-top: 10%;
   margin-bottom: 10%;
   flex-direction: column;
-    
-  justify-content: center;
-  align-items: center;
-}
-
-.tituloReg{
+  justify-content: space-between;
+  align-items:center;
+  border-radius: 20px;
   margin-top: 5%;
-  color: red;
 }
-
+.tituloReg{
+  display: flex;
+  margin-top: 1%;
+  color: #1d3557;
+  text-align: center;
+  align-self: center;
+}
 .containerTitulo{  
   background-color: #E0EAF1;
   margin-top: 0%;
   margin-bottom: 0%;
-  width: 100%;
+  width: 70%;
   display: flex;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 1%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
-
 .containerRegister{  
   background-color: #E0EAF1;
   display: grid;
@@ -273,24 +268,24 @@ body{
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-top: 0%;
   margin-bottom: 1%;
-  width: 100%;
-  justify-self: right;
-  align-items: start;
+  width: 70%;
+  justify-self: center;
+  align-items:center;
+  padding: 2%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
-
 .labelsReg{ 
   grid-row: 1/2;
 }
-
 .footerReg{
   display: flex;
-  justify-content: left;    
+  justify-content: center;   
+  align-self: auto;
 }
-
 .contLogoReg{
   background-color:#B8D1E0;
 }
-
 .logoReg{
   display: flex;
   width: 30%;
@@ -299,19 +294,24 @@ body{
   margin-top: 0%;
   margin-bottom: -5%;  
 }
-
 .labelReg{
-  width: 80%;
+  width: 70%;
 }
-
 .inputReg{
   width: 80%;
   height:60% ;
   display: grid;
+  background-color: #E0EAF1;
+}
+.optionReg {
+  width: 80%;
+  height:60% ;
+  display: grid;
+  background-color: #E0EAF1;
 }
 /*Vista desktop feed*/
 .corazonIcon{
-  color:purple;
+  color:#1d3557;
 }
 .squareF {
  display: flex;
@@ -506,7 +506,7 @@ textarea, input {
     margin-bottom: 5%;
   }
 
-  .btnLogin , .btnRegister {
+  .btnLogin , #btnregister {
     height: 56px;
     width: 50%;
     align-items: center;    
@@ -534,7 +534,7 @@ textarea, input {
   .btnLogin:hover, .btnRegister:hover{
     background-color: #B8D1E0;
   }
-  .btnRegister{
+  #btnregister{
     background-color: #FFB703;
   }
   .btnLogin{
