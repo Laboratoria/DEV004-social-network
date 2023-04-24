@@ -4,6 +4,8 @@ import { entrarConGoogle } from "../firebaseConfig";
 export const home = () => {
   // crea contenedor principal
   const article = document.createElement("article");
+  article.setAttribute("id","principal");
+  
   const body = document.createElement("body");
   body.setAttribute("id", "container"); // agregamos id al body
 
@@ -43,7 +45,7 @@ export const home = () => {
   article.append(body);
   buttonGoogle.addEventListener("click", () => {
     entrarConGoogle().then(() => {
-      onNavigate("/wall");
+      onNavigate("/register");
     });
   });
   return article;
