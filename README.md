@@ -130,56 +130,72 @@ Estas consideraciones te ayudarán a escribir las Definiciones de Terminado de
 tus H.U.:
 
 #### Creación de cuenta de usuario e inicio de sesión lady
+En el presente proyecto se implementò  Firebase, la plataforma en la nube para el desarrollo de aplicaciones web y móvil de Google. Firebase proporciona servicios de backend, SDK fáciles de usar y bibliotecas de interfaz  las cuales  posibilitan la autenticaciòn de los usuarios y el almacenamiento de las publicaciones que estos deseen crear.
+Con base a lo anterior, el proyecto REDA posibilita lo siguiente:
 
-* _Login_ con Firebase:
-  - Para el _login_ y las publicaciones en el muro puedes utilizar [Firebase](https://firebase.google.com/products/database/)
-  - Creación de cuenta de acceso y autenticación con cuenta de correo y
-    contraseña, y también con una cuenta de Google.
+* Creaciòn de cuenta e inicio de sesiòn:
+- Crear una cuenta de acceso y autenticación con cuenta de correo y contraseña.
+- Iniciar sesiòn con la cuenta anteriormente creada.
+- Iniciar sesiòn con una cuenta de Google.
+ 
+ Las anteriores funcionalidades cumplen una serie de requisitos (validaciones) y comportamientos escenciales para su correcto funcionamiento.
+
 * Validaciones:
-  - Solamente se permite el acceso a usuarios con cuentas válidas.
+  - Si la cuenta no es vàlida, el usuario no puede inciar sesiòn.
   - No pueden haber usuarios repetidos.
   - La cuenta de usuario debe ser un correo electrónico válido.
-  - Lo que se escriba en el campo (_input_) de contraseña debe ser secreto.
+  - Lo que se escriba en el campo  de contraseña debe ser secreto.
+
 * Comportamiento:
-  - Al enviarse el formulario de registro o inicio de sesión, debe validarse.
-  - Si hay errores, se deben mostrar mensajes descriptivos para ayudar al
-  usuario a corregirlos.
+  - Antes de que el usuario envìe el formulario de registro o inicio de sesión se valida que los campos no esten vacìos.
+  - Cuando hay errores se  muestra una serie de mensajes descriptivos que ayuda all usuario a corregirlos.
 
 #### Muro/timeline lady
+ Antes de que el usuario publique contenido de su interès; REDA se encarga de realizar las repectivas validaciones garantizando un adecuado funcionamiento, las cuales se basan en la validaciòn de usuarios y el comportamiento de la interfaz.
 
 * Validaciones:
-  - Al publicar, se debe validar que exista contenido en el _input_.
+  - Al publicar, Reda valida que exista contenido en la caja de texto.
 * Comportamiento:
-  - Al recargar la aplicación, se debe verificar si el usuario está _logueado_
-    antes de mostrar contenido.
-  - Poder publicar un _post_.
-  - Poder dar y quitar _like_ a una publicación. Máximo uno por usuario.
-  - Llevar un conteo de los _likes_.
-  - Poder eliminar un post específico.
-  - Pedir confirmación antes de eliminar un _post_.
-  - Al dar _click_ para editar un _post_, debe cambiar el texto por un _input_
-    que permita editar el texto y luego guardar los cambios.
-  - Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la
-    información editada.
-  - Al recargar la página debo de poder ver los textos editados.
+  Es necesario que el usuario haya iniciado sesiòn antes poder relaizar las siguientes actividades:
+
+  - Ver las publiaciones propias y de otros usuarios.
+  - Poder publicar un post.
+  - Poder dar y quitar like a una publicación. 
+   Cabe aclarar que el usuario solo puede dar like una vez y en la interfaz se visualiza la cantidad de 
+  likes que tienen los post.
+
+   - El usuario solo puede  eliminar sus propios posts, no las publiaciones pertenecientes a otros 
+     usuarios.
+   Se le muestra al usuario una ventana que le pide confirmar antes de elimianr cualquier publicaciòn.
+  - El usuario solo puede editar sus propias publicaciones.
+  Cuando el usuario modifica un escrito, èste se actualiza y le  permite guardar y publicar los nuevos 
+  cambios.
+  -
+   
+  
 
 ### 5.7 Consideraciones técnicas Front-end lady
 
-* Separar la manipulación del DOM de la lógica (Separación de responsabilidades).
-* Contar con múltiples vistas. Para esto, tu aplicación debe ser una
- [Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-* Alterar y persistir datos. Los datos que agregues o modifiques deberán
-  persistir a lo largo de la aplicación. Te recomendamos que uses
-  [Firebase](https://firebase.google.com/) para eso también.
+En el presente proyecto se separò las responsabilidades permtiendo un funcionamiento sencillo y eficaz.
+Es por esto que se crèo un archivo Java Script por cada una de las vistas:
+- Home: Pàgina de inicio la cual muestra la opciòn de inciar sesiòn o registrarse.
+- Register: Pàgina que le indica al usuario la informaciòn que debe digitar para regsistrarse.
+- Login : Vista que le posibilita al usuario anteriormente registrado iniciar sesiòn o para lo no registrados existe la opciòn de ingresar con uan cuenta de Google.
+- Feed: Implementaciòn de las funciones importadas del archivo Firebase.js que permitieron la funcionalidades de REDA anteriormente descritas.
+- Firebase.js: En este documento se crearon todas las funciones que permiten crear, visualizar, editar, likear, deslikear y eliminar un post.
+- Autenticaciòn: En este apartado se crearon las funciones que le permiten al usuario registarse e inciar sesiòn.
+- Router: en este archivo se crea por un lado la funciòn que permite navegar por los diferentes archivos, y por el otro la funciòn que permite identificar què usuario se encuentra logueado.
+- Routes:  En este documento se crean las rutas de las vistas del proyecto.
+- Main: En este archivo se inicializan las rutas.
+- Styles: En este documento se configura la parte estètica de todas las vistas.
+
+Con el objetivo de garantizar la velocidad de la pàgina se implemento una Single-page application, es decir, un sitio web que cabe en una sola página con el propósito de dar una experiencia más fluida a los usuarios, como si fuera una aplicación de escritorio.
+
+
 
 #### Pruebas unitarias (unit tests) lady 
+Con el objetivo de garantizar la calidad del còdigo implementado se relizaron 11 test a las funciones implementadas haciendo uso de Jest. Cabe destacar que el proyecto cumple con una covertura total de 96.8% de 100% porcentaje considerado alto.
 
-* Recuerda que no hay un _setup_ de **tests** definido, dependerá de
-  la estructura de tu proyecto. Algo que no debes de olvidar es pensar en éstas
-  pruebas, te pueden ayudar a definir la estructura y nomenclatura de tu lógica.
-
-* Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-  _lines_, y _branches_.
 
 ### 5.8 Consideraciones técnicas UX
 
