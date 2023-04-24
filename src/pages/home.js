@@ -1,9 +1,10 @@
 import { onNavigate } from '../router';
 import { entrarConGoogle } from '../firebaseConfig';
+
 export const home = () => {
   // crea contenedor principal
   const article = document.createElement('article');
-  article.setAttribute('id','principal');
+  article.setAttribute('id', 'principal');
   const body = document.createElement('body');
   body.setAttribute('id', 'container'); // agregamos id al body
   const h1 = document.createElement('h1');
@@ -20,13 +21,13 @@ export const home = () => {
   divAbout.appendChild(p);
   const buttonGoogle = document.createElement('button');
   buttonGoogle.classList.add('singIn');
-  //buttonGoogle.textContent = 'Inicia sesión con Google';
+  // buttonGoogle.textContent = 'Inicia sesión con Google';
   const divButton = document.createElement('div');
   divButton.setAttribute('id', 'img-btn');
   const imgGoogle = document.createElement('img');
   imgGoogle.src = 'imagenes/logo-google.png';
-  imgGoogle.setAttribute('id', 'img-google'); //agregamos un id a la imagen
-  divButton.append(imgGoogle); //ingresamos img dentro del div dentro del boton
+  imgGoogle.setAttribute('id', 'img-google'); // agregamos un id a la imagen
+  divButton.append(imgGoogle); // ingresamos img dentro del div dentro del boton
   const spanButton = document.createElement('span'); // creamos un  span para el texto
   spanButton.textContent = 'Inicia sesión con Google';
   divButton.append(spanButton); // lo agregamos al div dentro del boton

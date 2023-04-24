@@ -20,7 +20,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-// Get a list of cities from your database
+
+// Get a list of post from your database
 async function getPost() {
   const postCol = collection(db, 'posts');
   const postSnapshot = await getDocs(postCol);
@@ -30,6 +31,7 @@ async function getPost() {
 }
 
 const p = getPost();
+console.log(p);
 
 // firebase.initializeApp(firebaseConfig);
 // Initialize Firestore
