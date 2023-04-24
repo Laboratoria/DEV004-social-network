@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
@@ -17,7 +19,20 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+// Get a list of cities from your database
+async function getPost() {
+  const postCol = collection(db, 'posts');
+  const postSnapshot = await getDocs(postCol);
+  const posts = postSnapshot.docs.map((doc) => doc.data());
+  console.log(posts);
+  return posts;
+}
 
+const p = getPost();
+
+// firebase.initializeApp(firebaseConfig);
+// Initialize Firestore
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth();
 auth.languageCode = 'es';
