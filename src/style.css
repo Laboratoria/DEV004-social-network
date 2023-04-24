@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*ESTILOS HOME*/
+body{
+    background: #F1FBFE;
+    height: 100%;
+    width: 100%;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    box-shadow: 0px 0px 16px #856FAB;
+    backdrop-filter: blur 50px;
+}
+
+#logoEncabezadoRegister{
+    margin-top: 50px;
+}
+
+header {
+    padding: 50px;
+    height: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;  
+}
+
+article {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1, h2{
+    font-size: 15px;
+    font-family: Verdana, Helvetica;
+}
+
+input {
+    font-size: 18px;
+    font-family: Verdana, Helvetica;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #82B1F8;
+    border-radius: 9pt;
+    width: 340px;
+    height: 35px;
+    gap: 50px; 
+}
+
+button{
+    font-size: 10px;
+    font-family: Verdana, Helvetica;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border: 0px;
+    border-radius: 9pt;
+    background: #FFCBA5;
+    width: 340px;
+    height: 35px;
+    gap: 15px;
+}
+
+
+/*LOGIN GOOGLE*/
+#idLogin{
+    background: #CEC8EF;
+}
+
+/*ESTILOS FEED*/
+#encabezadoFeed{
+    padding: 0px;
+    margin: 0px 0px 25px 0px;
+}
+
+#banner{
+    width: 100%;
+    height: 100%;
+}
+
+#muro {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#inputComentarios{
+    width: 900px;
+    height: 65px;
+    gap: 50px; 
+    margin: 30px 0px 0px 0px;
+}
+
+nav{
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+#cerrarSesion{
+background: #82B1F8;
+width: 150px;
+}
+
+#publicar{
+    width: 150px;
+}
+
+#postRealizado{
+    font-size: 18px;
+    font-family: Verdana, Helvetica;
+    margin-top: 30px;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+}
+
+strong{
+    margin-bottom: 0px;
+    font-size: 16px;
+    color: #856FAB;
+}
+
+p{
+    width: 900px;
+    height: auto;
+    padding: 15px;
+    border-style: solid;
+    border-color: #856FAB;
+    background: white;
+    border-radius: 9pt;
+    margin-bottom: 30px;
+}
+/*footer {
+    background-color: #82B1F8;
+    padding: 1em 2em 1em;
+    margin: 30px 0px 0px 0px;
+    font-size: 12px;
+    font-family: "sans-serif";
+    color: rgb(253, 250, 250);
+    text-align: center;
+}*/
+
+/*MEDIAQUERY*/
+@media (max-width: 991.98px){
+
+    img{
+        height: 150px;
+        width: 150px;
+    }
+
+    #inputComentarios{
+        width: 700px;
+        height: 65px;
+    }
+
+    p{
+        width: 700px;
+        height: auto; 
+    }
+
+}
+
+@media (max-width: 767.98px){
+    img{
+        height: 100px;
+        width: 100px;
+    }
+
+    h1, h2{
+        font-size: 13px;
+        font-family: Verdana, Helvetica;
+    }
+    
+    input {
+        font-size: 12px;
+        width: 200px;
+        height: 35px;
+        gap: 25px; 
+    }
+
+    #inputComentarios{
+        width: 500px;
+        height: 65px;
+    }
+
+    p{
+        width: 500px;
+        height: auto;
+    }
+    
+    button{
+        background: peru;
+        width: 200px;
+        height: 35px;
+        gap: 15px;
+    }
+
+}
+
+@media (max-width: 575.98px){
+
+    h1, h2{
+    font-size: 10.5px;
+}
+
+#inputComentarios{
+    width: 300px;
+    height: 65px;
+}
+
+p{
+    width: 300px;
+    height: auto;
+}
+
+button{
+    background: rgb(227, 134, 165);
+    width: 200px;
+    height: 35px;
+    gap: 15px;
+}
+}
