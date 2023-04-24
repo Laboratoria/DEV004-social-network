@@ -1,0 +1,236 @@
+[33mcommit f257dfcf8f3cbfb2b4380759011884a0fbf54751[m[33m ([m[1;36mHEAD -> [m[1;32mestilosLady14[m[33m)[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Apr 19 13:52:35 2023 -0500
+
+    boton logout con icono :) todo los btones de feed funcionando
+
+[33mcommit f532470eb0ead0ff120e3245f9bf9c9878bffa5d[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Apr 19 13:21:32 2023 -0500
+
+    estilos de vistas home y login con mq okay
+
+[33mcommit 537ccfef3de7607fd583986f2ab496c709cbf991[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Wed Apr 19 00:07:15 2023 -0400
+
+    agregamos comentarios no importantes
+
+[33mcommit 9b1bbea7d5ea50beae31b592efe2d07ebbe1bf59[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Wed Apr 19 00:04:28 2023 -0400
+
+     botones vuelven a funcionar
+
+[33mcommit b91c971ce2027d08b7ac80e170a71d4479c7e580[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Tue Apr 18 23:46:31 2023 -0400
+
+    funcionan iconos menos gaurdar
+
+[33mcommit 3603a64d6774ea2155d6c8219bdc2a9d4770bdaa[m
+Merge: 790b35f cb6e73a
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Tue Apr 18 22:29:43 2023 -0400
+
+    Merge pull request #56 from katalimbu/estilosGeneral2
+    
+    Estilos general2
+
+[33mcommit cb6e73a34f06b5cc38e1e151f9b96c7522e22c4e[m[33m ([m[1;31morigin/estilosGeneral2[m[33m)[m
+Merge: cad4a86 790b35f
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Tue Apr 18 22:29:01 2023 -0400
+
+    Merge branch 'main' into estilosGeneral2
+
+[33mcommit cad4a86fb7210bd9abeba0a5f9e70edcb7028daf[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Apr 18 19:46:18 2023 -0500
+
+    nuevo fondo azul universal
+
+[33mcommit 790b35fcfb8e549d831c37b87dba478d8f2ef2b6[m
+Merge: 1634db0 cf74b29
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Tue Apr 18 17:36:55 2023 -0400
+
+    Merge pull request #55 from katalimbu/Ladytest1
+    
+    Ladytest1
+
+[33mcommit cf74b290f71aead115a6eb7fba8c79c33ddede66[m[33m ([m[1;31morigin/Ladytest1[m[33m, [m[1;32mLadytest1[m[33m)[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Tue Apr 18 16:29:39 2023 -0500
+
+    ya pasan los 6 test supestamente
+
+[33mcommit 87fe2e1300d0ab83821202ba38af3a078e24a1d7[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Tue Apr 18 15:57:09 2023 -0500
+
+     pasan 3 tes, este es el del si el usuario se leoguea se dirige a feed
+
+[33mcommit 3e8d8061e1a99ce45ebd9ce8530abda8171b551c[m[33m ([m[1;31morigin/katatest[m[33m, [m[1;32mkatatest[m[33m)[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Tue Apr 18 15:32:11 2023 -0400
+
+     pasan 2 test
+
+[33mcommit 1634db0809f2e1979ffdbd96daf2a969faedf241[m
+Merge: 906f170 c0e28b2
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Tue Apr 18 13:53:15 2023 -0400
+
+    Merge pull request #54 from katalimbu/estilosgeneralLady2
+    
+    Estilosgeneral lady2
+
+[33mcommit b459adccfa4043d31e5f817bcada2876e137172a[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Tue Apr 18 12:37:44 2023 -0500
+
+    reacomodo de todas las vistas
+
+[33mcommit c0e28b280d48385b040d32eb8f95f06b5569f121[m[33m ([m[1;31morigin/estilosgeneralLady2[m[33m, [m[1;32mestilosgeneralLady2[m[33m)[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Tue Apr 18 12:33:42 2023 -0500
+
+    ivy
+
+[33mcommit f7354f90bcefd684ff5028bec25a2f352bfcfe97[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Mon Apr 17 17:08:07 2023 -0500
+
+    test register redirige a Home, funciona
+
+[33mcommit 0568ace3acb42d03362f3a33ace4f976bed492e4[m[33m ([m[1;31morigin/estilosgeneral2kata[m[33m, [m[1;32mestilosgeneral2kata[m[33m)[m
+Author: katalimbu <katalina.esteban@gmail.com>
+Date:   Mon Apr 17 17:10:36 2023 -0400
+
+     test sin resolver aun despues de la oh con jorge
+
+[33mcommit f6286517eca2d14584361a66b97270627da869e6[m[33m ([m[1;32mestilosgeneralLady[m[33m, [m[1;32mestilosGeneral2[m[33m)[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Mon Apr 17 12:50:55 2023 -0500
+
+    test cambio evento de click a submit donde corresponde
+
+[33mcommit 906f170a6a8eb6249bd9e057fbb1c0cf38d8f50c[m[33m ([m[1;32mestilosLady13[m[33m)[m
+Merge: d01fbf8 cfbdf4b
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Thu Apr 13 23:25:31 2023 -0400
+
+    Merge pull request #53 from katalimbu/chuzLikes2
+    
+    boton sin estilos
+
+[33mcommit d01fbf88b2c47358f45d7fd6a1aae0a1a4487efd[m[33m ([m[1;32mestilosLady12[m[33m)[m
+Merge: fcf578e 502b004
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Thu Apr 13 23:13:24 2023 -0400
+
+    Merge pull request #52 from katalimbu/estilosLady12
+    
+    Estilos lady12
+
+[33mcommit 502b0046d030b258ae9d04d25d18bdf990cd8b0f[m[33m ([m[1;31morigin/estilosLady12[m[33m)[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Thu Apr 13 21:53:09 2023 -0500
+
+    el like funciona por fin :)
+
+[33mcommit cfbdf4b8758bb140ace5ecf0bf8ce43dfcf7c51b[m[33m ([m[1;31morigin/chuzLikes2[m[33m)[m
+Merge: ffe3d47 d01fbf8
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Thu Apr 13 21:24:22 2023 -0500
+
+    boton sin estilos, sin conflictos
+
+[33mcommit ffe3d47965111ef9b9c32c3d41ab00765f59bac8[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Thu Apr 13 21:07:17 2023 -0500
+
+    boton sin estilos
+
+[33mcommit d21f8396af3b9ad44b2c21ff2062496bcdf44c5f[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Thu Apr 13 19:32:34 2023 -0500
+
+    se likea pero no se quita el like
+
+[33mcommit fcf578ef3957422cfd2f945975906a724452f2d2[m
+Merge: 4855e71 e23705f
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Thu Apr 13 14:15:50 2023 -0500
+
+    Merge pull request #51 from katalimbu/chuzLikes2
+    
+    Chuz likes2
+
+[33mcommit e23705ff7567913d4b2df01d3b4b12fd639ff264[m[33m ([m[1;32mchuzLikes2[m[33m)[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Thu Apr 13 13:11:20 2023 -0500
+
+    funciona el like, pero el feed esta dividido en dos vistas
+
+[33mcommit f1a05a3b5f3b2dc4e1a79af0d86fdb9a80f4b070[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Thu Apr 13 10:35:08 2023 -0500
+
+    avance like
+
+[33mcommit 4855e7160066bd121aad573a82d12c50c0741231[m
+Merge: 205db22 10fa22f
+Author: katalimbu <122368809+katalimbu@users.noreply.github.com>
+Date:   Wed Apr 12 22:20:16 2023 -0400
+
+    Merge pull request #50 from katalimbu/chuzLikes2
+    
+    iconos en post
+
+[33mcommit 10fa22f14eaf4d1814ee5c5672ac373530314cbb[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Wed Apr 12 20:16:54 2023 -0500
+
+    iconos en post
+
+[33mcommit 205db222d9e7f923b01147ba36709539a84c1b8e[m[33m ([m[1;32mestilosLady10-1[m[33m, [m[1;32mestilosLady10[m[33m)[m
+Merge: ad65b81 8a2ae34
+Author: LuzAlvaca <118011555+ChuzAlvaca@users.noreply.github.com>
+Date:   Wed Apr 12 14:58:28 2023 -0600
+
+    Merge pull request #49 from katalimbu/estilosLady10
+    
+    se agrega confirm a delte
+
+[33mcommit 8a2ae343712eb22e52b52c9e2fd5cde8988f2b17[m[33m ([m[1;31morigin/estilosLady10[m[33m)[m
+Author: Leidy Suarez Miranda <leidysuarez55@gmail.com>
+Date:   Wed Apr 12 15:49:45 2023 -0500
+
+    se agrega confirm a delte
+
+[33mcommit ad65b81d6d743757559d1c09e4257f3330bc6b4e[m
+Merge: 66f91a8 6129c67
+Author: Lady9696 <122558772+Lady9696@users.noreply.github.com>
+Date:   Wed Apr 12 13:55:01 2023 -0500
+
+    Merge pull request #47 from katalimbu/chuzLikes
+    
+    Chuz likes
+
+[33mcommit 6129c670fef242fbc5d123e29a3a9c06008860a5[m[33m ([m[1;31morigin/chuzLikes[m[33m)[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Wed Apr 12 12:53:30 2023 -0500
+
+    register funciona y se borra titulo y descripcion en el feed
+
+[33mcommit 784f849a76cd1e764d518fc13a4f861995827d1f[m
+Author: LuzAlvaca <luz.alvaca@gmail.com>
+Date:   Wed Apr 12 11:57:29 2023 -0500
+
+    problema resuelto en register, se agregaron likes como array vacio en firebase
+
+[33mcommit 66f91a8f8180fbcc85c6c7b7c1742005b03b7935[m
+Merge: 4f5c401 dd48b57
+Author: ka

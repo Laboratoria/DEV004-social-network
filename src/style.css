@@ -1,0 +1,706 @@
+/*  se corrigen los margenes que tiene HTML por default */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 20px;
+  }
+  body{
+    background-image: url(https://i.ibb.co/3kTLJN5/fondoreda.png);
+
+    /* -----------------vista home----------------- */
+  }
+    .container {
+    display: flex;
+    justify-content: center;
+    background-color:#1d3557;
+    justify-items: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    }
+  .square{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    background-color: #E0EAF1;
+    border-radius: 10px;
+    margin-top: 5%;
+  }
+  .headerHome {
+    background-color: #B8D1E0;
+    width: 100% ;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 20px ;
+    border-top-right-radius: 20px ;
+  }
+  .logo {
+    display: flex;
+    width: 40%;
+    height: 50%;
+    margin-top: 0%;
+  }
+  .welcome{
+    color: #1d3557; 
+    font-size: 120%;
+    font-weight: 700;
+    display: flex;
+    margin: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+  }
+  /*          ------botones------- */
+/* lo que tiene que ver con botones, tiene que estar junto, no importa que vista sea, sino, error de eslint */
+.btnLogin , #btnregister, .btnRegister,.btnEnviarLogin, .btnPubF, .btnHomeF, .btnLogOut {
+  height: 56px;
+    width: 50%;
+    align-items: center;    
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    font-size: 80%;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 24px;
+    overflow-wrap: break-word;
+    padding: 24px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+#btnregister{
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  font-size: 100%;
+}
+.btnPubF {
+  width: 30%;
+  height:50px ;
+}
+.btnHomeF {
+  width: 20%;
+  height: 50px;
+}
+#btnregister,.btnRegister, .btnEnviarLogin, .btnPubF {
+  background-color: #FFB703;
+}
+.btnLogin, .btnHomeF {
+  background-color: #1d3557;
+}
+.btnLogOut{
+  background-color: #B8D1E0;
+  margin-top: 2%;
+  margin-left: 44%;
+  margin-right: 7%;
+  width: 600px;
+  height: 10px;
+  border: none;
+  color: #1d3557;
+}
+.btnEnviarLogin{
+  width: 100%;
+}
+.googleBtn{
+  display: flex;
+}
+.btnLogin:hover, #btnregister:hover,.btnEnviarLogin:hover, .btnPubF:hover, .btnHomeF:hover, .btnRegister:hover{
+  background-color: #B8D1E0;
+}
+.btnLogOut:hover{
+  background-color: #1d3557;
+  color: #B8D1E0;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
+/*          ------Fin botones------- */
+.footerHome, .footerlog{
+  background-color:#B8D1E0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px ;
+ border-bottom-right-radius: 20px;
+}
+.footerlog{
+  margin-bottom: 35%;
+}
+.marca{
+  color: #f6f7fa;
+  margin-top: 0%;
+  font-size: 80%; 
+}
+/*-----------login----------------*/
+#loginForm {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}   
+.contenedorMadre{
+  background-color: #E0EAF1;
+  display: flex;
+  width:30em;
+  height: 33em;
+  justify-content: center;
+  align-items: center ;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.contenedorlogo{
+  background-color: #B8D1E0;
+  width: 30em ;
+  height: 20em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginLogo{
+  display: flex;
+  width: 40%;
+  margin-top: 40%;
+}
+h1{
+  color: #1d3557; 
+  font-size: 1.5em;
+  font-weight: 600;
+  display: flex;
+  margin: 10%;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+.labelogin{
+  background-color: #7ca3b5c9;
+  border-radius: 10px;
+  color:#1d3557;
+  height: 30px;
+}
+.inputLogin{
+  display: flex;
+  text-align: center;
+  width: 80%;
+  height: 25%;
+  margin: 5%;
+  flex-direction: column;
+}
+#username{
+  margin-bottom: 4%;
+}
+#wrong{
+  background-color: #888;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  flex-direction: column;
+}
+#root{
+  background-color: #1d3557;
+  display: flex;
+  align-items: center;
+}
+/*-------------vista register desktop--------*/
+/*-------------body y container con error, si se mueven se cae la pagina, marcar como issue--------*/
+body{
+  background-color:#1d3557;
+}
+.container{
+  display: flex;
+  background-image: url('https://i.ibb.co/3kTLJN5/fondoreda.png');
+  margin:0;
+  padding: 0%; 
+}
+/*-------------vista register desktop---------*/
+#registerForm{
+  color: #1d3557;
+  background-color: #B8D1E0;
+  display: flex;
+  width: 50%;
+  height: 80%;
+  margin-bottom: 10%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:center;
+  border-radius: 20px;
+  margin-top: 5%;
+}
+.tituloReg{
+  display: flex;
+  margin-top: 1%;
+  color: #1d3557;
+  text-align: center;
+  align-self: center;
+}
+.containerTitulo{  
+  background-color: #E0EAF1;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  width: 70%;
+  display: flex;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 1%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.containerRegister{  
+  background-color: #E0EAF1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-top: 0%;
+  margin-bottom: 1%;
+  width: 70%;
+  justify-self: center;
+  align-items:center;
+  padding: 2%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.labelsReg{ 
+  grid-row: 1/2;
+}
+.footerReg{
+  display: flex;
+  justify-content: center;   
+  align-self: auto;
+}
+.contLogoReg{
+  background-color:#B8D1E0;
+}
+.logoReg{
+  display: flex;
+  width: 30%;
+  height: 30%;
+  margin-right: 45%;
+  margin-top: 0%;
+  margin-bottom: -5%;  
+}
+.labelReg{
+  width: 70%;
+}
+.inputReg{
+  width: 80%;
+  height:60% ;
+  display: grid;
+  background-color: #E0EAF1;
+}
+.optionReg {
+  width: 80%;
+  height:60% ;
+  display: grid;
+  background-color: #E0EAF1;
+}
+.btnregister{
+  width: 50%;
+  height: 50%;
+}
+/*Vista desktop feed*/
+.corazonIcon{
+  color:#1d3557;
+}
+.squareF {
+ display: flex;
+ align-items: center;
+ align-content: center;
+ background-color:#E0EAF1;
+width: 40%;
+height: 60%;
+flex-direction: column;
+border-radius: 20px;
+margin-top: 3%;
+}
+.squareHeaderF {
+  background-color: #B8D1E0;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 5%;
+  display: flex;
+  align-items: stretch;
+  align-content: space-between;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.logoF {
+  background-color:auto;
+  width: 150px;
+  height: 150px;
+  margin-left: 9%;
+}
+.currentUserMail{
+  font-size: 90%;
+display: flex;
+text-align: center;
+align-self: center;
+margin:5%;
+color: #1d3557;
+font-weight: 300;
+}
+.userInfoF{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width:60%;
+  flex-direction: row;
+}
+.contenedorCurrentUser{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  flex-direction: column;
+}
+.userAvatar {
+width: 13%;
+height: 13%;
+margin: 0%;
+}
+.postContainer {
+  width: 60%;
+  height: 20%;
+  background-color: #E0EAF1;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+.postTitle{
+  background-color:#B8D1E0;
+  width: 100%;
+  height: auto;
+  margin: 2%;
+  resize: none;
+  border-radius:15px;
+  border-color: #1d3557;
+  border-width: 2px;
+}
+.post{
+  width: 100%;
+  height: 400%;
+  resize: none;
+  background-color:#B8D1E0;
+  border-radius:15px;
+  border-color: #1d3557;
+  border-width: 2px;
+  margin-bottom: 5%;
+}
+.subsquareF{
+  align-items: center;
+  background-color: #E0EAF1;
+  display: flex;
+  width: 60%;
+  height: 20%;
+  flex-direction: column;
+}
+.squareFooterF {
+  display: flex;
+  background-color:#B8D1E0;
+  width: 100%;
+  height: 50px;
+  flex-direction: column;
+  color: #F1FAEE;
+  text-align: center;
+  padding: 1%;
+  font-weight: 100;
+}
+#form{
+  /* background-color: #1d3557; */
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+.contenedorPostCompleto {
+  display: flex;
+  flex-direction: column;
+}
+.contenedorIconosPost{
+  flex-direction: row;
+  display: flex;
+}
+textarea, input {
+  background-color: #3e6e8347;
+  color:#1d3557;
+  border-radius: 10px;
+}
+/*------------Vistas para movil*/
+@media(max-width:390px){
+  /*-------------------home----------------------*/
+  .container{
+    display:flex;
+    background-color:#1d3557;
+  }   
+  .square{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    background-color: #E0EAF1;  
+    margin-top: 25%;
+  }
+  .headerHome {
+    background-color: #B8D1E0;
+    width: 100% ;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+  }
+  .logo {
+    display: flex;
+    width: 95%;
+    height: 125%;
+    margin-top: 0%;
+  }
+  .welcome{
+    color: #1d3557; 
+    font-size: 80%;
+    font-weight: 700;
+    display: flex;
+    margin: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+  .btnLogin , #btnregister {
+    /* height: 56px;
+    width: 50%; */
+    align-items: center;    
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    font-size: 80%;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 24px;
+    overflow-wrap: break-word;
+    padding: 24px;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    margin: 3%;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  .btnLogin:hover, .btnRegister:hover{
+    background-color: #B8D1E0;
+  }
+  #btnregister{
+    background-color: #FFB703;
+    width:50%;
+    height:50%;
+  }
+  .btnLogin{
+    background-color: #1d3557;
+  }
+  .footerHome{
+    background-color:#B8D1E0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  .marca{
+    color: #f6f7fa;
+    margin-top: 5%;
+    font-size: 70%; 
+  }
+  /*----------------login movil------------*/
+  #loginForm {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }   
+  .footerlog{
+    margin-bottom: 25%;
+  }
+  .contenedorMadre{
+    background-color: #E0EAF1;
+    display: flex;
+    width:30em;
+    height: 33em;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+  }
+  .contenedorlogo{
+    background-color: #B8D1E0;
+    width: 30em ;
+    height: 20em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loginLogo{
+    display: flex;
+    width: 40%;
+  }
+  .redaText{
+    align-items: center;
+    align-self: center;
+    color: #1d3557; 
+    font-size: 65%;
+    font-weight: 600%;
+    display: flex;
+    margin: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+  h1{
+    color: #1d3557; 
+    font-size: 65%;
+    font-weight: 600;
+    display: flex;
+    margin: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+    .inputLogin{
+    display: flex;
+    text-align: center;
+    width: 55%;
+    height: 25%;
+    margin: 5%;
+    flex-direction: column;
+  }
+  .btnEnviarLogin{
+    width: 100%;
+  }
+  .googleBtn{
+    display: flex;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  } 
+  #wrong{
+    background-color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+  }
+/*-----------vista para movil register-----------*/
+@media(max-width:390px){
+#registerForm{
+  background-color: #B8D1E0;
+  display: grid;
+  width: 80%;
+  height: 80%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  justify-content: center;
+  align-items: center ;
+}
+.tituloReg{
+  margin-top: 5%;
+  color:#1d3557;
+  font-size: 100%;
+}
+.containerTitulo{
+  background-color: #E0EAF1;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  width: 100%;
+  display: flex;
+}
+.containerRegister{
+  background-color: #E0EAF1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-top: 0%;
+  margin-bottom: 1%;
+  width: 100%;
+  justify-self: right;
+  align-items: start;
+}
+.labelsReg{ 
+  grid-row: 1/2;
+}
+.footerReg{
+display: flex;
+justify-content: center;
+}
+.contLogoReg{
+  background-color:#B8D1E0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.logoReg{
+  display: flex;
+  width: 30%;
+  height: 30%;
+  margin-right: 45%;
+  margin-top: 0%;
+  margin-bottom: -5%;
+}
+.labelReg{
+  width: 50%;
+  height: 50%;
+  font-size: 3px;
+}
+.inputReg{
+  width: 100%;
+  height:50% ;
+  display: grid;
+}
+.btnregister{
+  width: 50px;
+  height: 50px;
+}
+}
+ /*---------- vista movil feed --------*/
+ @media(max-width:390px){
+  .squareF {
+    width: 80%;
+    height: 100%;
+  }
+  .btnLogOut{
+    margin-left: 15%;  
+  }
+  .btnPubF {
+    width: 50%;
+  }
+  .btnHomeF {
+    width: 40%;
+  }
+}
+}
+/* cosas extras que hay que revisar */
+.show{
+  display: block;
+}
+.noShow {
+  display: none;
+}
+#corazon {
+  color: red;
+}
