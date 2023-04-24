@@ -6,3 +6,4 @@ export const wall = () => {
   // retorna el elemento
   return h1;
 };
+
