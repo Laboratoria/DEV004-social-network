@@ -1,7 +1,7 @@
-import { logOut, crearPost, refPost } from '../lib/autenticar';
+import { logOut, crearPost, refPost, db } from '../lib/autenticar';
 import { onNavigate } from '../router/index';
 import { onSnapshot } from '@firebase/firestore';
-
+import { doc, deleteDoc } from "firebase/firestore";
 
 // CREAR ELEMENTOS DEL MURO
 export const Feed = () => {
@@ -23,23 +23,32 @@ export const Feed = () => {
   buttonPublicar.id = 'publicar';
   buttonPublicar.textContent = 'Publicar';
   buttonPublicar.addEventListener('click', () => {
-  crearPost(inputFeed.value)
+  crearPost(inputFeed.value);
   });
   main.append(inputFeed, buttonPublicar);
+  const articlePost = document.createElement('article');
+  articlePost.id= 'postRealizado';
   onSnapshot(refPost(), (querySnapshot) =>{
-    const articlePost = document.createElement('article')
-    articlePost.id= 'postRealizado'
+    articlePost.innerHTML = '';
 querySnapshot.forEach((post)=>{
-  console.log(post.data().email, post.data().comentario)
-  const p = document.createElement('p')
-  p.textContent = post.data().comentario
-  const strong = document.createElement('strong')
-  strong.textContent = post.data().email
-  articlePost.append(strong, p)
-  HomeDiv.appendChild(articlePost)
+  console.log(post.data().email, post.data().comentario);
+  const p = document.createElement('p');
+  p.textContent = post.data().comentario;
+  const strong = document.createElement('strong');
+  strong.textContent = post.data().email;
+  const buttonEditar = document.createElement('button');
+  buttonEditar.textContent = 'Editar';
+  const buttonEliminar = document.createElement('button');
+  buttonEliminar.textContent = 'Eliminar';
+  buttonEliminar.addEventListener('click', async () => {
+      await deleteDoc(doc(db, "post", post.id));
+    
+  })
+  articlePost.append(strong, p, buttonEditar, buttonEliminar);
+  HomeDiv.appendChild(articlePost);
 })
   })
-  const nav = document.createElement('nav')
+  const nav = document.createElement('nav');
   const buttonCerrarSesion = document.createElement('button');
   buttonCerrarSesion.id = 'cerrarSesion';
   // BOTON CERRAR SESIÓN Y EVENTO (interacción)
@@ -47,7 +56,7 @@ querySnapshot.forEach((post)=>{
   buttonCerrarSesion.addEventListener('click', () => {
     logOut().then((resp) => onNavigate('/'));
   });
- nav.appendChild(buttonCerrarSesion)
+ nav.appendChild(buttonCerrarSesion);
 HomeDiv.append(header, nav, main);
 
   //HomeDiv.append(img, inputFeed, buttonPublicar, buttonCerrarSesion); // este lo comentamos al final y pusimos el return h3
