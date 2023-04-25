@@ -1,19 +1,31 @@
 import {
-  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged,
-} from 'firebase/auth';
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
 
 // import {  auth } from "firebase/auth";
 
-import { initializeApp } from 'firebase/app';
-import { firebaseConfig } from './firebase';
-import { getFirestore, query } from 'firebase/firestore';
-import { collection, addDoc } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./firebase";
+import {
+  getFirestore,
+  query,
+  collection,
+  addDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 initializeApp(firebaseConfig);
-
 
 // FUNCIONES DE FIREBASE/PRESENTES EN HOME (crearUser, LoginUser, loginGoogle)
 
-export const createUser = (name, email, password) => { // recibe paramatros
+export const createUser = (name, email, password) => {
+  // recibe paramatros
   console.log(name, email, password);
   const auth = getAuth();
   return createUserWithEmailAndPassword(auth, email, password)
@@ -42,7 +54,7 @@ export const loginGoogle = () => {
   const auth = getAuth();
   return signInWithPopup(auth, provider)
     .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
+      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       console.log(credential);
@@ -51,8 +63,9 @@ export const loginGoogle = () => {
       // IdP data available using getAdditionalUserInfo(result)
       // ...
       return credential;
-    }).catch((error) => {
-    // Handle Errors here.
+    })
+    .catch((error) => {
+      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
       // The email of the user's account used.
@@ -60,7 +73,7 @@ export const loginGoogle = () => {
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       return errorCode;
-    // ...
+      // ...
     });
 };
 export const logOut = () => {
@@ -76,24 +89,25 @@ export const authStateChangedevent = (cb) => {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
 
 export const crearPost = (text) => {
   //crearPost.innerHTML = ''
-// Add a new document with a generated id.
-const docRef = addDoc(collection(db, "post"), {
-  comentario: text,
-  email: getAuth().currentUser.email,
-});
-//const q = query(docRef, orderBy("post", "desc"));
-console.log("Document written with ID: ", text);
-return docRef
+  // Add a new document with a generated id.
+  const docRef = addDoc(collection(db, "post"), {
+    comentario: text,
+    email: getAuth().currentUser.email,
+  });
+  //const q = query(docRef, orderBy("post", "desc"));
+  console.log("Document written with ID: ", text);
+  return docRef;
 };
 
 export const refPost = () => {
-  return query(collection(db, 'post'))
-  
-}
+  return query(collection(db, "post"));
+};
 
+
+export const editRef = (id, text) => {
+return updateDoc(doc(db, "post", id), text) };
