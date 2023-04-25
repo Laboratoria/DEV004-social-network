@@ -1,30 +1,19 @@
-import { home } from './components/home';
-import { register } from './components/register';
-import { login } from './components/login';
+import { addRoutes, onNavigate } from './router/index.js';
+import { home } from './pages/home.js';
+import { register } from './pages/register.js';
+import { wall } from './pages/wall.js';
 
-const rootDiv = document.getElementById('root');
-
-const routes = {
+addRoutes({
   '/': home,
   '/register': register,
-  '/login': login,
+  '/wall': wall,
+});
+
+// Lógica de la aplicacion
+window.onload = () => {
+  onNavigate(window.location.pathname);
 };
 
-export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
-  }
-  rootDiv.appendChild(routes[pathname]());
-};
-
-const component = routes[window.location.pathname];
 window.onpopstate = () => {
-  rootDiv.appendChild(component());
+  onNavigate(window.location.pathname);
 };
-
-rootDiv.appendChild(component());
