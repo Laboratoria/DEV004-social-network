@@ -1,12 +1,12 @@
-import { onNavigate } from "../main.js";
+import { onNavigate } from '../main.js';
 
 export const home = () => {
-  const homeDiv = document.createElement("div");
-  const buttonRegister = document.createElement("button");
-  const buttonLogin = document.createElement("button");
+  const homeDiv = document.createElement('div');
+  const buttonRegister = document.createElement('button');
+  const buttonLogin = document.createElement('button');
 
-  buttonRegister.textContent = "Registrate";
-  buttonLogin.textContent = "Inicia Sesión";
+  buttonRegister.textContent = 'Registrate';
+  buttonLogin.textContent = 'Inicia Sesión';
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
