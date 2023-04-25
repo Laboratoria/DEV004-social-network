@@ -1,6 +1,6 @@
-import { logOut, crearPost, refPost } from '../lib/autenticar';
+import { logOut, crearPost, refPost, db } from '../lib/autenticar';
 import { onNavigate } from '../router/index';
-import { onSnapshot } from '@firebase/firestore';
+import { onSnapshot, doc, deleteDoc } from '@firebase/firestore';
 
 
 // CREAR ELEMENTOS DEL MURO
@@ -29,16 +29,29 @@ export const Feed = () => {
   onSnapshot(refPost(), (querySnapshot) =>{
     const articlePost = document.createElement('article')
     articlePost.id= 'postRealizado'
+
 querySnapshot.forEach((post)=>{
   console.log(post.data().email, post.data().comentario)
-  const p = document.createElement('p')
-  p.textContent = post.data().comentario
-  const strong = document.createElement('strong')
-  strong.textContent = post.data().email
-  articlePost.append(strong, p)
-  HomeDiv.appendChild(articlePost)
+  const p = document.createElement('p');
+  p.textContent = post.data().comentario;
+  const strong = document.createElement('strong');
+  strong.textContent = post.data().email;
+  const botonesPost = document.createElement('section');
+  botonesPost.id = 'btPost';
+  const buttonEditar = document.createElement('button');
+  buttonEditar.id = 'editar';
+  buttonEditar.textContent = 'Editar';
+  const buttonEliminar = document.createElement('button');
+  buttonEliminar.id = 'eliminar';
+  buttonEliminar.textContent = 'Eliminar';
+  buttonEliminar.addEventListener('click', async () => {
+    await deleteDoc(doc(db, "post", post.id));
 })
-  })
+  botonesPost.append(buttonEditar, buttonEliminar);
+  articlePost.append(strong, p, botonesPost);
+  HomeDiv.appendChild(articlePost);
+});
+  });
   const nav = document.createElement('nav')
   const buttonCerrarSesion = document.createElement('button');
   buttonCerrarSesion.id = 'cerrarSesion';

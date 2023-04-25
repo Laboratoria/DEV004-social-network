@@ -78,7 +78,7 @@ const app = initializeApp(firebaseConfig);
 
 
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 export const crearPost = (text) => {
   //crearPost.innerHTML = ''
@@ -86,12 +86,14 @@ export const crearPost = (text) => {
 const docRef = addDoc(collection(db, "post"), {
   comentario: text,
   email: getAuth().currentUser.email,
-
 });
+//const q = query(docRef, orderBy("post", "desc"));
 console.log("Document written with ID: ", text);
 return docRef
 };
 
 export const refPost = () => {
   return query(collection(db, 'post'))
+  
 }
+
