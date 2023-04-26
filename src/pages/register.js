@@ -1,69 +1,94 @@
 export const register = () => {
   // crea contenedor principal
   const article = document.createElement('article');
-  article.setAttribute('id', 'principal2');
+  article.setAttribute('id', 'registerScreen');
 
-  const body = document.createElement('body');
-  body.setAttribute('id', 'container2');
+  const section = document.createElement('section'); // cambiar body por div o section
+  section.setAttribute('id', 'container2');
 
-  const img = document.createElement('img'); // icono para subir foto
-  img.src = 'imagenes/imagenfoto.png';
-  img.classList.add('foto');
+  const formRegister = document.createElement('form'); // se crea el form
+  formRegister.setAttribute('id', 'formRegister');
 
-  const inputFile = document.createElement('input'); // boton examinar
-  inputFile.setAttribute('type', 'file');
-  inputFile.onchange = (e) => {
-    // subir foto
-    if (inputFile.files[0]) img.src = URL.createObjectURL(inputFile.files[0]);
-  };
+  const divUrl = document.createElement('div');
+  divUrl.setAttribute('id', 'url');
+  const url = document.createElement('h4'); // el usuario ingresa su foto con url
+  url.textContent = 'Ingresa la URL de tu foto';
+  const inputUrl = document.createElement('input'); // input para ingresar la url
+  inputUrl.classList.add('inputTitle');
+  divUrl.append(url, inputUrl);
 
-  const Nombre = document.createElement('h1'); // modifica propiedades de los elemento
-  Nombre.textContent = 'Ingresa el nombre de tu mascota'; // retorna el elemento
+  const divNombre = document.createElement('div');
+  divNombre.setAttribute('id', 'nombre');
+  const nombre = document.createElement('h4'); // modifica propiedades de los elementos
+  nombre.textContent = 'Nombre de tu mascota'; // retorna el elemento
+  const inputNombre = document.createElement('input');
+  inputNombre.classList.add('inputTitle');
+  divNombre.append(nombre, inputNombre);
 
-  const Raza = document.createElement('h1');
-  Raza.textContent = 'Raza de tu mascota';
+  const divRaza = document.createElement('div');
+  divRaza.setAttribute('id', 'raza');
+  const raza = document.createElement('h4');
+  raza.textContent = 'Raza de tu mascota';
+  const inputRaza = document.createElement('input');
+  inputRaza.classList.add('inputTitle');
+  divRaza.append(raza, inputRaza);
 
-  const Edad = document.createElement('h1');
-  Edad.textContent = 'Edad de tu mascota';
+  const divEdad = document.createElement('div');
+  divEdad.setAttribute('id', 'edad');
+  const edad = document.createElement('h4');
+  edad.textContent = 'Edad de tu mascota';
+  const inputEdad = document.createElement('input');
+  inputEdad.classList.add('inputTitle');
+  divEdad.append(edad, inputEdad);
 
-  const inputNombre = document.createElement('INPUT');
-  inputNombre.classList.add('box');
-
-  const inputRaza = document.createElement('INPUT');
-  inputRaza.classList.add('raza');
-
-  const inputEdad = document.createElement('INPUT');
-  inputEdad.classList.add('edad');
-
-  const ingresar = document.createElement('img'); // crea imagen foto
-  ingresar.src = 'imagenes/pata1.png';
+  const ingresar = document.createElement('img');
+  ingresar.src = 'imagenes/estrella.png';
   ingresar.classList.add('ingresar');
   const link = document.createElement('a');
   link.href = '/wall';
   link.setAttribute('id','btnRegister')
   link.append(ingresar);
+  const enviarForm = document.createElement('type');
+  // enviarForm.setAttribute('type', 'submit');
+  enviarForm.classList.add('submit');
 
-  body.append(
-    img,
-    inputFile,
-    Nombre,
+  formRegister.append(
+    divUrl,
+    divNombre,
     inputNombre,
-    Raza,
+    divRaza,
     inputRaza,
-    Edad,
+    divEdad,
     inputEdad,
-    link
+    link,
+    enviarForm,
   );
-  article.append(body);
+  section.append(
+    formRegister,
+  );
 
+  article.append(section);
+  // const form = document.getElementById('formRegister');
 
-  link.addEventListener('click', registerPet);
-  //let db = firebase.firestore();
+  formRegister.addEventListener('submit', (event) => { // escucha al evento submit del formulario
+    event.preventDefault();
+    // Obtener los valores de los campos del formulario
+    const name = formRegister.name.value; // lo que el usuario escriba
+    const rase = formRegister.rase.value;
+    const age = formRegister.age.value;
+    console.log(nombre, raza, edad);
 
+    // Guarda los datos del formulario en Firebase
+    const db = firebase.database().ref('formulario');
+    db.push().set({
+      name,
+      rase,
+      age,
+    });
 
-function registerPet() {
-  console.log('hola');
-}
+    // Limpiar el formulario
+    formRegister.reset();
+
 
   return article;
 };
