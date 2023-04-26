@@ -46,6 +46,7 @@ export const register = () => {
   ingresar.classList.add('ingresar');
   const link = document.createElement('a');
   link.href = '/wall';
+  link.setAttribute('id','btnRegister')
   link.append(ingresar);
   const enviarForm = document.createElement('type');
   // enviarForm.setAttribute('type', 'submit');
@@ -65,6 +66,7 @@ export const register = () => {
   section.append(
     formRegister,
   );
+
   article.append(section);
   // const form = document.getElementById('formRegister');
 
@@ -86,7 +88,7 @@ export const register = () => {
 
     // Limpiar el formulario
     formRegister.reset();
-  });
+
 
   return article;
 };
