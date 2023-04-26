@@ -1,9 +1,11 @@
-import { logOut, crearPost, refPost, db, editRef } from "../lib/autenticar";
+import { logOut, crearPost, refPost, db, editRef, actualUser } from "../lib/autenticar";
 import { onNavigate } from "../router/index";
-import { onSnapshot, doc, deleteDoc, updateDoc } from "@firebase/firestore";
+import { onSnapshot, doc, deleteDoc } from "@firebase/firestore";
+
 
 // CREAR ELEMENTOS DEL MURO
 export const Feed = () => {
+  //console.log("Esto debería funcionar", actualUser())
   const HomeDiv = document.createElement("div");
   const header = document.createElement("header");
   header.id = "encabezadoFeed";
@@ -23,9 +25,10 @@ export const Feed = () => {
   buttonPublicar.textContent = "Publicar";
   //const mensaje = document.createElement("p")
   buttonPublicar.addEventListener("click", () => {
-    crearPost(inputFeed.value);
+   crearPost(inputFeed.value);
   });
- // mensaje.textContent = "";
+
+  
   main.append(inputFeed, buttonPublicar);
   const articlePost = document.createElement("article");
   articlePost.id = "postRealizado";
@@ -43,6 +46,7 @@ export const Feed = () => {
       buttonEditar.id = "editar";
       buttonEditar.textContent = "Editar";
       buttonEditar.addEventListener("click", async () => {
+        console.log(inputFeed.value);
         await editRef(post.id, {comentario: inputFeed.value});
       });
       const buttonEliminar = document.createElement("button");
@@ -51,6 +55,14 @@ export const Feed = () => {
       buttonEliminar.addEventListener("click", async () => {
         await deleteDoc(doc(db, "post", post.id));
       });
+      const emailUser = actualUser().email
+      if (emailUser === post.data().email){
+        buttonEliminar.style.display = 'block';
+        buttonEditar.style.display = 'block';
+      }else{
+        buttonEliminar.style.display = 'none';
+        buttonEditar.style.display = 'none';
+      }
       botonesPost.append(buttonEditar, buttonEliminar);
       articlePost.append(strong, p, botonesPost);
       HomeDiv.appendChild(articlePost);
