@@ -7,7 +7,7 @@
 
 body {
   background: #9ae2dd;
-  background-attachment: no-repeat;
+  /*background-attachment: no-repeat;*/
   height: 100%;
   margin: 0;
   background-attachment: fixed;
@@ -16,7 +16,7 @@ body {
   margin-top:-20px;
   font-size: 35px;
 }
-@media (min-width: 415px) {
+
 
 .singIn {
   border: none;
@@ -32,7 +32,7 @@ body {
   color: #ffffff;
   transition: all 0.8s ease;
   }
-}
+
 
 h4 {
   text-align: center;
@@ -42,7 +42,9 @@ h4 {
 
 .logo {
   display: flex;
-  width: 40%;
+  width: 350px;
+  height: 400px;
+
 }
 
 p {
@@ -51,7 +53,7 @@ p {
   text-align: center;
   font-size: 10px;
   text-transform: uppercase;
-  margin-top: -50px;
+  
 }
 @media (min-width: 415px) {
 }
