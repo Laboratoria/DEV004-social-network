@@ -81,6 +81,7 @@ export const logOut = () => {
   return signOut(auth);
 };
 
+
 export const authStateChangedevent = (cb) => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => cb(user));
@@ -88,6 +89,12 @@ export const authStateChangedevent = (cb) => {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+export const actualUser = () => {
+  const auth = getAuth(app);
+  //console.log(auth.currentUser)
+  return auth.currentUser
+}
 
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
@@ -100,7 +107,7 @@ export const crearPost = (text) => {
     email: getAuth().currentUser.email,
   });
   //const q = query(docRef, orderBy("post", "desc"));
-  console.log("Document written with ID: ", text);
+  //console.log("Document written with ID: ", text);
   return docRef;
 };
 
