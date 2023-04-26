@@ -11,6 +11,11 @@ body {
   margin: 0;
   background-attachment: fixed;
 }
+.Bienvenidos{
+  margin-top:-20px;
+  font-size: 35px;
+}
+@media (min-width: 415px) {
 
 .singIn {
   border: none;
@@ -20,12 +25,12 @@ body {
   background: #9ae2dd;
   width: 300px;
   height: 50px;
-  margin-top: 2rem;
+  margin-top: -200px;
   margin-bottom: 3rem;
   color: #ffffff;
   transition: all 0.8s ease;
+  }
 }
-
 h1 {
 
   text-align: center;
@@ -35,7 +40,9 @@ h1 {
 
 .logo {
   display: flex;
-  width: 30%;
+  width: 400px;
+  height: 450px;
+  
 }
 
 p {
@@ -44,6 +51,7 @@ p {
   text-align: center;
   font-size: 10px;
   text-transform: uppercase;
+  margin-top: -50px;
 }
 @media (min-width: 415px) {
 }
@@ -106,5 +114,45 @@ p {
   height: 50%;
   width: 50%;
 }
+@media (min-width: 415px) {
 
+.perritos{
+  margin-top: 50px;
+  margin-right:700px;
+  
+}
+.patitas5{
+  margin-right: 580px;
+}
+
+.gatos{
+  margin-top: 20px;
+  margin-right:700px;
+}
+.patitas4{
+  margin-right: 580px;
+}
+
+.tortuga{
+  position: relative;
+  top:-250px;
+  left:190px;
+  }
+
+.patitas3{
+  position: relative;
+  top:-250px;
+  left:260px;
+}
+.erizo{
+  position: relative;
+  top:-250px;
+  left:190px;
+}
+.patitas2{
+  position: relative;
+  top:-250px;
+  left:260px;
+}
+}
 
