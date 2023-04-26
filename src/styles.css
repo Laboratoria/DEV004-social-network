@@ -4,8 +4,9 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+
 body {
-  background: linear-gradient(#9ae2dd, #ffffff);
+  background: #9ae2dd;
   background-attachment: no-repeat;
   height: 100%;
   margin: 0;
@@ -16,7 +17,8 @@ body {
   border: none;
   border-radius: 10px;
   cursor: url(imagenes/manopulsor.png), auto;
-  padding: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   background: #9ae2dd;
   width: 300px;
   height: 50px;
@@ -26,20 +28,20 @@ body {
   transition: all 0.8s ease;
 }
 
-h1 {
+h4 {
 
   text-align: center;
   margin-top: 20px;
-  color: #a7a9ac;
+  color: #808285;
 }
 
 .logo {
   display: flex;
-  width: 30%;
+  width: 40%;
 }
 
 p {
-  color: #a7a9ac;
+  color: #808285;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   font-size: 10px;
@@ -64,13 +66,13 @@ p {
   flex-direction: column;
 }
 
-#principal {
+#homeScreen {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#principal2 {
+#registerScreen {
   margin-top: 10%;
   display: flex;
   align-items: center;
@@ -78,33 +80,43 @@ p {
   flex-direction: column;
 }
 
-#container2 {
-  display: flex;
-  align-items: center;
+#formRegister .inputTitle {
+  background-color: #ffffff;
+  border: groove;
+  width: -webkit-fill-available;
+  padding: 10px;
+  border-radius: 9px;
+  font-size: 10px;
+  font-style: normal;
+  color: #808285;
   justify-content: center;
-  flex-direction: column;
+  margin: 2px 20px 5px 10px;
+}
+#formRegister h4 {
+  font-weight: 200;
 }
 
+#container2 {
+  background: white;
+  margin-right: 50px;
+  border-top-right-radius: 5rem;
+  background-clip: content-box;
+  margin: 2px 55px 3px 10px;
+}
 
-.box {
-  width: 45%;
-  height: 25px;
-  border-radius: 5px;
-}
-.raza{
-  width: 45%;
-  height: 25px;
-  border-radius: 5px;
-}
-.edad{
-  width: 45%;
-  height: 25px;
-  border-radius: 5px;
-  
-}
-.foto{
-  height: 50%;
-  width: 50%;
+.ingresar{
+  border: none;
+  border-radius: 15px;
+  box-shadow: rgba(0,0,0,0.5);
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background: #9ae2dd;
+  width: 300px;
+  height: 50px;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  transition: all 0.8s ease;
 }
 
 
