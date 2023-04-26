@@ -40,6 +40,7 @@ export const register = () => {
   ingresar.classList.add('ingresar');
   const link = document.createElement('a');
   link.href = '/wall';
+  link.setAttribute('id','btnRegister')
   link.append(ingresar);
 
   body.append(
@@ -54,5 +55,15 @@ export const register = () => {
     link
   );
   article.append(body);
+
+
+  link.addEventListener('click', registerPet);
+  //let db = firebase.firestore();
+
+
+function registerPet() {
+  console.log('hola');
+}
+
   return article;
 };
