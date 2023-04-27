@@ -43,19 +43,7 @@ export const Feed = () => {
       strong.textContent = post.data().email;
       const botonesPost = document.createElement("section");
       botonesPost.id = "btPost";
-      const buttonEditar = document.createElement("button");
-      buttonEditar.id = "editar";
-      buttonEditar.textContent = "Editar";
-      buttonEditar.addEventListener('click', () => {
-        buttonEditar.style.display = 'none';
-        p.style.display = 'none';
-        //inputEditable.style.display = 'block';
-        /*if (emailUser === post.data().email){
-        inputEditable.value
-        }else{
-          p
-        };*/
-      })
+      
       /*buttonEditar.addEventListener("click", async () => {
         console.log(inputFeed.value);
         await editRef(post.id, {comentario: inputFeed.value});
@@ -67,20 +55,34 @@ export const Feed = () => {
         await deleteDoc(doc(db, "post", post.id));
       });
       const inputEditable = document.createElement("input");
+      inputEditable.id = "editable"
       inputEditable.value = post.data().comentario;
       //inputEditable.style.display = 'none';
+      
       const buttonGuardar = document.createElement("button");
+      buttonGuardar.id = "guardar"
       buttonGuardar.textContent = "Guardar";
       buttonGuardar.addEventListener("click", async () => {
         console.log(inputFeed.value);
-        await editRef(post.id, {comentario: inputEditable.value});
+        await editRef(post.id, {comentario: inputEditable.value})
+        inputEditable.style.display = 'none'
       });
-      const emailUser = actualUser().email
+      const buttonEditar = document.createElement("button");
+      buttonEditar.id = "editar";
+      buttonEditar.textContent = "Editar";
+      
+      buttonEditar.addEventListener('click', () => {
+        buttonEditar.style.display = 'none';
+        p.style.display = 'none';
+        inputEditable.style.display = 'block';
+        buttonGuardar.style.display = 'block';
+      })
+      const emailUser = actualUser().email;
       if (emailUser === post.data().email){
         buttonEliminar.style.display = 'block';
         buttonEditar.style.display = 'block';
-        buttonGuardar.style.display = 'block';
-        inputEditable.style.display = 'block'
+        buttonGuardar.style.display = 'none';
+        inputEditable.style.display = 'none'
       }else{
         buttonEliminar.style.display = 'none';
         buttonEditar.style.display = 'none';
