@@ -142,7 +142,7 @@ strong{
     color: #856FAB;
 }
 
-p{
+p, #editable{
     width: 900px;
     height: auto;
     padding: 15px;
@@ -150,6 +150,10 @@ p{
     border-color: #856FAB;
     background: white;
     border-radius: 9pt;
+}
+
+#editable{
+    border-color: #e47ca6;
 }
 
 #btPost{
@@ -162,7 +166,7 @@ p{
 }
 
 
-#editar{
+#editar, #guardar{
     width: 150px;
 }
 
