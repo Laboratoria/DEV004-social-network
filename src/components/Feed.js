@@ -1,3 +1,4 @@
+import { log } from "async";
 import { logOut, crearPost, refPost, db, editRef, actualUser } from "../lib/autenticar";
 import { onNavigate } from "../router/index";
 import { onSnapshot, doc, deleteDoc } from "@firebase/firestore";
@@ -45,26 +46,50 @@ export const Feed = () => {
       const buttonEditar = document.createElement("button");
       buttonEditar.id = "editar";
       buttonEditar.textContent = "Editar";
-      buttonEditar.addEventListener("click", async () => {
+      buttonEditar.addEventListener('click', () => {
+        buttonEditar.style.display = 'none';
+        p.style.display = 'none';
+        //inputEditable.style.display = 'block';
+        /*if (emailUser === post.data().email){
+        inputEditable.value
+        }else{
+          p
+        };*/
+      })
+      /*buttonEditar.addEventListener("click", async () => {
         console.log(inputFeed.value);
         await editRef(post.id, {comentario: inputFeed.value});
-      });
+      });*/
       const buttonEliminar = document.createElement("button");
       buttonEliminar.id = "eliminar";
       buttonEliminar.textContent = "Eliminar";
       buttonEliminar.addEventListener("click", async () => {
         await deleteDoc(doc(db, "post", post.id));
       });
+      const inputEditable = document.createElement("input");
+      inputEditable.value = post.data().comentario;
+      //inputEditable.style.display = 'none';
+      const buttonGuardar = document.createElement("button");
+      buttonGuardar.textContent = "Guardar";
+      buttonGuardar.addEventListener("click", async () => {
+        console.log(inputFeed.value);
+        await editRef(post.id, {comentario: inputEditable.value});
+      });
       const emailUser = actualUser().email
       if (emailUser === post.data().email){
         buttonEliminar.style.display = 'block';
         buttonEditar.style.display = 'block';
+        buttonGuardar.style.display = 'block';
+        inputEditable.style.display = 'block'
       }else{
         buttonEliminar.style.display = 'none';
         buttonEditar.style.display = 'none';
+        buttonGuardar.style.display = 'none';
+        inputEditable.style.display = 'none';
       }
-      botonesPost.append(buttonEditar, buttonEliminar);
-      articlePost.append(strong, p, botonesPost);
+      
+      botonesPost.append(buttonEditar, buttonEliminar, buttonGuardar);
+      articlePost.append(strong, p, inputEditable, botonesPost);
       HomeDiv.appendChild(articlePost);
     });
   });
