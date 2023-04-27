@@ -76,14 +76,8 @@ export const Feed = () => {
         p.style.display = 'none';
         inputEditable.style.display = 'block';
         buttonGuardar.style.display = 'block';
-        //inputEditable.style.display = 'block';
-        /*if (emailUser === post.data().email){
-        inputEditable.value
-        }else{
-          p
-        };*/
       })
-      const emailUser = actualUser().email
+      const emailUser = actualUser().email;
       if (emailUser === post.data().email){
         buttonEliminar.style.display = 'block';
         buttonEditar.style.display = 'block';
