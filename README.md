@@ -4,7 +4,7 @@ MaMá Genial, es una red social que tiene como principales usuarias a mamás o f
 El papel de las madres en una sociedad actual, han llevado a que la formación “tribus” sean difíciles de formarse y  consolidarse. Pareciera que la sociedad sólo ha sumado responsabilidades a las madres y el entorno inmediato no siempre es abierto y seguro para expresarse. Es por este motivo que consideramos vital generar este espacio. Esperando que esta red social sea aprovechada por todas nuestras usuarias, y pueda ser de ayuda para muchos papás que desean crear un acompañamiento de la mano con la mami en todo este carrusel de emociones que pueden llegar a sentir ambos y que este proceso se viva entre la empatía.
 Creemos fielmente que las redes sociales pueden crear esas nuevas tribus, apoyos e incluso soporte entre mujeres en este nuevo proceso de convertirse en madres.Ese es el fin de MaMá Genial, sumar una herramienta para llevar este nuevo camino acompañada.
 
-#### Abril 2023
+#### M&M Abril 2023
 
 
 ***
@@ -37,7 +37,7 @@ Se realizaron los prototipos de baja y alta calidad, estos últimos por medio de
  ![HU1PrototipoBaja&PrototipoAlta](HU1.JPG)
 
  ![HU2PrototipoBaja&PrototipoAlta](HU2.JPG)
- 
+
  ![HU3PrototipoBaja&PrototipoAlta](HU3.JPG)
 
 
