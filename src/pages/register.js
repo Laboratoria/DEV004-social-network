@@ -1,4 +1,4 @@
-import { createPost } from '../firebaseConfig';
+import { createUser } from '../firebaseConfig';
 
 export const register = () => {
   // crea contenedor principal
@@ -53,7 +53,7 @@ export const register = () => {
   divEdad.append(edad, inputEdad);
 
   const ingresar = document.createElement('img');
-  ingresar.src = 'imagenes/estrella.png.png';
+  ingresar.src = 'imagenes/boton.jpg';
   ingresar.classList.add('ingresar');
   const link = document.createElement('a');
   //link.href = '/wall';
@@ -85,7 +85,7 @@ export const register = () => {
 
   link.addEventListener('click', (event) => { // escucha al evento submit del formulario
 
-    createPost(formRegister.name.value, formRegister.rase.value, formRegister.age.value,inputPhoto.files[0])
+    createUser(formRegister.name.value, formRegister.rase.value, formRegister.age.value,inputPhoto.files[0])
 })
 
 return article;

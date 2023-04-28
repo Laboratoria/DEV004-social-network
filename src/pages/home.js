@@ -91,7 +91,7 @@ export const home = () => {
   article.append(body);
  
   buttonGoogle.addEventListener('click', () => {
-    entrarConGoogle().then(() => {
+    entrarConGoogle().then(() => { //then nos permite loguearnos
       onNavigate('/register');
     });
   });

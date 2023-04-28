@@ -7,6 +7,7 @@ addRoutes({
   '/': home,
   '/register': register,
   '/wall': wall,
+  
 });
 
 // Lógica de la aplicacion
