@@ -37,7 +37,7 @@ export const Feed = () => {
   onSnapshot(refPost(), (querySnapshot) => {
     articlePost.innerHTML = "";
     querySnapshot.forEach((post) => {
-      console.log(post.data().email, post.data().comentario);
+      console.log(post.data().email, post.data().comentario, post.data().date);
       const p = document.createElement("p");
       p.textContent = post.data().comentario;
       const strong = document.createElement("strong");
