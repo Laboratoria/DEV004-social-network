@@ -27,6 +27,7 @@ export const Feed = () => {
   //const mensaje = document.createElement("p")
   buttonPublicar.addEventListener("click", () => {
    crearPost(inputFeed.value);
+   inputFeed.value = "";
   });
 
   
@@ -57,7 +58,7 @@ export const Feed = () => {
       const inputEditable = document.createElement("input");
       inputEditable.id = "editable"
       inputEditable.value = post.data().comentario;
-      //inputEditable.style.display = 'none';
+
       
       const buttonGuardar = document.createElement("button");
       buttonGuardar.id = "guardar"
@@ -89,7 +90,6 @@ export const Feed = () => {
         buttonGuardar.style.display = 'none';
         inputEditable.style.display = 'none';
       }
-      
       botonesPost.append(buttonEditar, buttonEliminar, buttonGuardar);
       articlePost.append(strong, p, inputEditable, botonesPost);
       HomeDiv.appendChild(articlePost);
