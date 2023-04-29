@@ -34,12 +34,11 @@ La consigna es realizar una Red Social con una temática seleccionada por el equ
 
 Se realizaron los prototipos de baja y alta calidad, estos últimos por medio de figma:
 
- ![HU1](HU1.JPG)
+![HU1PrototipoDeBajaPrototipoDeAlta](HU1.JPG).
 
- ![HU2PrototipoBaja&PrototipoAlta](HU2.JPG)
-
- ![HU3PrototipoBaja&PrototipoAlta](HU3.JPG)
-
+![HU2PrototipoDeBajaPrototipoDeAlta](HU2.JPG).
+ 
+![HU3PrototipoDeBajaPrototipoDeAlta](HU3.JPG).
 
 
 

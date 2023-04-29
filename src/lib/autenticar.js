@@ -19,6 +19,8 @@ import {
   addDoc,
   doc,
   updateDoc,
+  orderBy,
+  Timestamp
 } from "firebase/firestore";
 initializeApp(firebaseConfig);
 
@@ -105,11 +107,20 @@ export const crearPost = (text) => {
   const docRef = addDoc(collection(db, "post"), {
     comentario: text,
     email: getAuth().currentUser.email,
+    date: date,
   });
-  //const q = query(docRef, orderBy("post", "desc"));
-  //console.log("Document written with ID: ", text);
+
   return docRef;
 };
+
+const q = query(collection(db, 'post'), orderBy("date", "desc"));
+const date = new Date();
+export const saveTextContent = (post) => {
+  addDoc(collection(db, 'post'), {
+    post, email: auth.currentUser.email, date: date.toLocaleString(),
+  });
+};
+//console.log("Document written with ID: ", text);
 
 export const refPost = () => {
   return query(collection(db, "post"));

@@ -198,9 +198,13 @@ p, #editable{
         height: 65px;
     }
 
-    p{
+    p, #editable{
         width: 700px;
         height: auto; 
+    }
+
+    #editable{
+        border-color: #e47ca6;
     }
 
     #btPost{
@@ -232,9 +236,13 @@ p, #editable{
         height: 65px;
     }
 
-    p{
+    p, #editable{
         width: 500px;
         height: auto;
+    }
+
+    #editable{
+        border-color: #e47ca6;
     }
 
     #btPost{
@@ -242,7 +250,6 @@ p, #editable{
     }
     
     button{
-        background: peru;
         width: 200px;
         height: 35px;
         gap: 15px;
@@ -261,9 +268,13 @@ p, #editable{
     height: 65px;
 }
 
-p{
+p, #editable{
     width: 300px;
     height: auto;
+}
+
+#editable{
+    border-color: #e47ca6;
 }
 
 #btPost{
@@ -271,7 +282,6 @@ p{
 }
 
 button{
-    background: rgb(227, 134, 165);
     width: 200px;
     height: 35px;
     gap: 15px;
