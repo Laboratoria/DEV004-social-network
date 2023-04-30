@@ -46,7 +46,7 @@ export const register = () => {
   ingresar.classList.add('ingresar');
   const link = document.createElement('a');
   link.href = '/wall';
-  link.setAttribute('id','btnRegister')
+  link.setAttribute('id', 'btnRegister');
   link.append(ingresar);
   const enviarForm = document.createElement('type');
   // enviarForm.setAttribute('type', 'submit');
@@ -63,14 +63,12 @@ export const register = () => {
     link,
     enviarForm,
   );
-  section.append(
-    formRegister,
-  );
 
   article.append(section);
   // const form = document.getElementById('formRegister');
 
-  formRegister.addEventListener('submit', (event) => { // escucha al evento submit del formulario
+  formRegister.addEventListener('submit', (event) => {
+    // escucha al evento submit del formulario
     event.preventDefault();
     // Obtener los valores de los campos del formulario
     const name = formRegister.name.value; // lo que el usuario escriba
@@ -79,7 +77,7 @@ export const register = () => {
     console.log(nombre, raza, edad);
 
     // Guarda los datos del formulario en Firebase
-    const db = firebase.database().ref('formulario');
+    const db = firebase.database().ref('registro');
     db.push().set({
       name,
       rase,
@@ -88,7 +86,7 @@ export const register = () => {
 
     // Limpiar el formulario
     formRegister.reset();
-
-
+  });
+  section.append(formRegister);
   return article;
 };

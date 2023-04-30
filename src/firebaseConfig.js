@@ -21,18 +21,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Get a list of post from your database
-async function getPost() {
-  const postCol = collection(db, 'posts');
-  const postSnapshot = await getDocs(postCol);
-  const posts = postSnapshot.docs.map((doc) => doc.data());
-  console.log(posts);
-  return posts;
-}
-
-const p = getPost();
-console.log(p);
-
 // firebase.initializeApp(firebaseConfig);
 // Initialize Firestore
 // Initialize Firebase Authentication and get a reference to the service
