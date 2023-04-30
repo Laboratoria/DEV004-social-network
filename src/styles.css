@@ -67,6 +67,7 @@ p {
   height: 13%;
   width: 13%;
   padding-right: 10px;
+  
 }
 
 #container {
@@ -200,6 +201,8 @@ p {
 
 }
 
+
+
 #comment{
   width: 100%;
   display: flex;
@@ -224,3 +227,48 @@ p {
   background: #808285;
   color:#9ae2dd;
 }
+#post{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin-top: -600px;
+
+  
+}
+
+#photo{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left:100px;
+
+  }
+  #nameP{
+    margin-left:20px; 
+  }
+  #descripcion{
+     margin-top: 200px;
+     margin-left:-150px;
+     margin-right: 100px;
+ }
+ #photoPost{
+  margin-top:800px;
+  margin-left:-600px;
+ }
+ #Barra{
+  margin-left:1000px;
+ }
+ #like{
+  width: 2%;
+  margin-left:650px;
+ }
+ #editar{
+  width: 2%;
+  margin-left:600px;
+ 
+ }
+ #eliminar{
+  width: 2%;
+  margin-left:10px;
+  
+ }

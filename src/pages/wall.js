@@ -59,35 +59,52 @@ export const wall = () => {
   const divpost = document.createElement("div");
   divpost.setAttribute("id", "post");
 
-  
+
   const photo = document.createElement("img");
   photo.src = "imagenes/perrito.jpg";
-  
+  photo.setAttribute("id", "photo");
 
-  const divnameP = document.createElement("div");
   const nameP = document.createElement("h1");
   nameP.textContent = "Bingo";
-  divnameP.append(nameP);
+  nameP.setAttribute("id", "nameP");
 
-  const divdescripcion = document.createElement("div");
+
   const descripcion = document.createElement("h1");
   descripcion.textContent = "soy bingo y me gusta mucho salir a pasear";
-  divdescripcion.append(descripcion);
+  descripcion.setAttribute("id", "descripcion");
+
+
+  const photoPost = document.createElement('img');
+  photoPost.src = 'imagenes/perritopost.jpg';
+  photoPost.setAttribute("id", "photoPost");
+  
+
+  divpost.append(photo, nameP, descripcion, photoPost);
+
+
+  //like ,editar, eliminar
+  const divBarra = document.createElement('div');
+  divBarra.setAttribute('id', 'barra');
+  
 
   const like = document.createElement('img');
   like.src = 'imagenes/like.png';
+  like.setAttribute("id", "like");
 
   const editar = document.createElement("img");
-  editar.src ="imagenes/editar.png";
+  editar.src = "imagenes/editar.png";
+  editar.setAttribute("id", "editar");
+
 
   const eliminar = document.createElement("img");
-  eliminar.src ="imagenes/eliminar.png";
+  eliminar.src = "imagenes/eliminar.png";
+  eliminar.setAttribute("id", "eliminar");
 
 
 
-  divpost.append(divnameP, divdescripcion,photo,like,editar,eliminar);
+  divBarra.append(like, editar, eliminar);
 
-  body.append(divInfomation, divComment, divpost);
+  body.append(divInfomation, divComment, divpost,divBarra);
   article.append(body);
 
   enviar.addEventListener("click", (event) => {
