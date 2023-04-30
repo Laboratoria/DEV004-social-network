@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs,addDoc } from 'firebase/firestore';
+import { getStorage, ref ,uploadBytes } from "firebase/storage";
+//import { addDoc } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -20,6 +22,19 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage();
+
+// Get a list of post from your database
+async function getPost() {
+  const postCol = collection(db, 'users');
+  const postSnapshot = await getDocs(postCol);
+  const posts = postSnapshot.docs.map((doc) => doc.data());
+  console.log(posts);
+  return posts;
+}
+
+const p = getPost();
+console.log(p);
 
 // firebase.initializeApp(firebaseConfig);
 // Initialize Firestore
@@ -27,6 +42,35 @@ const db = getFirestore(app);
 const auth = getAuth();
 auth.languageCode = 'es';
 const provider = new GoogleAuthProvider();
+
+//Crea una mascota en firebase
+export const createUser =  (name, rase, age, file) =>{
+  
+  let  email = localStorage['email'] // recuperamos email
+  uploadPhoto(file);
+ addDoc(collection(db,'users'),{name,rase,age,email,photo:file.name});
+ 
+}
+
+export const createPost = (body)=>{
+  addDoc(collection(db,"posts"),{body});
+}
+
+
+function uploadPhoto(file){
+ 
+  const storageRef = ref(storage, file.name);
+  
+  // 'file' comes from the Blob or File API
+  uploadBytes(storageRef, file).then((snapshot) => {
+    console.log('foto subida!');
+  });
+
+
+
+
+}
+
 
 // para loguearse con google
 /* function loginWithGoogle() {
@@ -40,6 +84,8 @@ export const entrarConGoogle = () => signInWithPopup(auth, provider)
     console.log(token);
     // The signed-in user info.
     const user = result.user;
+
+    localStorage['email'] = user.email;
     console.log(user);
     // IdP data available using getAdditionalUserInfo(result)
     // ...
