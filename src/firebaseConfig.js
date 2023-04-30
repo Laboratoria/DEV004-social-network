@@ -26,8 +26,7 @@ const storage = getStorage();
 
 // Get a list of post from your database
 async function getPost() {
-  const postCol = collection(db, 'posts');
-  console.log('posst', postCol)
+  const postCol = collection(db, 'users');
   const postSnapshot = await getDocs(postCol);
   const posts = postSnapshot.docs.map((doc) => doc.data());
   console.log(posts);
@@ -45,12 +44,16 @@ auth.languageCode = 'es';
 const provider = new GoogleAuthProvider();
 
 //Crea una mascota en firebase
-export const createPost =  (name, rase, age, file) =>{
+export const createUser =  (name, rase, age, file) =>{
   
   let  email = localStorage['email'] // recuperamos email
   uploadPhoto(file);
- addDoc(collection(db,'posts'),{name,rase,age,email,photo:file.name});
+ addDoc(collection(db,'users'),{name,rase,age,email,photo:file.name});
  
+}
+
+export const createPost = (body)=>{
+  addDoc(collection(db,"posts"),{body});
 }
 
 

@@ -16,7 +16,11 @@ body {
   margin-top:-20px;
   font-size: 35px;
 }
+.ingresar{
+ margin-left: 20%;
 
+
+}
 
 .singIn {
   border: none;
@@ -42,16 +46,17 @@ h4 {
 
 .logo {
   display: flex;
-  width: 350px;
-  height: 400px;
+  width: 450px;
+  height: 430px;
 
 }
 
 p {
+  margin-top:-50px ;
   color: #808285;
   font-family: "Montserrat", sans-serif;
   text-align: center;
-  font-size: 10px;
+  font-size: 15px;
   text-transform: uppercase;
   
 }
@@ -62,6 +67,7 @@ p {
   height: 13%;
   width: 13%;
   padding-right: 10px;
+  
 }
 
 #container {
@@ -105,31 +111,22 @@ p {
 }
 
 #container2 {
+  margin-left: 200px;
   background: white;
   margin-right: 50px;
   border-top-right-radius: 5rem;
   background-clip: content-box;
-  margin: 2px 55px 3px 10px;
-}
-
-.ingresar{
-  border: none;
-  border-radius: 15px;
-  box-shadow: rgba(0,0,0,0.5);
-  padding-top: 3px;
-  padding-bottom: 3px;
-  background: #9ae2dd;
-  width: 300px;
-  height: 50px;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  color: #ffffff;
-  transition: all 0.8s ease;
+  margin: 10px 70px 40px 60px;
 }
 @media (min-width: 415px) {
+#btnRegister{
+ 
+
+}
+
 
 .perritos{
-  margin-top: 50px;
+  margin-top: 20px;
   margin-right:700px;
   
 }
@@ -147,24 +144,131 @@ p {
 
 .tortuga{
   position: relative;
-  top:-250px;
+  top:-230px;
   left:190px;
   }
 
 .patitas3{
   position: relative;
-  top:-250px;
+  top:-210px;
   left:260px;
 }
 .erizo{
   position: relative;
-  top:-250px;
+  top:-210px;
   left:190px;
 }
 .patitas2{
   position: relative;
-  top:-250px;
+  top:-205px;
   left:260px;
 }
 }
 
+.perfil{
+  color: #0e0e0f;
+  margin-left:-20%;
+  margin-top: 10%;
+  
+
+}
+
+
+#contenedor{
+  
+
+
+}
+
+
+#information{
+  width: 80%;
+  display: flex;
+  margin-left: 200px;
+  margin-top: 10px;
+  border-top-right-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+  background-clip: content-box;
+  background: white;
+  
+}
+
+
+.mitad{
+  width: 50%;
+  margin-top: 3%;
+  margin-left: 25%;
+
+}
+
+
+
+#comment{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#cuadro{
+  margin-top: 3%;
+  margin-left: 5%;
+  color: #808285;
+  font-family: "Montserrat", sans-serif;
+  
+}
+#publicar{
+  margin-left: 38%;
+  margin-top: 15px;
+  width: 5%;
+  height: 30px;
+  border-radius: 5px;
+  border-color: #808285;
+  background: #808285;
+  color:#9ae2dd;
+}
+#post{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin-top: -600px;
+
+  
+}
+
+#photo{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left:100px;
+
+  }
+  #nameP{
+    margin-left:20px; 
+  }
+  #descripcion{
+     margin-top: 200px;
+     margin-left:-150px;
+     margin-right: 100px;
+ }
+ #photoPost{
+  margin-top:800px;
+  margin-left:-600px;
+ }
+ #Barra{
+  margin-left:1000px;
+ }
+ #like{
+  width: 2%;
+  margin-left:650px;
+ }
+ #editar{
+  width: 2%;
+  margin-left:600px;
+ 
+ }
+ #eliminar{
+  width: 2%;
+  margin-left:10px;
+  
+ }
