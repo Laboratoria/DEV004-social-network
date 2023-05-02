@@ -4,12 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" src="style.css">
+  <link rel="stylesheet" href="./style.css">
   <title>Document</title>
 </head>
 <body>
   
   <main id="root"></main>
   <script type="module" src="main.js"></script>
+  <!-- FIREBASE CODIGO-->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAgYHtpn9GNiek_dK-qKcTjEQqqvuS0uuI",
+      authDomain: "fb-socialnetwork.firebaseapp.com",
+      projectId: "fb-socialnetwork",
+      storageBucket: "fb-socialnetwork.appspot.com",
+      messagingSenderId: "1044249075485",
+      appId: "1:1044249075485:web:73c4702b0e99159bad4bf4",
+      measurementId: "G-DMGC30SBJS"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 </html>
