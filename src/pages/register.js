@@ -1,4 +1,5 @@
 import { onNavigate } from '../router';
+import { registrarUsuaria } from '../lib/firebase';
 
 export const register = () => {
   // crea contenedor principal
@@ -13,8 +14,11 @@ export const register = () => {
   buttonRegister.textContent = 'Registrate';
   buttonHome.textContent = 'Volver al home';
   buttonRegister.addEventListener('click', () => {
-    // llama funcion navigate y pasa string con la ruta
-    onNavigate('/wall');
+    registrarUsuaria().then( () => {
+      onNavigate('/wall');
+    });
+
+    registrarUsuaria(inputEmail.value, inputPassword.value)
   });
   buttonHome.addEventListener('click', () => {
     // llama funcion navigate y pasa string con la ruta
