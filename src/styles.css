@@ -272,3 +272,8 @@ p {
   margin-left:10px;
   
  }
+
+ .postImg {
+  height: auto;
+  max-width: 100%;
+ }

@@ -19,10 +19,9 @@ export const register = () => {
   inputUrl.classList.add('inputTitle');
   divUrl.append(url, inputUrl);
 
-
   const inputPhoto = document.createElement('input');
-  inputPhoto.setAttribute('type','file');
-  inputPhoto.setAttribute('id','photo')
+  inputPhoto.setAttribute('type', 'file');
+  inputPhoto.setAttribute('id', 'photo');
   divUrl.append(inputPhoto);
 
   const divNombre = document.createElement('div');
@@ -30,7 +29,7 @@ export const register = () => {
   const nombre = document.createElement('h4'); // modifica propiedades de los elementos
   nombre.textContent = 'Nombre de tu mascota'; // retorna el elemento
   const inputNombre = document.createElement('input');
-  inputNombre.setAttribute('name','name');
+  inputNombre.setAttribute('name', 'name');
   inputNombre.classList.add('inputTitle');
   divNombre.append(nombre, inputNombre);
 
@@ -39,7 +38,7 @@ export const register = () => {
   const raza = document.createElement('h4');
   raza.textContent = 'Raza de tu mascota';
   const inputRaza = document.createElement('input');
-  inputRaza.setAttribute('name','rase')
+  inputRaza.setAttribute('name', 'race');
   inputRaza.classList.add('inputTitle');
   divRaza.append(raza, inputRaza);
 
@@ -48,7 +47,7 @@ export const register = () => {
   const edad = document.createElement('h4');
   edad.textContent = 'Edad de tu mascota';
   const inputEdad = document.createElement('input');
-  inputEdad.setAttribute('name','age');
+  inputEdad.setAttribute('name', 'age');
   inputEdad.classList.add('inputTitle');
   divEdad.append(edad, inputEdad);
 
@@ -57,8 +56,8 @@ export const register = () => {
   ingresar.classList.add('ingresar');
   const link = document.createElement('a');
 
-  //link.href = '/wall';
-  link.setAttribute('id','btnRegister')
+  // link.href = '/wall';
+  link.setAttribute('id', 'btnRegister');
 
   link.append(ingresar);
   const enviarForm = document.createElement('type');
@@ -76,7 +75,7 @@ export const register = () => {
     link,
     enviarForm,
 
-    );
+  );
   section.append(
     formRegister,
 
@@ -90,7 +89,7 @@ export const register = () => {
     event.preventDefault();
     // Obtener los valores de los campos del formulario
     const name = formRegister.name.value; // lo que el usuario escriba
-    const rase = formRegister.rase.value;
+    const race = formRegister.race.value;
     const age = formRegister.age.value;
     console.log(nombre, raza, edad);
 
@@ -98,7 +97,7 @@ export const register = () => {
     const db = firebase.database().ref('registro');
     db.push().set({
       name,
-      rase,
+      race,
       age,
     });
 
@@ -108,14 +107,3 @@ export const register = () => {
   section.append(formRegister);
   return article;
 };
-  
-
-  link.addEventListener('click', (event) => { // escucha al evento submit del formulario
-
-    createUser(formRegister.name.value, formRegister.rase.value, formRegister.age.value,inputPhoto.files[0])
-})
-
-return article;
-
-}
-;

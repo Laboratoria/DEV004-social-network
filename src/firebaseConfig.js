@@ -1,9 +1,17 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore, collection, getDocs,addDoc } from 'firebase/firestore';
-import { getStorage, ref ,uploadBytes } from "firebase/storage";
-//import { addDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  query,
+  doc,
+  deleteDoc,
+} from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from 'firebase/storage';
+// import { addDoc } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,78 +33,102 @@ const db = getFirestore(app);
 const storage = getStorage();
 
 // Get a list of post from your database
-async function getPost() {
-  const postCol = collection(db, 'users');
+export async function getPost() {
+  const postCol = collection(db, 'posts');
   const postSnapshot = await getDocs(postCol);
-  const posts = postSnapshot.docs.map((doc) => doc.data());
-  console.log(posts);
+  const posts = postSnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
   return posts;
 }
 
-const p = getPost();
-console.log(p);
+export async function getData(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
 
-// firebase.initializeApp(firebaseConfig);
-// Initialize Firestore
-// Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth();
 auth.languageCode = 'es';
 const provider = new GoogleAuthProvider();
 
-//Crea una mascota en firebase
-export const createUser =  (name, rase, age, file) =>{
-  
-  let  email = localStorage['email'] // recuperamos email
+// Crea una mascota en firebase
+export const createUser = (name, rase, age, file) => {
+  const email = localStorage.email; // recuperamos email
+  // eslint-disable-next-line no-use-before-define
   uploadPhoto(file);
- addDoc(collection(db,'users'),{name,rase,age,email,photo:file.name});
- 
+  addDoc(collection(db, 'users'), {
+    name,
+    rase,
+    age,
+    email,
+    photo: file.name,
+  });
+};
+
+export const createPost = (body) => {
+  addDoc(collection(db, 'posts'), { body });
+};
+
+// Elimina Post
+export async function deletePost(id) {
+  const docRef = doc(db, 'posts', id);
+  deleteDoc(docRef)
+    .then(() => {
+      console.log('Post Eliminado ', id);
+      // eslint-disable-next-line no-restricted-globals
+      location.reload();
+    })
+    .catch(() => {
+      console.error('Error al eliminar post', id);
+    });
 }
 
-export const createPost = (body)=>{
-  addDoc(collection(db,"posts"),{body});
-}
-
-
-function uploadPhoto(file){
- 
-  const storageRef = ref(storage, file.name);
-  
-  // 'file' comes from the Blob or File API
-  uploadBytes(storageRef, file).then((snapshot) => {
-    console.log('foto subida!');
+const docRef = doc(db, 'cities', 'yftq9RGp4jWNSyBZ1D6L');
+deleteDoc(docRef)
+  .then(() => {
+    console.log('Entire Document has been deleted successfully.');
+  })
+  .catch((error) => {
+    console.log(error);
   });
 
+function uploadPhoto(file) {
+  const storageRef = ref(storage, file.name);
 
-
-
+  // 'file' comes from the Blob or File API
+  uploadBytes(storageRef, file).then((snapshot) => {
+    console.log('foto subida!', snapshot);
+  });
 }
-
 
 // para loguearse con google
 /* function loginWithGoogle() {
   const provider = new GoogleAuthProvider();
 } */
-export const entrarConGoogle = () => signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    console.log(token);
-    // The signed-in user info.
-    const user = result.user;
+export const entrarConGoogle = () =>
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      console.log(token);
+      // The signed-in user info.
+      const user = result.user;
 
-    localStorage['email'] = user.email;
-    console.log(user);
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    console.log(errorCode, errorMessage, email, credential);
-  });
+      localStorage['email'] = user.email;
+      console.log(user);
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log(errorCode, errorMessage, email, credential);
+    });
