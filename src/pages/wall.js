@@ -2,9 +2,40 @@ import { getPost, deletePost } from '../firebaseConfig';
 
 export const wall = () => {
   // crea contenedor principal
+  const divForm = document.createElement('div');  
+   //' o " no aceotan salto de linea
+  divForm.innerHTML = `<input class="title" type="text">
+                      <input type="text">
+                      <button id="crear-btn">crear</button>`
+  /*
+  document.getElementById('crear-btn')
+  document.querySelector('#crear-btn')
+  */
+ 
+  const button = divForm.querySelector('#crear-btn') //divForm.getElementBy() no se puede
+  button.addEventListener('click', ()=> {
+    //crear publicacion query selector 
+  })
+
+  /* linea 7 es equivalente a estas otras lineas
+  const input = document.createElement(input)
+  input.setAttribute('type', 'text')
+  input.classList.add('title');
+  divForm.append(input)
+
+  const input2 =  document.createElement(input)
+  input2.setAttribute('type', 'text')
+  input2.classList.add('title');
+  divForm.append(input2)
+
+  const button  = documetn.createElemtn('button')
+  button.addEventListenr
+  */
+
+
   const article = document.createElement('article');
   article.setAttribute('id', 'cprincipal');
-
+  article.append(divForm)
   getPost() // obtener post, viene de firebaseconfig
     .then((data) => { // resultado de la consulta
       console.log(data);
@@ -34,6 +65,7 @@ export const wall = () => {
           buttonEliminar.setAttribute('action', 'delete'); // action, para saber cuál va a ser la acción del boton
           buttonEliminar.textContent = 'Eliminar Post';
           article.append(
+            
             postContainer,
             titlePost,
             photo,
@@ -42,7 +74,7 @@ export const wall = () => {
             buttonModificar,
             buttonEliminar,
           );
-          document.querySelectorAll('button') // capturatodoslos botones del codigo
+          document.querySelectorAll('button') // captura todos los botones del codigo
             .forEach((boton) => {
               boton.addEventListener('click', (event) => {
                 const tag = event.target.getAttribute('postId'); // sirve para saber cuál es el id del post
