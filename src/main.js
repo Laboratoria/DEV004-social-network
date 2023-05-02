@@ -7,7 +7,7 @@ addRoutes({
   '/': home,
   '/register': register,
   '/wall': wall,
-  
+
 });
 
 // Lógica de la aplicacion
@@ -18,10 +18,3 @@ window.onload = () => {
 window.onpopstate = () => {
   onNavigate(window.location.pathname);
 };
-
-
-
-
-
-
-
