@@ -1,4 +1,3 @@
-import { createUser } from '../firebaseConfig';
 
 export const register = () => {
   // crea contenedor principal

@@ -6,7 +6,6 @@ import {
   collection,
   getDocs,
   addDoc,
-  query,
   doc,
   deleteDoc,
 } from 'firebase/firestore';
@@ -53,22 +52,15 @@ const auth = getAuth();
 auth.languageCode = 'es';
 const provider = new GoogleAuthProvider();
 
-// Crea una mascota en firebase
-export const createUser = (name, rase, age, file) => {
-  const email = localStorage.email; // recuperamos email
-  // eslint-disable-next-line no-use-before-define
-  uploadPhoto(file);
-  addDoc(collection(db, 'users'), {
-    name,
-    rase,
-    age,
-    email,
-    photo: file.name,
-  });
-};
-
 export const createPost = (body) => {
-  addDoc(collection(db, 'posts'), { body });
+  addDoc(collection(db, 'posts'), body ).then(() => {
+    alert('Post creado ');
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+  })
+  .catch(() => {
+    console.error('Error al crear post');
+  });
 };
 
 // Elimina Post
@@ -76,7 +68,7 @@ export async function deletePost(id) {
   const docRef = doc(db, 'posts', id);
   deleteDoc(docRef)
     .then(() => {
-      console.log('Post Eliminado ', id);
+      alert('Post Eliminado ', id);
       // eslint-disable-next-line no-restricted-globals
       location.reload();
     })
@@ -85,28 +77,7 @@ export async function deletePost(id) {
     });
 }
 
-const docRef = doc(db, 'cities', 'yftq9RGp4jWNSyBZ1D6L');
-deleteDoc(docRef)
-  .then(() => {
-    console.log('Entire Document has been deleted successfully.');
-  })
-  .catch((error) => {
-    console.log(error);
-  });
 
-function uploadPhoto(file) {
-  const storageRef = ref(storage, file.name);
-
-  // 'file' comes from the Blob or File API
-  uploadBytes(storageRef, file).then((snapshot) => {
-    console.log('foto subida!', snapshot);
-  });
-}
-
-// para loguearse con google
-/* function loginWithGoogle() {
-  const provider = new GoogleAuthProvider();
-} */
 export const entrarConGoogle = () =>
   signInWithPopup(auth, provider)
     .then((result) => {
