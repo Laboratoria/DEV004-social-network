@@ -1,4 +1,4 @@
-import { getPost, deletePost, createPost } from '../firebaseConfig';
+import { getPost, deletePost, createPost, editPost } from '../firebaseConfig';
 
 export const wall = () => {
   // crea contenedor principal
@@ -32,7 +32,6 @@ export const wall = () => {
     }).catch((error) => console.error(error));
   })
   
-  
   const article = document.createElement('article');
   article.setAttribute('id', 'cprincipal');
   article.append(divForm)
@@ -45,34 +44,43 @@ export const wall = () => {
           // FOR por cada POST
           const postContainer = document.createElement('div');
           postContainer.setAttribute('class', 'post');
+
           const titlePost = document.createElement('h4');
           titlePost.textContent = `Mi nombre es: ${post.name}`;
           titlePost.setAttribute('class', 'postTitle');
+
           const photo = document.createElement('img');
           photo.src = post.photo; // agrega la url de la foto
           photo.setAttribute('class', 'postImg');
+
           const race = document.createElement('h5');
           race.textContent = post.rase;
           race.setAttribute('class', 'race');
+
           const description = document.createElement('h4');
           description.textContent = post.description;
+
           const inputEdit = document.createElement('input');
           inputEdit.style.display = 'none';
+          inputEdit.setAttribute('id', 'editInput');
+
           const botonEdit = document.createElement('button');
           botonEdit.style.display = 'none';
           botonEdit.textContent = 'Confirmar edición';
-          inputEdit.value = post.description;
+          botonEdit.setAttribute('postId', post.id);
+
           const buttonModificar = document.createElement('button');
           buttonModificar.setAttribute('id', 'editButton');
           buttonModificar.setAttribute('action', 'Edit');
           buttonModificar.textContent = 'Modificar Post';
+
           const buttonEliminar = document.createElement('button');
           buttonEliminar.setAttribute('id', 'deleteButton');
           buttonEliminar.setAttribute('postId', post.id); // le agrega un atributo nuevo al post que sirve para saber cuál es el id del post
           buttonEliminar.setAttribute('action', 'delete'); // action, para saber cuál va a ser la acción del boton
           buttonEliminar.textContent = 'Eliminar Post';
+
           article.append(
-            
             postContainer,
             titlePost,
             photo,
@@ -83,20 +91,22 @@ export const wall = () => {
             buttonModificar,
             buttonEliminar,
           );
+
           document.querySelectorAll('button') // captura todos los botones del codigo
             .forEach((boton) => {
               boton.addEventListener('click', (event) => {
                 const tag = event.target.getAttribute('postId'); // sirve para saber cuál es el id del post
                 const action = event.target.getAttribute('action'); // cual es la acción del boton
-                if (action === 'Edit') {
-                  inputEdit.style.display = 'inline';
-                  botonEdit.style.display = 'inline';
-                }
-                // console.log(tag, action);
                 if (action === 'delete') {
                   deletePost(tag); // llama la función de firebaseconfig
+                } else if(action === 'Edit') {
+                  //importar la funcion de modificar y enviar los datos ej: modificarPost(tag, description);
+                  inputEdit.style.display = 'inline';
+                  botonEdit.style.display = 'inline';
                 } else {
-                  // accion modificar (crearla)
+                  //capurar los input que se van a modificar
+                  const textToEdit = document.querySelector('#editInput').value;
+                  editPost(tag, textToEdit);
                 }
               });
             });
