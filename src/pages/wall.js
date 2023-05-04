@@ -10,8 +10,9 @@ export const wall = () => {
                       <input id="urlphoto" type="text" placeholder="Ingresa la Url de tu foto aquí">
                       <input id="description" type="text" placeholder="Ingresa tu post aquí">
                       <button id="crear-btn">Enviar</button>`
+                      // inputs de formulario para ingresar datos
 
-  const button = divForm.querySelector('#crear-btn') //divForm.getElementBy() no se puede
+  const button = divForm.querySelector('#crear-btn') // boton enviar de publicaciones
   button.addEventListener('click', (e)=> {
  const name = divForm.querySelector('#name').value;
  const age = divForm.querySelector('#edad').value;
@@ -55,8 +56,15 @@ export const wall = () => {
           race.setAttribute('class', 'race');
           const description = document.createElement('h4');
           description.textContent = post.description;
+          const inputEdit = document.createElement('input');
+          inputEdit.style.display = 'none';
+          const botonEdit = document.createElement('button');
+          botonEdit.style.display = 'none';
+          botonEdit.textContent = 'Confirmar edición';
+          inputEdit.value = post.description;
           const buttonModificar = document.createElement('button');
           buttonModificar.setAttribute('id', 'editButton');
+          buttonModificar.setAttribute('action', 'Edit');
           buttonModificar.textContent = 'Modificar Post';
           const buttonEliminar = document.createElement('button');
           buttonEliminar.setAttribute('id', 'deleteButton');
@@ -70,6 +78,8 @@ export const wall = () => {
             photo,
             race,
             description,
+            inputEdit,
+            botonEdit,
             buttonModificar,
             buttonEliminar,
           );
@@ -78,6 +88,10 @@ export const wall = () => {
               boton.addEventListener('click', (event) => {
                 const tag = event.target.getAttribute('postId'); // sirve para saber cuál es el id del post
                 const action = event.target.getAttribute('action'); // cual es la acción del boton
+                if (action === 'Edit') {
+                  inputEdit.style.display = 'inline';
+                  botonEdit.style.display = 'inline';
+                }
                 // console.log(tag, action);
                 if (action === 'delete') {
                   deletePost(tag); // llama la función de firebaseconfig
