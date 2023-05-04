@@ -8,6 +8,7 @@ import {
   addDoc,
   doc,
   deleteDoc,
+  updateDoc,
 } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 // import { addDoc } from 'firebase/firestore';
@@ -62,6 +63,17 @@ export const createPost = (body) => {
     console.error('Error al crear post');
   });
 };
+
+export async function editPost(id,description) {
+  console.log('id: ', id);
+  console.log('des: ', description);
+ updateDoc(doc(db, 'posts', id), {
+  description: description
+  }).then(() => {
+    console.log('Post editado ');
+    location.reload();
+ })
+}
 
 // Elimina Post
 export async function deletePost(id) {
