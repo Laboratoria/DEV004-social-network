@@ -1,6 +1,6 @@
 import { onNavigate } from '../router';
 import logo from '../img/logo.png';
-import { entrarconGoogle } from '../lib/firebase';
+import { entrarconGoogle, iniciarSesion } from '../lib/firebase';
 
 export const home = () => {
   /* <div id="loginDiv" class="loginContenedor">
@@ -14,14 +14,33 @@ export const home = () => {
   // crea contenedor principal
   const article = document.createElement('article');
   const div = document.createElement('div');
-  const buttonRegister = document.createElement('button');
 
-  const img = document.createElement('img');
   const h1 = document.createElement('h1');
+  h1.textContent = 'Iniciar Sesión';
+  h1.classList.add('inS');
+
+  const inputEmail = document.createElement('input');
+  const inputPass = document.createElement('input');
+  const buttonIngresar = document.createElement('button');
+  buttonIngresar.textContent = 'Ingresar';
+  buttonIngresar.addEventListener('click', () => {
+    iniciarSesion(inputEmail.value, inputPass.value).then(() => {
+      onNavigate('/wall');
+    });
+  });
+  inputEmail.setAttribute('type', 'email');
+  inputPass.setAttribute('type', 'password');
+  inputEmail.placeholder = 'Correo';
+  inputPass.placeholder = 'Contraseña';
+
+  // contenedor principal para css
+  const img = document.createElement('img');
   img.src = logo;
   img.id = 'prueba';
-  h1.textContent = 'Bikefy';
+  article.id = 'arHome';
   div.appendChild(h1);
+
+  // boton de google
   const buttonGoogle = document.createElement('button');
   buttonGoogle.textContent = 'Entrar con Google';
   buttonGoogle.addEventListener('click', () => {
@@ -30,17 +49,25 @@ export const home = () => {
     });
   });
 
+  const textRegister = document.createElement('h5');
+  const buttonRegister = document.createElement('button');
+  textRegister.textContent = 'Todavía no tienes una cuenta ?';
+  buttonRegister.textContent = 'Regístrate';
+
   // modifica propiedades de los elemento
-  buttonRegister.textContent = 'Ir a register';
 
   // añade evento a los botones
   buttonRegister.addEventListener('click', () => {
     // llama funcion navigate y pasa string con la ruta
     onNavigate('/register');
   });
+  const divLogin = document.createElement('div');
+  divLogin.append(textRegister, buttonRegister);
+
+  divLogin.classList.add('divLogin');
 
   // suman elementos a contenedor madre
-  article.append(img, div, buttonRegister, buttonGoogle);
+  article.append(img, div, inputEmail, inputPass, buttonIngresar, buttonGoogle, divLogin);
   // retorna contenedor madre
   return article;
 };

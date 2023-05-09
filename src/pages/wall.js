@@ -1,8 +1,11 @@
 export const wall = () => {
   // crea contenedor principal
-  const h1 = document.createElement('h1');
+  const wallContainer = document.createElement('div');
   // modifica propiedades de los elemento
-  h1.textContent = 'dentro de wall';
+  wallContainer.innerHTML = ` <main> 
+  <h1> Bienvenido al Muro</h1>
+  <button> Postear </button>
+  </main>`;
   // retorna el elemento
-  return h1;
+  return wallContainer;
 };
