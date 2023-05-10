@@ -1,5 +1,5 @@
 # README PROYECTO SOCIAL NETWORK
-# Titulo: Friendly Pets
+# Friendly Pets
 Integrantes: Stefani Cori,
              Carolina Paredes.
 
