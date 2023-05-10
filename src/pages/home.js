@@ -71,6 +71,7 @@ export const home = () => {
   const buttonGoogle = document.createElement('button');
   buttonGoogle.classList.add('singIn');
 
+
   const divButton = document.createElement('div');
   divButton.setAttribute('id', 'img-btn');
 

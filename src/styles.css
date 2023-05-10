@@ -13,12 +13,79 @@ body {
   background-attachment: fixed;
 }
 
+#container {
+  width: 40%;
+  height: 120%;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+@media (max-width: 400px){
+
+  .patitas2{
+    display: none;
+  }
+
+  .patitas3{
+    display: none;
+  }
+
+  .patitas4{
+    display: none;
+  }
+  .patitas5{
+    display: none;
+  }
+
+  .tortuga{
+    display: none
+  }
+
+
+  .erizo{
+    display: none
+  }
+
+
+  .gato{
+    display: none
+  }
+
+
+  .perritos{
+    display: none
+  }
+
+  .ranking{
+    display: none
+  }
+
+  .singIn {
+    margin-top: 0px !important;
+  }
+
+
+
+  
+
+}
+
+
+
 /*home*/
-@media (min-width: 400px){
+@media (min-width: 360px){
 .Bienvenidos {
   margin-top: -20px;
-  font-size: 35px;
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
 }
+
+
 
 
 .ingresar {
@@ -138,7 +205,7 @@ span{
 
 
 #container {
-  width: 40%;
+  width: 90%;
   height: 120%;
   margin-top: 50px;
   display: flex;
@@ -188,15 +255,94 @@ span{
   margin: 10px 70px 40px 60px;
 }
 
+.action-button {
+  background-color: #c8cbcf;
+  border-color: #c8cbcf;
+  border-radius: 5px;
+  width: 40%;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 2px;
+  font-size: 15px;
+  color: #ffffff;
+  float: left;
+
+}
+
+
+#c-button{
+  width: 40%;
+}
+
+#c-description{
+  width: 40%;
+}
+
+
+#post {
+  display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+
+#form {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input {
+  margin-bottom: 10px;
+  border-color: #808285;
+  border-radius: 5px;
+  width: 30%;
+  height: 45px;
+}
+
+#portada {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+
+}
+
+
+#crear-btn {
+  border-color: rgb(198, 93, 83);
+  background: rgb(198, 93, 83);
+  color: #eff2f6;
+  font-size: 20px;
+  border-radius: 7px;
+  width: 10%;
+  height: 40px;
+
+}
 
 /*wall*/
-@media (min-width: 400px) {
+@media (max-width: 361px) {
+
+  .input {
+    margin-bottom: 10px;
+    border-color: #808285;
+    border-radius: 5px;
+    width: 80%;
+    height: 45px;
+  }
   
   #portada {
 
     display: flex;
     align-items: center;
     justify-content: center;
+    
+
 
   }
 
@@ -221,7 +367,7 @@ span{
   #edad {
     border-radius: 5px;
     margin-bottom: 10px;
-    width: 50%;
+    width: 80%;
     height: 45px;
   }
 
@@ -259,7 +405,7 @@ span{
     color: #eff2f6;
     font-size: 20px;
     border-radius: 7px;
-    width: 10%;
+    width: 40%;
     height: 40px;
 
   }
@@ -274,8 +420,9 @@ span{
 
   #post {
     display: flex;
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   }
 
   #postTitle {
@@ -283,17 +430,17 @@ span{
     margin-top: 80px;
     color: #808285;
     font-size: 30px;
-    margin-left: 500px;
+    
   }
 
   .postImg {
     margin-top: 20px;
-    margin-left: 700px;
+    width: 90%;
+  
   }
 
   .race {
     font-size: 20px;
-    margin-left: 700px;
     margin-top: 20px;
     font-family: "Montserrat", sans-serif;
     color: #808285;
@@ -301,39 +448,45 @@ span{
 
   h4 {
 
-    display: grid;
+    
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
 
   }
 
-  #editButton {
+  .action-button {
     background-color: #c8cbcf;
     border-color: #c8cbcf;
     border-radius: 5px;
-    width: 6%;
-    height: 30px;
-    margin-left: 700px;
-    margin-top: 20px;
+    width: 40%;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 2px;
     font-size: 15px;
     color: #ffffff;
+    float: left;
 
   }
 
-  #deleteButton {
-    background-color: #c8cbcf;
-    border-color: #c8cbcf;
-    border-radius: 5px;
-    width: 6%;
-    height: 30px;
-    margin-top: 10px;
-    margin-left: 20px;
-    font-size: 15px;
-    color: #ffffff;
+  #c-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #c-description{
+    width: 90%;
   }
 
   #description {
-    margin-left: 700px;
+    
+  }
+
+  #c-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
