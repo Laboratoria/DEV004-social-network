@@ -12,30 +12,103 @@ body {
   margin: 0;
   background-attachment: fixed;
 }
-.Bienvenidos{
-  margin-top:-20px;
-  font-size: 35px;
+
+#container {
+  width: 40%;
+  height: 120%;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-.ingresar{
- margin-left: 20%;
+
+
+@media (max-width: 400px){
+
+  .patitas2{
+    display: none;
+  }
+
+  .patitas3{
+    display: none;
+  }
+
+  .patitas4{
+    display: none;
+  }
+  .patitas5{
+    display: none;
+  }
+
+  .tortuga{
+    display: none
+  }
+
+
+  .erizo{
+    display: none
+  }
+
+
+  .gato{
+    display: none
+  }
+
+
+  .perritos{
+    display: none
+  }
+
+  .ranking{
+    display: none
+  }
+
+  .singIn {
+    margin-top: 0px !important;
+  }
+
+
+
+  
+
+}
+
+
+
+/*home*/
+@media (min-width: 360px){
+.Bienvenidos {
+  margin-top: -20px;
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+
+.ingresar {
+  margin-left: 20%;
 
 
 }
 
 .singIn {
-  border: none;
+  border-color: #808285;
   border-radius: 10px;
   cursor: url(imagenes/manopulsor.png), auto;
   padding-top: 3px;
   padding-bottom: 3px;
   background: #9ae2dd;
+  font-size: 17px;
   width: 300px;
   height: 50px;
   margin-top: -200px;
   margin-bottom: 3rem;
   color: #ffffff;
   transition: all 0.8s ease;
-  }
+}
 
 
 h4 {
@@ -52,26 +125,87 @@ h4 {
 }
 
 p {
-  margin-top:-50px ;
+  margin-top: -50px;
   color: #808285;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   font-size: 15px;
   text-transform: uppercase;
-  
-}
-@media (min-width: 415px) {
+
 }
 
 #img-google {
   height: 13%;
   width: 13%;
   padding-right: 10px;
-  
+  float: left;
+  margin-left: 50px;
 }
 
+
+span{
+  color:#ffffff;
+  vertical-align: middle;
+  float: right;
+ 
+  margin-right: 15px;
+  
+}
+.ranking{
+  
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.perritos {
+  margin-top: 20px;
+  margin-right: 700px;
+
+}
+
+.patitas5 {
+  margin-right: 580px;
+}
+
+.gatos {
+  margin-top: 20px;
+  margin-right: 700px;
+}
+
+.patitas4 {
+  margin-right: 580px;
+}
+
+.tortuga {
+  position: relative;
+  top: -230px;
+  left: 190px;
+}
+
+.patitas3 {
+  position: relative;
+  top: -210px;
+  left: 260px;
+}
+
+.erizo {
+  position: relative;
+  top: -210px;
+  left: 190px;
+}
+
+.patitas2 {
+  position: relative;
+  top: -205px;
+  left: 260px;
+}
+
+
+}
+
+
 #container {
-  width: 40%;
+  width: 90%;
   height: 120%;
   margin-top: 50px;
   display: flex;
@@ -86,6 +220,7 @@ p {
   justify-content: center;
 }
 
+/*register*/
 #registerScreen {
   margin-top: 10%;
   display: flex;
@@ -106,6 +241,7 @@ p {
   justify-content: center;
   margin: 2px 20px 5px 10px;
 }
+
 #formRegister h4 {
   font-weight: 200;
 }
@@ -118,162 +254,239 @@ p {
   background-clip: content-box;
   margin: 10px 70px 40px 60px;
 }
-@media (min-width: 415px) {
-#btnRegister{
- 
 
-}
-
-
-.perritos{
-  margin-top: 20px;
-  margin-right:700px;
-  
-}
-.patitas5{
-  margin-right: 580px;
-}
-
-.gatos{
-  margin-top: 20px;
-  margin-right:700px;
-}
-.patitas4{
-  margin-right: 580px;
-}
-
-.tortuga{
-  position: relative;
-  top:-230px;
-  left:190px;
-  }
-
-.patitas3{
-  position: relative;
-  top:-210px;
-  left:260px;
-}
-.erizo{
-  position: relative;
-  top:-210px;
-  left:190px;
-}
-.patitas2{
-  position: relative;
-  top:-205px;
-  left:260px;
-}
-}
-
-.perfil{
-  color: #0e0e0f;
-  margin-left:-20%;
-  margin-top: 10%;
-  
-
-}
-
-
-#contenedor{
-  
-
-
-}
-
-
-#information{
-  width: 80%;
-  display: flex;
-  margin-left: 200px;
+.action-button {
+  background-color: #c8cbcf;
+  border-color: #c8cbcf;
+  border-radius: 5px;
+  width: 40%;
+  height: 40px;
   margin-top: 10px;
-  border-top-right-radius: 5rem;
-  border-bottom-left-radius: 5rem;
-  background-clip: content-box;
-  background: white;
-  
-}
-
-
-.mitad{
-  width: 50%;
-  margin-top: 3%;
-  margin-left: 25%;
+  margin-left: 2px;
+  font-size: 15px;
+  color: #ffffff;
+  float: left;
 
 }
 
 
+#c-button{
+  width: 40%;
+}
 
-#comment{
-  width: 100%;
+#c-description{
+  width: 40%;
+}
+
+
+#post {
+  display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+
+#form {
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-#cuadro{
-  margin-top: 3%;
-  margin-left: 5%;
-  color: #808285;
-  font-family: "Montserrat", sans-serif;
-  
-}
-#publicar{
-  margin-left: 38%;
-  margin-top: 15px;
-  width: 5%;
-  height: 30px;
-  border-radius: 5px;
+
+.input {
+  margin-bottom: 10px;
   border-color: #808285;
-  background: #808285;
-  color:#9ae2dd;
+  border-radius: 5px;
+  width: 30%;
+  height: 45px;
 }
-#post{
+
+#portada {
+
   display: flex;
   align-items: center;
-  justify-content: center; 
-  margin-top: -600px;
-
+  justify-content: center;
   
+
+
 }
 
-#photo{
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  margin-left:100px;
 
+#crear-btn {
+  border-color: rgb(198, 93, 83);
+  background: rgb(198, 93, 83);
+  color: #eff2f6;
+  font-size: 20px;
+  border-radius: 7px;
+  width: 10%;
+  height: 40px;
+
+}
+
+/*wall*/
+@media (max-width: 361px) {
+
+  .input {
+    margin-bottom: 10px;
+    border-color: #808285;
+    border-radius: 5px;
+    width: 80%;
+    height: 45px;
   }
-  #nameP{
-    margin-left:20px; 
-  }
-  #descripcion{
-     margin-top: 200px;
-     margin-left:-150px;
-     margin-right: 100px;
- }
- #photoPost{
-  margin-top:800px;
-  margin-left:-600px;
- }
- #Barra{
-  margin-left:1000px;
- }
- #like{
-  width: 2%;
-  margin-left:650px;
- }
- #editar{
-  width: 2%;
-  margin-left:600px;
- 
- }
- #eliminar{
-  width: 2%;
-  margin-left:10px;
   
- }
+  #portada {
 
- .postImg {
-  height: auto;
-  max-width: 100%;
- }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+
+  }
+
+  #form {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+  }
+
+  #name {
+    margin-bottom: 10px;
+    border-color: #808285;
+    border-radius: 5px;
+    width: 30%;
+    height: 45px;
+  }
+
+  #edad {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: 45px;
+  }
+
+  #raza {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 30%;
+    height: 45px;
+  }
+
+  #edad {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 30%;
+    height: 45px;
+  }
+
+  #urlphoto {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 30%;
+    height: 45px;
+  }
+
+  #comentario {
+   margin-bottom: 10px;
+   border-radius: 5px;
+   width: 30%;
+   height: 45px;
+  }
+
+  #crear-btn {
+    border-color: rgb(198, 93, 83);
+    background: rgb(198, 93, 83);
+    color: #eff2f6;
+    font-size: 20px;
+    border-radius: 7px;
+    width: 40%;
+    height: 40px;
+
+  }
+
+
+  #photo {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 100px
+  }
+
+  #post {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  }
+
+  #postTitle {
+
+    margin-top: 80px;
+    color: #808285;
+    font-size: 30px;
+    
+  }
+
+  .postImg {
+    margin-top: 20px;
+    width: 90%;
+  
+  }
+
+  .race {
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+    color: #808285;
+  }
+
+  h4 {
+
+    
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+
+  }
+
+  .action-button {
+    background-color: #c8cbcf;
+    border-color: #c8cbcf;
+    border-radius: 5px;
+    width: 40%;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 2px;
+    font-size: 15px;
+    color: #ffffff;
+    float: left;
+
+  }
+
+  #c-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #c-description{
+    width: 90%;
+  }
+
+  #description {
+    
+  }
+
+  #c-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
