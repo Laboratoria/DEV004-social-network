@@ -4,12 +4,15 @@ export const wall = () => {
   // crea contenedor principal
   const divForm = document.createElement('div');  
    //' o " no aceptan salto de linea
-  divForm.innerHTML = `<input id="name" type="name" placeholder="Nombre de tu mascota aquí">
+  divForm.innerHTML = `<div id="portada">
+                      <img src =imagenes/fotoportada2.jpg /style="max-width:100%;height:auto;"></div>
+                      <div id="form">
+                      <input id="name" type="name" placeholder="Nombre de tu mascota aquí" >
                       <input id="edad" type="number"  placeholder="Edad de tu mascota aquí">
                       <input id="raza" type="text" placeholder="Raza de tu mascota aquí">
                       <input id="urlphoto" type="text" placeholder="Ingresa la Url de tu foto aquí">
-                      <input id="description" type="text" placeholder="Ingresa tu post aquí">
-                      <button id="crear-btn">Enviar</button>`
+                      <input id="comentario" type="text" placeholder="Ingresa tu post aquí">
+                      <button id="crear-btn">Enviar</button></div>`;
                       // inputs de formulario para ingresar datos
 
   const button = divForm.querySelector('#crear-btn') // boton enviar de publicaciones
@@ -18,13 +21,13 @@ export const wall = () => {
  const age = divForm.querySelector('#edad').value;
  const rase = divForm.querySelector('#raza').value;
  const photo = divForm.querySelector('#urlphoto').value;
- const description = divForm.querySelector('#description').value;
+ const comentario = divForm.querySelector('#comentario').value;
     const newPost = {
        age, 
       name, 
       photo, 
       rase,
-      description,
+      comentario,
     }
     createPost(newPost).then(()=>{
       alert('post creado con exito');
@@ -43,11 +46,11 @@ export const wall = () => {
           // contenedor hijo
           // FOR por cada POST
           const postContainer = document.createElement('div');
-          postContainer.setAttribute('class', 'post');
+          postContainer.setAttribute('id', 'post');
 
           const titlePost = document.createElement('h4');
           titlePost.textContent = `Mi nombre es: ${post.name}`;
-          titlePost.setAttribute('class', 'postTitle');
+          titlePost.setAttribute('id', 'postTitle');
 
           const photo = document.createElement('img');
           photo.src = post.photo; // agrega la url de la foto
@@ -59,6 +62,7 @@ export const wall = () => {
 
           const description = document.createElement('h4');
           description.textContent = post.description;
+          description.setAttribute("id","description")
 
           const inputEdit = document.createElement('input');
           inputEdit.style.display = 'none';

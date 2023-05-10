@@ -27,7 +27,15 @@ export const home = () => {
   p.textContent = 'Cómo amantes de los animales quisimos crear una app diseñada especialmente para ayudarte a encontrar la pareja perfecta para tu amigo peludo. Imagina a tu mascota feliz y enamorado! Que adorable! Registrate hoy y unete a nuestra comunidad de mascotas y sus adorables amigos.Esperamos verte aquí y ver a tus mascotas encontrar el amor!';
   divAbout.appendChild(p);
 
+
+  
+
+
   // ranking de mascotas
+  const ranking =document.createElement("h1")
+  ranking.textContent="Ranking de mascotas";
+  ranking.classList.add("ranking");
+
   const perritos = document.createElement('h1');
   perritos.textContent = 'Perritos';
   perritos.classList.add('perritos');
@@ -83,7 +91,7 @@ export const home = () => {
   body.append(
     h1,
     img,
-    divAbout,
+    divAbout,ranking,
     perritos,
     patitas5,
     gatos,
