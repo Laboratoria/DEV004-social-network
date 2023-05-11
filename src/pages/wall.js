@@ -4,14 +4,17 @@ export const wall = () => {
   // crea contenedor principal
   const divForm = document.createElement('div');  
    //' o " no aceptan salto de linea
-  divForm.innerHTML = `<div id="portada">
+  divForm.innerHTML = `<div id="regresar">
+                      <a herf="http://localhost:5173/"> 
+                      <img src="imagenes/regresar.png" width="100px" height="100px"></a></div>
+                      <div id="portada">
                       <img src =imagenes/fotoportada2.jpg /style="max-width:100%;height:auto;"></div>
                       <div id="form">
-                      <input class="input" type="name" placeholder="Nombre de tu mascota aquí" >
-                      <input class="input" type="number"  placeholder="Edad de tu mascota aquí">
-                      <input class="input" type="text" placeholder="Raza de tu mascota aquí">
-                      <input class="input" type="text" placeholder="Ingresa la Url de tu foto aquí">
-                      <input class="input" type="text" placeholder="Ingresa tu post aquí">
+                      <input class="input" id="name" type="name" placeholder="Nombre de tu mascota aquí" >
+                      <input class="input" id="edad" type="number"  placeholder="Edad de tu mascota aquí">
+                      <input class="input" id="raza" type="text" placeholder="Raza de tu mascota aquí">
+                      <input class="input" id="urlphoto" type="text" placeholder="Ingresa la Url de tu foto aquí">
+                      <input class="input" id="comentario" type="text" placeholder="Ingresa tu post aquí">
                       <button id="crear-btn">Enviar</button></div>`;
                       // inputs de formulario para ingresar datos
 
@@ -54,7 +57,7 @@ export const wall = () => {
           postContainer.innerHTML = `<div><h4 id="postTitle">Mi nombre es:${post.name}</h4></div>
           <div id="c-image"><img class="postImg" src=${post.photo}></div>
           <div><h5 class="race">${post.rase}</h5></div>
-          <div id="c-description"><h4 id="description">${post.description}</h4></div>
+          <div id="c-description"><h4 id="description">${post.comentario}</h4></div>
           <div><input id="editInput" style="display: none;"></div>
           <div><button postId=${post.id} style="display: none;" id="Confirmar">Confirmar Edición</button></div>
           <div id="c-button"><button class="action-button"  id="editButton" action="Edit">Modificar Post</button>
