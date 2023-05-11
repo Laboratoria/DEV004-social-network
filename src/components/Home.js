@@ -37,7 +37,10 @@ export const Home = () => {
         const user = credential.user;
         //const user = credential.user.uid;
         console.log(user);
-        onNavigate('/feed');
+        if (user !== undefined) {
+          onNavigate('/feed');
+        }
+      //  onNavigate('/feed');
       })
       .catch((error) => {
         console.log(error);
