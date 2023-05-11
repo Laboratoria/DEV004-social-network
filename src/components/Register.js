@@ -3,14 +3,6 @@ import { onNavigate } from '../router/index';
 
 //CREANDO ELEMENTOS DE REGISTER
 export const Register = () => {
-  /*const HomeDiv = document.createElement('section');
-  const header = document.createElement('header');
-  const img = document.createElement('img');
-  img.setAttribute('src', './img/logo.png');
-  img.setAttribute('alt', 'Logo de la marca MaMá Genial');
-  img.id = 'logoEncabezado';
-  header.appendChild(img);
-  HomeDiv.appendChild(header);*/
   const HomeDiv = document.createElement('main');
   const img = document.createElement('img');
   img.setAttribute('src', './img/logo.png');

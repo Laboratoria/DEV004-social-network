@@ -1,21 +1,29 @@
 import { log } from "async";
-import { logOut, crearPost, refPost, db, editRef, actualUser } from "../lib/autenticar";
+import {
+  logOut,
+  crearPost,
+  refPost,
+  db,
+  editRef,
+  actualUser,
+} from "../lib/autenticar";
 import { onNavigate } from "../router/index";
 import { onSnapshot, doc, deleteDoc } from "@firebase/firestore";
 
-
 // CREAR ELEMENTOS DEL MURO
 export const Feed = () => {
-  //console.log("Esto debería funcionar", actualUser())
+  // console.log("Esto debería funcionar", actualUser())
+  // Elementos header (mostrar logo)
   const HomeDiv = document.createElement("div");
   const header = document.createElement("header");
   header.id = "encabezadoFeed";
   const img = document.createElement("img");
-  img.setAttribute("src", "./img/bannerM.png");
+  img.src = "./img/bannerM.png";
   img.setAttribute("alt", "Banner Mamá Genial");
-  img.id = "banner";
+  img.id = 'banner';
   header.appendChild(img);
-  //HomeDiv.appendChild(header);
+
+  // Elementos muro (todo para publicar)
   const main = document.createElement("main");
   main.id = "muro";
   const inputFeed = document.createElement("input");
@@ -24,31 +32,27 @@ export const Feed = () => {
   const buttonPublicar = document.createElement("button");
   buttonPublicar.id = "publicar";
   buttonPublicar.textContent = "Publicar";
-  //const mensaje = document.createElement("p")
   buttonPublicar.addEventListener("click", () => {
-   crearPost(inputFeed.value);
-   inputFeed.value = "";
+    crearPost(inputFeed.value);
+    inputFeed.value = "";
   });
-
-  
   main.append(inputFeed, buttonPublicar);
+
+  // Pintar los comentarios realizados
   const articlePost = document.createElement("article");
   articlePost.id = "postRealizado";
   onSnapshot(refPost(), (querySnapshot) => {
     articlePost.innerHTML = "";
     querySnapshot.forEach((post) => {
       console.log(post.data().email, post.data().comentario, post.data().date);
+      // Elementos para darle diseño a los comentarios realizados
       const p = document.createElement("p");
       p.textContent = post.data().comentario;
       const strong = document.createElement("strong");
       strong.textContent = post.data().email;
       const botonesPost = document.createElement("section");
       botonesPost.id = "btPost";
-      
-      /*buttonEditar.addEventListener("click", async () => {
-        console.log(inputFeed.value);
-        await editRef(post.id, {comentario: inputFeed.value});
-      });*/
+      // Elementos para editar y eliminar comentarios
       const buttonEliminar = document.createElement("button");
       buttonEliminar.id = "eliminar";
       buttonEliminar.textContent = "Eliminar";
@@ -56,39 +60,39 @@ export const Feed = () => {
         await deleteDoc(doc(db, "post", post.id));
       });
       const inputEditable = document.createElement("input");
-      inputEditable.id = "editable"
+      inputEditable.id = "editable";
       inputEditable.value = post.data().comentario;
 
-      
+      // Utilizar el editar para guardar los cambios realizados en el input
       const buttonGuardar = document.createElement("button");
-      buttonGuardar.id = "guardar"
+      buttonGuardar.id = "guardar";
       buttonGuardar.textContent = "Guardar";
       buttonGuardar.addEventListener("click", async () => {
         console.log(inputFeed.value);
-        await editRef(post.id, {comentario: inputEditable.value})
-        inputEditable.style.display = 'none'
+        await editRef(post.id, { comentario: inputEditable.value });
+        inputEditable.style.display = "none";
       });
       const buttonEditar = document.createElement("button");
       buttonEditar.id = "editar";
       buttonEditar.textContent = "Editar";
-      
-      buttonEditar.addEventListener('click', () => {
-        buttonEditar.style.display = 'none';
-        p.style.display = 'none';
-        inputEditable.style.display = 'block';
-        buttonGuardar.style.display = 'block';
-      })
+
+      buttonEditar.addEventListener("click", () => {
+        buttonEditar.style.display = "none";
+        p.style.display = "none";
+        inputEditable.style.display = "block";
+        buttonGuardar.style.display = "block";
+      });
       const emailUser = actualUser().email;
-      if (emailUser === post.data().email){
-        buttonEliminar.style.display = 'block';
-        buttonEditar.style.display = 'block';
-        buttonGuardar.style.display = 'none';
-        inputEditable.style.display = 'none'
-      }else{
-        buttonEliminar.style.display = 'none';
-        buttonEditar.style.display = 'none';
-        buttonGuardar.style.display = 'none';
-        inputEditable.style.display = 'none';
+      if (emailUser === post.data().email) {
+        buttonEliminar.style.display = "block";
+        buttonEditar.style.display = "block";
+        buttonGuardar.style.display = "none";
+        inputEditable.style.display = "none";
+      } else {
+        buttonEliminar.style.display = "none";
+        buttonEditar.style.display = "none";
+        buttonGuardar.style.display = "none";
+        inputEditable.style.display = "none";
       }
       botonesPost.append(buttonEditar, buttonEliminar, buttonGuardar);
       articlePost.append(strong, p, inputEditable, botonesPost);

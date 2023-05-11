@@ -1,5 +1,3 @@
-//RUTAS (SPA)
-
 const ROUTES = {};
 
 export const onNavigate = (pathname) => {

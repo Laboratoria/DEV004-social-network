@@ -1,4 +1,3 @@
-
 import { addRoutes, onNavigate } from './router/index.js';
 import {Home} from './components/Home';
 import {Login} from './components/Login';

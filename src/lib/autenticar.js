@@ -8,9 +8,8 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-// import {  auth } from "firebase/auth";
-
 import { initializeApp } from "firebase/app";
+
 import { firebaseConfig } from "./firebase";
 import {
   getFirestore,
@@ -26,6 +25,7 @@ initializeApp(firebaseConfig);
 
 // FUNCIONES DE FIREBASE/PRESENTES EN HOME (crearUser, LoginUser, loginGoogle)
 
+// Regitrar Usuario
 export const createUser = (name, email, password) => {
   // recibe paramatros
   console.log(name, email, password);
@@ -46,6 +46,7 @@ export const createUser = (name, email, password) => {
       return error;
     });
 };
+// Ingreso de susuario ya registrado
 export const loginUser = (email, password) => {
   const auth = getAuth();
   return signInWithEmailAndPassword(auth, email, password);
@@ -56,26 +57,25 @@ export const loginGoogle = () => {
   const auth = getAuth();
   return signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
+      // Esto le da un token de acceso de Google. Puede usarlo para acceder a la API de Google.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       console.log(credential);
-      // The signed-in user info.
+      // La información del usuario registrado.
       const user = result.user;
-      // IdP data available using getAdditionalUserInfo(result)
+      // Datos de IdP disponibles mediante getAdditionalUserInfo(resultado)
       // ...
       return credential;
     })
     .catch((error) => {
-      // Handle Errors here.
+      // Manejar errores aquí.
       const errorCode = error.code;
       const errorMessage = error.message;
-      // The email of the user's account used.
+      // El correo electrónico de la cuenta de usuario utilizada.
       const email = error.customData.email;
-      // The AuthCredential type that was used.
+      // El tipo AuthCredential que se utilizó.
       const credential = GoogleAuthProvider.credentialFromError(error);
       return errorCode;
-      // ...
     });
 };
 export const logOut = () => {
@@ -89,7 +89,7 @@ export const authStateChangedevent = (cb) => {
   onAuthStateChanged(auth, (user) => cb(user));
 };
 
-// Initialize Firebase
+// Inicializo Firebase
 const app = initializeApp(firebaseConfig);
 
 export const actualUser = () => {
@@ -98,12 +98,11 @@ export const actualUser = () => {
   return auth.currentUser
 }
 
-// Initialize Cloud Firestore and get a reference to the service
+// Inicialice Cloud Firestore y obtenga una referencia al servicio
 export const db = getFirestore(app);
 
 export const crearPost = (text) => {
-  //crearPost.innerHTML = ''
-  // Add a new document with a generated id.
+  // Agregue un nuevo documento con una identificación generada.
   const docRef = addDoc(collection(db, "post"), {
     comentario: text,
     email: getAuth().currentUser.email,
@@ -113,12 +112,9 @@ export const crearPost = (text) => {
   return docRef;
 };
 
-
-
 export const refPost = () => {
   return query(collection(db, "post"), orderBy('dateCreate', 'desc'));
 };
-
 
 export const editRef = (id, text) => {
 return updateDoc(doc(db, "post", id), text) };

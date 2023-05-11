@@ -35,9 +35,12 @@ export const Home = () => {
     loginGoogle()
       .then((credential) => {
         const user = credential.user;
-        //const user = credential.user.uid;
+        // const user = credential.user.uid;
         console.log(user);
-        onNavigate('/feed');
+        if (user !== undefined) {
+          onNavigate('/feed');
+        }
+        // onNavigate('/feed');
       })
       .catch((error) => {
         console.log(error);
@@ -89,6 +92,6 @@ export const Home = () => {
         });
     }
   });
- 
+
   return HomeDiv;
 };
