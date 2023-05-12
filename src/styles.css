@@ -224,7 +224,7 @@ span{
   flex-direction: column;
 }
 
-#formRegister .inputTitle {
+.input2{
   background-color: #ffffff;
   border: groove;
   width: -webkit-fill-available;
@@ -236,6 +236,8 @@ span{
   justify-content: center;
   margin: 2px 20px 5px 10px;
 }
+
+
 
 #formRegister h4 {
   font-weight: 200;
@@ -366,7 +368,7 @@ flex-direction: column;
   #regresar{
     width: 5%;
     height: 5px;
-    margin-top: 500px;
+    margin-top: 510px;
     margin-left: 130px;
   }
   .input {

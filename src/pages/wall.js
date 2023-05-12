@@ -5,7 +5,7 @@ export const wall = () => {
   const divForm = document.createElement('div');  
    //' o " no aceptan salto de linea
   divForm.innerHTML = `<div id="regresar">
-                      <a herf="http://localhost:5173/"> 
+                      <a href="/"> 
                       <img src="imagenes/regresar.png" width="100px" height="100px"></a></div>
                       <div id="portada">
                       <img src =imagenes/fotoportada2.jpg /style="max-width:100%;height:auto;"></div>
@@ -14,7 +14,7 @@ export const wall = () => {
                       <input class="input" id="edad" type="number"  placeholder="Edad de tu mascota aquí">
                       <input class="input" id="raza" type="text" placeholder="Raza de tu mascota aquí">
                       <input class="input" id="urlphoto" type="text" placeholder="Ingresa la Url de tu foto aquí">
-                      <input class="input" id="comentario" type="text" placeholder="Ingresa tu post aquí">
+                      <input class="input" id="description" type="text" placeholder="Ingresa tu post aquí">
                       <button id="crear-btn">Enviar</button></div>`;
                       // inputs de formulario para ingresar datos
 
@@ -24,13 +24,13 @@ export const wall = () => {
  const age = divForm.querySelector('#edad').value;
  const rase = divForm.querySelector('#raza').value;
  const photo = divForm.querySelector('#urlphoto').value;
- const comentario = divForm.querySelector('#comentario').value;
+ const description = divForm.querySelector('#description').value;
     const newPost = {
        age, 
       name, 
       photo, 
       rase,
-      comentario,
+      description,
     }
     createPost(newPost).then(()=>{
       alert('post creado con exito');
@@ -57,9 +57,9 @@ export const wall = () => {
           postContainer.innerHTML = `<div><h4 id="postTitle">Mi nombre es:${post.name}</h4></div>
           <div id="c-image"><img class="postImg" src=${post.photo}></div>
           <div><h5 class="race">${post.rase}</h5></div>
-          <div id="c-description"><h4 id="description">${post.comentario}</h4></div>
-          <div><input id="editInput" style="display: none;"></div>
-          <div><button postId=${post.id} style="display: none;" id="Confirmar">Confirmar Edición</button></div>
+          <div id="c-description"><h4 id="description">${post.description}</h4></div>
+          <div><input class="input2" id="${post.id}i" style="display: none;"></div>
+          <div><button postId=${post.id} id="${post.id}b" class="b-edit"  style="display: none;" id="Confirmar">Confirmar Edición</button></div>
           <div id="c-button"><button class="action-button"  id="editButton" action="Edit">Modificar Post</button>
           <button class="action-button" id="deleteButton" action="delete" postId=${post.id}>Eliminar Post</button></div>`;
           /*const titlePost = document.createElement('h4');
@@ -111,18 +111,23 @@ export const wall = () => {
               boton.addEventListener('click', (event) => {
                 const tag = event.target.getAttribute('postId'); // sirve para saber cuál es el id del post
                 const action = event.target.getAttribute('action'); // cual es la acción del boton
+                
                 if (action === 'delete') {
                   deletePost(tag); // llama la función de firebaseconfig
                 } else if(action === 'Edit') {
                   //importar la funcion de modificar y enviar los datos ej: modificarPost(tag, description);
-                  const inputEdit = document.getElementById('editInput');
-                  const botonEdit = document.getElementById('Confirmar');
+                  const inputEdit = document.getElementById(post.id+'i');
+                  const botonEdit = document.getElementById(post.id+'b');
                   inputEdit.style.display = 'inline';
                   botonEdit.style.display = 'inline';
                 } else {
                   //capurar los input que se van a modificar
-                  const textToEdit = document.querySelector('#editInput').value;
+                  if(post.id==tag){
+                    const textToEdit = document.getElementById(post.id+'i').value;
+                  console.log('tag2'+tag)
                   editPost(tag, textToEdit);
+                  }
+                  
                 }
               });
             });
