@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+//import{ getFirestore, collection, addDoc} from 'firebase/firestore'
 
 const provider = new GoogleAuthProvider();
 // TODO: Replace the following with your app's Firebase project configuration

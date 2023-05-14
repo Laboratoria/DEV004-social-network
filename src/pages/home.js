@@ -14,7 +14,8 @@ export const home = () => {
   // crea contenedor principal
   const article = document.createElement('article');
   const div = document.createElement('div');
-
+  const h3 = document.createElement('h3');
+  h3.textContent = 'Tu App de Rutas';
   const h1 = document.createElement('h1');
   h1.textContent = 'Iniciar Sesión';
   h1.classList.add('inS');
@@ -32,7 +33,9 @@ export const home = () => {
   inputPass.setAttribute('type', 'password');
   inputEmail.placeholder = 'Correo';
   inputPass.placeholder = 'Contraseña';
-
+  const divIn = document.createElement('div');
+  divIn.append(inputEmail, inputPass, buttonIngresar);
+  divIn.classList.add('divIn');
   // contenedor principal para css
   const img = document.createElement('img');
   img.src = logo;
@@ -67,7 +70,7 @@ export const home = () => {
   divLogin.classList.add('divLogin');
 
   // suman elementos a contenedor madre
-  article.append(img, div, inputEmail, inputPass, buttonIngresar, buttonGoogle, divLogin);
+  article.append(img, h3, div, divIn, buttonGoogle, divLogin);
   // retorna contenedor madre
   return article;
 };
