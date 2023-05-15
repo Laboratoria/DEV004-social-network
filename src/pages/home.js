@@ -10,11 +10,11 @@ export const home = () => {
   body.setAttribute('id', 'container'); // agregamos id al body
 
   const h1 = document.createElement('h1');
-  h1.textContent = 'Bienvenidos a Friendly Pets!';
+  h1.textContent = 'Bienvenidos ';
   h1.classList.add('Bienvenidos');
 
   const img = document.createElement('img');
-  img.src = 'imagenes/logo.png';
+  img.src = 'imagenes/logof.png';
   img.classList.add('logo'); // crea la clase logo
 
   const divAbout = document.createElement('div');
