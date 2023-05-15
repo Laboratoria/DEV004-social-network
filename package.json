@@ -19,7 +19,8 @@
     "dev": "vite dev src",
     "start": "npm run dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy":"gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.4",
@@ -43,6 +44,7 @@
     "commit": "36bf90dc273bab8ffe9546b09eece6a132f8a669"
   },
   "dependencies": {
-    "firebase": "^9.19.1"
+    "firebase": "^9.19.1",
+    "gh-pages": "^5.0.0"
   }
 }
