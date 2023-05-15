@@ -23,9 +23,23 @@ body {
   flex-direction: column;
 }
 
+p {
+  width:20%;
+  height: 70px;
+  margin-top: -50px;
+  margin-left: 300px;
+  color: #0962e7;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  text-transform: uppercase;
+  
+}
+
 
 @media (max-width: 400px){
 
+ 
   .patitas2{
     display: none;
   }
@@ -75,7 +89,7 @@ body {
 @media (min-width: 360px){
 .Bienvenidos {
   margin-top: -20px;
-  font-size: 30px;
+  font-size: 50px;
   width: 100%;
   text-align: center;
 }
@@ -120,13 +134,16 @@ h4 {
 }
 
 p {
+  width: 100%;
+  margin-left:5px;
+  margin-bottom: 30px;
   margin-top: -50px;
   color: #808285;
   font-family: "Montserrat", sans-serif;
   text-align: center;
-  font-size: 15px;
+  font-size: 13px;
   text-transform: uppercase;
-
+  
 }
 
 #img-google {
