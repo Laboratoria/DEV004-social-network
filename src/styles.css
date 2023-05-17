@@ -335,10 +335,10 @@ flex-direction: column;
 }
 
 #portada {
-  margin-top: -100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -50px;
   
 
 
@@ -396,13 +396,10 @@ flex-direction: column;
 
 
 /*wall*/
-@media (max-width: 361px) {
+@media (max-width: 500px) {
 
   #regresar{
-    width: 5%;
-    height: 5px;
-    margin-top: 510px;
-    margin-left: 130px;
+    display:none;
   }
   .input {
     margin-bottom: 10px;
@@ -413,10 +410,10 @@ flex-direction: column;
   }
   
   #portada {
-    margin-top: -500px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
     
 
 

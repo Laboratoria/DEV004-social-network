@@ -19079,6 +19079,7 @@ const wall = () => {
   return article;
 };
 addRoutes({
+  "/DEV004-social-network/": home,
   "/": home,
   "/register": register,
   "/wall": wall

@@ -330,7 +330,7 @@ flex-direction: column;
   margin-bottom: 10px;
   border-color: #808285;
   border-radius: 5px;
-  width: 30%;
+  width: 80%;
   height: 45px;
 }
 
@@ -396,7 +396,7 @@ flex-direction: column;
 
 
 /*wall*/
-@media (max-width: 361px) {
+@media (max-width: 400px) {
 
   #regresar{
     width: 5%;

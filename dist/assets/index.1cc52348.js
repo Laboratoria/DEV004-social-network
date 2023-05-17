@@ -18236,7 +18236,7 @@ const home = () => {
   h1.textContent = "Bienvenidos a Friendly Pets!";
   h1.classList.add("Bienvenidos");
   const img = document.createElement("img");
-  img.src = "imagenes/logo.png";
+  img.src = "assets/logo.png";
   img.classList.add("logo");
   const divAbout = document.createElement("div");
   divAbout.setAttribute("id", "aboutContainer");
@@ -18250,32 +18250,32 @@ const home = () => {
   perritos.textContent = "Perritos";
   perritos.classList.add("perritos");
   const patitas5 = document.createElement("img");
-  patitas5.src = "imagenes/patita5.png";
+  patitas5.src = "assets/patita5.png";
   patitas5.classList.add("patitas5");
   const gatos = document.createElement("h1");
   gatos.textContent = "Gatitos";
   gatos.classList.add("gatos");
   const patitas4 = document.createElement("img");
-  patitas4.src = "imagenes/patita4.png";
+  patitas4.src = "assets/patita4.png";
   patitas4.classList.add("patitas4");
   const tortuga = document.createElement("h1");
   tortuga.textContent = "Tortuga";
   tortuga.classList.add("tortuga");
   const patitas3 = document.createElement("img");
-  patitas3.src = "imagenes/patita3.png";
+  patitas3.src = "assets/patita3.png";
   patitas3.classList.add("patitas3");
   const erizo = document.createElement("h1");
   erizo.textContent = "Erizo";
   erizo.classList.add("erizo");
   const patitas2 = document.createElement("img");
-  patitas2.src = "imagenes/patita2.png";
+  patitas2.src = "assets/patita2.png";
   patitas2.classList.add("patitas2");
   const buttonGoogle = document.createElement("button");
   buttonGoogle.classList.add("singIn");
   const divButton = document.createElement("div");
   divButton.setAttribute("id", "img-btn");
   const imgGoogle = document.createElement("img");
-  imgGoogle.src = "imagenes/logo-google.png";
+  imgGoogle.src = "assets/logo-google.png";
   imgGoogle.setAttribute("id", "img-google");
   divButton.append(imgGoogle);
   const spanButton = document.createElement("span");
@@ -18350,7 +18350,7 @@ const register = () => {
   inputEdad.classList.add("inputTitle");
   divEdad.append(edad, inputEdad);
   const ingresar = document.createElement("img");
-  ingresar.src = "imagenes/boton.jpg";
+  ingresar.src = "assets/boton.jpg";
   ingresar.classList.add("ingresar");
   const link = document.createElement("a");
   link.setAttribute("id", "btnRegister");
@@ -18393,9 +18393,9 @@ const wall = () => {
   const divForm = document.createElement("div");
   divForm.innerHTML = `<div id="regresar">
                       <a href="/"> 
-                      <img src="imagenes/regresar.png" width="100px" height="100px"></a></div>
+                      <img src="assets/regresar.png" width="100px" height="100px"></a></div>
                       <div id="portada">
-                      <img src =imagenes/fotoportada2.jpg /style="max-width:100%;height:auto;"></div>
+                      <img src =assets/fotoportada2.jpg /style="max-width:100%;height:auto;"></div>
                       <div id="form">
                       <input class="input" id="name" type="name" placeholder="Nombre de tu mascota aqu\xED" >
                       <input class="input" id="edad" type="number"  placeholder="Edad de tu mascota aqu\xED">
