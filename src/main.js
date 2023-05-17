@@ -4,6 +4,7 @@ import { register } from './pages/register.js';
 import { wall } from './pages/wall.js';
 
 addRoutes({
+  '/DEV004-social-network/': home,
   '/': home,
   '/register': register,
   '/wall': wall,
@@ -12,6 +13,7 @@ addRoutes({
 
 // Lógica de la aplicacion
 window.onload = () => {
+  console.log(window.location.pathname)
   onNavigate(window.location.pathname);
 };
 
