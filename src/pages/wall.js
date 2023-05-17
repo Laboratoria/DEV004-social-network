@@ -1,4 +1,4 @@
-import { getPost, deletePost, createPost, editPost } from '../firebaseConfig';
+import { getPost, deletePost, createPost, editPost } from '../firebaseConfig.js';
 
 export const wall = () => {
   // crea contenedor principal
