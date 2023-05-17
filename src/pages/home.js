@@ -1,5 +1,5 @@
 import { onNavigate } from '../router/index.js';
-import { entrarConGoogle } from '../src/firebaseConfig.js';
+import { entrarConGoogle } from '../firebaseConfig.js';
 
 export const home = () => {
   // crea contenedor principal
