@@ -5,6 +5,7 @@
 * [1. Resumen del Proyecto](#1Resumen)
 * [2. Investigación UX](#2InvestigaciónUX)
 * [3. Definición del producto](#3-Definición)
+* [4. Prototipos](#4-Prototipos)
 
 ## 1. Resumen del Proyecto
 
@@ -17,7 +18,7 @@ El ciclismo está tomando mas adeptos en estos ultimos tiempos, ya que promueve 
 Bikefy es una SPA Responsive, que permite al usuario registrarse o bien iniciar sesión con Google.
 En el muro los usuarios pueden publicar, editar y eliminar post
 
-## 3. Prototipos
- ### 3.1 Baja Fidelidad
+## 4. Prototipos
+ ### 4.1 Baja Fidelidad
 
 ![Captura de Pantalla 2023-04-10 a la(s) 19 35 48](https://github.com/macarenapazg/DEV004-social-network/assets/113479365/50a6dc74-d7ad-4ec1-9a2c-109e636a37cd)
