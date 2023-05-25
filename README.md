@@ -18,6 +18,6 @@ Bikefy es una SPA Responsive, que permite al usuario registrarse o bien iniciar 
 En el muro los usuarios pueden publicar, editar y eliminar post
 
 ## 3. Prototipos
- # 3.1 Baja Fidelidad
+ ### 3.1 Baja Fidelidad
 
 ![Captura de Pantalla 2023-04-10 a la(s) 19 35 48](https://github.com/macarenapazg/DEV004-social-network/assets/113479365/50a6dc74-d7ad-4ec1-9a2c-109e636a37cd)
