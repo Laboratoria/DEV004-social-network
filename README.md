@@ -2,7 +2,7 @@
 
 ## Índice
 
-* [1. Resumen del proyecto](## 1. Resumen del Proyecto)
+* [1. Resumen del Proyecto](#1Resumen)
 * [2. Investigación UX](#2-Investigación UX)
 * [3. Definición del producto](#3-Definición del producto)
 
