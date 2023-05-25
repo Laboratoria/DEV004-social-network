@@ -1,4 +1,4 @@
-# Creando una Red Social
+# Creando una Red Social - BIKEFY
 
 ## Índice
 
@@ -16,7 +16,7 @@ El ciclismo está tomando mas adeptos en estos ultimos tiempos, ya que promueve 
 ## 3. Definición del producto
 
 Bikefy es una SPA Responsive, que permite al usuario registrarse o bien iniciar sesión con Google.
-En el muro los usuarios pueden publicar, editar y eliminar post
+En el muro los usuarios pueden publicar, editar y eliminar post. Esto se permite mediante la autenticación con Firebase, para la recopilación y almacenamiento de datos.
 
 ## 4. Prototipos
  ### 4.1 Baja Fidelidad
