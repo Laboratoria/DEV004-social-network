@@ -1,4 +1,4 @@
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 * {
   margin: 0%;
   padding: 0%;
@@ -13,14 +13,14 @@
     background-attachment: fixed;
     
   }
-
+/* HOME */
  #arHome{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 50%;
+  top: 47%;
   left: 50%;
   width: 360px;
   height: 590px;
@@ -31,25 +31,77 @@
 }
 .inS{
   margin-top: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 12px;
   font-size: 30px;
+}
+ .inEmail{
+  width: 121%;
+  height: 24px;
+  margin: 3px;
+  border-radius: 8px
+ }
+.inPass{
+
+  width: 121%;
+  height: 24px;
+  margin: 6px;
+  border-radius: 8px
+}
+
+.btnIngresar{
+  color: white;
+  background-color: black;
+  width: 45%;
+  height: 33%;
+  border-radius: 5px;
+}
+.btnIngresar:hover{
+  color: #000000  ;
+  cursor: pointer;
+  background-color:  rgba(217, 217, 217, 0.4);
 }
   #prueba{
     width: 300px;
     height: auto;
   }
-
-  #sectionRegister{
+ #googleButton{
+    width: 172px;
+    height: 31px;
+    margin: 5px 0px 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    
-  }
+    font-family: "Roboto";
+    font-size: 15px;
+    border-radius: 9px;
+ }
+ #googleButton:hover{
+  background-color: rgb(135, 135, 135);
+  cursor: pointer;
+ }
+ .regisText{
+margin-bottom: 5px;
+
+ }
+ .regisBtn{
+    border: 0px solid  rgba(217, 217, 217, 0.4);
+  color: blue;
+text-decoration: underline;
+font-size: 17px;
+ }
+ .regisBtn:hover{
+  cursor: pointer;
+  color: rgb(116, 116, 255);
+ }
+
 
   .divLogin{
-    
+    margin-top: 66px;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .divIn{
@@ -59,3 +111,182 @@
     align-items: center;
     margin-bottom: 10px;
   }
+  /*  REGISTRO */
+
+  #sectionRegister {
+    display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  width: 360px;
+  height: 590px;
+  transform: translate(-50%, -50%);
+  background: rgba(217, 217, 217, 0.4);
+  border: 3px solid #000000;
+  }
+
+  .inpName {
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+ .inpEmail{
+  width: 200px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+ }
+ .inpPass{
+  width: 200px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+ }
+ .confirm{
+  width: 200px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+ }
+
+ .btnReg{
+  color: white;
+  background-color: black;
+  width: 28%;
+  height: 6%;
+  border-radius: 5px;
+}
+.btnReg:hover{
+  color: #000000  ;
+  cursor: pointer;
+  background-color:  rgba(217, 217, 217, 0.4);
+}
+
+.btnBack{
+  color: white;
+  background-color: black;
+  width: 28%;
+  height: 6%;
+  border-radius: 5px;
+}
+.btnBack:hover{
+  color: #000000  ;
+  cursor: pointer;
+  background-color:  rgba(217, 217, 217, 0.4);
+}
+  /* MURO */
+  .header{
+    background-color: #ffffffa1;
+    position: relative;
+    top: -19%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .logout{
+    color: white;
+    background-color: black;
+    width: 17%;
+    height: 47%;
+    border-radius: 5px;
+  }
+  .logout:hover{
+    color: #000000  ;
+    cursor: pointer;
+    background-color:  rgba(217, 217, 217, 0.4);
+  }
+
+  .wall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 83%;
+    height: 71%;
+    transform: translate(-50%, -50%);
+    background: rgba(217, 217, 217, 0.7);
+    border: 3px solid #000000;
+  }
+
+  .logotop{
+    margin: 3px;
+    width: 200px;
+    height: auto;
+
+  }
+  .title{
+    font-size: 27px;
+    position: relative;
+    top: -8%;
+    margin-bottom: -32px;
+  }
+  .postContainer{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    flex-direction: column;
+  }
+  .postContainerP{
+    border: #2f6773 solid 1px;
+    border-radius: 13px;
+    padding: 10px;
+    margin: 15px;
+    width: 74%;
+    height: auto;
+    background-color:#56a6794c;
+    font-size: 25px;
+    color: #2f6773;
+    
+  }
+  .btnPost{
+    width: 90px;
+    height: auto;
+    font-size: 19px;
+    margin: 20px;
+    background-color: #D96B2B;
+    border-radius: 6px ;
+  }
+  .post{
+    background-color: #e8edf1 ;
+    border-color:  #4b6e82 ;
+    width: 65%;
+    height: 10%;
+    border-radius: 4px;
+}
+
+.btnDelete{
+  width: 52px;
+  height: auto;
+  font-size: 12px;
+  margin: 3px;
+  background-color: #d96b2bab;
+  border-radius: 6px;
+}
+
+.btnEdit{
+  width: 52px;
+  height: auto;
+  font-size: 12px;
+  margin: 3px;
+  background-color: #63a5bfc1;
+  border-radius: 6px;
+}
+
+.btnGuardar{
+  width: 52px;
+  height: auto;
+  font-size: 12px;
+  margin: 3px;
+  background-color:#bf6b92c5 ;
+  border-radius: 6px;
+}
+
+  

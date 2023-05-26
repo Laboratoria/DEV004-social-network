@@ -1,26 +1,32 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-} from "firebase/auth";
-//import{ getFirestore, collection, addDoc} from 'firebase/firestore'
+} from 'firebase/auth';
+import {
+  Timestamp, getFirestore, orderBy, query,
+  collection, addDoc, updateDoc,
+  doc, deleteDoc,
+} from 'firebase/firestore';
+// eslint-disable-next-line import/no-duplicates
+import { signOut } from 'firebase/auth';
 
 const provider = new GoogleAuthProvider();
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAgYHtpn9GNiek_dK-qKcTjEQqqvuS0uuI",
-  authDomain: "fb-socialnetwork.firebaseapp.com",
-  projectId: "fb-socialnetwork",
-  storageBucket: "fb-socialnetwork.appspot.com",
-  messagingSenderId: "1044249075485",
-  appId: "1:1044249075485:web:73c4702b0e99159bad4bf4",
-  measurementId: "G-DMGC30SBJS",
+  apiKey: 'AIzaSyAgYHtpn9GNiek_dK-qKcTjEQqqvuS0uuI',
+  authDomain: 'fb-socialnetwork.firebaseapp.com',
+  projectId: 'fb-socialnetwork',
+  storageBucket: 'fb-socialnetwork.appspot.com',
+  messagingSenderId: '1044249075485',
+  appId: '1:1044249075485:web:73c4702b0e99159bad4bf4',
+  measurementId: 'G-DMGC30SBJS',
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 export const entrarconGoogle = () => {
   const auth = getAuth();
   return signInWithPopup(auth, provider)
@@ -62,7 +68,7 @@ export const registrarUsuaria = (email, password) => {
     });
 };
 
-//Iniciar sesion
+// Iniciar sesion
 export const iniciarSesion = (email, password) => {
   const auth = getAuth();
   return signInWithEmailAndPassword(auth, email, password)
@@ -76,3 +82,30 @@ export const iniciarSesion = (email, password) => {
       const errorMessage = error.message;
     });
 };
+
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+
+// Funcion crear post
+export const createPost = (data) => {
+  const docRef = addDoc(collection(db, 'posts'), {
+    userName: auth.currentUser.displayName || 'Anonimx',
+    post: data,
+    date: Timestamp.now(), // fecha de creacion
+  });
+  console.log('Document written with ID: ', docRef.id);
+  return docRef;
+};
+
+// createPost();
+
+export const q = query(collection(db, 'posts'), orderBy('date', 'desc'));
+
+// Funcion DELETEDOC:
+export const eliminarPost = (id) => deleteDoc(doc(db, 'posts', id));
+
+export const actulizarPost = (id, text) => updateDoc(doc(db, 'posts', id), text);
+
+// Funcion singOut
+
+export const signOutUser = () => signOut(auth);

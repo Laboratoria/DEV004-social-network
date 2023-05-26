@@ -3,14 +3,6 @@ import logo from '../img/logo.png';
 import { entrarconGoogle, iniciarSesion } from '../lib/firebase';
 
 export const home = () => {
-  /* <div id="loginDiv" class="loginContenedor">
-      <img src="./img/logo.png"/>
-      <div class="login-border">
-        <h1>Bikefy</h1>
-      </div>
-  <p class='message'>¿Aún no tienes una cuenta? <a href='#' id='register'
-  class='btn-register'>Registrarme </a></p>
-      </div> */
   // crea contenedor principal
   const article = document.createElement('article');
   const div = document.createElement('div');
@@ -21,8 +13,11 @@ export const home = () => {
   h1.classList.add('inS');
 
   const inputEmail = document.createElement('input');
+  inputEmail.className = 'inEmail';
   const inputPass = document.createElement('input');
+  inputPass.className = 'inPass';
   const buttonIngresar = document.createElement('button');
+  buttonIngresar.className = 'btnIngresar';
   buttonIngresar.textContent = 'Ingresar';
   buttonIngresar.addEventListener('click', () => {
     iniciarSesion(inputEmail.value, inputPass.value).then(() => {
@@ -44,8 +39,15 @@ export const home = () => {
   div.appendChild(h1);
 
   // boton de google
-  const buttonGoogle = document.createElement('button');
-  buttonGoogle.textContent = 'Entrar con Google';
+  // const buttonGoogle = document.createElement('button');
+  // buttonGoogle.textContent = 'Entrar con Google';
+  const bGoogle = `<button id='googleButton'>
+  <img width='25' src='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg' /> Ingresa con Google
+</button>`;
+
+  const buttonGoogle = document.createElement('div');
+  buttonGoogle.innerHTML = bGoogle;
+  buttonGoogle.className = 'btn-G';
   buttonGoogle.addEventListener('click', () => {
     entrarconGoogle().then(() => {
       onNavigate('/wall');
@@ -53,7 +55,9 @@ export const home = () => {
   });
 
   const textRegister = document.createElement('h5');
-  const buttonRegister = document.createElement('button');
+  textRegister.className = 'regisText';
+  const buttonRegister = document.createElement('div');
+  buttonRegister.className = 'regisBtn';
   textRegister.textContent = 'Todavía no tienes una cuenta ?';
   buttonRegister.textContent = 'Regístrate';
 
