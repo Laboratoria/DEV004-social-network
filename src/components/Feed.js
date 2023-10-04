@@ -15,13 +15,13 @@ export const Feed = () => {
   // console.log("Esto debería funcionar", actualUser())
   // Elementos header (mostrar logo)
   const HomeDiv = document.createElement("div");
+  HomeDiv.classList.add("overlay");
+
+  // Crear el contenedor principal
+  const container = document.createElement("div");
+  container.classList.add("container");
   const header = document.createElement("header");
   header.id = "encabezadoFeed";
-  const img = document.createElement("img");
-  img.src = "./img/bannerM.png";
-  img.setAttribute("alt", "Banner Mamá Genial");
-  img.id = 'banner';
-  header.appendChild(img);
 
   // Elementos muro (todo para publicar)
   const main = document.createElement("main");
@@ -108,11 +108,7 @@ export const Feed = () => {
     logOut().then((resp) => onNavigate("/"));
   });
   nav.appendChild(buttonCerrarSesion);
-  HomeDiv.append(header, nav, main);
-
-  //HomeDiv.append(img, inputFeed, buttonPublicar, buttonCerrarSesion); // este lo comentamos al final y pusimos el return h3
-
-  // HomeDiv.appendChild(buttonLogin);
+  HomeDiv.append(header, container, nav, main);
 
   return HomeDiv;
 };

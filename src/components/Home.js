@@ -3,14 +3,18 @@ import { loginUser, loginGoogle } from '../lib/autenticar';
 
 export const Home = () => {
   const HomeDiv = document.createElement('section');
+  HomeDiv.classList.add('container');
   const buttonRegister = document.createElement('button');
   const buttonLogin = document.createElement('button');
   const buttonLoginGoogle = document.createElement('button');
 
   buttonRegister.textContent = 'Registrate';
+  buttonRegister.classList.add('custom-button');
   buttonLogin.textContent = 'Inicia Sesión';
+  buttonLogin.classList.add('custom-button');
   buttonLogin.setAttribute('id', 'idLogin');
   buttonLoginGoogle.textContent = 'Continua con Google';
+  buttonLoginGoogle.classList.add('google-button');
   buttonLoginGoogle.setAttribute('id', 'idGoogle');
   const header = document.createElement('header');
   const img = document.createElement('img');
@@ -23,6 +27,7 @@ export const Home = () => {
   const main = document.createElement('main');
   const article = document.createElement('article');
   const h1 = document.createElement('h1');
+  h1.classList.add('page-title');
   h1.textContent = 'Para Continuar, Inicia Sesión';
   /* const inputGoogle = document.createElement('input');
   inputGoogle.placeholder = 'Continua con Google';
@@ -40,18 +45,19 @@ export const Home = () => {
         if (user !== undefined) {
           onNavigate('/feed');
         }
-        // onNavigate('/feed');
       })
       .catch((error) => {
         console.log(error);
       });
   });
   const inputEmail = document.createElement('input');
-  inputEmail.placeholder = 'Ingresa tu correo';
+  inputEmail.placeholder = 'Ingresa tu Correo';
   inputEmail.setAttribute('type', 'email');
+  inputEmail.classList.add('custom-input');
   const inputPassword = document.createElement('input');
-  inputPassword.placeholder = 'Ingresa tu contraseña';
+  inputPassword.placeholder = 'Ingresa tu Contraseña';
   inputPassword.setAttribute('type', 'password');
+  inputPassword.classList.add('custom-input');
   /* img.setAttribute('alt', 'Logo de la marca MaMá Genial');
   img.id = 'logoEncabezado'; */
   article.append(h1, inputEmail, inputPassword, buttonLogin, buttonRegister, buttonLoginGoogle);

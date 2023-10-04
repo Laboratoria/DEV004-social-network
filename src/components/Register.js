@@ -40,6 +40,7 @@ export const Register = () => {
       createUser(inputName.value, inputEmail.value, inputPassword.value)
         .then((res) => { // then para promesa cumplida
         // enviarlo al muro
+        buttonRegister.addEventListener('click', () => onNavigate('/feed'));
           console.log(res);
         })
         .catch((error) => { // para promesa fallida
@@ -47,7 +48,7 @@ export const Register = () => {
         });
     }
   });
-  buttonRegister.addEventListener('click', () => onNavigate('/feed'));
+ 
 
   HomeDiv.append(img, h2, inputName, inputEmail, inputPassword, buttonRegister, buttonHome);
 
