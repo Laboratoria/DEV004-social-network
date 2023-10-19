@@ -23,6 +23,13 @@ export const Feed = () => {
   const header = document.createElement("header");
   header.id = "encabezadoFeed";
 
+  //Logo Mamá Genial
+  const img = document.createElement('img');
+  img.setAttribute('src', './img/logo.png');
+  img.setAttribute('alt', 'Logo MaMá Genial');
+  img.id = 'logoFeed';
+  header.appendChild(img);
+  HomeDiv.appendChild(header);
   // Elementos muro (todo para publicar)
   const main = document.createElement("main");
   main.id = "muro";

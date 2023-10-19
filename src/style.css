@@ -5,7 +5,7 @@
 
 /*ESTILOS HOME*/
 body{
-    height: 100%;
+    height: 100vh;
     width: 100%;
     background: #fff
 }
@@ -26,6 +26,20 @@ img{
     border-radius: 7px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+/* #encabezadoFeed{
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+} */
+
+#logo {
+    max-width: 150px; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+  }
+  
 
 #logoEncabezadoRegister{
     margin-top: 50px;
@@ -107,12 +121,13 @@ button{
 
 /*ESTILOS FEED*/
 .overlay {
-    background-image: url('https://asset-a.grid.id/photo/2019/08/30/2487255673.png'); 
+    background-image: url('https://img.freepik.com/foto-gratis/primer-plano-manos-familia-abrazandose-amor_53876-25268.jpg?w=740&t=st=1697689448~exp=1697690048~hmac=8365622d3bdfc8f54b3c694b0faebf1ec48ed5e84b0e86a8e1ef554bac5ac6ce'); 
     background-size: cover;
     background-position: center;
     padding: 10px;
     opacity: 0.9;
     background-attachment: fixed;
+
 }
 
 #encabezadoFeed{
@@ -136,16 +151,25 @@ nav{
     display: flex;
     justify-content: right;
     margin-right: 10px;
+    margin-top: 10px;
+    position: static;
 }
 
 #cerrarSesion{
-background: #82B1F8;
 width: 150px;
+font-size: 13px;
+font-family: Verdana, Helvetica;
+font-weight: bold;
+color: rgb(0, 0, 0);
+border: 1px solid black;
+border-radius: 4px;
+background: #fff;
 }
 
 #publicar{
     width: 150px;
     margin-bottom: 30px;
+    font-size: 13px;
 }
 
 #postRealizado{
@@ -162,9 +186,10 @@ strong{
     margin-bottom: 0px;
     width: 900px;
     padding: 5px;
-    background-color: rgba(0, 0, 0, 0.381);
+    background-color: rgba(0, 0, 0, 0.811);
     font-size: 16px;
     color: #fff;
+    margin: 1px;
 }
 
 p, #editable{
@@ -173,6 +198,7 @@ p, #editable{
     padding: 15px;
     background: white;
     border-radius: 0 0 4px 4px;
+    border: 1px solid black;
 }
 
 #editable{
@@ -192,29 +218,26 @@ p, #editable{
 
 #editar, #guardar{
     width: 150px;
+    font-size: 13px;
 }
 
 #eliminar{
     width: 150px; 
     background: white;
-    border: 4px solid #FFCBA5;
+    border: 1px solid #000000;
+    font-size: 13px;
 }
 
 
 /*MEDIAQUERY*/
 @media (max-width: 991.98px){
 
-    img{
-        height: 150px;
-        width: 150px;
-    }
-
     #inputComentarios{
         width: 700px;
         height: 65px;
     }
 
-    p, #editable{
+    p, #editable, strong{
         width: 700px;
         height: auto; 
     }
@@ -230,10 +253,6 @@ p, #editable{
 }
 
 @media (max-width: 767.98px){
-    img{
-        height: 100px;
-        width: 100px;
-    }
 
     h1, h2{
         font-size: 13px;
@@ -252,7 +271,7 @@ p, #editable{
         height: 65px;
     }
 
-    p, #editable{
+    p, #editable, strong{
         width: 500px;
         height: auto;
     }
@@ -284,7 +303,7 @@ p, #editable{
     height: 65px;
 }
 
-p, #editable{
+p, #editable, strong{
     width: 300px;
     height: auto;
 }
